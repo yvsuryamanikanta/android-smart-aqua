@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.odos.smartaqua.lab.LabObservationViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:layout_marginRight="@dimen/_3sdp"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginRight="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                android:weightSum="1">
+                <TextView
+                    android:fontFamily="@font/poppins_regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Observation Date"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <LinearLayout
+                    android:id="@+id/ll_date_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_regular"
+                        android:id="@+id/txt_time_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/calender"
+                        android:drawableLeft="@drawable/calender"
+                        android:padding="@dimen/_2sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_header_selectfeedboy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center|start"
+                        android:text="Select Pond"
+                        android:textColor="@color/colorPrimaryDark" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:background="@drawable/bg_box"
+                        android:gravity="center|start"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_2sdp">
+
+                        <Spinner
+                            android:id="@+id/spin_tanklist"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/colorAccent"
+                            tools:ignore="UnusedAttribute" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter PH Value"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_ph"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Salinity Value"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_salinity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="Alkalinity "
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter CO3 Value"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_co3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter HCO3 Value"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_hco3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="Hardness"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Ca Hardness"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_ca_hardness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Mg Hardness"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_mg_hardness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="Mineral Profiles"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Calcium (Ca2+)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_calcium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Magnesium (Mg2+)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_magnicium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Pottassiam (K)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_potassiam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Sodium (Na)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_sodium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Iron (Fe)/Zinc/Chlorine"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_chlorine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="Gases / Toxic Gases"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Ionized Ammonia (NH4)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_ion_ammonia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Un-Ionized Ammonia (NH3)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_un_ion_ammonia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Nitrite (NO2) "
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_nitrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Hydrogen Sulphide (H2S)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_hydrogen_sulphide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter D.O. Value"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_do"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter CO2 Value"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_co2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:text="Plankton Analysis"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Green Algae"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_green_algae"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Diatom"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_diatom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Blue Green Algae"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_blue_green_algae"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Dinoflegellates/Protozoa"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_dinoflegellates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Zooplankton"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_zooplankton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter D.A./FLOC"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_da_floc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Green Vibrio Colonies"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_green_vibrio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Yellow Vibrio Colonies"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_yellow_vibrio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/btn_bg"
+                android:gravity="center"
+                android:onClick="@{(v) -> viewModel.onSaveClick(v)}"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingRight="@dimen/_20sdp"
+                android:text="@string/submit"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</layout>

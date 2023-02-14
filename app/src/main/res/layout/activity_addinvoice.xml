@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.odos.smartaqua.warehouse.invoice.AddInvoiceViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/white"
+            android:scrollbars="none"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="Add Bills"
+                    android:textColor="@color/red" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@null"
+                    android:gravity="center|start"
+                    android:text="Store Name"
+                    android:textColor="@color/txtColor"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <EditText
+                        android:id="@+id/edt_storedetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:background="@color/white"
+                        android:gravity="center|start"
+                        android:textColor="@color/txtColor"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor,UnusedAttribute" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@null"
+                    android:gravity="center|start"
+                    android:text="Purchase Date"
+                    android:textColor="@color/txtColor"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:onClick="@{(v) -> viewModel.onPurchaseDate(v)}"
+                    android:id="@+id/ll_purchasedate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <TextView
+                        android:padding="@dimen/_2sdp"
+                        android:id="@+id/txt_purchase_date"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.9"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:background="@color/white"
+                        android:gravity="center|start"
+                        android:textColor="@color/txtColor" />
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/calender"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@null"
+                    android:gravity="center|start"
+                    android:text="Amount"
+                    android:textColor="@color/txtColor"
+                    android:textSize="16sp" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <EditText
+                            android:id="@+id/edt_price_qty"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:background="@color/white"
+                            android:gravity="center|start"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/txtColor"
+                            android:textCursorDrawable="@drawable/cursor_animated"
+                            tools:ignore="Autofill,LabelFor,UnusedAttribute" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/txt_per"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|start"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:text="@string/per"
+                            android:textColor="@color/txtColor"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/txt_qty_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/k_g"
+                            android:textColor="@color/txtColor" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_discount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|start"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Discount (or) Promisory Discount"
+                        android:textColor="@color/txtColor" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:background="@drawable/bg_box"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_2sdp"
+                            android:layout_weight="0.6"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sdp"
+                            tools:ignore="NestedWeights,RtlHardcoded">
+
+                            <EditText
+                                android:id="@+id/edt_discount"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center|start"
+                                android:background="@color/white"
+                                android:gravity="center|start"
+                                android:inputType="number"
+                                android:textColor="@color/txtColor"
+                                android:textCursorDrawable="@drawable/cursor_animated"
+                                tools:ignore="Autofill,LabelFor,UnusedAttribute" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_2sdp"
+                            android:background="@color/gray" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.4"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <Spinner
+                                android:id="@+id/spin_discount_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center|start"
+                                android:layout_margin="@dimen/_1sdp"
+                                android:backgroundTint="@color/colorAccent"
+                                android:gravity="center|start"
+                                tools:ignore="UnusedAttribute" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_payment_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|start"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Payment Mode"
+                        android:textColor="@color/txtColor" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:background="@drawable/bg_box"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+
+                        <Spinner
+                            android:id="@+id/spin_pay_types"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:backgroundTint="@color/colorAccent"
+                            android:gravity="center|start"
+                            tools:ignore="UnusedAttribute" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center|start"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_browse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="@string/browse_file_optional"
+                        android:textColor="@color/txtColor" />
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@drawable/bg_box"
+                        android:fitsSystemWindows="true"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+
+                        <ImageView
+                            android:id="@+id/img_view"
+                            android:src="@drawable/uploadicon"
+                            android:onClick="@{(v) -> viewModel.onBrowse(v)}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_save_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/btn_bg"
+                    android:onClick="@{(v) -> viewModel.saveProduct(v)}"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:text="@string/action_save"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>

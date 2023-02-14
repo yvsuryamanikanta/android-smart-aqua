@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "489261450820",
+    "project_id": "smartaqua-ecc87",
+    "storage_bucket": "smartaqua-ecc87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489261450820:android:5ba863948bd51950cc1e11",
+        "android_client_info": {
+          "package_name": "com.odos.smartaqua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489261450820-e0gmj0p08utoecun4fhs0tennab4dpu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP1P792HT9u2JCoK5mCadwvt2JjEIJPH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489261450820-e0gmj0p08utoecun4fhs0tennab4dpu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

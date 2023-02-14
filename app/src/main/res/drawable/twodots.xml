@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:right="40dp">
+        <bitmap
+            android:gravity="top|left"
+            android:src="@mipmap/feedicon" />
+    </item>
+    <item>
+        <bitmap
+            android:gravity="top|right"
+            android:src="@mipmap/reportsicon" />
+    </item>
+
+</layer-list>

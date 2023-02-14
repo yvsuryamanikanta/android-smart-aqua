@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.odos.smartaqua.warehouse.quantity.AddQtyCatgViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+
+        <ScrollView
+            android:id="@+id/scroll_feedentry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scrollbars="none"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:weightSum="1">
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="Add Your Quantity Category"
+                    android:textColor="@color/red" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center|start"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="Quantity Category Name"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:inputType="text"
+                        android:padding="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center|start"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="Quantity Category Code"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:inputType="text"
+                        android:padding="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:background="@drawable/btn_bg"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> viewModel.saveProduct(v)}"
+                    android:paddingLeft="@dimen/_40sdp"
+                    android:paddingRight="@dimen/_40sdp"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,271 @@
+<resources>
+    <string name="app_name">smartaqua</string>
+    <string name="tootlbartitle">smartaqua</string>
+    <string name="copyrights">© 2019 OurDreams Pvt. Ltd.</string>
+
+    <!--actions-->
+    <string name="action_settings">Settings</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_save">Save</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_skip">Skip</string>
+
+    <!--volley-->
+    <string name="pleaseWait">please Wait....</string>
+    <string name="contentType">content-Type</string>
+    <string name="Accept">Accept</string>
+    <string name="contentTypeValue">"application/json; charset=utf-8"</string>
+    <string name="AcceptValue">application/json"</string>
+    <string name="utfEncodingString">UTF-8</string>
+    <string name="TimeoutErrorMessage">timeout Error</string>
+    <string name="NoConnectionErrorMessage">no Connection Error</string>
+    <string name="AuthFailureErrorMessage">auth Failure Error</string>
+    <string name="ServerErrorMessage">server Error</string>
+    <string name="NetworkErrorMessage">network Error</string>
+    <string name="ParseErrorMessage">parse Error</string>
+    <string name="internetchecking">Please connect to the internet</string>
+
+    <string name="stringrequest">string</string>
+    <string name="jsonobjectrequest">jsonobject</string>
+    <string name="jsonarrayrequest">jsonarray</string>
+
+    <string name="dal_version">Version</string>
+    <!--volley-->
+    <string name="msg_progress_pdf">XML layout is in created PDF file. Please wait few moment.\nTotal PDF page :%s</string>
+    <!--Internet Connectivity-->
+    <string name="internet_failure">Internet Failure</string>
+    <string name="retry">Retry</string>
+    <string name="please_turn_on_your_internet_connection_and_try_again">PLEASE TURN ON YOUR INTERNET CONNECTION AND TRY AGAIN</string>
+
+    <string name="contentfont">contenttf.otf</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="ok">OK</string>
+    <string name="telugu">TELUGU</string>
+    <string name="english">ENGLISH</string>
+    <string name="start">start</string>
+    <string name="guestuser">Guest User</string>
+    <string name="forgotpassword">Forgot Password</string>
+    <string name="signup">SignUp</string>
+    <string name="signin">Signin</string>
+    <string name="submit">submit</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_feedtitle">Enter Feed Title</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account">Already Have an Account ?<u>Login</u></string>
+    <string name="loginnow">Have a password? <u>Login</u></string>
+    <string name="select_user_type">Are you ?</string>
+    <string name="date_and_time">Date and time</string>
+
+
+    <!--Add Tank Screen-->
+    <string name="pond_name">Pond Name</string>
+    <string name="cropnumber">Crop Number</string>
+    <string name="pond_width_in">Pond Width in</string>
+    <string name="optional">(optional)</string>
+    <string name="pond_height_in">Pond Height in</string>
+    <string name="pond_size_in_acers">Pond Size in Acers</string>
+    <string name="water_resource">Water Resource</string>
+    <string name="canal">Canal</string>
+    <string name="salt">Salt</string>
+    <string name="bore">Bore</string>
+    <string name="salinity_at_stocking">Salinity At Stocking</string>
+    <string name="date_of_stocking">Date Of Stocking</string>
+    <string name="no_of_pl_stocked">No. Of Pl Stocked</string>
+    <string name="stocking_density">Stocking Density</string>
+    <string name="date_of_harvest">Date Of Harvest</string>
+    <string name="yield">Yield</string>
+    <string name="size_at_harvest">Size At Harvest</string>
+    <string name="survival">Survival</string>
+    <string name="total_feed_used">Total Feed Used</string>
+    <string name="addfeed">Add Feed</string>
+    <string name="feed_conversion_ratio">Feed Conversion Ratio</string>
+    <string name="pond_address">Pond Address</string>
+    <string name="upload_image">Upload image</string>
+    <string name="comments">Comments</string>
+    <string name="select_feed_boy">Select Feed Boy</string>
+    <string name="one">1</string>
+    <string name="areyousuredelete">Are You Sure To Delete ?</string>
+    <string name="invoice_number">Invoice Number :</string>
+    <string name="select_dealer">Select Dealer :</string>
+    <string name="total_amount">Total Amount :</string>
+    <string name="vat_amount">Vat Amount :</string>
+    <string name="net_amount">Net Amount :</string>
+    <string name="discount">Discount :</string>
+    <string name="add_items">Add Items</string>
+    <string name="select_product">Select Product :</string>
+    <string name="enter_quantity">Enter Quantity :</string>
+    <string name="amount">Amount :</string>
+    <string name="discount_amount">Discount Amount :</string>
+    <string name="description">Description</string>
+    <string name="select_classified_category">Select Classified Category</string>
+    <string name="classified_name">Classified Name</string>
+    <string name="contact_persion_name">Contact Persion Name</string>
+    <string name="contact_persion_number">Contact Persion Number</string>
+    <string name="market_date">Market Date</string>
+    <string name="price">Price</string>
+    <string name="count_category">Count Category</string>
+    <string name="title">Title</string>
+    <string name="send">Send</string>
+
+    <string name="feed_quantity_in_grams">QTY</string>
+    <string name="add_from_check_tray">Analise Check tray</string>
+    <string name="add_from_technician">Technician Suggested</string>
+    <string name="qty">Quantity</string>
+    <string name="enterqty">Enter Quantity</string>
+
+
+    <string name="english_words">Abc</string>
+    <string name="telugu_words">అఆ</string>
+    <string name="changelanguage_tel">భాష మార్చుకొనుము</string>
+    <string name="changelanguage_eng">Change Language</string>
+    <string name="telugu_tel">తెలుగు</string>
+    <string name="welcome_eng">Welcome To SmartAqua</string>
+    <string name="welcome_tel">స్మార్ట్ ఆక్వా కు స్వాగతము</string>
+    <string name="otpnote_tel">మీ నెంబెర్ కి ఆరు అంకెల OTP పంపించగలము</string>
+    <string name="otpnote_eng">We will Send Six Digit OTP To Your Registered Number.</string>
+    <string name="verifynumber_eng">Proceed</string>
+    <string name="verifynumber_tel">నెంబెర్ వెరిఫికేషన్</string>
+    <string name="confirm_number">Confirm Number</string>
+    <string name="about_app_eng">About App</string>
+    <string name="about_app_tel">యాప్ విశ్లేషణ</string>
+    <string name="serach_here">Serach Here</string>
+    <string name="enter_the_code_that_was_send_to">Enter the code that was send to</string>
+    <string name="tap_continue_to_accept_our_terms_data_policy_the_privacy_policy_and_terms_of_service">Tap Continue to accept our Terms,Data Policy, the Privacy Policy and Terms of Service...</string>
+    <string name="i_didn_t_get_a_code">I didn\'t get a code</string>
+    <string name="next">Next</string>
+    <string name="accept">Accept</string>
+    <string name="access">Access</string>
+    <string name="defaulttank">By defaulet We will create Pond With Name Of Tank along with Number like Tank -1 , Tank - 2......etc</string>
+    <string name="defaulttitle">As A Former YOU MUSt HAVE ATLEAsT ONE POND / TANK</string>
+    <string name="addtankcontent">Please Add How many Ponds / Tanks You Have</string>
+    <string name="deafultfeedboynote">As A Former YOU HAVE SOME PERSONS TO MAINTAIN YOUR CULTURE</string>
+    <string name="do_you_have_workers">Do You Have Workers. ?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="do_you_have_technician">Do You Have Technician. ?</string>
+    <string name="technician_default">Technician will gives you a suggestion to improve your culture</string>
+    <string name="write_here">write here !</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="documents">Documents</string>
+    <string name="feed">Feed</string>
+    <string name="return_feed">Return Feed</string>
+    <string name="feed_report">Feed Report</string>
+    <string name="product_name">Product Name</string>
+    <string name="in">IN</string>
+    <string name="select_brand">Select Brand</string>
+    <string name="product_type">Product Type</string>
+    <string name="k_g">K.G</string>
+    <string name="per">per</string>
+    <string name="select_product_type">Select Product Type</string>
+    <string name="feed_name">Feed Name :</string>
+    <string name="browse_file_optional">Browse File</string>
+    <string name="price_details">Price Details in rupees:</string>
+    <string name="file_manager">File Manager</string>
+    <string name="addnew">Add New</string>
+    <string name="feed_title">Feed Title :</string>
+    <string name="add_feed">Add Feed</string>
+    <string name="enter_product_name">Select Product Name</string>
+    <string name="add_suppliments">Add Suppliments</string>
+    <string name="search_product_here">Search Product Here</string>
+    <string name="set">Set</string>
+    <string name="select_your_tank">Select your Tank</string>
+
+
+    <string name="channelId">225232</string>
+    <string name="channelName">smartaqua</string>
+    <string name="enter_here">Enter Here.</string>
+    <string name="files">Files</string>
+
+    <!--Marshmallo Permissions-->
+    <string name="permission_preferences">PERMISSION_PREFERENCES</string>
+    <string name="permission_camera">PERMISSION_CAMERA</string>
+    <string name="permission_storage">PERMISSION_STORAGE</string>
+    <string name="permission_contacts">PERMISSION_CONTACTS</string>
+    <string name="permission_location">PERMISSION_LOCATION</string>
+    <string name="remarks">Remarks</string>
+    <string name="lab_test_name">Lab Test Name</string>
+    <string name="treatment_name">Treatment Name</string>
+    <string name="select_test">Select Test</string>
+    <string name="test_notes">Test Notes</string>
+    <string name="report">Report</string>
+    <string name="treatment">Treatment</string>
+    <string name="lab">Lab</string>
+    <string name="checktray">Checktray</string>
+    <string name="work">Work</string>
+    <string name="browse">Browse</string>
+    <string name="name">Name</string>
+    <string name="quantity_type">Quantity Type</string>
+    <string name="treatment_procedure">Treatment Procedure</string>
+    <string name="enter_count">Enter Count</string>
+    <string name="no_data_found">No Data Found.</string>
+    <string name="publish_date">Publish Date</string>
+    <string name="view">View</string>
+    <string name="default_notification_channel_id">AQUA_NOTIFICATIONS</string>
+    <string name="register">Not Have an Account? <u>Click Here to Register</u></string>
+
+    <string-array name="utypes">
+        <item>Select User Type</item>
+        <item>Former</item>
+        <item>Feed Boy</item>
+    </string-array>
+    <string-array name="weekday_titles">
+        <item>S</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+    </string-array>
+
+    <string-array name="checktraytypes">
+        <item>Select Checktray Type</item>
+        <item>Template</item>
+        <item>Count</item>
+    </string-array>
+
+    <string-array name="discounttypes">
+        <item>Rupees</item>
+        <item>Percentage</item>
+    </string-array>
+
+
+    <string-array name="counts">
+        <item>All c</item>
+        <item>50 c</item>
+        <item>60 c</item>
+        <item>100 c</item>
+
+    </string-array>
+
+    <array name="array_dot_active">
+        <item>@color/black</item>
+        <item>@color/black</item>
+        <item>@color/black</item>
+        <item>@color/black</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/red</item>
+        <item>@color/red</item>
+        <item>@color/red</item>
+        <item>@color/red</item>
+    </array>
+    <string-array name="numbers">
+        <item>1 Tray</item>
+        <item>2 Trays</item>
+        <item>3 Trays</item>
+        <item>4 Trays</item>
+        <item>5 Trays</item>
+        <item>6 Trays</item>
+        <item>7 Trays</item>
+        <item>8 Trays</item>
+        <item>9 Trays</item>
+    </string-array>
+
+</resources>

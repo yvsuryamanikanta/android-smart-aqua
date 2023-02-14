@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.odos.smartaqua.feed.AddFeedViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+
+        <ScrollView
+            android:id="@+id/scroll_feedentry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_3sdp"
+            android:background="@color/white"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_1sdp"
+                    android:gravity="center|start"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_feed_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/feed_title"
+                        android:textAllCaps="true"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_feed_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:background="@drawable/edittext_bottom"
+                        android:gravity="center|start"
+                        android:hint="@string/enter_feedtitle"
+                        android:inputType="number"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingRight="@dimen/_15sdp"
+                        android:singleLine="true"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:textColor="@color/txtColor"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        android:textSize="12sp"
+                        tools:ignore="Autofill" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_header_addfeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/txtColor"
+                    android:gravity="center|start"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/add_feed"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_feed_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_feed_entry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_product"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="0.4"
+                        android:onClick="@{(v) -> viewModel.getProducts(v)}"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/txt_product"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:gravity="center|start"
+                            android:text="@string/enter_product_name"
+                            android:textColor="@color/txtColor" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@color/gray" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <EditText
+                            android:id="@+id/edt_qty"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|start"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:hint="@string/feed_quantity_in_grams"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/txtColor"
+                            android:textColorHint="@color/gray"
+                            android:textCursorDrawable="@drawable/cursor_animated"
+                            android:textSize="12sp"
+                            tools:ignore="Autofill" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@color/gray" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_change_qty"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:layout_margin="@dimen/_2sdp"
+                            android:id="@+id/spin_qty_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:backgroundTint="@color/colorAccent"
+                            android:gravity="center|start"
+                            tools:ignore="UnusedAttribute" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@color/gray" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="0.1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.saveProduct(v)}"
+                            android:src="@drawable/proceed"
+                            tools:ignore="ContentDescription" />
+
+                        <ImageView
+                            android:id="@+id/img_feed_next"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:src="@drawable/plusone"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_header_addsuppliment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/txtColor"
+                    android:gravity="center|start"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/add_suppliments"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/ll_suppliment_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_supliment_entry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_supliment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="0.4"
+                        android:onClick="@{(v) -> viewModel.getSuppliments(v)}"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/txt_supliment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:gravity="center|start"
+                            android:text="@string/add_suppliments"
+                            android:textColor="@color/txtColor" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@color/gray" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <EditText
+                            android:id="@+id/edt_supliment_qty"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|start"
+                            android:background="@null"
+                            android:gravity="center"
+                            android:hint="@string/feed_quantity_in_grams"
+                            android:inputType="numberDecimal"
+                            android:textColor="@color/txtColor"
+                            android:textColorHint="@color/gray"
+                            android:textCursorDrawable="@drawable/cursor_animated"
+                            android:textSize="12sp"
+                            tools:ignore="Autofill" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@color/gray" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_suppliment_qty"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.3"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:layout_margin="@dimen/_2sdp"
+                            android:id="@+id/spin_suppliment_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:backgroundTint="@color/colorAccent"
+                            android:gravity="center|start"
+                            tools:ignore="UnusedAttribute" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@color/gray" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="0.1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_supliment_proceed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.saveSuppliment(v)}"
+                            android:src="@drawable/proceed"
+                            tools:ignore="ContentDescription" />
+
+                        <ImageView
+                            android:id="@+id/img_supliment_next"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:src="@drawable/plusone"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_date_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:onClick="@{(v) -> viewModel.getFeedDate(v)}"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_and_time"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:fontFamily="@font/poppins_regular"
+                        android:id="@+id/txt_time_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawableStart="@drawable/calender"
+                        android:drawableLeft="@drawable/calender"
+                        android:padding="@dimen/_2sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comments"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <EditText
+                        android:id="@+id/edt_comments_feed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:padding="@dimen/_2sdp"
+                        android:singleLine="false"
+                        android:textColor="@color/txtColor"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_save_addfeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:background="@drawable/btn_bg"
+                    android:onClick="@{(v) -> viewModel.saveFeed(v)}"
+                    android:text="@string/action_save"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+
+</layout>
