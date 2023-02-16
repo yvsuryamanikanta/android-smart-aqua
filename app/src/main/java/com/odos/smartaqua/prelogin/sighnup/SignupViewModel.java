@@ -144,7 +144,7 @@ public class SignupViewModel extends ViewModel implements ServiceAsyncResponse {
                     } else {
                         Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                 }
 

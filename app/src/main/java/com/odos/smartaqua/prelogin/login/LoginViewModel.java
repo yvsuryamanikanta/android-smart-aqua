@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
@@ -87,12 +88,11 @@ public class LoginViewModel extends ViewModel implements ServiceAsyncResponse {
         String password = _activityLoginBinding.edtPassword.getText().toString();
 
         if (mobilenumber.length() != 10 && password.equalsIgnoreCase("")) {
-            _activityLoginBinding.edtMobilenumber.setError("10 digit mobile number is required.");
-            _activityLoginBinding.edtPassword.setError("Password is required");
+            Toast.makeText(_context, "10 digit mobile number and Password is required", Toast.LENGTH_SHORT).show();
         } else if (mobilenumber.length() != 10) {
-            _activityLoginBinding.edtMobilenumber.setError("10 digit mobile number is required.");
+            Toast.makeText(_context, "10 digit mobile number is required.", Toast.LENGTH_SHORT).show();
         } else if (password.equalsIgnoreCase("")) {
-            _activityLoginBinding.edtPassword.setError("Password is required");
+            Toast.makeText(_context, "Password is required", Toast.LENGTH_SHORT).show();
         } else {
             HashMap<String, Object> postparams = new HashMap<>();
             postparams.put("usernumber", mobilenumber);
