@@ -29,6 +29,8 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
+import com.odos.smartaqua.common.BaseActivity;
+import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
 import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
@@ -74,17 +76,6 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         getSliderImages(_context);
     }
 
-    public void loadCultures(){
-        if (CheckNetwork.isNetworkAvailable(_context)) {
-            VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                    (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
-
-        } else {
-            Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
-        }
-    }
-
     private void getSliderImages(Context _context) {   // SLIDERS...
         for (int i = 0; i < 5; i++) {
             TextSliderView textSliderView = new TextSliderView(_context);
@@ -100,6 +91,18 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
             _activityDashboardBinding.sliderLayout.addSlider(textSliderView);
         }
     }
+
+    public void loadCultures() {
+        if (CheckNetwork.isNetworkAvailable(_context)) {
+            VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
+                    ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
+                    (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+
+        } else {
+            Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
+        }
+    }
+
 
     @Override
     public void stringResponse(String service, String response, int serviceno) {
@@ -153,15 +156,17 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                     }
                                 });
                             } else {
-                                Helper.showMessage(_context, "No Cultures Found Here. Please add culture", 10);
+                                Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
+                                AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
                             }
                         } else {
                             Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                         }
                     } else {
-                        Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
+                        Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
+                        AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                 }
                 break;
@@ -172,7 +177,6 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                     CalendarView calendarView = new CalendarView(_context);
                     _activityDashboardBinding.llCalender.addView(calendarView);
                     String status = jsonObject.getString("status");
-                    String statusCode = jsonObject.getString("statusCode");
                     String response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (!response.equalsIgnoreCase("null")) {
@@ -224,7 +228,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                     if (events.contains(eventDay)) {
                                         String selectedDate = getDate(clickedDayCalendar);
                                         ListBottomSheetFragment listBottomSheetFragment =
-                                                ListBottomSheetFragment.newInstance(hashMap.get(selectedDate),selectedDate,tankId,tankPosition);
+                                                ListBottomSheetFragment.newInstance(hashMap.get(selectedDate), selectedDate, tankId, tankPosition);
                                         listBottomSheetFragment.show(((FragmentActivity) _context).getSupportFragmentManager(),
                                                 "tag");
                                     }
@@ -236,13 +240,16 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.HOLD);
                 }
                 break;
+
         }
 
     }
+
     private String getDate(Calendar calendar) {
         String date = DateFormat.format("yyyy-MM-dd", calendar).toString();
         return date;
     }
+
     @Override
     public void jsonArrayResponse(String service, JSONArray jsonarray, int serviceno) {
 

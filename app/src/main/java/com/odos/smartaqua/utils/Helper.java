@@ -42,6 +42,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.cultures.AddCultureActivity;
+import com.odos.smartaqua.dashboard.DashBoardActivity;
 
 import java.io.InputStream;
 import java.text.ParseException;
@@ -123,10 +124,53 @@ public class Helper {
             return 0;
         }
     }
+
     public static String getUniqueId(Context ctx) {
         String uniqid = Settings.Secure.getString(ctx.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
         return uniqid;
     }
+
+    public static void showMessageWithNavigation(final Context ctx, String content, final int val) {
+
+        final Dialog d = new Dialog(ctx, android.R.style.Theme_DeviceDefault_Dialog_MinWidth);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        d.setCancelable(false);
+        d.setContentView(R.layout.dialog_showmsg);
+        d.show();
+        TextView txt_content = (TextView) d.findViewById(R.id.txt_content);
+        TextView txt_ok = (TextView) d.findViewById(R.id.txt_ok);
+        TextView txt_cancel = (TextView) d.findViewById(R.id.txt_cancel);
+        txt_ok.setVisibility(View.VISIBLE);
+        txt_cancel.setVisibility(View.VISIBLE);
+        txt_ok.setText("YES");
+        txt_cancel.setText("NO");
+        TextView txt_title = (TextView) d.findViewById(R.id.txt_title);
+        Helper.setTypeFace(ctx, ctx.getString(R.string.contentfont), txt_content);
+        Helper.setTypeFace(ctx, ctx.getString(R.string.contentfont), txt_ok);
+        Helper.setTypeFace(ctx, ctx.getString(R.string.contentfont), txt_title);
+        txt_content.setText(content);
+        txt_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.dismiss();
+            }
+        });
+        txt_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (val == 0) {
+                    d.dismiss();
+                    ctx.startActivity(new Intent(ctx, DashBoardActivity.class));
+                    ((Activity) ctx).finish();
+                } else {
+                    d.dismiss();
+                    ((Activity) ctx).finish();
+                }
+
+            }
+        });
+    }
+
 
     public static void showMessage(final Context ctx, String content, final int val) {
 
@@ -150,8 +194,8 @@ public class Helper {
                     ((Activity) ctx).finish();
                 } else if (val == 10) {
                     d.dismiss();
-                    ctx.startActivity(new Intent(ctx,AddCultureActivity.class));
-                }else{
+                    ctx.startActivity(new Intent(ctx, AddCultureActivity.class));
+                } else {
                     d.dismiss();
                 }
 
@@ -180,7 +224,7 @@ public class Helper {
         final Button btn_set_time = (Button) d.findViewById(R.id.btn_set_time);
         Button btn_cance_pickers = (Button) d.findViewById(R.id.btn_cance_pickers);
         timePicker_reminder.setIs24HourView(true);
-      //  datePicker.setMinDate(new Date().getTime() - 10000);
+        //  datePicker.setMinDate(new Date().getTime() - 10000);
 
 
         //date setup
@@ -240,7 +284,8 @@ public class Helper {
             }
         });
     }
-    public static boolean checkRutimePermissions(String permissionname,Context context) {
+
+    public static boolean checkRutimePermissions(String permissionname, Context context) {
         if (ContextCompat.checkSelfPermission(context, permissionname)
                 != PackageManager.PERMISSION_GRANTED) {
             return false;
@@ -287,29 +332,30 @@ public class Helper {
     }
 
     public static boolean getCameraPermission(Context context) {
-        if (!checkRutimePermissions(Manifest.permission.CAMERA,context)) {
+        if (!checkRutimePermissions(Manifest.permission.CAMERA, context)) {
             ActivityCompat.requestPermissions((Activity) context,
                     new String[]{Manifest.permission.CAMERA},
                     1);
         }
-        return checkRutimePermissions(Manifest.permission.CAMERA,context);
+        return checkRutimePermissions(Manifest.permission.CAMERA, context);
     }
 
     public static boolean getWritePermission(Context context) {
-        if (!checkRutimePermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,context)) {
+        if (!checkRutimePermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, context)) {
             ActivityCompat.requestPermissions((Activity) context,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     1);
         }
-        return checkRutimePermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,context);
+        return checkRutimePermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, context);
     }
+
     public static boolean getReadPermission(Context context) {
-        if (!checkRutimePermissions(Manifest.permission.READ_EXTERNAL_STORAGE,context)) {
+        if (!checkRutimePermissions(Manifest.permission.READ_EXTERNAL_STORAGE, context)) {
             ActivityCompat.requestPermissions((Activity) context,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                     1);
         }
-        return checkRutimePermissions(Manifest.permission.READ_EXTERNAL_STORAGE,context);
+        return checkRutimePermissions(Manifest.permission.READ_EXTERNAL_STORAGE, context);
     }
 
     public static void updateDialog(Context _ctx, String updatepath, String updatemessage, boolean mandatory) {
@@ -412,14 +458,15 @@ public class Helper {
                             Location location = new Location("providerNA");
                             location.setLongitude(longi);
                             location.setLatitude(lati);
-                            ASPManager.setKey(context,AquaConstants.LATITUDE,""+lati);
-                            ASPManager.setKey(context,AquaConstants.LONGITUDE,""+lati);
-                            Log.e("data--==",""+lati);
-                            Log.e("data--==",""+longi);
+                            ASPManager.setKey(context, AquaConstants.LATITUDE, "" + lati);
+                            ASPManager.setKey(context, AquaConstants.LONGITUDE, "" + lati);
+                            Log.e("data--==", "" + lati);
+                            Log.e("data--==", "" + longi);
                         }
                     }
                 }, Looper.getMainLooper());
     }
+
     public static boolean checkPermission(Context context) {
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if (currentAPIVersion >= Build.VERSION_CODES.M) {
@@ -435,7 +482,7 @@ public class Helper {
                     public void onClick(DialogInterface dialog, int which) {
                         ActivityCompat.requestPermissions((Activity) context, new String[]
                                         {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,
-                                                Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.SEND_SMS},
+                                                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.SEND_SMS},
                                 1);
                     }
                 });

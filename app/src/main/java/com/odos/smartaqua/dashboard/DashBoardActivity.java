@@ -1,29 +1,21 @@
 package com.odos.smartaqua.dashboard;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 
-import com.github.naz013.awcalendar.AwesomeCalendarView;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.checktray.ChecktrayReportViewPagerActivity;
 import com.odos.smartaqua.common.BaseActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
 import com.odos.smartaqua.feed.FeedListViewPagerActivity;
-import com.odos.smartaqua.growth.GrowthReportViewPagerActivity;
-import com.odos.smartaqua.lab.LabReportViewPagerActivity;
-import com.odos.smartaqua.treatment.TreatmentReportViewPagerActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.Helper;
 import com.odos.smartaqua.utils.ListBottomSheetFragment;
-import com.odos.smartaqua.utils.UploadBottomSheetFragment;
 
-public class DashBoardActivity extends BaseActivity implements ListBottomSheetFragment.ItemClickListener{
+public class DashBoardActivity extends BaseActivity implements ListBottomSheetFragment.ItemClickListener {
 
     private ActivityDashboardBinding _activityDashboardBinding;
     private DashBoardViewModel dashBoardViewModel;
@@ -38,13 +30,15 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         _activityDashboardBinding.executePendingBindings();
         activityBaseBinding.mytoolbar.imgSearch.setVisibility(View.VISIBLE);
         activityBaseBinding.mytoolbar.imgLogout.setVisibility(View.VISIBLE);
+        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(DashBoardActivity.this);
         setToolBarIconClick(1);
         setToolBarIcon(1);
     }
+
     @Override
-    public void onItemClick(String item,String selectedDate,String tankId,int pos) {
-        try{
-            String[] tankdetails = new String[]{""+pos,selectedDate,tankId,item};
+    public void onItemClick(String item, String selectedDate, String tankId, int pos) {
+        try {
+            String[] tankdetails = new String[]{"" + pos, selectedDate, tankId, item};
             AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
             /*if (item.equalsIgnoreCase("feed")) {
                 String[] tankdetails = new String[]{""+pos,selectedDate,tankId};
@@ -62,8 +56,8 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
                 String[] tankdetails = new String[]{"1","Treatment"};
                 AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
             }*/
-        }catch (Exception e){
-            Toast.makeText(this, ""+e, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "" + e, Toast.LENGTH_SHORT).show();
         }
 
     }

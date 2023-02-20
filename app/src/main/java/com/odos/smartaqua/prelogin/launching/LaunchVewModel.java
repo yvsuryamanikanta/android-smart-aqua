@@ -1,6 +1,7 @@
 package com.odos.smartaqua.prelogin.launching;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
@@ -10,6 +11,7 @@ import com.odos.smartaqua.dashboard.DashBoardActivity;
 import com.odos.smartaqua.databinding.ActivityLauncherBinding;
 import com.odos.smartaqua.prelogin.login.LoginActivity;
 import com.odos.smartaqua.shocaseview.ShowCaseActivity;
+import com.odos.smartaqua.tank.AddPondActivity;
 import com.odos.smartaqua.utils.ASPManager;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
@@ -104,12 +106,7 @@ public class LaunchVewModel extends Observable implements ServiceAsyncResponse {
                         if (jsonArray.length() != 0) {
                             AquaConstants.putIntent(_ctx, DashBoardActivity.class, AquaConstants.FINISH, null);
                         } else {
-                            if (Helper.getUsrtType(_ctx).equalsIgnoreCase("1")) {
-                                AquaConstants.putIntent(_ctx, ShowCaseActivity.class, AquaConstants.FINISH, null);
-                            } else {
-                                AquaConstants.putIntent(_ctx, DashBoardActivity.class, AquaConstants.FINISH, null);
-                            }
-
+                            AquaConstants.putIntent(_ctx, AddPondActivity.class, AquaConstants.FINISH, new String[]{"0"});
                         }
                     }
                 } catch (Exception e) {

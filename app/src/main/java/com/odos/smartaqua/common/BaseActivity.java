@@ -152,7 +152,7 @@ public class BaseActivity extends AppCompatActivity {
                         } else {
                             switch (position) {
                                 case 0:
-                                    AquaConstants.putIntent(BaseActivity.this, AddPondActivity.class, AquaConstants.HOLD, null);
+                                    AquaConstants.putIntent(BaseActivity.this, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
                                     break;
                                 case 1:
                                     AquaConstants.putIntent(BaseActivity.this, AddCultureActivity.class, AquaConstants.HOLD, null);

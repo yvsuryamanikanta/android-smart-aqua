@@ -37,13 +37,15 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
     private Context _context;
     private ActivityAddpondBinding _activityAddtankBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
-    private String filePath ="";
-    private String fileType ="";
+    private String filePath = "";
+    private String fileType = "";
+    private String[] values;
 
     public AddPondViewModel(Context context, ActivityAddpondBinding activityAddtankBinding) {
         this._context = context;
         this._activityAddtankBinding = activityAddtankBinding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
+        values = ((Activity)_context).getIntent().getStringArrayExtra("values");
         Helper.getCurrentLocation(_context);
     }
 
@@ -63,7 +65,7 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
         String address = _activityAddtankBinding.edtAddress.getText().toString();
         if (name.equalsIgnoreCase("")) {
             Toast.makeText(_context, "Name Required", Toast.LENGTH_SHORT).show();
-        }else if (filePath.equalsIgnoreCase("")) {
+        } else if (filePath.equalsIgnoreCase("")) {
             Toast.makeText(_context, "Pls Upload Image first", Toast.LENGTH_SHORT).show();
         } else {
             @SuppressLint("HardwareIds")
@@ -82,7 +84,7 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
 
     public void uploadBitmap(Bitmap bitmap) {
         VolleyService.VolleyMultipartRequest(_context, bitmap, _context.getString(R.string.jsonobjectrequest),
-                ServiceConstants.UPLOAD, (ServiceAsyncResponse) serviceAsyncResponse, 2, true,"image");
+                ServiceConstants.UPLOAD, (ServiceAsyncResponse) serviceAsyncResponse, 2, true, "image");
     }
 
     @Override
@@ -101,9 +103,13 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
                     String response = jsonObject.getString("response");
                     String errorMsg = jsonObject.getString("errorMsg");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        Helper.showMessage(_context, "Tank registered successfully", AquaConstants.FINISH);
+                        _activityAddtankBinding.edtName.setText("");
+                        _activityAddtankBinding.edtAddress.setText("");
+                        filePath = "";
+                        _activityAddtankBinding.imgView.setImageDrawable(_context.getResources().getDrawable(R.drawable.uploadicon));
+                        Helper.showMessageWithNavigation(_context, "Tank registered successfully. Do you want to create another Tank", Integer.parseInt(values[0]));
                     } else {
-                        Helper.showMessage(_context, ""+errorMsg, AquaConstants.HOLD);
+                        Helper.showMessage(_context, "" + errorMsg, AquaConstants.HOLD);
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "saving failed please try again once", AquaConstants.HOLD);
@@ -112,10 +118,10 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
             case 2:
                 try {
                     String status = jsonObject.getString("status");
-                    if(status.equalsIgnoreCase("Sucess")){
+                    if (status.equalsIgnoreCase("Sucess")) {
                         JSONObject response = jsonObject.getJSONObject("response");
-                         filePath = response.getString("filepath");
-                         fileType = response.getString("fileType");
+                        filePath = response.getString("filepath");
+                        fileType = response.getString("fileType");
                     }
                 } catch (Exception e) {
                     Toast.makeText(_context, "image upload failed try again", Toast.LENGTH_SHORT).show();

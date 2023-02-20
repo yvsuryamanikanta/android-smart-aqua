@@ -8,8 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.gms.auth.api.phone.SmsRetriever;
+import com.google.android.gms.auth.api.phone.SmsRetrieverClient;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
@@ -17,6 +22,7 @@ import com.odos.smartaqua.R;
 import com.odos.smartaqua.dashboard.DashBoardActivity;
 import com.odos.smartaqua.databinding.ActivityVerificationBinding;
 import com.odos.smartaqua.shocaseview.ShowCaseActivity;
+import com.odos.smartaqua.tank.AddPondActivity;
 import com.odos.smartaqua.utils.ASPManager;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
@@ -165,7 +171,7 @@ public class VerificationViewModel extends ViewModel implements ServiceAsyncResp
                         if (jsonArray.length() != 0) {
                              AquaConstants.claerAllActivities(_context, DashBoardActivity.class);
                         } else {
-                            AquaConstants.claerAllActivities(_context, ShowCaseActivity.class);
+                            AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.FINISH, new String[]{"0"});
                         }
                     }
                 } catch (Exception e) {
