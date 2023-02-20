@@ -135,8 +135,9 @@ public class AquaConstants {
         }
     }
 
-    public static void claerAllActivities(Context context, Class classname) {
+    public static void claerAllActivities(Context context, Class classname,String[] values) {
         Intent i = new Intent(context, classname);
+        i.putExtra("values", values);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(i);
 

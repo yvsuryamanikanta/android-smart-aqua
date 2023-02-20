@@ -78,9 +78,9 @@ public class LaunchVewModel extends Observable implements ServiceAsyncResponse {
                                                 ServiceConstants.GET_TANKLIST + Helper.getUserID(_ctx),
                                                 null, Helper.headerParams(_ctx), (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
                                     } else if (rolecode.equalsIgnoreCase("L")) {
-                                        AquaConstants.claerAllActivities(_ctx, DashBoardActivity.class);
+                                        AquaConstants.claerAllActivities(_ctx, DashBoardActivity.class,null);
                                     } else if (rolecode.equalsIgnoreCase("T")) {
-                                        AquaConstants.claerAllActivities(_ctx, DashBoardActivity.class);
+                                        AquaConstants.claerAllActivities(_ctx, DashBoardActivity.class,null);
                                     }
                                 } else {
                                     String[] values = new String[]{""};

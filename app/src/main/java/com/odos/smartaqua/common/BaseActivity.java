@@ -94,7 +94,7 @@ public class BaseActivity extends AppCompatActivity {
                 ASPManager.setKey(BaseActivity.this, AquaConstants.USER_RESPONSE, "");
                 ASPManager.setKey(BaseActivity.this, AquaConstants.ROLE_CODE, "");
                 ASPManager.setKey(BaseActivity.this, AquaConstants.IS_LOGGED, false);
-                AquaConstants.claerAllActivities(BaseActivity.this, LoginActivity.class);
+                AquaConstants.claerAllActivities(BaseActivity.this, LoginActivity.class,null);
             }
         });
 

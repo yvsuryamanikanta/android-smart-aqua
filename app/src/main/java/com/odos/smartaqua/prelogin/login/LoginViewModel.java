@@ -179,9 +179,9 @@ public class LoginViewModel extends ViewModel implements ServiceAsyncResponse {
                     if (status.equalsIgnoreCase("Sucess")) {
                         JSONArray jsonArray = new JSONArray(response);
                         if (jsonArray.length() != 0) {
-                            AquaConstants.claerAllActivities(_context, DashBoardActivity.class);
+                            AquaConstants.claerAllActivities(_context, DashBoardActivity.class,null);
                         } else {
-                            AquaConstants.claerAllActivities(_context, ShowCaseActivity.class);
+                            AquaConstants.claerAllActivities(_context, ShowCaseActivity.class,null);
                         }
                     }
                 } catch (JSONException e) {

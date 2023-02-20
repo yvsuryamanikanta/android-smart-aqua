@@ -146,9 +146,9 @@ public class VerificationViewModel extends ViewModel implements ServiceAsyncResp
                                         ServiceConstants.GET_TANKLIST + values[0],
                                         null, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 3, false);
                             } else if (values[5].equalsIgnoreCase("L")) {
-                                AquaConstants.claerAllActivities(_context, DashBoardActivity.class);
+                                AquaConstants.claerAllActivities(_context, DashBoardActivity.class, null);
                             } else if (values[5].equalsIgnoreCase("T")) {
-                                AquaConstants.claerAllActivities(_context, DashBoardActivity.class);
+                                AquaConstants.claerAllActivities(_context, DashBoardActivity.class, null);
                             }
                         } else {
                             Helper.showMessage(_context, "Invalid OTP.", AquaConstants.HOLD);
@@ -169,9 +169,9 @@ public class VerificationViewModel extends ViewModel implements ServiceAsyncResp
                     if (status.equalsIgnoreCase("Sucess")) {
                         JSONArray jsonArray = new JSONArray(response);
                         if (jsonArray.length() != 0) {
-                             AquaConstants.claerAllActivities(_context, DashBoardActivity.class);
+                            AquaConstants.claerAllActivities(_context, DashBoardActivity.class, null);
                         } else {
-                            AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.FINISH, new String[]{"0"});
+                            AquaConstants.claerAllActivities(_context, AddPondActivity.class, new String[]{"0"});
                         }
                     }
                 } catch (Exception e) {
