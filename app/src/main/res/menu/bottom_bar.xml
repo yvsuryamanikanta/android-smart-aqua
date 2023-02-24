@@ -5,30 +5,30 @@
         android:id="@+id/home1"
         android:icon="@drawable/ic_home"
         android:enabled="true"
-        android:title="Home1" />
+        android:title="Pond" />
 
     <item
         android:id="@+id/home2"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Home2" />
+        android:title="Feed" />
 
     <item
         android:id="@+id/home3"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Home3"  />
+        android:title="Reports"  />
 
     <item
         android:id="@+id/home4"
         android:icon="@drawable/ic_home"
         android:enabled="true"
-        android:title="Home4" />
+        android:title="Harvest" />
 
     <item
         android:enabled="true"
         android:id="@+id/home5"
         android:icon="@drawable/ic_home"
-        android:title="Home5" />
+        android:title="Profile" />
 
 </menu>

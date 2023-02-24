@@ -31,7 +31,7 @@ public class BottomNavigationCircles : BottomNavigationView {
     private val menuViewGroupId = View.generateViewId()
 
     private lateinit var rootLayout: RelativeLayout
-    private var disabledColor = resources.getColor(R.color.calendar_blue)
+    private var disabledColor = resources.getColor(R.color.white)
     private var enabledColor = Color.WHITE
     private var textColor by Delegates.notNull<Int>()
 

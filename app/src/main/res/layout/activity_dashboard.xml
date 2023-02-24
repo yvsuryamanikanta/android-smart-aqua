@@ -99,9 +99,8 @@
             android:id="@+id/ll_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/_5sdp"
             android:layout_weight="0.1"
-            android:background="@drawable/bg_box"
+            android:background="@color/colorPrimary"
             android:orientation="vertical"
             custom:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="6dp">
@@ -115,9 +114,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:layout_gravity="start|bottom"
-                    custom:itemTextColor="@color/calendar_blue"
-                    custom:itemIconTint="@color/calendar_blue"
-                    custom:circleColor="@color/calendar_blue"
+                    custom:itemTextColor="@color/colorPrimary"
+                    custom:itemIconTint="@color/colorPrimary"
+                    custom:circleColor="@color/colorPrimary"
                     custom:customBackgroundShape="@drawable/bg_custom"
                     custom:menu="@menu/bottom_bar"/>
 

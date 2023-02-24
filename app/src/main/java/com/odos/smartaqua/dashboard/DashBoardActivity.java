@@ -34,9 +34,9 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         setToolBarIconClick(1);
         setToolBarIcon(1);
 
-        _activityDashboardBinding.bottomNavigation.setCircleColor(getResources().getColor(R.color.calendar_blue));
+        _activityDashboardBinding.bottomNavigation.setCircleColor(getResources().getColor(R.color.white));
         _activityDashboardBinding.bottomNavigation.setBackground(null);
-        // bottomNavigation.backgroundShape = BottomNavigationCircles.Shape.RoundedRectangle
+         //bottomNavigation.backgroundShape = BottomNavigationCircles.Shape.RoundedRectangle
         _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home1:

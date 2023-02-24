@@ -6,6 +6,6 @@
     <size
         android:width="30dp"
         android:height="30dp"/>
-    <solid android:color="@color/calendar_blue"/>
+    <solid android:color="@color/white"/>
 
 </shape>
