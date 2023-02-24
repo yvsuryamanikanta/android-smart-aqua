@@ -103,7 +103,7 @@
         <activity
             android:name=".dashboard.DashBoardActivity"
             android:screenOrientation="locked"
-            android:theme="@style/AppTheme.Dark"
+            android:theme="@style/Theme.Bottom"
             android:windowSoftInputMode="stateHidden" />
 
         <activity

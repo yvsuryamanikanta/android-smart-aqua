@@ -33,6 +33,32 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(DashBoardActivity.this);
         setToolBarIconClick(1);
         setToolBarIcon(1);
+
+        _activityDashboardBinding.bottomNavigation.setCircleColor(getResources().getColor(R.color.calendar_blue));
+        _activityDashboardBinding.bottomNavigation.setBackground(null);
+        // bottomNavigation.backgroundShape = BottomNavigationCircles.Shape.RoundedRectangle
+        _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home1:
+                    Toast.makeText(this, "Home1.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home2:
+                    Toast.makeText(this, "Home2.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home3:
+                    Toast.makeText(this, "Home3.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home4:
+                    Toast.makeText(this, "Home4.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home5:
+                    Toast.makeText(this, "Home5.", Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+            }
+            return true;
+        });
+
     }
 
     @Override

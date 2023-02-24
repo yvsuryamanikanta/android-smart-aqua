@@ -1,4 +1,4 @@
-package com.odos.smartaqua.dashboard.bottombar
+package com.odos.smartaqua.dashboard
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -25,9 +25,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.properties.Delegates
 
-class BottomNavigationCircles : BottomNavigationView {
-    private val LOG_TAG = "BottomNavigationCircles"
-
+public class BottomNavigationCircles : BottomNavigationView {
     private var currentNavigationItemId = -1
     private var currentCircleId = -1
     private val menuViewGroupId = View.generateViewId()

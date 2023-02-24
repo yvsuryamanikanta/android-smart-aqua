@@ -11,7 +11,7 @@
             type="com.odos.smartaqua.dashboard.DashBoardViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -20,8 +20,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            custom:layout_constraintBottom_toTopOf="@+id/ll_bottom_bar"
+            custom:layout_constraintEnd_toEndOf="parent"
+            custom:layout_constraintStart_toStartOf="parent"
+            custom:layout_constraintTop_toTopOf="parent">
 
             <com.odos.smartaqua.sliders.SliderLayout
                 android:id="@+id/sliderLayout"
@@ -89,19 +93,35 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_bottom_bar"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="0.1"
-                android:background="@drawable/bg_box"
-                android:orientation="vertical">
-
-            </LinearLayout>
-
-
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_weight="0.1"
+            android:background="@drawable/bg_box"
+            android:orientation="vertical"
+            custom:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="6dp">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+
+                <com.odos.smartaqua.dashboard.BottomNavigationCircles
+                    android:id="@+id/bottomNavigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="start|bottom"
+                    custom:itemTextColor="@color/calendar_blue"
+                    custom:itemIconTint="@color/calendar_blue"
+                    custom:circleColor="@color/calendar_blue"
+                    custom:customBackgroundShape="@drawable/bg_custom"
+                    custom:menu="@menu/bottom_bar"/>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,6 +7,21 @@
         <item name="colorAccent">#9E9E9E</item>
     </style>
 
+    <style name="Theme.Bottom" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Bottom" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/calendar_blue</item>
+        <item name="android:textColorSecondary">@color/calendar_blue</item>
+    </style>
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/calendar_blue</item>
+        <item name="android:textColorSecondary">@color/calendar_blue</item>
+    </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
