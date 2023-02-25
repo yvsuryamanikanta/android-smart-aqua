@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0846A3</color>
-    <color name="colorPrimaryDark">#0846A3</color>
-    <color name="colorAccent">#0846A3</color>
+    <color name="colorPrimary">#1E88E5</color>
+    <color name="colorPrimaryDark">#1E88E5</color>
+    <color name="colorAccent">#1E88E5</color>
     <color name="txtColor">#585757</color>
     <color name="bgapp">#f1efef</color>
+    <color name="cardbg">#FDFCFC</color>
     <color name="red">#e2103a</color>
 
 
@@ -12,7 +13,6 @@
     <color name="mediumCyan">#4bd2ea</color>
     <color name="lightPink">#9ee6d0</color>
     <color name="calendar_blue">#ff0099cc</color>
-    <color name="blue_new">#0D57C1</color>
 
     <color name="black_overlay">#66000000</color>
     <color name="white_transparent">#43ffffff</color>
@@ -30,7 +30,6 @@
     <color name="static_text_color">#003366</color>
     <color name="journal_entry_listitem_text_color">#003366</color>
     <color name="note_text_disabled">#333333</color>
-    <color name="blue">#0000FF</color>
     <color name="navy">#6699FF</color>
     <color name="sky">#0099CC</color>
     <color name="gray">#808080</color>
@@ -59,7 +58,6 @@
         <color name="primary_dark_color">#66009688</color>
     -->
 
-    <color name="primarydark">@color/blue_new</color>
     <color name="primary">@color/md_blue_500</color>
     <color name="primaryaccent">@color/md_green_500</color>
     <color name="progress_color">@color/md_green_500</color>

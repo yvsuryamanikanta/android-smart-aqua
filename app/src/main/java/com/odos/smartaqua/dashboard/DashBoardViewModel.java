@@ -1,14 +1,10 @@
 package com.odos.smartaqua.dashboard;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -17,19 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.databinding.BaseObservable;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
-import com.github.naz013.awcalendar.AwesomeCalendarView;
-import com.github.naz013.awcalendar.Event;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.common.BaseActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
@@ -42,7 +33,6 @@ import com.odos.smartaqua.utils.ListBottomSheetFragment;
 import com.odos.smartaqua.utils.UploadBottomSheetFragment;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -51,11 +41,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-
-import hirondelle.date4j.DateTime;
 
 public class DashBoardViewModel extends BaseObservable implements ServiceAsyncResponse {
 
@@ -74,8 +61,40 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         this._activityDashboardBinding = activityDashboardBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
         getSliderImages(_context);
+        bottomNavigationMenu();
     }
 
+    private void bottomNavigationMenu(){
+        _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home1:
+                    if (Helper.getCameraPermission(_context)) {
+                        UploadBottomSheetFragment addPhotoBottomDialogFragment =
+                                UploadBottomSheetFragment.newInstance();
+                        addPhotoBottomDialogFragment.show(((FragmentActivity) _context).getSupportFragmentManager(),
+                                "tag");
+                    } else {
+                        Helper.getCameraPermission(_context);
+                    }
+                    break;
+                case R.id.home2:
+                    Toast.makeText(_context, "Home2.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home3:
+                    Toast.makeText(_context, "Home3.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home4:
+                    Toast.makeText(_context, "Home4.", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.home5:
+                    Toast.makeText(_context, "Home5.", Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+            }
+            return true;
+        });
+
+    }
     private void getSliderImages(Context _context) {   // SLIDERS...
         for (int i = 0; i < 5; i++) {
             TextSliderView textSliderView = new TextSliderView(_context);
@@ -216,7 +235,6 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
 
                             }
                             calendarView.setEvents(events);
-                            calendarView.setHeaderColor(R.color.colorAccent);
                             calendarView.setHeaderLabelColor(R.color.white);
                             calendarView.setSwipeEnabled(true);
                             calendarView.setAbbreviationsBarVisibility(View.VISIBLE);

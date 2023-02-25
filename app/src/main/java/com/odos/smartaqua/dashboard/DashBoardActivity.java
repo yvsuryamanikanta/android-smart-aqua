@@ -14,8 +14,9 @@ import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.Helper;
 import com.odos.smartaqua.utils.ListBottomSheetFragment;
+import com.odos.smartaqua.utils.UploadBottomSheetFragment;
 
-public class DashBoardActivity extends BaseActivity implements ListBottomSheetFragment.ItemClickListener {
+public class DashBoardActivity extends BaseActivity implements ListBottomSheetFragment.ItemClickListener, UploadBottomSheetFragment.ItemClickListener {
 
     private ActivityDashboardBinding _activityDashboardBinding;
     private DashBoardViewModel dashBoardViewModel;
@@ -33,32 +34,7 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(DashBoardActivity.this);
         setToolBarIconClick(1);
         setToolBarIcon(1);
-
-        _activityDashboardBinding.bottomNavigation.setCircleColor(getResources().getColor(R.color.white));
         _activityDashboardBinding.bottomNavigation.setBackground(null);
-         //bottomNavigation.backgroundShape = BottomNavigationCircles.Shape.RoundedRectangle
-        _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.home1:
-                    Toast.makeText(this, "Home1.", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.home2:
-                    Toast.makeText(this, "Home2.", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.home3:
-                    Toast.makeText(this, "Home3.", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.home4:
-                    Toast.makeText(this, "Home4.", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.home5:
-                    Toast.makeText(this, "Home5.", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-            }
-            return true;
-        });
-
     }
 
     @Override
@@ -92,5 +68,10 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
     protected void onResume() {
         super.onResume();
         dashBoardViewModel.loadCultures();
+    }
+
+    @Override
+    public void onItemClick(String item) {
+
     }
 }
