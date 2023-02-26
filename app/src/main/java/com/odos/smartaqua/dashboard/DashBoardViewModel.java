@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -60,33 +61,34 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         this._context = context;
         this._activityDashboardBinding = activityDashboardBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
+        _activityDashboardBinding.txtCounts.setSelected(true);
+        _activityDashboardBinding.txtCounts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String counts = "TODAY COUNT : 100C-250 : 90C-200 : 80C-180 : 70C-170 : 60C-150 : 50C-120 : 40C-100";
+                Helper.showMessage(_context, counts.replaceAll(":", "\n\n").replaceAll("-", "    :  "), AquaConstants.HOLD);
+            }
+        });
         getSliderImages(_context);
         bottomNavigationMenu();
     }
 
-    private void bottomNavigationMenu(){
+    private void bottomNavigationMenu() {
         _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.home1:
-                    if (Helper.getCameraPermission(_context)) {
-                        UploadBottomSheetFragment addPhotoBottomDialogFragment =
-                                UploadBottomSheetFragment.newInstance();
-                        addPhotoBottomDialogFragment.show(((FragmentActivity) _context).getSupportFragmentManager(),
-                                "tag");
-                    } else {
-                        Helper.getCameraPermission(_context);
-                    }
+                case R.id.stock:
+
                     break;
-                case R.id.home2:
-                    Toast.makeText(_context, "Home2.", Toast.LENGTH_SHORT).show();
+                case R.id.chat:
+                    Toast.makeText(_context, "Chat.", Toast.LENGTH_SHORT).show();
                     break;
-                case R.id.home3:
-                    Toast.makeText(_context, "Home3.", Toast.LENGTH_SHORT).show();
+                case R.id.create:
+
                     break;
-                case R.id.home4:
+                case R.id.compare:
                     Toast.makeText(_context, "Home4.", Toast.LENGTH_SHORT).show();
                     break;
-                case R.id.home5:
+                case R.id.more:
                     Toast.makeText(_context, "Home5.", Toast.LENGTH_SHORT).show();
                     break;
                 default:
@@ -95,6 +97,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         });
 
     }
+
     private void getSliderImages(Context _context) {   // SLIDERS...
         for (int i = 0; i < 5; i++) {
             TextSliderView textSliderView = new TextSliderView(_context);
@@ -142,6 +145,8 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
                                 userRolesArrayList = new ArrayList<>();
+                                UserRoles userRoles1 = new UserRoles(0, "00", "Select your Tank", true);
+                                userRolesArrayList.add(userRoles1);
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     try {
                                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -165,9 +170,14 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                         tankName = userRoles.getRoleName();
                                         tankPosition = position;
                                         Long cultureId = Long.parseLong(userRoles.getRoleCode());
-                                        VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                                                ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
-                                                (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
+                                        if (userRoles.getRoleID() == 0) {
+                                            CalendarView calendarView = new CalendarView(_context);
+                                            _activityDashboardBinding.llCalender.addView(calendarView);
+                                        } else {
+                                            VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
+                                                    ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
+                                                    (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
+                                        }
                                     }
 
                                     @Override

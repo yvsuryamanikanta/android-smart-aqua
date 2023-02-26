@@ -14,9 +14,8 @@ import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.Helper;
 import com.odos.smartaqua.utils.ListBottomSheetFragment;
-import com.odos.smartaqua.utils.UploadBottomSheetFragment;
 
-public class DashBoardActivity extends BaseActivity implements ListBottomSheetFragment.ItemClickListener, UploadBottomSheetFragment.ItemClickListener {
+public class DashBoardActivity extends BaseActivity implements ListBottomSheetFragment.ItemClickListener {
 
     private ActivityDashboardBinding _activityDashboardBinding;
     private DashBoardViewModel dashBoardViewModel;
@@ -68,10 +67,5 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
     protected void onResume() {
         super.onResume();
         dashBoardViewModel.loadCultures();
-    }
-
-    @Override
-    public void onItemClick(String item) {
-
     }
 }

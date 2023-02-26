@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home1"
+        android:id="@+id/stock"
         android:enabled="true"
-        android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:icon="@drawable/ic_warehouse"
+        android:title="Stock" />
 
     <item
-        android:id="@+id/home2"
+        android:id="@+id/chat"
         android:enabled="true"
         android:icon="@drawable/ic_chat"
         android:title="Chat" />
 
     <item
-        android:id="@+id/home3"
+        android:id="@+id/create"
         android:enabled="true"
-        android:icon="@drawable/ic_report"
-        android:title="Reports" />
+        android:icon="@drawable/creates"
+        android:title="Create" />
 
     <item
-        android:id="@+id/home4"
+        android:id="@+id/compare"
         android:enabled="true"
         android:icon="@drawable/ic_compare"
         android:title="Compare" />
 
     <item
-        android:id="@+id/home5"
+        android:id="@+id/more"
         android:enabled="true"
         android:icon="@drawable/ic_more"
         android:title="More" />
