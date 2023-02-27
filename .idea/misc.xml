@@ -97,6 +97,7 @@
         <entry key="app/src/main/res/drawable/files.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/fourdots.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/gallery.xml" value="0.114" />
+        <entry key="app/src/main/res/drawable/ic_arrow_down.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/rounded_circle_button.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/tab_background_selected.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/tab_background_unselected.xml" value="0.114" />
@@ -142,6 +143,12 @@
         <entry key="app/src/main/res/layout/adapter_searchproduct.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_treatments.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_userroles.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/custom_alert_chat.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/custom_alert_compare.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/custom_alert_create.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/custom_alert_dialogue.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/custom_alert_more.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/custom_alert_stock.xml" value="0.18" />
         <entry key="app/src/main/res/layout/custom_view_calender.xml" value="0.22" />
         <entry key="app/src/main/res/layout/dialog_customdialog.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/dialog_showmsg.xml" value="0.10260416666666666" />
@@ -154,6 +161,7 @@
         <entry key="app/src/main/res/layout/include_chld_feeditem.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/layout_customdrawer.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/list_bottom_sheet.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/list_item_create.xml" value="0.195382642154767" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/upload_bottom_sheet.xml" value="0.23802083333333332" />
       </map>

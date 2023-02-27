@@ -1,19 +1,29 @@
 package com.odos.smartaqua.dashboard;
 
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.text.method.ScrollingMovementMethod;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.databinding.BaseObservable;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
@@ -22,22 +32,33 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
+import com.odos.smartaqua.brand.AddBrandActivity;
+import com.odos.smartaqua.checktray.AddChecktrayActivity;
+import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
+import com.odos.smartaqua.feed.TankViewPagerActivity;
+import com.odos.smartaqua.growth.GrowthObservationActivity;
+import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
 import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
 import com.odos.smartaqua.sliders.TextSliderView;
+import com.odos.smartaqua.tank.AddPondActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
 import com.odos.smartaqua.utils.ListBottomSheetFragment;
-import com.odos.smartaqua.utils.UploadBottomSheetFragment;
+import com.odos.smartaqua.warehouse.products.AddProductActivity;
+import com.odos.smartaqua.warehouse.products.AddProductCatgActivity;
+import com.odos.smartaqua.warehouse.quantity.AddQtyCatgActivity;
+import com.odos.smartaqua.warehouse.stock.AddStockActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -77,19 +98,18 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.stock:
-
+                    showAlert(_context);
                     break;
                 case R.id.chat:
-                    Toast.makeText(_context, "Chat.", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.create:
-
+                    showAlert3(_context);
                     break;
                 case R.id.compare:
-                    Toast.makeText(_context, "Home4.", Toast.LENGTH_SHORT).show();
+                    showAlert4(_context);
                     break;
                 case R.id.more:
-                    Toast.makeText(_context, "Home5.", Toast.LENGTH_SHORT).show();
+                    showAlert5(_context);
                     break;
                 default:
             }
@@ -281,5 +301,153 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
     @Override
     public void jsonArrayResponse(String service, JSONArray jsonarray, int serviceno) {
 
+    }
+    private void showAlert(final Context activity) {
+        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(R.layout.custom_alert_stock);
+
+        myDialog.getWindow().setGravity(Gravity.START|Gravity.BOTTOM);
+        AppCompatTextView BL_alert_head = myDialog
+                .findViewById(R.id.alertTitle);
+        AppCompatTextView BL_alert_text = myDialog
+                .findViewById(R.id.alertMessage);
+
+        BL_alert_head.setText("Title");
+        BL_alert_text.setText("sample text sample text");
+
+        myDialog.show();
+    }
+    private void showAlert3(final Context activity) {
+        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(R.layout.custom_alert_create);
+        myDialog.getWindow().setGravity(Gravity.BOTTOM);
+        TextView alert_head = myDialog
+                .findViewById(R.id.alertTitle);
+        ArrayList<String> arrayList = new ArrayList<>(
+                Arrays.asList("Add Tank", "Create Culture", "Add Brand", "Quantity Category",
+                        "Product Category", "Create Product","Create Stock", "Create Feed",
+                        "Add Checktray", "Checktray Observation", "Lab Observation", "Growth Observation"));
+
+        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(new ListAdapter(_context, arrayList));
+
+        myDialog.show();
+    }
+    private void showAlert4(final Context activity) {
+        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(R.layout.custom_alert_compare);
+
+        myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
+        AppCompatTextView BL_alert_head = myDialog
+                .findViewById(R.id.alertTitle);
+        AppCompatTextView BL_alert_text = myDialog
+                .findViewById(R.id.alertMessage);
+
+        BL_alert_head.setText("Title");
+        BL_alert_text.setText("sample text sample text");
+
+        myDialog.show();
+    }
+    private void showAlert5(final Context activity) {
+        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(R.layout.custom_alert_more);
+
+        myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
+        AppCompatTextView BL_alert_head = myDialog
+                .findViewById(R.id.alertTitle);
+        AppCompatTextView BL_alert_text = myDialog
+                .findViewById(R.id.alertMessage);
+
+        BL_alert_head.setText("Title");
+        BL_alert_text.setText("sample text sample text");
+
+        myDialog.show();
+    }
+
+    public static class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
+        ArrayList<String> data;
+        private LayoutInflater layoutInflater;
+        private Context _context;
+
+        public static class MyViewHolder extends RecyclerView.ViewHolder {
+            public TextView textView;
+            public MyViewHolder(View itemView) {
+                super(itemView);
+                this.textView = (TextView) itemView.findViewById(R.id.txtView);
+            }
+        }
+
+        public ListAdapter(Context context, ArrayList<String> arrayList) {
+            this.data = arrayList;
+            this._context = context;
+        }
+
+        @NonNull
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            if (layoutInflater == null) {
+                layoutInflater = LayoutInflater.from(parent.getContext());
+            }
+            View layout = layoutInflater.inflate(R.layout.list_item_create, parent, false);
+
+            return new MyViewHolder(layout);
+        }
+
+        @Override
+        public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+            holder.textView.setText(""+data.get(position));
+            holder.textView.setOnClickListener(v -> {
+                switch (position) {
+                    case 0:
+                        AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                        break;
+                    case 1:
+                        AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 2:
+                        AquaConstants.putIntent(_context, AddBrandActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 3:
+                        AquaConstants.putIntent(_context, AddQtyCatgActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 4:
+                        AquaConstants.putIntent(_context, AddProductCatgActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 5:
+                        AquaConstants.putIntent(_context, AddProductActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 6:
+                        AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 7:
+                        AquaConstants.putIntent(_context, TankViewPagerActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 8:
+                        AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 9:
+                        AquaConstants.putIntent(_context, ChecktrayObservationActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 10:
+                        AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 11:
+                        AquaConstants.putIntent(_context, GrowthObservationActivity.class, AquaConstants.HOLD, null);
+                        break;
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return data.size();
+        }
     }
 }
