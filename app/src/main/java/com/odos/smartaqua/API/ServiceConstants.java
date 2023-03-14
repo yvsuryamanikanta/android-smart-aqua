@@ -41,6 +41,8 @@ public class ServiceConstants {
     public static final String LIST_INVOICE = BASE_URL + "invoice/list/";
     public static final String UPLOAD = BASE_URL + "files/upload";
     public static final String GET_DASHBOARD = BASE_URL + "dashboard/";
+    public static final String CHAT_LIST = BASE_URL + "chat/list/";
+    public static final String CHAT_SAVE = BASE_URL + "chat/save/";
 
 
 }

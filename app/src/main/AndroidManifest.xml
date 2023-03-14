@@ -230,6 +230,16 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".chat.ChattingActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".chat.ChatListActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
 
     </application>
 

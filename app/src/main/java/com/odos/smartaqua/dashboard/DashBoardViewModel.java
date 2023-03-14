@@ -32,6 +32,7 @@ import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.brand.AddBrandActivity;
+import com.odos.smartaqua.chat.ChatListActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayInfoActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
@@ -101,7 +102,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                     showAlert(_context);
                     break;
                 case R.id.chat:
-                    Toast.makeText(_context, "chat", Toast.LENGTH_SHORT).show();
+                    AquaConstants.putIntent(_context, ChatListActivity.class, AquaConstants.HOLD, null);
                     break;
                 case R.id.create:
                     showAlert3(_context, 3);
