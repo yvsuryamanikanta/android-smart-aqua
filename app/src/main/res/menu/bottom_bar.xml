@@ -5,7 +5,7 @@
         android:id="@+id/stock"
         android:enabled="true"
         android:icon="@drawable/ic_warehouse"
-        android:title="Stock" />
+        android:title="stock" />
 
     <item
         android:id="@+id/chat"
@@ -17,18 +17,18 @@
         android:id="@+id/create"
         android:enabled="true"
         android:icon="@drawable/creates"
-        android:title="Create" />
+        android:title="Pond" />
 
     <item
         android:id="@+id/compare"
         android:enabled="true"
         android:icon="@drawable/ic_compare"
-        android:title="Compare" />
+        android:title="Reports" />
 
     <item
         android:id="@+id/more"
         android:enabled="true"
-        android:icon="@drawable/ic_more"
+        android:icon="@drawable/notes"
         android:title="More" />
 
 </menu>

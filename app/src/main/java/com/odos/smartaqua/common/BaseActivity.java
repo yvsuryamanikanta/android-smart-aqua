@@ -138,6 +138,70 @@ public class BaseActivity extends AppCompatActivity {
                 String[] from;
                 from = new String[]{"Add Tank", "Create Culture", "Add Brand", "Quantity Category",
                         "Product Category", "Create Product","Create Stock", "Create Feed",
+                         "Add CheckTray", "CheckTray Observation", "Lab Observation", "Growth Observation"};
+                DrawerAdapter adapter1 = new DrawerAdapter(BaseActivity.this, from);
+                activityBaseBinding.navList.setAdapter(adapter1);
+                activityBaseBinding.navList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        if (ContextCompat.checkSelfPermission(BaseActivity.this,
+                                Manifest.permission.ACCESS_FINE_LOCATION)
+                                != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(BaseActivity.this,
+                                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                        } else {
+                            switch (position) {
+                                case 0:
+                                    AquaConstants.putIntent(BaseActivity.this, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                                    break;
+                                case 1:
+                                    AquaConstants.putIntent(BaseActivity.this, AddCultureActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 2:
+                                    AquaConstants.putIntent(BaseActivity.this, AddBrandActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 3:
+                                    AquaConstants.putIntent(BaseActivity.this, AddQtyCatgActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 4:
+                                    AquaConstants.putIntent(BaseActivity.this, AddProductCatgActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 5:
+                                    AquaConstants.putIntent(BaseActivity.this, AddProductActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                               /* case 6:
+                                    AquaConstants.putIntent(BaseActivity.this, AddInvoiceActivity.class, AquaConstants.HOLD, null);
+                                    break;*/
+                                case 6:
+                                    AquaConstants.putIntent(BaseActivity.this, AddStockActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 7:
+                                    AquaConstants.putIntent(BaseActivity.this, TankViewPagerActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                               /* case 8:
+                                    AquaConstants.putIntent(BaseActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, new String[]{"0"});
+                                    break;*/
+                                case 8:
+                                    AquaConstants.putIntent(BaseActivity.this, AddChecktrayActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 9:
+                                    AquaConstants.putIntent(BaseActivity.this, ChecktrayObservationActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                                case 10:
+                                    AquaConstants.putIntent(BaseActivity.this, LabObservationActivity.class, AquaConstants.HOLD, null);
+                                    break;
+
+                                case 11:
+                                    AquaConstants.putIntent(BaseActivity.this, GrowthObservationActivity.class, AquaConstants.HOLD, null);
+                                    break;
+                            }
+                        }
+                    }
+                });
+            }if (Helper.getUsrtType(BaseActivity.this).equalsIgnoreCase("ADMIN")) {
+                String[] from;
+                from = new String[]{"Add Tank", "Create Culture", "Add Brand", "Quantity Category",
+                        "Product Category", "Create Product","Create Stock", "Create Feed",
                          "Add Checktray", "Checktray Observation", "Lab Observation", "Growth Observation"};
                 DrawerAdapter adapter1 = new DrawerAdapter(BaseActivity.this, from);
                 activityBaseBinding.navList.setAdapter(adapter1);

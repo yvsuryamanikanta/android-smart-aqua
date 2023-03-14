@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.databinding.BaseObservable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -34,10 +33,12 @@ import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
+import com.odos.smartaqua.checktray.ChecktrayInfoActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
-import com.odos.smartaqua.feed.TankViewPagerActivity;
+import com.odos.smartaqua.feed.AddFeedActivity;
+import com.odos.smartaqua.feed.FeedObservationActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
@@ -48,9 +49,8 @@ import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
 import com.odos.smartaqua.utils.ListBottomSheetFragment;
+import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
-import com.odos.smartaqua.warehouse.products.AddProductCatgActivity;
-import com.odos.smartaqua.warehouse.quantity.AddQtyCatgActivity;
 import com.odos.smartaqua.warehouse.stock.AddStockActivity;
 
 import org.json.JSONArray;
@@ -101,9 +101,10 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                     showAlert(_context);
                     break;
                 case R.id.chat:
+                    Toast.makeText(_context, "chat", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.create:
-                    showAlert3(_context);
+                    showAlert3(_context, 3);
                     break;
                 case R.id.compare:
                     showAlert4(_context);
@@ -302,72 +303,66 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
     public void jsonArrayResponse(String service, JSONArray jsonarray, int serviceno) {
 
     }
+
     private void showAlert(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_stock);
-
-        myDialog.getWindow().setGravity(Gravity.START|Gravity.BOTTOM);
-        AppCompatTextView BL_alert_head = myDialog
-                .findViewById(R.id.alertTitle);
-        AppCompatTextView BL_alert_text = myDialog
-                .findViewById(R.id.alertMessage);
-
-        BL_alert_head.setText("Title");
-        BL_alert_text.setText("sample text sample text");
-
-        myDialog.show();
-    }
-    private void showAlert3(final Context activity) {
-        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
-        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        myDialog.setContentView(R.layout.custom_alert_create);
-        myDialog.getWindow().setGravity(Gravity.BOTTOM);
-        TextView alert_head = myDialog
-                .findViewById(R.id.alertTitle);
-        ArrayList<String> arrayList = new ArrayList<>(
-                Arrays.asList("Add Tank", "Create Culture", "Add Brand", "Quantity Category",
-                        "Product Category", "Create Product","Create Stock", "Create Feed",
-                        "Add Checktray", "Checktray Observation", "Lab Observation", "Growth Observation"));
-
+        myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+        ArrayList<String> arrayList;
+        myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+        arrayList = new ArrayList<>(Arrays.asList("Add Brand", "Add Product", "Add Invoice", "Add Stock", "Stock Information", "Bills", "Expends"));
         RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new ListAdapter(_context, arrayList));
-
+        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 1));
         myDialog.show();
     }
+
+    private void showAlert3(final Context activity, int flag) {
+        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(R.layout.custom_alert_create);
+
+        ArrayList<String> arrayList;
+        myDialog.getWindow().setGravity(Gravity.BOTTOM);
+        arrayList = new ArrayList<>(Arrays.asList("Add Tank / Pond", "Add Culture", "Add Access", "Add Feed", "Add CheckTray", "Add Treatments"));
+        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 3));
+        myDialog.show();
+    }
+
     private void showAlert4(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_compare);
-
         myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
-        AppCompatTextView BL_alert_head = myDialog
-                .findViewById(R.id.alertTitle);
-        AppCompatTextView BL_alert_text = myDialog
-                .findViewById(R.id.alertMessage);
-
-        BL_alert_head.setText("Title");
-        BL_alert_text.setText("sample text sample text");
-
+        ArrayList<String> arrayList;
+        arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Lab report", "Growth Report", "Expenditures"));
+        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 4));
         myDialog.show();
     }
+
     private void showAlert5(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_more);
-
         myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
-        AppCompatTextView BL_alert_head = myDialog
-                .findViewById(R.id.alertTitle);
-        AppCompatTextView BL_alert_text = myDialog
-                .findViewById(R.id.alertMessage);
-
-        BL_alert_head.setText("Title");
-        BL_alert_text.setText("sample text sample text");
-
+        ArrayList<String> arrayList;
+        arrayList = new ArrayList<>(Arrays.asList("Feed Observation", "CheckTray Observation", "Growth Observation", "Lab Observation", "Add Expends"));
+        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 5));
         myDialog.show();
     }
 
@@ -375,18 +370,21 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         ArrayList<String> data;
         private LayoutInflater layoutInflater;
         private Context _context;
+        private int _flag;
 
         public static class MyViewHolder extends RecyclerView.ViewHolder {
             public TextView textView;
+
             public MyViewHolder(View itemView) {
                 super(itemView);
                 this.textView = (TextView) itemView.findViewById(R.id.txtView);
             }
         }
 
-        public ListAdapter(Context context, ArrayList<String> arrayList) {
+        public ListAdapter(Context context, ArrayList<String> arrayList, int flag) {
             this.data = arrayList;
             this._context = context;
+            this._flag = flag;
         }
 
         @NonNull
@@ -396,51 +394,96 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                 layoutInflater = LayoutInflater.from(parent.getContext());
             }
             View layout = layoutInflater.inflate(R.layout.list_item_create, parent, false);
-
             return new MyViewHolder(layout);
         }
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-            holder.textView.setText(""+data.get(position));
+            holder.textView.setText("" + data.get(position));
             holder.textView.setOnClickListener(v -> {
-                switch (position) {
-                    case 0:
-                        AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
-                        break;
-                    case 1:
-                        AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 2:
-                        AquaConstants.putIntent(_context, AddBrandActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 3:
-                        AquaConstants.putIntent(_context, AddQtyCatgActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 4:
-                        AquaConstants.putIntent(_context, AddProductCatgActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 5:
-                        AquaConstants.putIntent(_context, AddProductActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 6:
-                        AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 7:
-                        AquaConstants.putIntent(_context, TankViewPagerActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 8:
-                        AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 9:
-                        AquaConstants.putIntent(_context, ChecktrayObservationActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 10:
-                        AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 11:
-                        AquaConstants.putIntent(_context, GrowthObservationActivity.class, AquaConstants.HOLD, null);
-                        break;
+                if (_flag == 1) {
+                    switch (position) {
+                        case 0:
+                            AquaConstants.putIntent(_context, AddBrandActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 1:
+                            AquaConstants.putIntent(_context, AddProductActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 2:
+                            AquaConstants.putIntent(_context, AddInvoiceActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 3:
+                            AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 4:
+                            // AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 5:
+                            // AquaConstants.putIntent(_context, AddInvoiceActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 6:
+                            Toast.makeText(_context, "expenditure", Toast.LENGTH_SHORT).show();
+                            break;
+
+                    }
+                } else if (_flag == 3) {
+                    switch (position) {
+                        case 0:
+                            AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                            break;
+                        case 1:
+                            AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 2:
+                            Toast.makeText(_context, "provide culture access", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 3:
+                            AquaConstants.putIntent(_context, AddFeedActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 4:
+                            AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 5:
+                            Toast.makeText(_context, "add treatment", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+
+                } else if (_flag == 4) {
+                    switch (position) {
+                        case 0:
+                            Toast.makeText(_context, "Feed report", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 1:
+                            Toast.makeText(_context, "CheckTray report", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 2:
+                            Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 3:
+                            Toast.makeText(_context, "Growth report", Toast.LENGTH_SHORT).show();
+                            break;
+                        case 4:
+                            Toast.makeText(_context, "Expends report", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                } else if (_flag == 5) {
+                    switch (position) {
+                        case 0:
+                            AquaConstants.putIntent(_context, FeedObservationActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                            break;
+                        case 1:
+                            AquaConstants.putIntent(_context, ChecktrayObservationActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 2:
+                            AquaConstants.putIntent(_context, GrowthObservationActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 3:
+                            AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
+                            break;
+                        case 4:
+                            Toast.makeText(_context, "expends", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
                 }
             });
         }

@@ -170,6 +170,7 @@
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
 
+
         <activity
             android:name=".feed.TankViewPagerActivity"
             android:screenOrientation="locked"
