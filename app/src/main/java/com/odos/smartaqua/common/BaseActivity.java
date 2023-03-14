@@ -134,7 +134,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public void addDrawerItems() {
         if (Helper.getUsrtType(BaseActivity.this) != null) {
-            if (Helper.getUsrtType(BaseActivity.this).equalsIgnoreCase("F")) {
+            if (Helper.getUsrtType(BaseActivity.this).equalsIgnoreCase("ADMIN")) {
                 String[] from;
                 from = new String[]{"Add Tank", "Create Culture", "Add Brand", "Quantity Category",
                         "Product Category", "Create Product","Create Stock", "Create Feed",
