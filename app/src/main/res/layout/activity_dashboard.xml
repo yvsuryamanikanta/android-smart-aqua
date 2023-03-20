@@ -73,8 +73,50 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="0.56"
                 android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/slidingTabs"
+                        style="@style/MyCustomTabLayout"
+                        custom:tabMode="scrollable"
+                        android:layout_width="0dp"
+                        android:background="@color/colorAccent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        custom:layout_constraintEnd_toEndOf="parent"
+                        custom:layout_constraintStart_toStartOf="parent"
+                        custom:layout_constraintTop_toTopOf="parent"
+                        custom:tabGravity="fill"
+                        custom:tabSelectedTextColor="@color/white"
+                        custom:tabTextColor="@color/white"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/lightgray"
+                        custom:layout_constraintEnd_toEndOf="parent"
+                        custom:layout_constraintStart_toStartOf="parent"
+                        custom:layout_constraintTop_toBottomOf="@+id/slidingTabs" />
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        custom:layout_constraintBottom_toBottomOf="parent"
+                        custom:layout_constraintEnd_toEndOf="parent"
+                        custom:layout_constraintStart_toStartOf="parent"
+                        custom:layout_constraintTop_toBottomOf="@+id/view" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/ll_calender"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

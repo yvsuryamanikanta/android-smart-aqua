@@ -125,7 +125,7 @@
         <entry key="app/src/main/res/layout/activity_checktray_info.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_checktray_observation.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_checktray_report_viewpager.xml" value="0.10260416666666666" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_dashboard_viewpager.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_feed_info.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_feed_list_viewpager.xml" value="0.10260416666666666" />
@@ -164,6 +164,7 @@
         <entry key="app/src/main/res/layout/dialog_showmsg.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/fragment_add_feed.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.11597374179431072" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_list_feed.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/fragment_list_traetment.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_checktray.xml" value="0.23802083333333332" />
