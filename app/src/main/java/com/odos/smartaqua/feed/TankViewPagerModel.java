@@ -1,10 +1,7 @@
 package com.odos.smartaqua.feed;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.widget.AdapterView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BaseObservable;
@@ -16,17 +13,12 @@ import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.cultures.CultureModel;
-import com.odos.smartaqua.dashboard.DashBoardViewPagerAdapter;
 import com.odos.smartaqua.databinding.ActivityBaseBinding;
-import com.odos.smartaqua.databinding.ActivityDashboardViewpagerBinding;
 import com.odos.smartaqua.databinding.ActivityTankViewpagerBinding;
-import com.odos.smartaqua.prelogin.sighnup.UserRoles;
-import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.Helper;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;

@@ -229,7 +229,6 @@
                         android:padding="@dimen/_5sdp">
 
                         <Spinner
-                            android:entries="@array/counts"
                             android:id="@+id/spin_color_list"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

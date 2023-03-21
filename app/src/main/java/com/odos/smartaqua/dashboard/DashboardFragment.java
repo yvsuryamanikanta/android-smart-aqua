@@ -16,13 +16,16 @@ import com.odos.smartaqua.databinding.FragmentDashboardBinding;
 public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding _binding;
     private int pos;
+    private String tankId,cultureId,tankName;
     private DashboardFragmentViewModel chatFragmentViewModel;
 
-    public static Fragment newInstance(int position) {
+    public static Fragment newInstance(int position,String tankId,String cultureId,String tankName) {
         DashboardFragment chatFragment = new DashboardFragment();
         Bundle bundle_data = new Bundle();
         bundle_data.putInt("pos", position);
-//        bundle_data.putString("", "");
+        bundle_data.putString("tankId", tankId);
+        bundle_data.putString("cultureId", cultureId);
+        bundle_data.putString("tankName", tankName);
         chatFragment.setArguments(bundle_data);
         return chatFragment;
     }
@@ -31,7 +34,10 @@ public class DashboardFragment extends Fragment {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, container, false);
         if (getArguments() != null) {
             pos = getArguments().getInt("pos");
-            chatFragmentViewModel = new DashboardFragmentViewModel(pos, getActivity(), _binding);
+            tankId = getArguments().getString("tankId");
+            cultureId = getArguments().getString("cultureId");
+            tankName = getArguments().getString("tankName");
+            chatFragmentViewModel = new DashboardFragmentViewModel(pos, getActivity(), _binding,tankId,cultureId,tankName);
             _binding.setViewModel(chatFragmentViewModel);
             _binding.executePendingBindings();
         }

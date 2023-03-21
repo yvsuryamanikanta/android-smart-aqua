@@ -12,17 +12,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/md_white_1000"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/md_white_1000" />
+            android:background="@color/white" />
 
         <LinearLayout
-            android:background="@color/md_white_1000"
+            android:background="@color/white"
             android:id="@+id/layoutDots"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"

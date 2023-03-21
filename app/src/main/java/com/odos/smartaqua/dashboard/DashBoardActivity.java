@@ -1,20 +1,13 @@
 package com.odos.smartaqua.dashboard;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.material.tabs.TabLayoutMediator;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.chat.ChatFragment;
 import com.odos.smartaqua.chat.ViewPagerFragmentAdapter;
 import com.odos.smartaqua.common.BaseActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
@@ -43,9 +36,6 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         setToolBarIconClick(1);
         setToolBarIcon(1);
         _activityDashboardBinding.bottomNavigation.setBackground(null);
-
-        Log.e("###### -- Userid", " "+Helper.getUserID(DashBoardActivity.this) );
-        initData();
     }
 
     @Override
@@ -74,53 +64,4 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         }
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        dashBoardViewModel.loadCultures();
-    }
-    public void initData() {
-        myAdapter = new ViewPagerFragmentAdapter(getSupportFragmentManager(), getLifecycle());
-        myAdapter.addFragment(DashboardFragment.newInstance(0));
-        myAdapter.addFragment(DashboardFragment.newInstance(1));
-        myAdapter.addFragment(DashboardFragment.newInstance(2));
-        // set Orientation in your ViewPager2
-        _activityDashboardBinding.viewpager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-        _activityDashboardBinding.viewpager.setAdapter(myAdapter);
-//        _activityDashboardBinding.viewpager.setPageTransformer(new MarginPageTransformer(1500));
-        _activityDashboardBinding.viewpager.setOffscreenPageLimit(1);
-        _activityDashboardBinding.viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
-            }
-        });
-
-//        new TabLayoutMediator(_activityDashboardBinding.slidingTabs, _activityDashboardBinding.viewpager, (tab, position) -> {
-//            switch (position) {
-//                case 0:
-//                    tab.setText("Chat");
-//                    break;
-//                case 1:
-//                    tab.setText("Report");
-//                    break;
-//                case 2:
-//                    tab.setText("Details");
-//                    break;
-//            }
-//        }).attach();
-
-    }
-
 }

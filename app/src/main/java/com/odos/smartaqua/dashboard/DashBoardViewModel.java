@@ -18,8 +18,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BaseObservable;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,12 +29,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
+import com.google.android.material.tabs.TabLayout;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.chat.ChatListActivity;
+import com.odos.smartaqua.chat.ViewPagerFragmentAdapter;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayInfoActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
@@ -71,8 +75,6 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
 
     private Context _context;
     private ActivityDashboardBinding _activityDashboardBinding;
-    private String[] titles;
-    private int[] icons;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<UserRoles> userRolesArrayList;
     private String tankId, tankName;
@@ -93,6 +95,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         });
         getSliderImages(_context);
         bottomNavigationMenu();
+        loadCultures();
     }
 
     private void bottomNavigationMenu() {
@@ -140,7 +143,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                    (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+                    (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
 
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
@@ -166,46 +169,18 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
-                                userRolesArrayList = new ArrayList<>();
-                                UserRoles userRoles1 = new UserRoles(0, "00", "Select your Tank", true);
-                                userRolesArrayList.add(userRoles1);
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    try {
-                                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                        int roleID = jsonObject1.getInt("tankid");
-                                        String cultureid = jsonObject1.getString("cultureid");
-                                        String tankname = jsonObject1.getString("tankname");
-                                        String cultureimage = jsonObject1.getString("cultureimage");
-                                        UserRoles userRoles = new UserRoles(roleID, cultureid, tankname, true);
-                                        userRolesArrayList.add(userRoles);
-                                    } catch (Exception e) {
-                                        Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
-                                    }
+                                if (jsonArray.length() < 4) {
+                                    _activityDashboardBinding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+                                } else {
+                                    _activityDashboardBinding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
                                 }
-                                UserRolesAdapter userRolesAdapter = new UserRolesAdapter(_context, userRolesArrayList);
-                                _activityDashboardBinding.spinTanks.setAdapter(userRolesAdapter);
-                                _activityDashboardBinding.spinTanks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                    @Override
-                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                        UserRoles userRoles = (UserRoles) userRolesArrayList.get(position);
-                                        tankId = String.valueOf(userRoles.getRoleID());
-                                        tankName = userRoles.getRoleName();
-                                        tankPosition = position;
-                                        Long cultureId = Long.parseLong(userRoles.getRoleCode());
-                                        if (userRoles.getRoleID() == 0) {
-                                            CalendarView calendarView = new CalendarView(_context);
-                                            _activityDashboardBinding.llCalender.addView(calendarView);
-                                        } else {
-                                            VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                                                    ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
-                                                    (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onNothingSelected(AdapterView<?> parent) {
-                                    }
-                                });
+                                DashBoardViewPagerAdapter daDashBoardViewPagerAdapter = new DashBoardViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
+                                        FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, jsonArray);
+                                _activityDashboardBinding.pager.setAdapter(daDashBoardViewPagerAdapter);
+                                _activityDashboardBinding.tabLayout.setupWithViewPager(_activityDashboardBinding.pager, true);
+                                _activityDashboardBinding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_activityDashboardBinding.tabLayout));
+                                _activityDashboardBinding.pager.setCurrentItem(0);
+                                _activityDashboardBinding.pager.setOffscreenPageLimit(jsonArray.length());
                             } else {
                                 Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
                                 AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
@@ -224,9 +199,9 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
             case 2:
                 try {
                     events = new ArrayList<>();
-                    _activityDashboardBinding.llCalender.removeAllViews();
+                 //   _activityDashboardBinding.llCalender.removeAllViews();
                     CalendarView calendarView = new CalendarView(_context);
-                    _activityDashboardBinding.llCalender.addView(calendarView);
+               //     _activityDashboardBinding.llCalender.addView(calendarView);
                     String status = jsonObject.getString("status");
                     String response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {

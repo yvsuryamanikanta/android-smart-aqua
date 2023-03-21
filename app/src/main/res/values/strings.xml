@@ -234,15 +234,6 @@
         <item>Percentage</item>
     </string-array>
 
-
-    <string-array name="counts">
-        <item>All c</item>
-        <item>50 c</item>
-        <item>60 c</item>
-        <item>100 c</item>
-
-    </string-array>
-
     <array name="array_dot_active">
         <item>@color/black</item>
         <item>@color/black</item>
@@ -256,16 +247,4 @@
         <item>@color/red</item>
         <item>@color/red</item>
     </array>
-    <string-array name="numbers">
-        <item>1 Tray</item>
-        <item>2 Trays</item>
-        <item>3 Trays</item>
-        <item>4 Trays</item>
-        <item>5 Trays</item>
-        <item>6 Trays</item>
-        <item>7 Trays</item>
-        <item>8 Trays</item>
-        <item>9 Trays</item>
-    </string-array>
-
 </resources>

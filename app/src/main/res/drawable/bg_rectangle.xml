@@ -8,5 +8,5 @@
     <corners
         android:radius="3dp"/>
 
-    <solid android:color="@color/calendar_blue"/>
+    <solid android:color="@color/colorPrimary"/>
 </shape>

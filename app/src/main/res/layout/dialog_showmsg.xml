@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/md_white_1000"
+    android:background="@color/white"
     app:cardCornerRadius="@dimen/_5sdp"
     app:cardPreventCornerOverlap="false"
     app:contentPadding="0dp">
@@ -12,13 +12,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_white_1000"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/md_white_1000"
+            android:background="@color/white"
             android:orientation="horizontal">
 
             <ImageView
@@ -52,7 +52,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/md_white_1000"
+            android:background="@color/white"
             android:orientation="vertical">
 
 
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_weight="0.5"
-                android:background="@color/md_white_1000"
+                android:background="@color/white"
                 android:gravity="end"
                 android:padding="@dimen/_10sdp" />
 
@@ -95,7 +95,7 @@
                 android:gravity="center"
                 android:text="@string/action_cancel"
                 android:textAllCaps="true"
-                android:textColor="@color/md_red_A700"
+                android:textColor="@color/red"
                 android:visibility="invisible" />
 
 
@@ -109,7 +109,7 @@
                 android:gravity="center"
                 android:text="@string/ok"
                 android:textAllCaps="true"
-                android:textColor="@color/md_red_A700" />
+                android:textColor="@color/red" />
 
         </LinearLayout>
 

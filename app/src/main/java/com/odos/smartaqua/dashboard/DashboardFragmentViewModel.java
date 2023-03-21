@@ -51,20 +51,24 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
     private int[] icons;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<UserRoles> userRolesArrayList;
-    private String tankId, tankName;
-    private int tankPosition, _position;
+    private String tankId, cultureId, tankName;
+    private int tankPosition;
     private List<EventDay> events;
 
-    public DashboardFragmentViewModel(int position,Context context, FragmentDashboardBinding activityDashboardBinding) {
+    public DashboardFragmentViewModel(int position, Context context, FragmentDashboardBinding activityDashboardBinding, String tId, String cId, String tName) {
         this._context = context;
-        this._position = position;
+        this.tankPosition = position;
+        this.tankId = tId;
+        this.cultureId = cId;
+        this.tankName = tName;
         this._fragmentBinding = activityDashboardBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
     }
+
     public void loadCultures() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
+                    ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
                     (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
 
         } else {
@@ -84,88 +88,14 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
         switch (serviceno) {
             case 1:
                 try {
-                    String status = jsonObject.getString("status");
-                    String statusCode = jsonObject.getString("statusCode");
-                    String response = jsonObject.getString("response");
-                    if (status.equalsIgnoreCase("Sucess")) {
-                        if (!response.equalsIgnoreCase("null")) {
-                            JSONArray jsonArray = new JSONArray(response);
-                            if (jsonArray.length() != 0) {
-                                userRolesArrayList = new ArrayList<>();
-                                UserRoles userRoles1 = new UserRoles(0, "00", "Select your Tank", true);
-                                userRolesArrayList.add(userRoles1);
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    try {
-                                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                        int roleID = jsonObject1.getInt("tankid");
-                                        String cultureid = jsonObject1.getString("cultureid");
-                                        String tankname = jsonObject1.getString("tankname");
-                                        String cultureimage = jsonObject1.getString("cultureimage");
-                                        UserRoles userRoles = new UserRoles(roleID, cultureid, tankname, true);
-                                        userRolesArrayList.add(userRoles);
-                                    } catch (Exception e) {
-                                        Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
-                                    }
-                                }
-
-                                UserRoles userRoles = (UserRoles) userRolesArrayList.get(_position);
-                                tankId = String.valueOf(userRoles.getRoleID());
-                                tankName = userRoles.getRoleName();
-                                tankPosition = _position;
-
-                                Long cultureId = Long.parseLong(userRoles.getRoleCode());
-                                if (userRoles.getRoleID() == _position) {
-                                    CalendarView calendarView = new CalendarView(_context);
-                                    _fragmentBinding.llCalender.addView(calendarView);
-                                } else {
-                                    VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                                            ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
-                                            (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
-                                }
-//                                UserRolesAdapter userRolesAdapter = new UserRolesAdapter(_context, userRolesArrayList);
-//                                _fragmentBinding.spinTanks.setAdapter(userRolesAdapter);
-//                                _fragmentBinding.spinTanks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                                    @Override
-//                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                                        UserRoles userRoles = (UserRoles) userRolesArrayList.get(position);
-//                                        tankId = String.valueOf(userRoles.getRoleID());
-//                                        tankName = userRoles.getRoleName();
-//                                        tankPosition = position;
-//                                        Long cultureId = Long.parseLong(userRoles.getRoleCode());
-//                                        if (userRoles.getRoleID() == 0) {
-//                                            CalendarView calendarView = new CalendarView(_context);
-//                                            _fragmentBinding.llCalender.addView(calendarView);
-//                                        } else {
-//                                            VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-//                                                    ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
-//                                                    (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
-//                                        }
-//                                    }
-//
-//                                    @Override
-//                                    public void onNothingSelected(AdapterView<?> parent) {
-//                                    }
-//                                });
-                            } else {
-                                Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
-                                AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
-                            }
-                        } else {
-                            Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
-                        }
-                    } else {
-                        Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
-                        AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
-                    }
-                } catch (Exception e) {
-                    Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
-                }
-                break;
-            case 2:
-                try {
                     events = new ArrayList<>();
                     _fragmentBinding.llCalender.removeAllViews();
                     CalendarView calendarView = new CalendarView(_context);
+                    calendarView.setSwipeEnabled(true);
+                    calendarView.setHeaderColor(R.color.colorPrimary);
+                    calendarView.setHeaderLabelColor(R.color.white);
+                    calendarView.setAbbreviationsBarVisibility(View.VISIBLE);
+                    calendarView.setCalendarDayLayout(R.layout.custom_view_calender);
                     _fragmentBinding.llCalender.addView(calendarView);
                     String status = jsonObject.getString("status");
                     String response = jsonObject.getString("response");
@@ -204,13 +134,8 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
                                 } else {
                                     events.add(new EventDay(calendar, R.mipmap.obsvicon));
                                 }
-
                             }
                             calendarView.setEvents(events);
-                            calendarView.setHeaderLabelColor(R.color.white);
-                            calendarView.setSwipeEnabled(true);
-                            calendarView.setAbbreviationsBarVisibility(View.VISIBLE);
-                            calendarView.setCalendarDayLayout(R.layout.custom_view_calender);
                             calendarView.setOnDayClickListener(new OnDayClickListener() {
                                 @Override
                                 public void onDayClick(@NonNull EventDay eventDay) {

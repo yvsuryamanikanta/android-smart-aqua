@@ -164,12 +164,6 @@
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
 
-        <activity
-            android:name=".dashboard.DashBoardViewPagerActivity"
-            android:screenOrientation="locked"
-            android:theme="@style/AppTheme.Dark"
-            android:windowSoftInputMode="stateHidden" />
-
 
         <activity
             android:name=".feed.TankViewPagerActivity"

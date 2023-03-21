@@ -7,47 +7,49 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 public class DashBoardViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String[] _titles;
+    private JSONArray jsonArray;
     private Context _context;
 
-    public DashBoardViewPagerAdapter(Context context, FragmentManager fm, int behavior, String[] titles) {
+    public DashBoardViewPagerAdapter(Context context, FragmentManager fm, int behavior, JSONArray response) {
         super(fm, behavior);
         this._context = context;
-        this._titles = titles;
+        this.jsonArray = response;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        /*if (_titles[position].equalsIgnoreCase("Culture")) {
-            return PondFragment.newInstance("tank");
-        } else if (_titles[position].equalsIgnoreCase("Ware House")) {
-            return WareHouseFragment.newInstance();
-        } else if (_titles[position].equalsIgnoreCase("Market Rates")) {
-            return MarketRatesFragment.newInstance();
-        } else if (_titles[position].equalsIgnoreCase("Classifieds")) {
-            return ClassifiedsFragment.newInstance();
-        } else if (_titles[position].equalsIgnoreCase("Final Reports")) {
-            return PondFragment.newInstance("reports");
-        } else if (_titles[position].equalsIgnoreCase("Cultures")) {
-            return CultureFragment.newInstance();
-        } else {
+        try {
+            JSONObject jsonObject = jsonArray.getJSONObject(position);
+            String tankId = jsonObject.getString("tankid");
+            String cultureId = jsonObject.getString("cultureid");
+            String tankName = jsonObject.getString("tankname");
+            String cultureimage = jsonObject.getString("cultureimage");
+            return DashboardFragment.newInstance(position, tankId, cultureId, tankName);
+        } catch (Exception e) {
             return null;
-        }*/
-        return null;
+        }
     }
 
     @Override
     public int getCount() {
-        return _titles.length;
+        return jsonArray.length();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return _titles[position];
+        try {
+            JSONObject jsonObject = jsonArray.getJSONObject(position);
+            return jsonObject.getString("tankname");
+        } catch (Exception e) {
+            return "No Title";
+        }
+
     }
 }
