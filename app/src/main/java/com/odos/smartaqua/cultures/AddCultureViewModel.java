@@ -70,10 +70,8 @@ public class AddCultureViewModel extends BaseObservable implements ServiceAsyncR
     public void onSaveClick(View v) {
         String culture_name = _activityAddcultureBinding.edtPondName.getText().toString();
         if (tankId == 777 || culture_name.equalsIgnoreCase("")) {
-            Toast.makeText(_context, "Name and Crop Number Required", Toast.LENGTH_SHORT).show();
-        }else if (filePath.equalsIgnoreCase("")) {
-            Toast.makeText(_context, "Pls Upload Image first", Toast.LENGTH_SHORT).show();
-        }  else {
+            Toast.makeText(_context, "Pond & Name Required", Toast.LENGTH_SHORT).show();
+        } else {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("userid", Helper.getUserID(_context));
             hashMap.put("tankid", tankId);

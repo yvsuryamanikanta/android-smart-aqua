@@ -41,7 +41,7 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
     private Context _context;
     private ActivityAddFeedBinding _activityAddFeedBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
-    private String[] values;
+    private String[] responseData,values;
     private ArrayList<ProductTypes> qtyTypesArrayList;
     private JSONArray products_jsonArray, suppliment_jsonArray;
     private JSONObject jsonObject, suppliment_jsonObject;
@@ -54,6 +54,7 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
         this._context = context;
         this._activityAddFeedBinding = activityAddFeedBinding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
+        values = ((Activity)_context).getIntent().getStringArrayExtra("values");
         products_jsonArray = new JSONArray();
         suppliment_jsonArray = new JSONArray();
         if (CheckNetwork.isNetworkAvailable(_context)) {
@@ -71,14 +72,14 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
 
     public void getProducts(View view) {
         Intent i = new Intent(_context, SearchProductActivity.class);
-        i.putExtra("values", values);
+        i.putExtra("values", responseData);
         i.putExtra("flag", "1");
         ((Activity) _context).startActivityForResult(i, 1);
     }
 
     public void getSuppliments(View view) {
         Intent i = new Intent(_context, SearchProductActivity.class);
-        i.putExtra("values", values);
+        i.putExtra("values", responseData);
         i.putExtra("flag", "2");
         ((Activity) _context).startActivityForResult(i, 2);
     }
@@ -197,8 +198,8 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
                 postParams.put("feedProducts", products_jsonArray);
                 postParams.put("suppliments", suppliment_jsonArray);
                 postParams.put("userID", Helper.getUserID(_context));
-                postParams.put("cultureid", ((Activity) _context).getIntent().getStringExtra("cultureid"));
-                postParams.put("access", ((Activity) _context).getIntent().getStringExtra("cultureaccess"));
+                postParams.put("cultureid", values[1]);
+                postParams.put("access", values[3]);
                 postParams.put("feeddate", _activityAddFeedBinding.txtTimeDate.getText().toString());
                 postParams.put("comment", _activityAddFeedBinding.edtCommentsFeed.getText().toString());
                 Log.e("data--==",""+new JSONObject(postParams));
@@ -404,7 +405,7 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
                     String status = jsonobject.getString("status");
                     String response = jsonobject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        values = new String[]{response};
+                        responseData = new String[]{response};
                     } else {
                         Helper.showMessage(_context, "" + status, AquaConstants.FINISH);
                     }
@@ -415,24 +416,11 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
                 break;
 
             case 3:
-                Log.e("data--==",""+jsonobject);
                 try {
-                    String statusCode = jsonobject.getString("statusCode");
                     String status = jsonobject.getString("status");
                     String response = jsonobject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        JSONObject jsonObject = new JSONObject(response);
-                        int feedgroupid = jsonObject.getInt("feedgroupid");
-                        int userID = jsonObject.getInt("userID");
-                        String groupname = jsonObject.getString("groupname");
-                        String feeddate = jsonObject.getString("feeddate");
-                        String comment = jsonObject.getString("comment");
-                        String[] passingdata = {"" + feedgroupid, Helper.getUserID(_context), groupname,
-                                "" + products_jsonArray, "" + suppliment_jsonArray,feeddate,comment};
-                        Intent intent = new Intent();
-                        intent.putExtra("searchedvalues", passingdata);
-                        ((Activity) _context).setResult(Activity.RESULT_OK, intent);
-                        ((Activity) _context).finish();
+                        Helper.showMessage(_context,"Feed Created",AquaConstants.HOLD);
                     } else {
                         Helper.showMessage(_context, "" + status, AquaConstants.HOLD);
                     }

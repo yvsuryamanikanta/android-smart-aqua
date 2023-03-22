@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.odos.smartaqua.tank.AddPondViewModel" />
+            type="com.odos.smartaqua.tank.PondPreparationViewModel" />
     </data>
 
     <ScrollView
@@ -31,7 +31,7 @@
                 android:layout_gravity="center|start"
                 android:layout_margin="@dimen/_5sdp"
                 android:gravity="center"
-                android:text="Register Your Tank/Pond"
+                android:text="Pond Preparation"
                 android:textColor="@color/red" />
 
             <LinearLayout
@@ -53,7 +53,7 @@
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
                     android:gravity="center|start"
-                    android:text="Pond Name"
+                    android:text="Select Your Pond"
                     android:textColor="@color/txtColor" />
 
                 <EditText

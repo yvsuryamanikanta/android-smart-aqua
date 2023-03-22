@@ -21,15 +21,16 @@ public class ListBottomSheetFragment extends BottomSheetDialogFragment
         implements View.OnClickListener {
 
     private ItemClickListener mListener;
-    private String flag,selectedDate,tankId;
+    private String flag,selectedDate,tankId,cultureResponse;
     private int position;
-    public static ListBottomSheetFragment newInstance(String flag,String date,String tankId,int pos) {
+    public static ListBottomSheetFragment newInstance(String flag,String date,String tankId,int pos,String cultureResponse) {
         ListBottomSheetFragment listBottomSheetFragment = new ListBottomSheetFragment();
         Bundle bundle_data = new Bundle();
         bundle_data.putString("flag", flag);
         bundle_data.putString("selectedDate", date);
         bundle_data.putString("tankId", tankId);
         bundle_data.putInt("pos", pos);
+        bundle_data.putString("cultureResponse", cultureResponse);
         listBottomSheetFragment.setArguments(bundle_data);
         return listBottomSheetFragment;
     }
@@ -48,6 +49,7 @@ public class ListBottomSheetFragment extends BottomSheetDialogFragment
             flag = getArguments().getString("flag");
             selectedDate = getArguments().getString("selectedDate");
             tankId = getArguments().getString("tankId");
+            cultureResponse = getArguments().getString("cultureResponse");
             position = getArguments().getInt("pos");
             if (flag.contains("FEED") && flag.contains("CHECKTRAY") && flag.contains("LAB")) {
                 view.findViewById(R.id.ll_feed).setVisibility(View.VISIBLE);
@@ -127,27 +129,27 @@ public class ListBottomSheetFragment extends BottomSheetDialogFragment
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_feed:
-                mListener.onItemClick("feed",selectedDate,tankId,position);
+                mListener.onItemClick("feed",selectedDate,tankId,position,cultureResponse);
                 break;
 
             case R.id.ll_checktray:
-                mListener.onItemClick("checktray",selectedDate,tankId,position);
+                mListener.onItemClick("checktray",selectedDate,tankId,position,cultureResponse);
                 break;
 
             case R.id.ll_lab:
-                mListener.onItemClick("lab",selectedDate,tankId,position);
+                mListener.onItemClick("lab",selectedDate,tankId,position,cultureResponse);
                 break;
             case R.id.ll_growth:
-                mListener.onItemClick("growth",selectedDate,tankId,position);
+                mListener.onItemClick("growth",selectedDate,tankId,position,cultureResponse);
                 break;
             case R.id.ll_treatment:
-                mListener.onItemClick("treatment",selectedDate,tankId,position);
+                mListener.onItemClick("treatment",selectedDate,tankId,position,cultureResponse);
                 break;
         }
         dismiss();
     }
 
     public interface ItemClickListener {
-        void onItemClick(String item,String selectedDate,String tankId,int pos);
+        void onItemClick(String item,String selectedDate,String tankId,int pos,String cultureResponse);
     }
 }

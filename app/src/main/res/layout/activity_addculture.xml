@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start"
                 android:gravity="center|start"
-                android:text="Browse"
+                android:text="Browse (optional)"
                 android:textColor="@color/txtColor" />
 
             <LinearLayout

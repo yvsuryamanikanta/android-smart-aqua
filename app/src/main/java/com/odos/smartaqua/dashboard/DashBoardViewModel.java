@@ -1,85 +1,54 @@
 package com.odos.smartaqua.dashboard;
 
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BaseObservable;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
-import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
 import com.google.android.material.tabs.TabLayout;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.chat.ChatListActivity;
-import com.odos.smartaqua.chat.ViewPagerFragmentAdapter;
-import com.odos.smartaqua.checktray.AddChecktrayActivity;
-import com.odos.smartaqua.checktray.ChecktrayInfoActivity;
-import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
-import com.odos.smartaqua.feed.AddFeedActivity;
-import com.odos.smartaqua.feed.FeedObservationActivity;
-import com.odos.smartaqua.growth.GrowthObservationActivity;
-import com.odos.smartaqua.lab.LabObservationActivity;
-import com.odos.smartaqua.prelogin.sighnup.UserRoles;
-import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
 import com.odos.smartaqua.sliders.TextSliderView;
-import com.odos.smartaqua.tank.AddPondActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
-import com.odos.smartaqua.utils.ListBottomSheetFragment;
-import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
-import com.odos.smartaqua.warehouse.products.AddProductActivity;
-import com.odos.smartaqua.warehouse.stock.AddStockActivity;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public class DashBoardViewModel extends BaseObservable implements ServiceAsyncResponse {
 
     private Context _context;
     private ActivityDashboardBinding _activityDashboardBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
-    private ArrayList<UserRoles> userRolesArrayList;
-    private String tankId, tankName;
-    private int tankPosition;
     private List<EventDay> events;
+    private String tankId, tankName, cultureId, cultureaccess;
+    private int tankPosition;
+    private String response;
 
     public DashBoardViewModel(Context context, ActivityDashboardBinding activityDashboardBinding) {
         this._context = context;
@@ -102,19 +71,19 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.stock:
-                    showAlert(_context);
+                    loadStockMenu(_context);
                     break;
                 case R.id.chat:
                     AquaConstants.putIntent(_context, ChatListActivity.class, AquaConstants.HOLD, null);
                     break;
                 case R.id.create:
-                    showAlert3(_context, 3);
+                    loadCreateMenu(_context);
                     break;
                 case R.id.compare:
-                    showAlert4(_context);
+                    loadCompareMenu(_context);
                     break;
                 case R.id.more:
-                    showAlert5(_context);
+                    loadMoreMenu(_context);
                     break;
                 default:
             }
@@ -143,7 +112,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                    (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
+                    (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
 
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
@@ -164,7 +133,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                 try {
                     String status = jsonObject.getString("status");
                     String statusCode = jsonObject.getString("statusCode");
-                    String response = jsonObject.getString("response");
+                    response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
@@ -181,6 +150,32 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                 _activityDashboardBinding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_activityDashboardBinding.tabLayout));
                                 _activityDashboardBinding.pager.setCurrentItem(0);
                                 _activityDashboardBinding.pager.setOffscreenPageLimit(jsonArray.length());
+                                _activityDashboardBinding.tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                                    @Override
+                                    public void onTabSelected(TabLayout.Tab tab) {
+                                        int position = tab.getPosition();
+                                        try {
+                                            JSONObject jsonObject = jsonArray.getJSONObject(position);
+                                            tankId = jsonObject.getString("tankid");
+                                            tankName = jsonObject.getString("tankname");
+                                            cultureId = jsonObject.getString("cultureid");
+                                            cultureaccess = jsonObject.getString("cultureaccess");
+                                            tankPosition = position;
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onTabUnselected(TabLayout.Tab tab) {
+
+                                    }
+
+                                    @Override
+                                    public void onTabReselected(TabLayout.Tab tab) {
+
+                                    }
+                                });
                             } else {
                                 Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
                                 AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
@@ -196,83 +191,8 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                 }
                 break;
-            case 2:
-                try {
-                    events = new ArrayList<>();
-                 //   _activityDashboardBinding.llCalender.removeAllViews();
-                    CalendarView calendarView = new CalendarView(_context);
-               //     _activityDashboardBinding.llCalender.addView(calendarView);
-                    String status = jsonObject.getString("status");
-                    String response = jsonObject.getString("response");
-                    if (status.equalsIgnoreCase("Sucess")) {
-                        if (!response.equalsIgnoreCase("null")) {
-                            JSONArray jsonArray = new JSONArray(response);
-                            HashMap<String, String> hashMap = new HashMap<>();
-                            if (jsonArray.length() != 0) {
-                                for (int j = 0; j < jsonArray.length(); j++) {
-                                    JSONObject jsonObject1 = jsonArray.getJSONObject(j);
-                                    String feeddate = jsonObject1.getString("date");
-                                    String groupname = jsonObject1.getString("groupname");
-                                    hashMap.merge(feeddate, groupname, (a, b) -> a + b);
-                                }
-                            }
-                            Set<Map.Entry<String, String>> entrySet = hashMap.entrySet();
-                            for (Map.Entry<String, String> entry : entrySet) {
-                                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                                Date date = formatter.parse(entry.getKey());
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.setTime(date);
-                                if (entry.getValue().contains("FEED") && entry.getValue().contains("CHECKTRAY") && entry.getValue().contains("LAB")) {
-                                    events.add(new EventDay(calendar, R.drawable.threedots));
-                                } else if (entry.getValue().contains("FEED") && entry.getValue().contains("CHECKTRAY")) {
-                                    events.add(new EventDay(calendar, R.drawable.twodots));
-                                } else if (entry.getValue().contains("FEED") && entry.getValue().contains("LAB")) {
-                                    events.add(new EventDay(calendar, R.drawable.twodots));
-                                } else if (entry.getValue().contains("CHECKTRAY") && entry.getValue().contains("LAB")) {
-                                    events.add(new EventDay(calendar, R.drawable.twodots));
-                                } else if (entry.getValue().contains("FEED")) {
-                                    events.add(new EventDay(calendar, R.mipmap.feedicon));
-                                } else if (entry.getValue().contains("CHECKTRAY")) {
-                                    events.add(new EventDay(calendar, R.mipmap.obsvicon));
-                                } else if (entry.getValue().contains("LAB")) {
-                                    events.add(new EventDay(calendar, R.mipmap.obsvicon));
-                                } else {
-                                    events.add(new EventDay(calendar, R.mipmap.obsvicon));
-                                }
-
-                            }
-                            calendarView.setEvents(events);
-                            calendarView.setHeaderLabelColor(R.color.white);
-                            calendarView.setSwipeEnabled(true);
-                            calendarView.setAbbreviationsBarVisibility(View.VISIBLE);
-                            calendarView.setCalendarDayLayout(R.layout.custom_view_calender);
-                            calendarView.setOnDayClickListener(new OnDayClickListener() {
-                                @Override
-                                public void onDayClick(@NonNull EventDay eventDay) {
-                                    Calendar clickedDayCalendar = eventDay.getCalendar();
-                                    if (events.contains(eventDay)) {
-                                        String selectedDate = getDate(clickedDayCalendar);
-                                        ListBottomSheetFragment listBottomSheetFragment =
-                                                ListBottomSheetFragment.newInstance(hashMap.get(selectedDate), selectedDate, tankId, tankPosition);
-                                        listBottomSheetFragment.show(((FragmentActivity) _context).getSupportFragmentManager(),
-                                                "tag");
-                                    }
-                                }
-                            });
-                        }
-                    }
-                } catch (Exception e) {
-                    Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.HOLD);
-                }
-                break;
-
         }
 
-    }
-
-    private String getDate(Calendar calendar) {
-        String date = DateFormat.format("yyyy-MM-dd", calendar).toString();
-        return date;
     }
 
     @Override
@@ -280,7 +200,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
 
     }
 
-    private void showAlert(final Context activity) {
+    private void loadStockMenu(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_stock);
@@ -292,27 +212,27 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 1));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 1, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
         myDialog.show();
     }
 
-    private void showAlert3(final Context activity, int flag) {
+    private void loadCreateMenu(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_create);
 
         ArrayList<String> arrayList;
         myDialog.getWindow().setGravity(Gravity.BOTTOM);
-        arrayList = new ArrayList<>(Arrays.asList("Add Tank / Pond", "Add Culture", "Add Access", "Add Feed", "Add CheckTray", "Add Treatments"));
+        arrayList = new ArrayList<>(Arrays.asList("Add Pond", "Add Culture","Pond Preparation", "Add Access", "Add Feed", "Add CheckTray", "Add Treatments"));
         RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 3));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 3, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
         myDialog.show();
     }
 
-    private void showAlert4(final Context activity) {
+    private void loadCompareMenu(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_compare);
@@ -323,11 +243,11 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 4));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 4, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
         myDialog.show();
     }
 
-    private void showAlert5(final Context activity) {
+    private void loadMoreMenu(final Context activity) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         myDialog.setContentView(R.layout.custom_alert_more);
@@ -338,135 +258,8 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new ListAdapter(_context, arrayList, 5));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 5, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
         myDialog.show();
     }
 
-    public static class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
-        ArrayList<String> data;
-        private LayoutInflater layoutInflater;
-        private Context _context;
-        private int _flag;
-
-        public static class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView textView;
-
-            public MyViewHolder(View itemView) {
-                super(itemView);
-                this.textView = (TextView) itemView.findViewById(R.id.txtView);
-            }
-        }
-
-        public ListAdapter(Context context, ArrayList<String> arrayList, int flag) {
-            this.data = arrayList;
-            this._context = context;
-            this._flag = flag;
-        }
-
-        @NonNull
-        @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            if (layoutInflater == null) {
-                layoutInflater = LayoutInflater.from(parent.getContext());
-            }
-            View layout = layoutInflater.inflate(R.layout.list_item_create, parent, false);
-            return new MyViewHolder(layout);
-        }
-
-        @Override
-        public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-            holder.textView.setText("" + data.get(position));
-            holder.textView.setOnClickListener(v -> {
-                if (_flag == 1) {
-                    switch (position) {
-                        case 0:
-                            AquaConstants.putIntent(_context, AddBrandActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 1:
-                            AquaConstants.putIntent(_context, AddProductActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 2:
-                            AquaConstants.putIntent(_context, AddInvoiceActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 3:
-                            AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 4:
-                            // AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 5:
-                            // AquaConstants.putIntent(_context, AddInvoiceActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 6:
-                            Toast.makeText(_context, "expenditure", Toast.LENGTH_SHORT).show();
-                            break;
-
-                    }
-                } else if (_flag == 3) {
-                    switch (position) {
-                        case 0:
-                            AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
-                            break;
-                        case 1:
-                            AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 2:
-                            Toast.makeText(_context, "provide culture access", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 3:
-                            AquaConstants.putIntent(_context, AddFeedActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 4:
-                            AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 5:
-                            Toast.makeText(_context, "add treatment", Toast.LENGTH_SHORT).show();
-                            break;
-                    }
-
-                } else if (_flag == 4) {
-                    switch (position) {
-                        case 0:
-                            Toast.makeText(_context, "Feed report", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 1:
-                            Toast.makeText(_context, "CheckTray report", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 2:
-                            Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 3:
-                            Toast.makeText(_context, "Growth report", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 4:
-                            Toast.makeText(_context, "Expends report", Toast.LENGTH_SHORT).show();
-                            break;
-                    }
-                } else if (_flag == 5) {
-                    switch (position) {
-                        case 0:
-                            AquaConstants.putIntent(_context, FeedObservationActivity.class, AquaConstants.HOLD, new String[]{"1"});
-                            break;
-                        case 1:
-                            AquaConstants.putIntent(_context, ChecktrayObservationActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 2:
-                            AquaConstants.putIntent(_context, GrowthObservationActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 3:
-                            AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
-                            break;
-                        case 4:
-                            Toast.makeText(_context, "expends", Toast.LENGTH_SHORT).show();
-                            break;
-                    }
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return data.size();
-        }
-    }
 }

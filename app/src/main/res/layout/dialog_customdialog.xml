@@ -8,7 +8,7 @@
     android:gravity="center">
 
     <pl.droidsonroids.gif.GifImageView
-        android:src="@drawable/loadergif"
+        android:src="@drawable/loader"
         android:id="@+id/progressBar"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"

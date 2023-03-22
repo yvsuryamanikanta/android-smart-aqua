@@ -31,7 +31,7 @@ public class DashBoardViewPagerAdapter extends FragmentStatePagerAdapter {
             String cultureId = jsonObject.getString("cultureid");
             String tankName = jsonObject.getString("tankname");
             String cultureimage = jsonObject.getString("cultureimage");
-            return DashboardFragment.newInstance(position, tankId, cultureId, tankName);
+            return DashboardFragment.newInstance(position, tankId, cultureId, tankName,""+jsonArray);
         } catch (Exception e) {
             return null;
         }

@@ -3,10 +3,7 @@ package com.odos.smartaqua.dashboard;
 import android.content.Context;
 import android.os.Build;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -16,16 +13,12 @@ import androidx.fragment.app.FragmentActivity;
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
-import com.google.android.material.tabs.TabLayoutMediator;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.cultures.AddCultureActivity;
-import com.odos.smartaqua.databinding.ActivityDashboardBinding;
 import com.odos.smartaqua.databinding.FragmentDashboardBinding;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
-import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
@@ -51,25 +44,38 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
     private int[] icons;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<UserRoles> userRolesArrayList;
-    private String tankId, cultureId, tankName;
+    private String tankId, cultureId, tankName, cultureResponse;
     private int tankPosition;
     private List<EventDay> events;
+    private CalendarView calendarView;
 
-    public DashboardFragmentViewModel(int position, Context context, FragmentDashboardBinding activityDashboardBinding, String tId, String cId, String tName) {
+    public DashboardFragmentViewModel(int position, Context context, FragmentDashboardBinding activityDashboardBinding, String tId, String cId, String tName, String response) {
         this._context = context;
         this.tankPosition = position;
         this.tankId = tId;
         this.cultureId = cId;
         this.tankName = tName;
+        this.cultureResponse = response;
         this._fragmentBinding = activityDashboardBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
+        initCalender();
     }
 
-    public void loadCultures() {
+    private void initCalender() {
+        calendarView = new CalendarView(_context);
+        calendarView.setSwipeEnabled(true);
+        calendarView.setHeaderColor(R.color.colorPrimary);
+        calendarView.setHeaderLabelColor(R.color.white);
+        calendarView.setAbbreviationsBarVisibility(View.VISIBLE);
+        calendarView.setCalendarDayLayout(R.layout.custom_view_calender);
+        _fragmentBinding.llCalender.addView(calendarView);
+    }
+
+    public void loadCalander() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
-                    (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+                    (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
 
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
@@ -90,13 +96,7 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
                 try {
                     events = new ArrayList<>();
                     _fragmentBinding.llCalender.removeAllViews();
-                    CalendarView calendarView = new CalendarView(_context);
-                    calendarView.setSwipeEnabled(true);
-                    calendarView.setHeaderColor(R.color.colorPrimary);
-                    calendarView.setHeaderLabelColor(R.color.white);
-                    calendarView.setAbbreviationsBarVisibility(View.VISIBLE);
-                    calendarView.setCalendarDayLayout(R.layout.custom_view_calender);
-                    _fragmentBinding.llCalender.addView(calendarView);
+                    initCalender();
                     String status = jsonObject.getString("status");
                     String response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
@@ -143,7 +143,7 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
                                     if (events.contains(eventDay)) {
                                         String selectedDate = getDate(clickedDayCalendar);
                                         ListBottomSheetFragment listBottomSheetFragment =
-                                                ListBottomSheetFragment.newInstance(hashMap.get(selectedDate), selectedDate, tankId, tankPosition);
+                                                ListBottomSheetFragment.newInstance(hashMap.get(selectedDate), selectedDate, tankId, tankPosition, cultureResponse);
                                         listBottomSheetFragment.show(((FragmentActivity) _context).getSupportFragmentManager(),
                                                 "tag");
                                     }

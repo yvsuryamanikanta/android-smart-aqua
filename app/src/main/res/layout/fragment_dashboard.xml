@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="missingPrefix">
 
@@ -15,7 +14,7 @@
         android:id="@+id/ll_calender"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bgapp"
+        android:background="@color/white"
         android:orientation="vertical"
         android:padding="1dp">
 

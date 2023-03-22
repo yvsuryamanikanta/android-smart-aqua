@@ -20,7 +20,6 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
 
     private ActivityDashboardBinding _activityDashboardBinding;
     private DashBoardViewModel dashBoardViewModel;
-    private ViewPagerFragmentAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,26 +38,10 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
     }
 
     @Override
-    public void onItemClick(String item, String selectedDate, String tankId, int pos) {
+    public void onItemClick(String item, String selectedDate, String tankId, int pos,String cultureResponse) {
         try {
-            String[] tankdetails = new String[]{"" + pos, selectedDate, tankId, item};
+            String[] tankdetails = new String[]{"" + pos, selectedDate, tankId, item,cultureResponse};
             AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-            /*if (item.equalsIgnoreCase("feed")) {
-                String[] tankdetails = new String[]{""+pos,selectedDate,tankId};
-                AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-            } else if (item.equalsIgnoreCase("checktray")) {
-                String[] tankdetails = new String[]{"1","Checktray Reports"};
-                AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-            } else if (item.equalsIgnoreCase("lab")) {
-                String[] tankdetails = new String[]{"1","Lab Reports"};
-                AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-            }else if (item.equalsIgnoreCase("growth")) {
-                String[] tankdetails = new String[]{"1","Growth Reports"};
-                AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-            }else if (item.equalsIgnoreCase("treatment")) {
-                String[] tankdetails = new String[]{"1","Treatment"};
-                AquaConstants.putIntent(DashBoardActivity.this, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-            }*/
         } catch (Exception e) {
             Toast.makeText(this, "" + e, Toast.LENGTH_SHORT).show();
         }
