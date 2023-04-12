@@ -25,11 +25,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:fontFamily="@font/poppins_medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start"
                 android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:text="Register Your Tank/Pond"
                 android:textColor="@color/red" />
@@ -47,11 +47,11 @@
 
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Pond Name"
                     android:textColor="@color/txtColor" />
@@ -60,12 +60,12 @@
                     android:id="@+id/edt_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
                     android:layout_margin="@dimen/_2sdp"
                     android:background="@drawable/bg_box"
+                    android:gravity="start"
                     android:inputType="text"
                     android:padding="@dimen/_8sdp"
-                    android:layout_gravity="start"
-                    android:gravity="start"
                     android:singleLine="true"
                     android:textColor="@color/txtColor"
                     android:textColorHint="@color/bgapp"
@@ -88,11 +88,80 @@
 
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Pond Area (Hectors/Acers)"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <EditText
+                        android:id="@+id/edt_area"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:layout_weight="6"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="number"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:background="@drawable/bg_box"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <Spinner
+                            android:id="@+id/spin_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:layout_margin="@dimen/_3sdp"
+                            android:backgroundTint="@color/colorAccent"
+                            android:gravity="center|start"
+                            tools:ignore="UnusedAttribute" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Pond Address"
                     android:textColor="@color/txtColor" />
@@ -101,14 +170,14 @@
                     android:id="@+id/edt_address"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="start"
                     android:layout_margin="@dimen/_2sdp"
                     android:background="@drawable/bg_box"
+                    android:gravity="start"
                     android:hint="@string/optional"
                     android:inputType="text"
-                    android:padding="@dimen/_8sdp"
-                    android:layout_gravity="start"
-                    android:gravity="start"
                     android:maxLines="5"
+                    android:padding="@dimen/_8sdp"
                     android:textColor="@color/txtColor"
                     android:textColorHint="@color/bgapp"
                     android:textCursorDrawable="@drawable/cursor_animated"
@@ -119,54 +188,54 @@
 
 
             <TextView
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:layout_marginBottom="@dimen/_2sdp"
-                android:fontFamily="@font/poppins_medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center|start"
                 android:text="Browse (optional) "
                 android:textColor="@color/txtColor" />
 
             <LinearLayout
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/bg_box"
                 android:fitsSystemWindows="true"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="1">
 
 
                 <ImageView
                     android:id="@+id/img_view"
-                    android:src="@drawable/uploadicon"
-                    android:onClick="@{(v) -> viewModel.onBrowse(v)}"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_100sdp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:onClick="@{(v) -> viewModel.onBrowse(v)}"
+                    android:src="@drawable/uploadicon" />
 
             </LinearLayout>
 
 
             <Button
-                android:fontFamily="@font/poppins_medium"
                 android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_50sdp"
                 android:background="@drawable/btn_bg"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:onClick="@{(v) -> viewModel.onSaveClick(v)}"
                 android:paddingLeft="@dimen/_20sdp"

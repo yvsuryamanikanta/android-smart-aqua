@@ -20,8 +20,9 @@ import com.odos.smartaqua.feed.AddFeedActivity;
 import com.odos.smartaqua.feed.FeedObservationActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
-import com.odos.smartaqua.tank.AddPondActivity;
-import com.odos.smartaqua.tank.PondPreparationActivity;
+import com.odos.smartaqua.tank.PondListActivity;
+import com.odos.smartaqua.tank.PreparationListActivity;
+import com.odos.smartaqua.tank.StockingListActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
@@ -98,16 +99,16 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
             } else if (_flag == 3) {
                 switch (position) {
                     case 0:
-                        AquaConstants.putIntent(_context, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                        AquaConstants.putIntent(_context, PondListActivity.class, AquaConstants.HOLD, new String[]{"1"});
                         break;
                     case 1:
                         AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
-                        AquaConstants.putIntent(_context, PondPreparationActivity.class, AquaConstants.HOLD, null);
+                        AquaConstants.putIntent(_context, PreparationListActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 3:
-                        Toast.makeText(_context, "provide culture access", Toast.LENGTH_SHORT).show();
+                        AquaConstants.putIntent(_context, StockingListActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 4:
                         String[] values = new String[]{tankId, cultureId, tankName, cultureAccess};

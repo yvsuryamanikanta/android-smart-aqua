@@ -56,7 +56,26 @@
                     android:text="Select Your Pond"
                     android:textColor="@color/txtColor" />
 
-                <EditText
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_pond"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+
+               <!-- <EditText
                     android:id="@+id/edt_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,10 +89,750 @@
                     android:textColor="@color/txtColor"
                     android:textColorHint="@color/bgapp"
                     android:textCursorDrawable="@drawable/cursor_animated"
-                    tools:ignore="Autofill,LabelFor" />
+                    tools:ignore="Autofill,LabelFor" />-->
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Previous disease"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_disease"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Record Keeping"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_record_keeping"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Drying"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_drying"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Bio security"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_bio_security"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Scrapping"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_scrapping"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Ploughing"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_ploughing"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Liminig"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_liminig"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Soil Checking"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_soil_checking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Water Filled With"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_water_filled_with"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Water Source"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_water_source"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Pond Type"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_pond_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Filteration (no.of statges)"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_filteration"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Bleaching(ppm)"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_bleaching"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Application Of Minerals"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_appl_minerals"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Application Of Probiaotics"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_appl_probiaotics"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Application Of Fertilization"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_appl_fertilization"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:gravity="center|start"
+                    android:text="Water Checking for EHP"
+                    android:textColor="@color/txtColor" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="@drawable/bg_box"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <Spinner
+                        android:layout_margin="@dimen/_3sdp"
+                        android:id="@+id/spin_check_ehp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:backgroundTint="@color/colorAccent"
+                        android:gravity="center|start"
+                        tools:ignore="UnusedAttribute" />
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"

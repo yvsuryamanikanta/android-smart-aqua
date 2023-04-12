@@ -95,12 +95,33 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".tank.PondListActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".tank.AddPondActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".tank.PondPreparationActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".tank.PreparationListActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".tank.StockingActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".tank.StockingListActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />

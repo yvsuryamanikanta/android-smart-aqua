@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -47,6 +48,11 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
         values = ((Activity)_context).getIntent().getStringArrayExtra("values");
         Helper.getCurrentLocation(_context);
+
+        String areas[] = {"Hectors", "Acres"};
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, areas);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
+        _activityAddtankBinding.spinArea.setAdapter(spinnerArrayAdapter);
     }
 
     public void onBrowse(View v) {

@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.odos.smartaqua.tank.StockingViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+
+        <ScrollView
+            android:id="@+id/scroll_feedentry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@color/white"
+            android:scrollbars="none"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="Stocking"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="left"
+                    android:text="Water Quality:"
+                    android:textColor="@color/red" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Ammonia (ppm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_ammonia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="PH"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_ph"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Nitrite"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_nitrite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Alkalinity (ppm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_alkalinity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Hardness (ppm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_hardness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Iron (ppm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_iron"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Mineral Composition"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_mineral_consumption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Clorine Residue (ppm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_chlorine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Salinity (ppm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_salinity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Transparency (cm)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_transparency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Water Color"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_water_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="text"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Water depth(m)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_water_depth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="left"
+                    android:text="PL Quality:"
+                    android:textColor="@color/red" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="PL Size Variation (%)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_pl_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="6">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:layout_weight="3"
+                        android:text="PL PCR Result"
+                        android:textColor="@color/txtColor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_box"
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <Spinner
+                            android:id="@+id/spin_pcr_result"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:gravity="center|start"
+                            android:layout_margin="@dimen/_3sdp"
+                            android:backgroundTint="@color/colorAccent"
+                            tools:ignore="UnusedAttribute" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_quantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="PL packing Density (pcs/bag)"
+                        android:textColor="@color/txtColor" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_3sdp"
+                        android:background="@drawable/bg_box"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_2sdp"
+                            android:layout_weight="0.5"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sdp"
+                            tools:ignore="NestedWeights,RtlHardcoded">
+
+                            <EditText
+                                android:id="@+id/edt_pl_packaging"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center|start"
+                                android:background="@color/white"
+                                android:gravity="start"
+                                android:inputType="number"
+                                android:textColor="@color/txtColor"
+                                android:textCursorDrawable="@drawable/cursor_animated"
+                                tools:ignore="Autofill,LabelFor,UnusedAttribute" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_2sdp"
+                            android:background="@color/gray" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <Spinner
+                                android:id="@+id/spin_pakaging_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/_1sdp"
+                                android:backgroundTint="@color/colorAccent"
+                                android:layout_gravity="center|start"
+                                android:gravity="center|start"
+                                tools:ignore="UnusedAttribute" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="PL Age"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_pl_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="number"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="6">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:layout_weight="3"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Hepatopancreas Condition"
+                        android:textColor="@color/txtColor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_box"
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <Spinner
+                            android:id="@+id/spin_hepatopancreas"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:gravity="center|start"
+                            android:layout_margin="@dimen/_3sdp"
+                            android:backgroundTint="@color/colorAccent"
+                            tools:ignore="UnusedAttribute" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Avg No. Of Pl/Bag at site"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_avg_pl_bag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="6">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:layout_weight="3"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Acclinitization"
+                        android:textColor="@color/txtColor" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_box"
+                        android:layout_weight="3"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <Spinner
+                            android:id="@+id/spin_acclinitization"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:gravity="center|start"
+                            android:layout_margin="@dimen/_3sdp"
+                            android:backgroundTint="@color/colorAccent"
+                            tools:ignore="UnusedAttribute" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|start"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Seed Transportation Time (hrs)"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_transportation_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Mode of transport"
+                        android:textColor="@color/txtColor" />
+
+                    <EditText
+                        android:id="@+id/edt_transport_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:background="@drawable/bg_box"
+                        android:gravity="start"
+                        android:inputType="text"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/bgapp"
+                        android:textCursorDrawable="@drawable/cursor_animated"
+                        tools:ignore="Autofill,LabelFor" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_save_stocking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/btn_bg"
+                    android:onClick="@{(v) -> viewModel.saveStocking(v)}"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:text="@string/action_save"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>

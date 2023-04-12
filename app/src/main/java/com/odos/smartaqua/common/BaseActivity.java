@@ -31,6 +31,7 @@ import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.prelogin.login.LoginActivity;
 import com.odos.smartaqua.tank.AddPondActivity;
+import com.odos.smartaqua.tank.PondListActivity;
 import com.odos.smartaqua.utils.ASPManager;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.Helper;
@@ -152,7 +153,7 @@ public class BaseActivity extends AppCompatActivity {
                         } else {
                             switch (position) {
                                 case 0:
-                                    AquaConstants.putIntent(BaseActivity.this, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                                    AquaConstants.putIntent(BaseActivity.this, PondListActivity.class, AquaConstants.HOLD, new String[]{"1"});
                                     break;
                                 case 1:
                                     AquaConstants.putIntent(BaseActivity.this, AddCultureActivity.class, AquaConstants.HOLD, null);
@@ -216,7 +217,7 @@ public class BaseActivity extends AppCompatActivity {
                         } else {
                             switch (position) {
                                 case 0:
-                                    AquaConstants.putIntent(BaseActivity.this, AddPondActivity.class, AquaConstants.HOLD, new String[]{"1"});
+                                    AquaConstants.putIntent(BaseActivity.this, PondListActivity.class, AquaConstants.HOLD, new String[]{"1"});
                                     break;
                                 case 1:
                                     AquaConstants.putIntent(BaseActivity.this, AddCultureActivity.class, AquaConstants.HOLD, null);
