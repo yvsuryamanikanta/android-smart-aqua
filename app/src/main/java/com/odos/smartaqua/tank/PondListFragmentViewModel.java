@@ -2,6 +2,7 @@ package com.odos.smartaqua.tank;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 import androidx.databinding.BaseObservable;
@@ -44,12 +45,12 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
         this.cultureResponse = response;
         this._fragmentBinding = pondlistBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
-//        loadData();
     }
+
     public void loadData() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.GET_TANKLIST + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
+                    ServiceConstants.TANK_INFO + tankId, null, Helper.headerParams(_context),
                     (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
 
         } else {
@@ -66,6 +67,7 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonObject, int serviceno) {
+        Log.e("data--==", "" + jsonObject);
     }
 
     @Override

@@ -10,12 +10,316 @@
             type="com.odos.smartaqua.tank.PondListFragmentViewModel" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="1dp">
+        android:background="@color/white">
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
 
+            <TextView
+                android:id="@+id/txt_tank_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="B3"
+                android:textColor="@color/red"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/banner" />
+
+            <TextView
+                android:id="@+id/txt_tank_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Tank Address : "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_tank_Size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Tank Size : 5 Hectors "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+
+            <TextView
+                android:id="@+id/txt_preparation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Culture Preparation"
+                android:textColor="@color/red"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_decease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Previous decease :  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_record_keeping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Record Keeping:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_drying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Drying:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_bio_security"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Bio Security:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_scrapping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Scrapping:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_ploughing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Ploughing:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_liming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Liming:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_soil_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Soil Checking:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_filling_water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Water Filled With:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_source_water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Water Source:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_pond_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Pond Type:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_stocking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Stocking"
+                android:textColor="@color/red"
+                android:textSize="24sp" />
+
+
+            <TextView
+                android:id="@+id/txt_ammonia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Ammonia:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_ph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="PH:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_nitrite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Nitrite:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_alkalnity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Alkalinity:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+
+            <TextView
+                android:id="@+id/txt_hardness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Hardness:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_iron"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Iron:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_mineral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Mineral composition:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+
+            <TextView
+                android:id="@+id/txt_clorine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Chlorine Residue:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txt_salnity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Salnity:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+
+            <TextView
+                android:id="@+id/txt_transparency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Transparancy:  "
+                android:textColor="@color/txtColor"
+                android:textSize="19sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
 </layout>

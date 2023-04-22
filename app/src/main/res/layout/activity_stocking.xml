@@ -46,6 +46,51 @@
                     android:text="Stocking"
                     android:textColor="@color/red" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="center|start"
+                        android:text="Select Your Pond"
+                        android:textColor="@color/txtColor" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_box"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp"
+                        tools:ignore="NestedWeights,RtlHardcoded">
+
+                        <Spinner
+                            android:layout_margin="@dimen/_3sdp"
+                            android:id="@+id/spin_pond"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|start"
+                            android:backgroundTint="@color/colorAccent"
+                            android:gravity="center|start"
+                            tools:ignore="UnusedAttribute" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -43,6 +43,11 @@ public class ServiceConstants {
     public static final String GET_DASHBOARD = BASE_URL + "dashboard/";
     public static final String CHAT_LIST = BASE_URL + "chat/list/";
     public static final String CHAT_SAVE = BASE_URL + "chat/save/";
+    public static final String PREPARATION_SAVE = BASE_URL + "tank/preparation/save";
+    public static final String STOCKING_SAVE = BASE_URL + "tank/stocking/save";
+    public static final String STOCKING_LIST = BASE_URL + "tank/stocking/list/";
+    public static final String PREPARATION_LIST = BASE_URL + "tank/preparation/list/";
+    public static final String TANK_INFO = BASE_URL + "tank/info/";
 
 
 }

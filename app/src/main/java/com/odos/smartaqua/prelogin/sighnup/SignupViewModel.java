@@ -130,7 +130,6 @@ public class SignupViewModel extends ViewModel implements ServiceAsyncResponse {
                                         userRoleId = userRoles.getRoleID();
                                         userRoleCode = userRoles.getRoleCode();
                                     }
-
                                     @Override
                                     public void onNothingSelected(AdapterView<?> parent) {
                                     }
@@ -147,7 +146,6 @@ public class SignupViewModel extends ViewModel implements ServiceAsyncResponse {
                 } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                 }
-
                 break;
 
             case 2:
@@ -157,7 +155,7 @@ public class SignupViewModel extends ViewModel implements ServiceAsyncResponse {
                     String response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (response != null) {
-                            if (response.contains("altready registered")) {
+                            if (response.contains("already registered")) {
                                 Helper.showMessage(_context, response, AquaConstants.HOLD);
                             } else {
                                 JSONObject jsonObject1 = new JSONObject(response);

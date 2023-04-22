@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.common.BaseActivity;
 import com.odos.smartaqua.databinding.ActivityPondlistBinding;
+import com.odos.smartaqua.utils.Helper;
 
 public class PondListActivity extends BaseActivity{
     private ActivityPondlistBinding _activityPondListBinding;
@@ -21,6 +22,7 @@ public class PondListActivity extends BaseActivity{
         pondListViewModel = new PondListViewModel(PondListActivity.this, _activityPondListBinding);
         _activityPondListBinding.setViewModel(pondListViewModel);
         _activityPondListBinding.executePendingBindings();
+        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(this);
 
     }
 }
