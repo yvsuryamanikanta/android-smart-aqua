@@ -23,6 +23,5 @@ public class PondListActivity extends BaseActivity{
         _activityPondListBinding.setViewModel(pondListViewModel);
         _activityPondListBinding.executePendingBindings();
         activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(this);
-
     }
 }
