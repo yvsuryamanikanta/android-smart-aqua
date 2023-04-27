@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="Cultures"
+            type="com.odos.smartaqua.tank.CultureModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="@dimen/_8sdp"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/linear_previous_decease"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Previous decease"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_decease"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_record_keeping"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Record Keeping"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_record_keeping"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_drying"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Drying"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_drying"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_bio_security"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Bio Security"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_bio_security"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_scrapping"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Scrapping"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_scrapping"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_ploughing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Ploughing"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_ploughing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_liming"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Liming"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_liming"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_soil_checking"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Soil Checking"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_soil_check"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_water_filled"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Water Filled With"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_filling_water"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_water_source"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Water Source"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_source_water"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_pond_type"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:text="Pond Type"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text=" : "
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/txt_pond_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|start"
+                android:textColor="@color/txtColor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

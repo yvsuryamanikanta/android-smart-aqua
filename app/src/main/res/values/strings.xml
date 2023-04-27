@@ -3,6 +3,9 @@
     <string name="tootlbartitle">smartaqua</string>
     <string name="copyrights">© 2019 OurDreams Pvt. Ltd.</string>
 
+    <string name="api_key">AIzaSyCon03moq3WnREyH4xtvjs7MZjrkFK5jkI</string>
+    <string name="edit"><u>Edit Address</u></string>
+
     <!--actions-->
     <string name="action_settings">Settings</string>
     <string name="action_cancel">Cancel</string>
