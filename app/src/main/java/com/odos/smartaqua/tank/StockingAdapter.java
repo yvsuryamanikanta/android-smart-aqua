@@ -21,7 +21,6 @@ public class StockingAdapter extends RecyclerView.Adapter<StockingAdapter.MyView
     private StockingAdapter.ClickListener listener;
     private Context _context;
 
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final AdapterStockingBinding binding;
@@ -52,77 +51,78 @@ public class StockingAdapter extends RecyclerView.Adapter<StockingAdapter.MyView
     public void onBindViewHolder(StockingAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         StockingModel stockingModel = (StockingModel) arrayList.get(position);
         holder.binding.setStockModel(stockingModel);
+        holder.binding.txtSno.setText(position);
 
-        if(isNullOrEmpty(stockingModel.ammonia)){
+        if (isNullOrEmpty(stockingModel.ammonia)) {
             holder.binding.txtAmmonia.setText(stockingModel.ammonia);
             holder.binding.linearAmmonia.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearAmmonia.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.plage)){
+        if (isNullOrEmpty(stockingModel.plage)) {
             holder.binding.txtPh.setText(stockingModel.plage);
             holder.binding.linearPh.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearPh.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.nitrite)){
+        if (isNullOrEmpty(stockingModel.nitrite)) {
             holder.binding.txtNitrite.setText(stockingModel.nitrite);
             holder.binding.linearNitrite.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearNitrite.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.alkalnity)){
+        if (isNullOrEmpty(stockingModel.alkalnity)) {
             holder.binding.txtAlkalnity.setText(stockingModel.alkalnity);
             holder.binding.linearAlkalinity.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearAlkalinity.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.hardness)){
+        if (isNullOrEmpty(stockingModel.hardness)) {
             holder.binding.txtHardness.setText(stockingModel.hardness);
             holder.binding.linearHardness.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearHardness.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.iron)){
+        if (isNullOrEmpty(stockingModel.iron)) {
             holder.binding.txtIron.setText(stockingModel.iron);
             holder.binding.linearIron.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearIron.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.mineral)){
+        if (isNullOrEmpty(stockingModel.mineral)) {
             holder.binding.txtMineral.setText(stockingModel.mineral);
             holder.binding.linearMineralComposition.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearMineralComposition.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.mineral)){
+        if (isNullOrEmpty(stockingModel.mineral)) {
             holder.binding.txtMineral.setText(stockingModel.mineral);
             holder.binding.linearMineralComposition.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearMineralComposition.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.clorine)){
+        if (isNullOrEmpty(stockingModel.clorine)) {
             holder.binding.txtClorine.setText(stockingModel.clorine);
             holder.binding.linearClorine.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearClorine.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.salnity)){
+        if (isNullOrEmpty(stockingModel.salnity)) {
             holder.binding.txtSalnity.setText(stockingModel.salnity);
             holder.binding.linearSalnity.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearSalnity.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(stockingModel.transparancy)){
+        if (isNullOrEmpty(stockingModel.transparancy)) {
             holder.binding.txtTransparency.setText(stockingModel.transparancy);
             holder.binding.linearTransparancy.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearTransparancy.setVisibility(View.GONE);
         }
 
     }
 
-    boolean isNullOrEmpty(String data){
+    boolean isNullOrEmpty(String data) {
         return data != null && !data.equalsIgnoreCase("");
     }
 

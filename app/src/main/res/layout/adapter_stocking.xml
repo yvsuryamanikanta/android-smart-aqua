@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,443 +10,463 @@
             type="com.odos.smartaqua.tank.StockingModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="@dimen/_8sdp"
-        android:weightSum="1">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_sno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center|start"
+            android:textColor="@color/txtColor"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="S.No" />
 
         <LinearLayout
-            android:id="@+id/linear_ammonia"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Ammonia"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
+            <LinearLayout
+                android:id="@+id/linear_ammonia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Ammonia"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
 
 
-            <TextView
-                android:id="@+id/txt_ammonia"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/txt_ammonia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_ph"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="PH"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_ph"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_nitrite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Nitrite"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_nitrite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_alkalinity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Alkalinity"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_alkalnity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_hardness"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Hardness"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_hardness"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_iron"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Iron"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_iron"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_mineral_composition"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Mineral composition"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_mineral"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_clorine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Chlorine Residue"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_clorine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_salnity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Salnity"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_salnity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_transparancy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.4"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:text="Transparancy"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text=" : "
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_transparency"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/txtColor"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_ph"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="PH"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_ph"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_nitrite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Nitrite"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_nitrite"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_alkalinity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Alkalinity"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_alkalnity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_hardness"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Hardness"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_hardness"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_iron"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Iron"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_iron"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_mineral_composition"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Mineral composition"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_mineral"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_clorine"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Chlorine Residue"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_clorine"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_salnity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Salnity"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_salnity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_transparancy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="1dp"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:text="Transparancy"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text=" : "
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-
-
-            <TextView
-                android:id="@+id/txt_transparency"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:textColor="@color/txtColor"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

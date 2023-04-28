@@ -53,75 +53,78 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
         CultureModel cultureModel = (CultureModel) arrayList.get(position);
         holder.binding.setCultures(cultureModel);
 
-        if(isNullOrEmpty(cultureModel.previousdecease)){
+        holder.binding.txtSno.setText(position);
+
+        if (isNullOrEmpty(cultureModel.previousdecease)) {
             holder.binding.txtDecease.setText(cultureModel.previousdecease);
             holder.binding.linearPreviousDecease.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearPreviousDecease.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.recordkeeping)){
+        if (isNullOrEmpty(cultureModel.recordkeeping)) {
             holder.binding.txtRecordKeeping.setText(cultureModel.recordkeeping);
             holder.binding.linearRecordKeeping.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearRecordKeeping.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.drying)){
+        if (isNullOrEmpty(cultureModel.drying)) {
             holder.binding.txtDrying.setText(cultureModel.drying);
             holder.binding.linearDrying.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearDrying.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.biosecurity)){
+        if (isNullOrEmpty(cultureModel.biosecurity)) {
             holder.binding.txtBioSecurity.setText(cultureModel.biosecurity);
             holder.binding.linearBioSecurity.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearBioSecurity.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.scrapping)){
+        if (isNullOrEmpty(cultureModel.scrapping)) {
             holder.binding.txtScrapping.setText(cultureModel.scrapping);
             holder.binding.linearScrapping.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearScrapping.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.ploughing)){
+        if (isNullOrEmpty(cultureModel.ploughing)) {
             holder.binding.txtPloughing.setText(cultureModel.ploughing);
             holder.binding.linearPloughing.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearPloughing.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.liming)){
+        if (isNullOrEmpty(cultureModel.liming)) {
             holder.binding.txtLiming.setText(cultureModel.liming);
             holder.binding.linearLiming.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearLiming.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.soilcheck)){
+        if (isNullOrEmpty(cultureModel.soilcheck)) {
             holder.binding.txtLiming.setText(cultureModel.soilcheck);
             holder.binding.linearSoilChecking.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearSoilChecking.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.fillingwatertype)){
+        if (isNullOrEmpty(cultureModel.fillingwatertype)) {
             holder.binding.txtFillingWater.setText(cultureModel.fillingwatertype);
             holder.binding.linearWaterFilled.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearWaterFilled.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.watersource)){
+        if (isNullOrEmpty(cultureModel.watersource)) {
             holder.binding.txtFillingWater.setText(cultureModel.watersource);
             holder.binding.linearWaterSource.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearWaterSource.setVisibility(View.GONE);
         }
-        if(isNullOrEmpty(cultureModel.pondtype)){
+        if (isNullOrEmpty(cultureModel.pondtype)) {
             holder.binding.txtPondType.setText(cultureModel.pondtype);
             holder.binding.linearPondType.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             holder.binding.linearPondType.setVisibility(View.GONE);
         }
 
     }
-    boolean isNullOrEmpty(String data){
+
+    boolean isNullOrEmpty(String data) {
         return data != null && !data.equalsIgnoreCase("");
     }
 
