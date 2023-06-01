@@ -250,5 +250,6 @@
 
     <string name="api_key">AIzaSyCon03moq3WnREyH4xtvjs7MZjrkFK5jkI</string>
     <string name="edit"><u>Edit Address</u></string>
+    <string name="reason">Reason<font color='#FF0000'>*</font></string>
 
 </resources>

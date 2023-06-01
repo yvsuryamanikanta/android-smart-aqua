@@ -25,14 +25,66 @@
             android:orientation="vertical">
 
             <TextView
-                android:fontFamily="@font/poppins_medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start"
                 android:layout_margin="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:text="Pond Preparation"
                 android:textColor="@color/red" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_3sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:background="@null"
+                    android:gravity="center|start"
+                    android:text="Date"
+                    android:textColor="@color/txtColor"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:onClick="@{(v) -> viewModel.onDateClick(v)}"
+                    android:id="@+id/ll_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_box"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:padding="@dimen/_8sdp"
+                    tools:ignore="NestedWeights,RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/txt_date"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.9"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|start"
+                        android:background="@color/white"
+                        android:layout_margin="@dimen/_1sdp"
+                        android:gravity="center|start"
+                        android:textColor="@color/txtColor" />
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/calender"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,13 +97,12 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Select Your Pond"
                     android:textColor="@color/txtColor" />
@@ -61,15 +112,15 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_pond"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_2sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -91,12 +142,12 @@
 
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Previous disease"
                     android:textColor="@color/txtColor" />
@@ -107,20 +158,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_disease"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_disease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -133,14 +205,13 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Record Keeping"
                     android:textColor="@color/txtColor" />
@@ -151,20 +222,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_record_keeping"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -178,12 +270,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Drying"
                     android:textColor="@color/txtColor" />
@@ -194,20 +286,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_drying"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_drying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -220,14 +333,13 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Bio security"
                     android:textColor="@color/txtColor" />
@@ -238,15 +350,15 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_bio_security"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -264,14 +376,13 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Scrapping"
                     android:textColor="@color/txtColor" />
@@ -282,20 +393,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_scrapping"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_scrapping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -310,12 +442,12 @@
 
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Ploughing"
                     android:textColor="@color/txtColor" />
@@ -326,20 +458,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_ploughing"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_ploughing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -352,14 +505,13 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Liminig"
                     android:textColor="@color/txtColor" />
@@ -370,20 +522,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_liminig"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_liming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -396,14 +569,13 @@
                 android:orientation="horizontal"
                 android:weightSum="6">
 
-
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Soil Checking"
                     android:textColor="@color/txtColor" />
@@ -414,20 +586,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_soil_checking"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_soil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -441,12 +634,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Water Filled With"
                     android:textColor="@color/txtColor" />
@@ -457,15 +650,15 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_water_filled_with"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -484,12 +677,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Water Source"
                     android:textColor="@color/txtColor" />
@@ -500,15 +693,15 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_water_source"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -527,12 +720,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Pond Type"
                     android:textColor="@color/txtColor" />
@@ -543,15 +736,15 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_pond_type"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -570,12 +763,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Filteration (no.of statges)"
                     android:textColor="@color/txtColor" />
@@ -586,15 +779,15 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_filteration"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -613,12 +806,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Bleaching(ppm)"
                     android:textColor="@color/txtColor" />
@@ -629,15 +822,15 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_bleaching"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
@@ -656,12 +849,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Application Of Minerals"
                     android:textColor="@color/txtColor" />
@@ -672,20 +865,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_appl_minerals"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_minerals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -699,12 +913,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Application Of Probiaotics"
                     android:textColor="@color/txtColor" />
@@ -715,20 +929,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_appl_probiaotics"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_probiaotics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -742,12 +977,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Application Of Fertilization"
                     android:textColor="@color/txtColor" />
@@ -758,20 +993,41 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_appl_fertilization"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_fertilization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -785,12 +1041,12 @@
                 android:weightSum="6">
 
                 <TextView
-                    android:fontFamily="@font/poppins_medium"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_2sdp"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:text="Water Checking for EHP"
                     android:textColor="@color/txtColor" />
@@ -801,39 +1057,59 @@
                     android:layout_weight="3"
                     android:background="@drawable/bg_box"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_3sdp"
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <Spinner
-                        android:layout_margin="@dimen/_3sdp"
                         android:id="@+id/spin_check_ehp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_3sdp"
                         android:backgroundTint="@color/colorAccent"
                         android:gravity="center|start"
                         tools:ignore="UnusedAttribute" />
                 </LinearLayout>
             </LinearLayout>
 
+            <EditText
+                android:id="@+id/edt_checkEhp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/bg_box"
+                android:gravity="start"
+                android:hint="@string/reason"
+                android:inputType="text"
+                android:padding="@dimen/_8sdp"
+                android:singleLine="true"
+                android:textColor="@color/txtColor"
+                android:textColorHint="@color/bgapp"
+                android:textCursorDrawable="@drawable/cursor_animated"
+                android:visibility="gone"
+                tools:ignore="Autofill,LabelFor" />
+
             <Button
-                android:fontFamily="@font/poppins_medium"
                 android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/btn_bg"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:onClick="@{(v) -> viewModel.onSaveClick(v)}"
                 android:paddingLeft="@dimen/_20sdp"
                 android:paddingRight="@dimen/_20sdp"
                 android:text="@string/submit"
                 android:textColor="@color/white" />
-
-
         </LinearLayout>
 
     </ScrollView>

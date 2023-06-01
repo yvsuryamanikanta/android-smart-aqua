@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
 
@@ -31,6 +32,23 @@ import java.util.HashMap;
 
 public class PondPreparationViewModel extends BaseObservable implements ServiceAsyncResponse {
 
+    String previousdisease = "";
+    String recordkeeping = "";
+    String drying = "";
+    String biosecurity = "";
+    String scrapping = "";
+    String ploughing = "";
+    String liming = "";
+    String soilcheck = "";
+    String fillingwatertype = "";
+    String watersource = "";
+    String pondtype = "";
+    String filteration = "";
+    String bleaching = "";
+    String minerals = "";
+    String probiotics = "";
+    String fertilization = "";
+    String ehp = "";
     private Context _context;
     private ActivityPondprepareBinding _activityPondprepareBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
@@ -68,73 +86,431 @@ public class PondPreparationViewModel extends BaseObservable implements ServiceA
         setSpinnerData(_activityPondprepareBinding.spinCheckEhp);
 
         {
-            String bio[] = {"Good", "Average", "Poor", "Very Poor"};
+            String bio[] = {"Select", "Good", "Average", "Poor", "Very Poor"};
             ArrayAdapter<String> spinnerBioAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, bio);
             spinnerBioAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             _activityPondprepareBinding.spinBioSecurity.setAdapter(spinnerBioAdapter);
         }
         {
-            String waterFilled[] = {"Fresh", "Old"};
+            String waterFilled[] = {"Select", "Fresh", "Old"};
             ArrayAdapter<String> spinnerWaterFilledAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, waterFilled);
             spinnerWaterFilledAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             _activityPondprepareBinding.spinWaterFilledWith.setAdapter(spinnerWaterFilledAdapter);
         }
         {
-            String waterSource[] = {"Bore", "Canal"};
+            String waterSource[] = {"Select", "Bore", "Canal"};
             ArrayAdapter<String> spinnerWaterSourceAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, waterSource);
             spinnerWaterSourceAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             _activityPondprepareBinding.spinWaterSource.setAdapter(spinnerWaterSourceAdapter);
         }
         {
-            String pondType[] = {"Earthen", "No"};
+            String pondType[] = {"Select", "Earthen", "No"};
             ArrayAdapter<String> spinnerPondAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, pondType);
             spinnerPondAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             _activityPondprepareBinding.spinPondType.setAdapter(spinnerPondAdapter);
         }
         {
-            String filteration[] = {"0 No.s", "1 No.s", "1"};
+            String filteration[] = {"Select", "0 No.s", "1 No.s", "1"};
             ArrayAdapter<String> spinnerFilterationAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, filteration);
             spinnerFilterationAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             _activityPondprepareBinding.spinFilteration.setAdapter(spinnerFilterationAdapter);
         }
         {
-            String bleaching[] = {"0", "1", "2", "3"};
+            String bleaching[] = {"Select", "0", "1", "2", "3"};
             ArrayAdapter<String> spinnerBleachingAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, bleaching);
             spinnerBleachingAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
             _activityPondprepareBinding.spinBleaching.setAdapter(spinnerBleachingAdapter);
         }
+
+        spinnerClick();
     }
 
     public void setSpinnerData(Spinner spinner) {
-        String data[] = {"Yes", "No"};
+        String data[] = {"No", "Yes"};
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(_context, R.layout.spinner_item, data);
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
         spinner.setAdapter(spinnerArrayAdapter);
     }
 
+    void spinnerClick() {
+        _activityPondprepareBinding.spinBioSecurity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    biosecurity = _activityPondprepareBinding.spinBioSecurity.getSelectedItem().toString();
+                } else {
+                    biosecurity = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinWaterFilledWith.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    fillingwatertype = _activityPondprepareBinding.spinWaterFilledWith.getSelectedItem().toString();
+                } else {
+                    fillingwatertype = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        _activityPondprepareBinding.spinWaterSource.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    watersource = _activityPondprepareBinding.spinWaterSource.getSelectedItem().toString();
+                } else {
+                    watersource = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        _activityPondprepareBinding.spinPondType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    pondtype = _activityPondprepareBinding.spinPondType.getSelectedItem().toString();
+                } else {
+                    pondtype = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        _activityPondprepareBinding.spinFilteration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    filteration = _activityPondprepareBinding.spinFilteration.getSelectedItem().toString();
+                } else {
+                    filteration = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        _activityPondprepareBinding.spinBleaching.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    bleaching = _activityPondprepareBinding.spinBleaching.getSelectedItem().toString();
+                } else {
+                    bleaching = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        _activityPondprepareBinding.spinDisease.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtDisease.setVisibility(View.VISIBLE);
+                } else {
+                    _activityPondprepareBinding.edtDisease.setVisibility(View.GONE);
+                    previousdisease = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinRecordKeeping.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtRecord.setVisibility(View.VISIBLE);
+                } else {
+                    _activityPondprepareBinding.edtRecord.setVisibility(View.GONE);
+                    recordkeeping = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinDrying.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtDrying.setVisibility(View.VISIBLE);
+                } else {
+                    drying = "";
+                    _activityPondprepareBinding.edtDrying.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinScrapping.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtScrapping.setVisibility(View.VISIBLE);
+                } else {
+                    scrapping = "";
+                    _activityPondprepareBinding.edtScrapping.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinPloughing.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtPloughing.setVisibility(View.VISIBLE);
+                } else {
+                    ploughing = "";
+                    _activityPondprepareBinding.edtPloughing.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinLiminig.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtLiming.setVisibility(View.VISIBLE);
+                } else {
+                    liming = "";
+                    _activityPondprepareBinding.edtLiming.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinSoilChecking.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtSoil.setVisibility(View.VISIBLE);
+                } else {
+                    soilcheck = "";
+                    _activityPondprepareBinding.edtSoil.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinApplMinerals.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtMinerals.setVisibility(View.VISIBLE);
+                } else {
+                    minerals = "";
+                    _activityPondprepareBinding.edtMinerals.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinApplProbiaotics.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtProbiaotics.setVisibility(View.VISIBLE);
+                } else {
+                    probiotics = "";
+                    _activityPondprepareBinding.edtProbiaotics.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinApplFertilization.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtFertilization.setVisibility(View.VISIBLE);
+                } else {
+                    fertilization = "";
+                    _activityPondprepareBinding.edtFertilization.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        _activityPondprepareBinding.spinCheckEhp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    _activityPondprepareBinding.edtCheckEhp.setVisibility(View.VISIBLE);
+                } else {
+                    ehp = "";
+                    _activityPondprepareBinding.edtCheckEhp.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+    boolean isNullOrEmpty(String data) {
+        return data != null && !data.equalsIgnoreCase("");
+    }
+
+    boolean validate() {
+        boolean flag = true;
+        if (_activityPondprepareBinding.spinDisease.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtDisease.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinRecordKeeping.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtRecord.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinDrying.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtDrying.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinScrapping.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtScrapping.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinPloughing.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtPloughing.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinLiminig.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtLiming.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinSoilChecking.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtSoil.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinApplMinerals.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtMinerals.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinApplProbiaotics.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtProbiaotics.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinApplFertilization.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtFertilization.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        if (_activityPondprepareBinding.spinCheckEhp.getSelectedItemPosition() == 1
+                && _activityPondprepareBinding.edtCheckEhp.getText().toString().trim().length() == 0) {
+            flag = false;
+        }
+        return flag;
+    }
 
     public void onSaveClick(View v) {
-        String previousdecease = _activityPondprepareBinding.spinDisease.getSelectedItem().toString();
-        String recordkeeping = _activityPondprepareBinding.spinRecordKeeping.getSelectedItem().toString();
-        String drying = _activityPondprepareBinding.spinDrying.getSelectedItem().toString();
-        String biosecurity = _activityPondprepareBinding.spinBioSecurity.getSelectedItem().toString();
-        String scrapping = _activityPondprepareBinding.spinScrapping.getSelectedItem().toString();
-        String ploughing = _activityPondprepareBinding.spinPloughing.getSelectedItem().toString();
-        String liming = _activityPondprepareBinding.spinLiminig.getSelectedItem().toString();
-        String soilcheck = _activityPondprepareBinding.spinSoilChecking.getSelectedItem().toString();
-        String fillingwatertype = _activityPondprepareBinding.spinWaterFilledWith.getSelectedItem().toString();
-        String watersource = _activityPondprepareBinding.spinWaterSource.getSelectedItem().toString();
-        String pondtype = _activityPondprepareBinding.spinPondType.getSelectedItem().toString();
-        String filteration = _activityPondprepareBinding.spinFilteration.getSelectedItem().toString();
-        String bleaching = _activityPondprepareBinding.spinBleaching.getSelectedItem().toString();
-        String minerals = _activityPondprepareBinding.spinApplMinerals.getSelectedItem().toString();
-        String probiotics = _activityPondprepareBinding.spinApplProbiaotics.getSelectedItem().toString();
-        String fertilization = _activityPondprepareBinding.spinApplFertilization.getSelectedItem().toString();
-        String ehp = _activityPondprepareBinding.spinCheckEhp.getSelectedItem().toString();
+        validate();
+        if (_activityPondprepareBinding.spinDisease.getSelectedItemPosition() == 1) {
+            previousdisease = _activityPondprepareBinding.edtDisease.getText().toString();
+            previousdisease = isNullOrEmpty(previousdisease) ? previousdisease : "";
+        }
+        if (_activityPondprepareBinding.spinRecordKeeping.getSelectedItemPosition() == 1) {
+            recordkeeping = _activityPondprepareBinding.edtRecord.getText().toString();
+            recordkeeping = isNullOrEmpty(recordkeeping) ? recordkeeping : "";
+        }
+        if (_activityPondprepareBinding.spinDrying.getSelectedItemPosition() == 1) {
+            drying = _activityPondprepareBinding.edtDrying.getText().toString();
+            drying = isNullOrEmpty(drying) ? drying : "";
+        }
+        if (_activityPondprepareBinding.spinScrapping.getSelectedItemPosition() == 1) {
+            scrapping = _activityPondprepareBinding.edtScrapping.getText().toString();
+            scrapping = isNullOrEmpty(scrapping) ? scrapping : "";
+        }
+        if (_activityPondprepareBinding.spinPloughing.getSelectedItemPosition() == 1) {
+            ploughing = _activityPondprepareBinding.edtPloughing.getText().toString();
+            ploughing = isNullOrEmpty(ploughing) ? ploughing : "";
+        }
+        if (_activityPondprepareBinding.spinLiminig.getSelectedItemPosition() == 1) {
+            liming = _activityPondprepareBinding.edtLiming.getText().toString();
+            liming = isNullOrEmpty(liming) ? liming : "";
+        }
+        if (_activityPondprepareBinding.spinSoilChecking.getSelectedItemPosition() == 1) {
+            soilcheck = _activityPondprepareBinding.edtSoil.getText().toString();
+            soilcheck = isNullOrEmpty(soilcheck) ? soilcheck : "";
+        }
+        if (_activityPondprepareBinding.spinApplMinerals.getSelectedItemPosition() == 1) {
+            minerals = _activityPondprepareBinding.edtMinerals.getText().toString();
+            minerals = isNullOrEmpty(minerals) ? minerals : "";
+        }
+        if (_activityPondprepareBinding.spinApplProbiaotics.getSelectedItemPosition() == 1) {
+            probiotics = _activityPondprepareBinding.edtProbiaotics.getText().toString();
+            probiotics = isNullOrEmpty(probiotics) ? probiotics : "";
+        }
+        if (_activityPondprepareBinding.spinApplFertilization.getSelectedItemPosition() == 1) {
+            fertilization = _activityPondprepareBinding.edtFertilization.getText().toString();
+            fertilization = isNullOrEmpty(fertilization) ? fertilization : "";
+        }
+        if (_activityPondprepareBinding.spinCheckEhp.getSelectedItemPosition() == 1) {
+            ehp = _activityPondprepareBinding.edtCheckEhp.getText().toString();
+            ehp = isNullOrEmpty(ehp) ? ehp : "";
+        }
+
+        if (_activityPondprepareBinding.spinBioSecurity.getSelectedItemPosition() > 0) {
+            biosecurity = _activityPondprepareBinding.spinBioSecurity.getSelectedItem().toString();
+        }
+        if (_activityPondprepareBinding.spinWaterFilledWith.getSelectedItemPosition() > 0) {
+            fillingwatertype = _activityPondprepareBinding.spinWaterFilledWith.getSelectedItem().toString();
+        }
+        if (_activityPondprepareBinding.spinWaterSource.getSelectedItemPosition() > 0) {
+            watersource = _activityPondprepareBinding.spinWaterSource.getSelectedItem().toString();
+        }
+        if (_activityPondprepareBinding.spinPondType.getSelectedItemPosition() > 0) {
+            pondtype = _activityPondprepareBinding.spinPondType.getSelectedItem().toString();
+        }
+        if (_activityPondprepareBinding.spinFilteration.getSelectedItemPosition() > 0) {
+            filteration = _activityPondprepareBinding.spinFilteration.getSelectedItem().toString();
+        }
+        if (_activityPondprepareBinding.spinBleaching.getSelectedItemPosition() > 0) {
+            bleaching = _activityPondprepareBinding.spinBleaching.getSelectedItem().toString();
+        }
 
         HashMap<String, Object> postparams = new HashMap<>();
         postparams.put("tankid", tankId);
-        postparams.put("previousdecease", previousdecease);
+        postparams.put("previousdecease", previousdisease);
         postparams.put("recordkeeping", recordkeeping);
         postparams.put("drying", drying);
         postparams.put("biosecurity", biosecurity);
@@ -151,9 +527,14 @@ public class PondPreparationViewModel extends BaseObservable implements ServiceA
         postparams.put("probiotics", probiotics);
         postparams.put("fertilization", fertilization);
         postparams.put("ehp", ehp);
+        postparams.put("insertdate", _activityPondprepareBinding.txtDate.getText().toString());
 
-        VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                ServiceConstants.PREPARATION_SAVE, postparams, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+        if (!validate()) {
+            Toast.makeText(_context, "Please fill the required fields", Toast.LENGTH_SHORT).show();
+        } else {
+            VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
+                    ServiceConstants.PREPARATION_SAVE, postparams, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+        }
     }
 
 
@@ -236,4 +617,9 @@ public class PondPreparationViewModel extends BaseObservable implements ServiceA
     public void jsonArrayResponse(String service, JSONArray jsonarray, int serviceno) {
 
     }
+
+    public void onDateClick(View v){
+        Helper.getDateTimepicker(_context,_activityPondprepareBinding.txtDate,AquaConstants.FINISH);
+    }
+
 }

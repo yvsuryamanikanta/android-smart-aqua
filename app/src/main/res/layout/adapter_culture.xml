@@ -13,32 +13,60 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="@dimen/_15sdp"
-        android:background="@color/white">
+        android:layout_margin="8dp"
+        android:background="@color/white"
+        app:cardElevation="@dimen/_15sdp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txt_sno"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:padding="@dimen/_8sdp"
-                android:textColor="@color/red"
-                android:textSize="15sp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="S.No" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_sno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="S.No" />
+                
+                <TextView
+                    android:paddingStart="15dp"
+                    android:paddingEnd="5dp"
+                    android:id="@+id/txt_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="dd/mm/yyyy" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/_8sdp"
+                android:padding="@dimen/_5sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -59,7 +87,7 @@
                         android:gravity="center|start"
                         android:text="Previous decease"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -70,7 +98,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -82,7 +110,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -102,7 +130,7 @@
                         android:gravity="center|start"
                         android:text="Record Keeping"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -113,7 +141,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -125,7 +153,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -145,7 +173,7 @@
                         android:gravity="center|start"
                         android:text="Drying"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -156,7 +184,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -168,7 +196,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -188,7 +216,7 @@
                         android:gravity="center|start"
                         android:text="Bio Security"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -199,7 +227,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -211,7 +239,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -231,7 +259,7 @@
                         android:gravity="center|start"
                         android:text="Scrapping"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -242,7 +270,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -254,7 +282,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -274,7 +302,7 @@
                         android:gravity="center|start"
                         android:text="Ploughing"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -285,7 +313,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -297,7 +325,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -317,7 +345,7 @@
                         android:gravity="center|start"
                         android:text="Liming"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -328,7 +356,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -340,7 +368,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -360,7 +388,7 @@
                         android:gravity="center|start"
                         android:text="Soil Checking"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -371,7 +399,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -383,7 +411,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -403,7 +431,7 @@
                         android:gravity="center|start"
                         android:text="Water Filled With"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -414,7 +442,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -426,7 +454,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -446,7 +474,7 @@
                         android:gravity="center|start"
                         android:text="Water Source"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -457,7 +485,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -469,7 +497,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -489,7 +517,7 @@
                         android:gravity="center|start"
                         android:text="Pond Type"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -500,7 +528,7 @@
                         android:gravity="center"
                         android:text=" : "
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
 
 
                     <TextView
@@ -512,7 +540,7 @@
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center|start"
                         android:textColor="@color/txtColor"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
 

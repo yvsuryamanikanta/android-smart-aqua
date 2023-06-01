@@ -12,7 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterCultureBinding;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHolder> {
 
@@ -21,16 +25,6 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
     private ClickListener listener;
     private Context _context;
 
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        private final AdapterCultureBinding binding;
-
-        public MyViewHolder(AdapterCultureBinding itemBinding) {
-            super(itemBinding.getRoot());
-            this.binding = itemBinding;
-        }
-    }
 
     public CultureAdapter(Context context, ArrayList<CultureModel> arrayList, ClickListener listener) {
         this.arrayList = arrayList;
@@ -53,7 +47,12 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
         CultureModel cultureModel = (CultureModel) arrayList.get(position);
         holder.binding.setCultures(cultureModel);
 
-        holder.binding.txtSno.setText("S.No : " + (position+1));
+        holder.binding.txtSno.setText("S.No : " + (position + 1));
+        Date c = Calendar.getInstance().getTime();
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
+        holder.binding.txtDate.setText(formattedDate);
 
         if (isNullOrEmpty(cultureModel.previousdecease)) {
             holder.binding.txtDecease.setText(cultureModel.previousdecease);
@@ -110,12 +109,12 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
             holder.binding.linearWaterFilled.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(cultureModel.watersource)) {
-            holder.binding.txtFillingWater.setText(cultureModel.watersource);
+            holder.binding.txtSourceWater.setText(cultureModel.watersource);
             holder.binding.linearWaterSource.setVisibility(View.VISIBLE);
         } else {
             holder.binding.linearWaterSource.setVisibility(View.GONE);
         }
-        if (isNullOrEmpty(cultureModel.pondtype)) {
+        if (isNullOrSelect(cultureModel.pondtype)) {
             holder.binding.txtPondType.setText(cultureModel.pondtype);
             holder.binding.linearPondType.setVisibility(View.VISIBLE);
         } else {
@@ -125,7 +124,15 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
     }
 
     boolean isNullOrEmpty(String data) {
-        return data != null && !data.equalsIgnoreCase("");
+        return data != null && !data.equalsIgnoreCase("") &&
+                !data.equalsIgnoreCase("no") &&
+                !data.equalsIgnoreCase("null");
+    }
+
+    boolean isNullOrSelect(String data) {
+        return data != null && !data.equalsIgnoreCase("") &&
+                !data.equalsIgnoreCase("select") &&
+                !data.equalsIgnoreCase("null");
     }
 
     @Override
@@ -133,8 +140,17 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
         return arrayList.size();
     }
 
-
     public interface ClickListener {
         void onClicked(CultureModel CultureModel, int pos);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        private final AdapterCultureBinding binding;
+
+        public MyViewHolder(AdapterCultureBinding itemBinding) {
+            super(itemBinding.getRoot());
+            this.binding = itemBinding;
+        }
     }
 }
