@@ -20,7 +20,7 @@
             android:id="@+id/txt_sno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
+            android:padding="@dimen/_8sdp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center|start"
             android:textColor="@color/txtColor"

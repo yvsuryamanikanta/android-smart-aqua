@@ -53,7 +53,7 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
         CultureModel cultureModel = (CultureModel) arrayList.get(position);
         holder.binding.setCultures(cultureModel);
 
-        holder.binding.txtSno.setText(position);
+        holder.binding.txtSno.setText("S.No : " + (position+1));
 
         if (isNullOrEmpty(cultureModel.previousdecease)) {
             holder.binding.txtDecease.setText(cultureModel.previousdecease);

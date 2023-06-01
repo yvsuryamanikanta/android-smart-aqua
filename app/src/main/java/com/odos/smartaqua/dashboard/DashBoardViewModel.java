@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -156,7 +157,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                         int position = tab.getPosition();
                                         try {
                                             JSONObject jsonObject = jsonArray.getJSONObject(position);
-                                            tankId = jsonObject.getString("tankid");
+                                            tankId = jsonObject.getString("tankId");
                                             tankName = jsonObject.getString("tankname");
                                             cultureId = jsonObject.getString("cultureid");
                                             cultureaccess = jsonObject.getString("cultureaccess");

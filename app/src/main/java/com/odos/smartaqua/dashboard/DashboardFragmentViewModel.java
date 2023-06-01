@@ -3,6 +3,7 @@ package com.odos.smartaqua.dashboard;
 import android.content.Context;
 import android.os.Build;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;

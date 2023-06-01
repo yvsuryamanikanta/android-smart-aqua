@@ -22,6 +22,7 @@ import com.odos.smartaqua.databinding.ActivityLoginBinding;
 import com.odos.smartaqua.prelogin.forgot.ForgotPasswordActivity;
 import com.odos.smartaqua.prelogin.sighnup.SignupActivity;
 import com.odos.smartaqua.shocaseview.ShowCaseActivity;
+import com.odos.smartaqua.tank.AddPondActivity;
 import com.odos.smartaqua.utils.ASPManager;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
@@ -181,7 +182,7 @@ public class LoginViewModel extends ViewModel implements ServiceAsyncResponse {
                         if (jsonArray.length() != 0) {
                             AquaConstants.claerAllActivities(_context, DashBoardActivity.class,null);
                         } else {
-                            AquaConstants.claerAllActivities(_context, ShowCaseActivity.class,null);
+                            AquaConstants.claerAllActivities(_context, AddPondActivity.class, new String[]{"0"});
                         }
                     }
                 } catch (JSONException e) {

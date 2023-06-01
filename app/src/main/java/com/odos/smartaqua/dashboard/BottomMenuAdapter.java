@@ -2,6 +2,7 @@ package com.odos.smartaqua.dashboard;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,9 @@ import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.feed.AddFeedActivity;
+import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.feed.FeedObservationActivity;
+import com.odos.smartaqua.feed.TankViewPagerActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.tank.PondListActivity;
@@ -114,7 +117,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         break;
                     case 4:
                         String[] values = new String[]{tankId, cultureId, tankName, cultureAccess};
-                        AquaConstants.putIntent(_context, AddFeedActivity.class, AquaConstants.HOLD, values);
+                        AquaConstants.putIntent(_context, TankViewPagerActivity.class, AquaConstants.HOLD, values);
                         break;
                     case 5:
                         AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
@@ -127,6 +130,11 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
             } else if (_flag == 4) {
                 switch (position) {
                     case 0:
+                        Log.e("data--==",""+position);
+                        Log.e("data--==",""+tankId);
+                        Log.e("data--==",""+cultureResponse);
+                        String[] tankdetails = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        AquaConstants.putIntent(_context, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
                         Toast.makeText(_context, "Feed report", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:

@@ -77,8 +77,11 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
             postparams.put("tankname", name);
             postparams.put("tanklocation", address);
             postparams.put("tankimage", filePath);
+            postparams.put("latitude", "");
+            postparams.put("longitude", "");
+            postparams.put("tankSize", _activityAddtankBinding.edtArea.getText().toString());
+            postparams.put("tankSizeType", _activityAddtankBinding.spinArea.getSelectedItem().toString());
             postparams.put("userid", Helper.getUserID(_context));
-
             VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.SAVE_TANK, postparams, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
 
@@ -102,6 +105,7 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
         switch (serviceno) {
             case 1:
                 try {
+                    Log.e("data--==",""+jsonObject);
                     String status = jsonObject.getString("status");
                     String statusCode = jsonObject.getString("statusCode");
                     String response = jsonObject.getString("response");

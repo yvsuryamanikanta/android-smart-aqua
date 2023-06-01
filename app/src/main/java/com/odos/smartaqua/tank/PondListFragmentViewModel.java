@@ -82,9 +82,8 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
             case 1:
                 try {
                     String status = jsonObject.getString("status");
-                    String response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        Log.e("#######", new Gson().toJson(response));
+                        String response = jsonObject.getString("response");
                         JSONObject jsonObject1 = new JSONObject(response);
                         String tanklocation = jsonObject1.getString("tanklocation");
                         String tankimage = jsonObject1.getString("tankimage");
@@ -201,29 +200,6 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
                             _fragmentBinding.recyclerStock.setLayoutManager(mLayoutMng);
                             _fragmentBinding.recyclerStock.setAdapter(new StockingAdapter(_context, stockingModelArrayList, this));
                         }
-//                        _fragmentBinding.txtTankAddress.setText(tanklocation);
-//                        Picasso.with(_context).load(tankimage).into(_fragmentBinding.tankImage);
-//                        _fragmentBinding.txtTankSize.setText(tankSize + " in " + tankSizeType);
-//                        _fragmentBinding.txtDecease.setText(previousdecease);
-//                        _fragmentBinding.txtRecordKeeping.setText(recordkeeping);
-//                        _fragmentBinding.txtDrying.setText(drying);
-//                        _fragmentBinding.txtBioSecurity.setText(biosecurity);
-//                        _fragmentBinding.txtScrapping.setText(scrapping);
-//                        _fragmentBinding.txtPloughing.setText(ploughing);
-//                        _fragmentBinding.txtLiming.setText(liming);
-//                        _fragmentBinding.txtSoilCheck.setText(soilcheck);
-//                        _fragmentBinding.txtFillingWater.setText(fillingwatertype);
-//                        _fragmentBinding.txtSourceWater.setText(watersource);
-//                        _fragmentBinding.txtPondType.setText(pondtype);
-//                        _fragmentBinding.txtAmmonia.setText(ammonia);
-//                        _fragmentBinding.txtNitrite.setText(nitrite);
-//                        _fragmentBinding.txtAlkalnity.setText(alkalnity);
-//                        _fragmentBinding.txtHardness.setText(hardness);
-//                        _fragmentBinding.txtIron.setText(iron);
-//                        _fragmentBinding.txtMineral.setText(mineral);
-//                        _fragmentBinding.txtClorine.setText(clorine);
-//                        _fragmentBinding.txtSalnity.setText(salnity);
-//                        _fragmentBinding.txtTransparency.setText(transparancy);
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once." + e, AquaConstants.HOLD);

@@ -51,7 +51,7 @@ public class StockingAdapter extends RecyclerView.Adapter<StockingAdapter.MyView
     public void onBindViewHolder(StockingAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         StockingModel stockingModel = (StockingModel) arrayList.get(position);
         holder.binding.setStockModel(stockingModel);
-        holder.binding.txtSno.setText(position);
+        holder.binding.txtSno.setText("S.No : "+(position+1));
 
         if (isNullOrEmpty(stockingModel.ammonia)) {
             holder.binding.txtAmmonia.setText(stockingModel.ammonia);
