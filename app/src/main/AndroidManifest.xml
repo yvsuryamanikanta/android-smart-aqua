@@ -156,6 +156,11 @@
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
         <activity
+            android:name=".table_library.table_data.ReportTable"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".warehouse.products.AddProductActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"

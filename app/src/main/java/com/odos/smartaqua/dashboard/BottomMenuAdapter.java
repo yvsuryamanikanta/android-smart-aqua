@@ -2,6 +2,7 @@ package com.odos.smartaqua.dashboard;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +18,15 @@ import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
-import com.odos.smartaqua.feed.AddFeedActivity;
 import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.feed.FeedObservationActivity;
 import com.odos.smartaqua.feed.TankViewPagerActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
+import com.odos.smartaqua.table_library.table_data.ReportTable;
 import com.odos.smartaqua.tank.PondListActivity;
 import com.odos.smartaqua.tank.PondPreparationActivity;
-import com.odos.smartaqua.tank.PreparationListActivity;
 import com.odos.smartaqua.tank.StockingActivity;
-import com.odos.smartaqua.tank.StockingListActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
@@ -138,7 +137,19 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         Toast.makeText(_context, "Feed report", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
-                        Toast.makeText(_context, "CheckTray report", Toast.LENGTH_SHORT).show();
+                        ArrayList<String> headers = new ArrayList<>();
+                        headers.add("Pond Name");
+                        headers.add("B1");
+                        headers.add("B2");
+                        headers.add("B3");
+                        headers.add("B4");
+                        headers.add("B5");
+                        headers.add("B6");
+
+                        Intent intent = new Intent(_context, ReportTable.class);
+//                        intent.putExtra("headers", headers);
+                        _context.startActivity(intent);
+//                        Toast.makeText(_context, "CheckTray report", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
                         Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
