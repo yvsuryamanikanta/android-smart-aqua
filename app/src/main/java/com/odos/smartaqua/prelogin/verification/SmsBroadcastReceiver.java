@@ -12,7 +12,7 @@ import com.google.android.gms.common.api.Status;
 import java.util.Objects;
 
 public class SmsBroadcastReceiver extends BroadcastReceiver {
-    SmsBroadcastReceiverListener smsBroadcastReceiverListener;
+    public SmsBroadcastReceiverListener smsBroadcastReceiverListener;
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Objects.equals(intent.getAction(), SmsRetriever.SMS_RETRIEVED_ACTION)) {

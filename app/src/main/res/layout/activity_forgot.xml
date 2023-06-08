@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -10,15 +12,15 @@
 
 
     <RelativeLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
 
         <LinearLayout
-            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical">
 
 
@@ -36,75 +38,190 @@
 
             </FrameLayout>
 
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="36.7dp"
-                android:layout_marginRight="62dp"
-                android:background="@drawable/blue_border_rounded_cornwe">
-
-                <!-- INPUT -->
-                <EditText
-                    android:id="@+id/edt_mobilenumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/username_icon"
-                    android:background="@android:color/transparent"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="Mobile Number"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:paddingLeft="17dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:textColor="@color/txtColor"
-                    android:textColorHint="@color/gray"
-                    android:textCursorDrawable="@drawable/cursor_color"
-                    android:textSize="12sp" />
-
-                <!-- ICON -->
-                <ImageView
-                    android:id="@+id/username_icon"
-                    android:layout_width="24.7dp"
-                    android:layout_height="18.3dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="17dp"
-                    android:src="@drawable/email" />
-
-            </RelativeLayout>
-
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/linear_enter_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="18.7dp"
-                android:layout_marginRight="62dp"
-                android:background="@drawable/blue_fill__rounded_color"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:onClick="@{(v) -> ForgotViewModel.onForgotClick(v)}"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:text="Submit"
-                android:textColor="#ffffff"
-                android:textSize="12sp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="62dp"
+                    android:layout_marginTop="36.7dp"
+                    android:layout_marginRight="62dp"
+                    android:background="@drawable/blue_border_rounded_cornwe">
+
+                    <!-- INPUT -->
+                    <EditText
+                        android:id="@+id/edt_mobilenumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/username_icon"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="Mobile Number"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:paddingLeft="17dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="@color/txtColor"
+                        android:textColorHint="@color/gray"
+                        android:textCursorDrawable="@drawable/cursor_color"
+                        android:textSize="12sp" />
+
+                    <!-- ICON -->
+                    <ImageView
+                        android:id="@+id/username_icon"
+                        android:layout_width="24.7dp"
+                        android:layout_height="18.3dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="17dp"
+                        android:src="@drawable/email" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="62dp"
+                    android:layout_marginTop="18.7dp"
+                    android:layout_marginRight="62dp"
+                    android:background="@drawable/blue_fill__rounded_color"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> ForgotViewModel.onForgotClick(v)}"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="Submit"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:onClick="@{(v) -> ForgotViewModel.onLoginClick(v)}"
+                    android:text="@string/loginnow"
+                    android:textColor="#1566e0"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_otp"
+                android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/poppins_medium"
-                android:onClick="@{(v) -> ForgotViewModel.onLoginClick(v)}"
-                android:text="@string/loginnow"
-                android:textColor="#1566e0"
-                android:textSize="10.5sp" />
+                android:orientation="vertical">
 
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:id="@+id/layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/countDownText"
+                            tools:ignore="RtlCompat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:padding="@dimen/_5sdp"
+                            android:textAlignment="center"
+                            android:textColor="@color/red"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/enter_the_code_that_was_send_to"
+                            android:textAlignment="center"
+                            android:textColor="@color/txtColor"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/phonenumberText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <com.chaos.view.PinView
+                            android:id="@+id/pinView"
+                            style="@style/PinWidget.PinView"
+                            app:cursorColor="@color/colorAccent"
+                            app:cursorWidth="2dp"
+                            app:itemCount="6"
+                            app:itemHeight="48dp"
+                            app:itemRadius="4dp"
+                            app:itemSpacing="5dp"
+                            app:itemWidth="36dp"
+                            app:lineColor="#2f64ba"
+                            app:lineWidth="2dp"
+                            app:viewType="rectangle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:cursorVisible="true"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textColor="#222222"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btn_submit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:background="@drawable/rounded_circle_button"
+                            android:fontFamily="@font/poppins_medium"
+                            android:onClick="@{(v) -> ForgotViewModel.onVerifyClick(v)}"
+                            android:paddingLeft="@dimen/_40sdp"
+                            android:paddingRight="@dimen/_40sdp"
+                            android:text="@string/submit"
+                            android:textColor="@color/white" />
+
+
+                        <TextView
+                            android:id="@+id/txtResend"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:onClick="@{(v) -> ForgotViewModel.getOtp(v)}"
+                            android:text="@string/i_didn_t_get_a_code"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -89,6 +89,12 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".prelogin.forgot.ChangePasswordActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".shocaseview.ShowCaseActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
