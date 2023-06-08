@@ -8,18 +8,17 @@ import androidx.databinding.DataBindingUtil;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.common.BaseActivity;
-import com.odos.smartaqua.databinding.ActivityLabReportViewpagerBinding;
-import com.odos.smartaqua.lab.LabReportPagerModel;
+import com.odos.smartaqua.databinding.ActivityWaterAnalysisReportViewpagerBinding;
 
-public class WaterAnalysisActivity extends BaseActivity {
-    private ActivityLabReportViewpagerBinding _binding;
-    private LabReportPagerModel viewModel;
+public class WaterAnalysisViewPagerActivity extends BaseActivity {
+    private ActivityWaterAnalysisReportViewpagerBinding _binding;
+    private WaterReportPagerModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LayoutInflater mInflater = LayoutInflater.from(WaterAnalysisActivity.this);
-        _binding = DataBindingUtil.inflate(mInflater, R.layout.activity_lab_report_viewpager, activityBaseBinding.baseFragment, true);
-        viewModel = new LabReportPagerModel(WaterAnalysisActivity.this, _binding, activityBaseBinding);
+        LayoutInflater mInflater = LayoutInflater.from(WaterAnalysisViewPagerActivity.this);
+        _binding = DataBindingUtil.inflate(mInflater, R.layout.activity_water_analysis_report_viewpager, activityBaseBinding.baseFragment, true);
+        viewModel = new WaterReportPagerModel(WaterAnalysisViewPagerActivity.this, _binding, activityBaseBinding);
         _binding.setViewModel(viewModel);
         _binding.executePendingBindings();
         setToolBarIconClick(0);

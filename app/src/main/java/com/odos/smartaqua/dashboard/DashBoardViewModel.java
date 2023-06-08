@@ -239,7 +239,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         myDialog.setContentView(R.layout.custom_alert_compare);
         myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
         ArrayList<String> arrayList;
-        arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Lab report", "Growth Report", "Expenditures"));
+        arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "Lab report", "Growth Report", "Expenditures"));
         RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);

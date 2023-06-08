@@ -48,6 +48,7 @@ public class ServiceConstants {
     public static final String STOCKING_LIST = BASE_URL + "tank/stocking/list/";
     public static final String PREPARATION_LIST = BASE_URL + "tank/preparation/list/";
     public static final String TANK_INFO = BASE_URL + "tank/info/";
+    public static final String CHANGE_PASSWORD = BASE_URL + "user/updatePassword/";
 
 
 }

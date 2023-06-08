@@ -166,7 +166,7 @@
         <entry key="app/src/main/res/layout/activity_feed_info.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_feed_list_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_feed_observation.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/activity_forgot.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/activity_forgot.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_growth_report_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_lab_observation.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_lab_report.xml" value="0.10260416666666666" />
@@ -182,6 +182,7 @@
         <entry key="app/src/main/res/layout/activity_tank_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_treatment_report_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_verification.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/activity_water_analysis_report_viewpager.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/adapter_brandcnsts.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_checktray.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_checktray_report.xml" value="0.1" />
@@ -194,6 +195,7 @@
         <entry key="app/src/main/res/layout/adapter_stocking.xml" value="0.25" />
         <entry key="app/src/main/res/layout/adapter_treatments.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_userroles.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/adapter_water_report.xml" value="0.25" />
         <entry key="app/src/main/res/layout/custom_alert_chat.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/custom_alert_compare.xml" value="0.5" />
         <entry key="app/src/main/res/layout/custom_alert_create.xml" value="0.5" />
@@ -212,6 +214,7 @@
         <entry key="app/src/main/res/layout/fragment_report_checktray.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_growth.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_lab.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_report_water.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_stockinglist.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/include_chld_feeditem.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/item_table.xml" value="0.23802083333333332" />

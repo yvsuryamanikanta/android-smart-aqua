@@ -31,6 +31,7 @@ import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
 import com.odos.smartaqua.warehouse.stock.AddStockActivity;
+import com.odos.smartaqua.water.WaterAnalysisViewPagerActivity;
 
 import java.util.ArrayList;
 
@@ -152,12 +153,20 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
 //                        Toast.makeText(_context, "CheckTray report", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
+                        Log.e("data--==",""+position);
+                        Log.e("data--==",""+tankId);
+                        Log.e("data--==",""+cultureResponse);
+                        String[] tankData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        AquaConstants.putIntent(_context, WaterAnalysisViewPagerActivity.class, AquaConstants.HOLD, tankData);
+                        Toast.makeText(_context, "Water analysis report", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
-                        Toast.makeText(_context, "Growth report", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
+                        Toast.makeText(_context, "Growth report", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 5:
                         Toast.makeText(_context, "Expends report", Toast.LENGTH_SHORT).show();
                         break;
                 }

@@ -245,6 +245,12 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".water.WaterAnalysisViewPagerActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".checktray.ChecktrayReportViewPagerActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
