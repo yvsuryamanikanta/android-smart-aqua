@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterWaterReportBinding;
+import com.odos.smartaqua.tank.CultureModel;
 
 import java.util.ArrayList;
 
@@ -49,9 +50,8 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        WaterReportModel _model = (WaterReportModel) homeModelArrayList.get(position);
-        holder.binding.setModel(homeModelArrayList.get(position));
-//        holder.binding.txtLab.setText("Lab Report ( "+_model.getLabobsvdate()+" )");
+        WaterReportModel waterReportModel = (WaterReportModel) homeModelArrayList.get(position);
+        holder.binding.setModel(waterReportModel);
 
     }
 

@@ -31,49 +31,6 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/_1sdp"
-                    android:gravity="center|start"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_5sdp"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:id="@+id/txt_feed_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|start"
-                        android:gravity="center|start"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="@string/feed_title"
-                        android:textAllCaps="true"
-                        android:textColor="@color/txtColor" />
-
-                    <EditText
-                        android:id="@+id/edt_feed_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center|start"
-                        android:background="@drawable/edittext_bottom"
-                        android:gravity="center|start"
-                        android:hint="@string/enter_feedtitle"
-                        android:inputType="number"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:paddingRight="@dimen/_15sdp"
-                        android:singleLine="true"
-                        android:maxLength="3"
-                        android:maxLines="1"
-                        android:textColor="@color/txtColor"
-                        android:textCursorDrawable="@drawable/cursor_animated"
-                        android:textSize="12sp"
-                        tools:ignore="Autofill" />
-
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/txt_header_addfeed"

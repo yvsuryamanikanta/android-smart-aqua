@@ -116,7 +116,6 @@ public class ForgotViewModel extends ViewModel implements ServiceAsyncResponse {
 
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonObject, int serviceno) {
-        Log.e("#######" + serviceno, " " + new Gson().toJson(jsonObject));
         switch (serviceno) {
             case 1:
                 try {
@@ -141,7 +140,7 @@ public class ForgotViewModel extends ViewModel implements ServiceAsyncResponse {
                     String response = jsonObject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (response.equalsIgnoreCase("Sucess")) {
-                            AquaConstants.putIntent(_context, ChangePasswordActivity.class, 1, null);
+                            AquaConstants.putIntent(_context, ChangePasswordActivity.class, 1, new String[]{_activityForgotBinding.phonenumberText.getText().toString()});
                         } else {
                             Helper.showMessage(_context, "Invalid OTP.", AquaConstants.HOLD);
                         }

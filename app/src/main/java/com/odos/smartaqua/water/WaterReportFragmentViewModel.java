@@ -3,6 +3,7 @@ package com.odos.smartaqua.water;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -42,6 +43,7 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
     private String[] searchData;
     private double availablestock;
     private String productId, productCatgId, mrp, productName;
+    private ArrayList<WaterReportModel> waterReportModelArrayList;
 
     public WaterReportFragmentViewModel(Context context, FragmentReportWaterBinding binding, int tId, String cultureaccess) {
         this._context = context;
@@ -58,7 +60,7 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.LIST_LAB_OBSV + tankId, null, Helper.headerParams(_context),
-                    serviceAsyncResponse, 1, true);
+                    serviceAsyncResponse, 11, true);
         }
     }
 
@@ -73,18 +75,19 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
 
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
-        Log.e("########", " "+new Gson().toJson(jsonobject));
+        Log.e("########", " " + jsonobject);
         switch (serviceno) {
-            case 1:
+            case 11:
+                ArrayList<WaterReportModel> waterReportModelArrayList = new ArrayList<>();
                 try {
+                    waterReportModelArrayList = new ArrayList<>();
                     String status = jsonobject.getString("status");
-                    String statusCode = jsonobject.getString("statusCode");
                     String response = jsonobject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
-                                ArrayList<WaterReportModel> arrayList = new ArrayList<>();
+                                _binding.recyclerView.setVisibility(View.VISIBLE);
+                                _binding.txtNodata.setVisibility(View.GONE);
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                                     int labobservationid = jsonObject1.getInt("labobservationid");
@@ -124,21 +127,26 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
                                             hydrogensulphide, labdo, co2, greenalgae, diatom, bluegreenalgae,
                                             dinoflegellates, zooplankton, dafloc, vibriogreencolonies, vibrioyellowcolonies,
                                             labobsvdate, createddate, modifieddate);
-                                    arrayList.add(_model);
+                                    waterReportModelArrayList.add(_model);
                                 }
                                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);
                                 _binding.recyclerView.setLayoutManager(mLayoutManager);
                                 _binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-                                _binding.recyclerView.setAdapter(new WaterReportAdapter(_context, arrayList, this));
+                                _binding.recyclerView.setAdapter(new WaterReportAdapter(_context, waterReportModelArrayList, this));
                             } else {
-                                Helper.showMessage(_context, "No Data Available Now.", AquaConstants.HOLD);
+                                _binding.recyclerView.setVisibility(View.GONE);
+                                _binding.txtNodata.setVisibility(View.VISIBLE);
+                                _binding.txtNodata.setText("No Reports Available");
                             }
-                        }
                     } else {
-                        Helper.showMessage(_context, "" + status, AquaConstants.HOLD);
+                        _binding.recyclerView.setVisibility(View.GONE);
+                        _binding.txtNodata.setVisibility(View.VISIBLE);
+                        _binding.txtNodata.setText("No Reports Available");
                     }
                 } catch (Exception e) {
-                    Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
+                    _binding.recyclerView.setVisibility(View.GONE);
+                    _binding.txtNodata.setVisibility(View.VISIBLE);
+                    _binding.txtNodata.setText("something went wrong please restart app once."+e);
                 }
                 break;
         }

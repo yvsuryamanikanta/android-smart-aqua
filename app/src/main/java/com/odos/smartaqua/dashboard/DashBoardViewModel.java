@@ -2,10 +2,10 @@ package com.odos.smartaqua.dashboard;
 
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -113,7 +113,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                    (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+                    (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
 
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
@@ -139,11 +139,6 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
-                                if (jsonArray.length() < 4) {
-                                    _activityDashboardBinding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-                                } else {
-                                    _activityDashboardBinding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-                                }
                                 DashBoardViewPagerAdapter daDashBoardViewPagerAdapter = new DashBoardViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                         FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, jsonArray);
                                 _activityDashboardBinding.pager.setAdapter(daDashBoardViewPagerAdapter);
@@ -162,7 +157,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                             cultureId = jsonObject.getString("cultureid");
                                             cultureaccess = jsonObject.getString("cultureaccess");
                                             tankPosition = position;
-                                        } catch (JSONException e) {
+                                        } catch (Exception e) {
                                             e.printStackTrace();
                                         }
                                     }
@@ -182,14 +177,13 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
                                 AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
                             }
                         } else {
-                            Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
+                            Helper.showMessage(_context, "No Data Found", AquaConstants.FINISH);
                         }
                     } else {
-                        Toast.makeText(_context, "no culture created Please add culture", Toast.LENGTH_SHORT).show();
-                        AquaConstants.putIntent(_context, AddCultureActivity.class, AquaConstants.HOLD, null);
+                        Helper.showMessage(_context, "No Data Found", AquaConstants.FINISH);
                     }
                 } catch (Exception e) {
-                    Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
+                    Helper.showMessage(_context, "No Data Found", AquaConstants.FINISH);
                 }
                 break;
         }
@@ -213,7 +207,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 1, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 1, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
         myDialog.show();
     }
 
@@ -224,12 +218,12 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
 
         ArrayList<String> arrayList;
         myDialog.getWindow().setGravity(Gravity.BOTTOM);
-        arrayList = new ArrayList<>(Arrays.asList("Pond", "Add Culture","Pond Preparation", "Add Stocking", "Add Feed", "Add CheckTray", "Add Treatments"));
+        arrayList = new ArrayList<>(Arrays.asList("Pond", "Add Culture", "Pond Preparation", "Add Stocking", "Add Feed", "Add CheckTray", "Add Treatments"));
         RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 3, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 3, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
         myDialog.show();
     }
 
@@ -244,7 +238,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 4, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 4, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
         myDialog.show();
     }
 
@@ -259,7 +253,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 5, tankId, tankName, cultureId, tankPosition, cultureaccess,response));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 5, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
         myDialog.show();
     }
 

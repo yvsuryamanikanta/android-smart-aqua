@@ -105,7 +105,6 @@ public class AddPondViewModel extends BaseObservable implements ServiceAsyncResp
         switch (serviceno) {
             case 1:
                 try {
-                    Log.e("data--==",""+jsonObject);
                     String status = jsonObject.getString("status");
                     String statusCode = jsonObject.getString("statusCode");
                     String response = jsonObject.getString("response");

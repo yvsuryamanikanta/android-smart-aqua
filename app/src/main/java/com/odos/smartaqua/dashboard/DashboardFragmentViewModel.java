@@ -4,7 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -73,10 +76,15 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
     }
 
     public void loadCalander() {
+        TextView textView = new TextView(_context);
+        textView.setGravity(Gravity.BOTTOM|Gravity.CENTER);
+        textView.setText("Events Loading");
+        textView.setTextColor(_context.getResources().getColor(R.color.red));
+        _fragmentBinding.llCalender.addView(textView);
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
-                    (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
+                    (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
 
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
@@ -93,7 +101,7 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonObject, int serviceno) {
         switch (serviceno) {
-            case 1:
+            case 2:
                 try {
                     events = new ArrayList<>();
                     _fragmentBinding.llCalender.removeAllViews();

@@ -19,6 +19,7 @@ public class LabReportFragment extends Fragment {
     private int cultureId;
     private String cultureAccess;
     private LabReportFragmentViewModel labReportFragmentViewModel;
+    private boolean isLoaded = false;
 
     public static Fragment newInstance(int cultureid, String cultureaccess) {
         LabReportFragment feedListFragment = new LabReportFragment();
@@ -44,6 +45,9 @@ public class LabReportFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        labReportFragmentViewModel.loadData();
+        if (!isLoaded) {
+            labReportFragmentViewModel.loadData();
+            isLoaded = true;
+        }
     }
 }

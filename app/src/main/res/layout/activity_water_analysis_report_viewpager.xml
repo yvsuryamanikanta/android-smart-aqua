@@ -22,6 +22,8 @@
             style="@style/tabBoxTheme"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/colorPrimaryDark"
+            app:tabMode="auto"
+            app:tabGravity="center"
             android:layout_height="@dimen/_40sdp" />
 
         <androidx.viewpager.widget.ViewPager

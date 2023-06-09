@@ -5,7 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,27 +14,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModel;
 
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.databinding.ActivityAddFeedBinding;
 import com.odos.smartaqua.databinding.FragmentAddFeedBinding;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
 import com.odos.smartaqua.warehouse.products.ProductTypes;
 import com.odos.smartaqua.warehouse.products.ProductTypesAdapter;
-import com.odos.smartaqua.warehouse.products.SearchProductActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -53,7 +53,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
     private String cultureAccess;
     private String[] searchData;
     private double availablestock;
-    private String productId,productCatgId,mrp,productName,qtyName;
+    private String productId, productCatgId, mrp, productName, qtyName;
 
     public AddFeedFragmentModel(Context context, FragmentAddFeedBinding activityAddFeedBinding, int cultureid, String cultureaccess) {
         this._context = context;
@@ -80,6 +80,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
     public void loadProductName(String pName) {
         productName = pName;
     }
+
     public void loadQtyName(String _qtyName) {
         qtyName = _qtyName;
     }
@@ -87,6 +88,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
     public void loadProductMrp(String pMrp) {
         mrp = pMrp;
     }
+
     public void loadProductCtgId(String pCtgId) {
         productCatgId = pCtgId;
     }
@@ -112,16 +114,16 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
         } else {
             if (searchData != null) {
                 double currentstock;
-                if(qtyName.equalsIgnoreCase("KG") && suppliment_qtycategorycode.equalsIgnoreCase("KG")){
+                if (qtyName.equalsIgnoreCase("KG") && suppliment_qtycategorycode.equalsIgnoreCase("KG")) {
                     currentstock = Double.parseDouble(_binding.edtSuplimentQty.getText().toString());
-                }else if(qtyName.equalsIgnoreCase("KG") && suppliment_qtycategorycode.equalsIgnoreCase("Grams")){
+                } else if (qtyName.equalsIgnoreCase("KG") && suppliment_qtycategorycode.equalsIgnoreCase("Grams")) {
                     currentstock = Double.parseDouble(_binding.edtSuplimentQty.getText().toString());
-                    currentstock = currentstock/1000;
-                }else if(qtyName.equalsIgnoreCase("Grams") && suppliment_qtycategorycode.equalsIgnoreCase("Grams")){
+                    currentstock = currentstock / 1000;
+                } else if (qtyName.equalsIgnoreCase("Grams") && suppliment_qtycategorycode.equalsIgnoreCase("Grams")) {
                     currentstock = Double.parseDouble(_binding.edtSuplimentQty.getText().toString());
-                }else if(qtyName.equalsIgnoreCase("Grams") && suppliment_qtycategorycode.equalsIgnoreCase("KG")){
+                } else if (qtyName.equalsIgnoreCase("Grams") && suppliment_qtycategorycode.equalsIgnoreCase("KG")) {
                     currentstock = Double.parseDouble(_binding.edtSuplimentQty.getText().toString()) * 1000;
-                }else{
+                } else {
                     currentstock = Double.parseDouble(_binding.edtSuplimentQty.getText().toString());
                 }
                 if (availablestock < currentstock) {
@@ -161,16 +163,16 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
         } else {
             if (searchData != null) {
                 double currentstock;
-                if(qtyName.equalsIgnoreCase("KG") && qtycategorycode.equalsIgnoreCase("KG")){
+                if (qtyName.equalsIgnoreCase("KG") && qtycategorycode.equalsIgnoreCase("KG")) {
                     currentstock = Double.parseDouble(_binding.edtQty.getText().toString());
-                }else if(qtyName.equalsIgnoreCase("KG") && qtycategorycode.equalsIgnoreCase("Grams")){
+                } else if (qtyName.equalsIgnoreCase("KG") && qtycategorycode.equalsIgnoreCase("Grams")) {
                     currentstock = Double.parseDouble(_binding.edtQty.getText().toString());
-                    currentstock = currentstock/1000;
-                }else if(qtyName.equalsIgnoreCase("Grams") && qtycategorycode.equalsIgnoreCase("Grams")){
+                    currentstock = currentstock / 1000;
+                } else if (qtyName.equalsIgnoreCase("Grams") && qtycategorycode.equalsIgnoreCase("Grams")) {
                     currentstock = Double.parseDouble(_binding.edtQty.getText().toString());
-                }else if(qtyName.equalsIgnoreCase("Grams") && qtycategorycode.equalsIgnoreCase("KG")){
+                } else if (qtyName.equalsIgnoreCase("Grams") && qtycategorycode.equalsIgnoreCase("KG")) {
                     currentstock = Double.parseDouble(_binding.edtQty.getText().toString()) * 1000;
-                }else{
+                } else {
                     currentstock = Double.parseDouble(_binding.edtQty.getText().toString());
                 }
                 if (availablestock < currentstock) {
@@ -203,32 +205,34 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
     }
 
     public void getFeedDate(View view) {
-        Helper.getDateTimepicker(_context, _binding.txtTimeDate, AquaConstants.FINISH);
+        Helper.getDateTimepicker(_context, _binding.txtTimeDate, AquaConstants.HOLD);
     }
 
     public void saveFeed(View view) {
 
-        if (_binding.edtFeedTitle.getText().toString().equalsIgnoreCase("")) {
-            Toast.makeText(_context, "Add Feed Title", Toast.LENGTH_SHORT).show();
-        } else if (products_jsonArray.length() == 0) {
+        if (products_jsonArray.length() == 0) {
             Toast.makeText(_context, "Add atleast one product", Toast.LENGTH_SHORT).show();
         } else if (_binding.txtTimeDate.getText().toString().equalsIgnoreCase("")) {
             Toast.makeText(_context, "Pick feed date and time", Toast.LENGTH_SHORT).show();
         } else {
-
             try {
-                String title = _binding.edtFeedTitle.getText().toString();
                 String dateandtime = _binding.txtTimeDate.getText().toString();
                 String comment = _binding.edtCommentsFeed.getText().toString();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = formatter.parse(dateandtime);
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                String formateddate = DateFormat.format("yyyy-MM-dd", calendar).toString();
                 HashMap<String, Object> postParams = new HashMap<>();
-                postParams.put("groupname", title);
+                postParams.put("groupname", "");
                 postParams.put("feedProducts", products_jsonArray);
                 postParams.put("suppliments", suppliment_jsonArray);
                 postParams.put("userID", Helper.getUserID(_context));
                 postParams.put("cultureid", cultureId);
                 postParams.put("access", cultureAccess);
-                postParams.put("feeddate", _binding.txtTimeDate.getText().toString());
-                postParams.put("comment", _binding.edtCommentsFeed.getText().toString());
+                postParams.put("feeddate", formateddate);
+                postParams.put("feeddateandtime", dateandtime);
+                postParams.put("comment", comment);
                 VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                         ServiceConstants.SAVE_FEED, postParams, Helper.headerParams(_context),
                         (ServiceAsyncResponse) serviceAsyncResponse, 3, true);
@@ -263,11 +267,11 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
                     ll_add_imageview.addView(feed_id);
                     textView.setGravity(View.TEXT_ALIGNMENT_CENTER | View.TEXT_ALIGNMENT_TEXT_START);
                     textView.setTextColor(_context.getResources().getColor(R.color.red));
-                  //  Double convertQty = Double.parseDouble(productQty) / 1000;
+                    //  Double convertQty = Double.parseDouble(productQty) / 1000;
                     String buildTesxt = productName + " --  " + productQty + quantityname;
                     textView.setText(buildTesxt);
                     feed_id.setText(productID);
-                  //  feed_id.setVisibility(View.GONE);
+                    //  feed_id.setVisibility(View.GONE);
                     imageView.setImageResource(R.drawable.close);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @SuppressLint("NewApi")

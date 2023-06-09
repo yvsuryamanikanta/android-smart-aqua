@@ -3,6 +3,7 @@ package com.odos.smartaqua.warehouse.stock;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -42,6 +43,8 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
     private int qtyTypeID = 777;
     private String qtyTypeName;
     private Float discountAmount;
+    private String filePath = "";
+    private String fileType = "";
 
     public AddStockViewModel(Context context, ActivityAddstockBinding activityAddstockBinding) {
         this._context = context;
@@ -109,6 +112,7 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
             postParams.put("quantitycategoryid", qtyTypeID);
             postParams.put("discount", String.valueOf(discountAmount));
             postParams.put("mrp", mrp);
+            postParams.put("path", filePath);
             VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.SAVE_STOCK, postParams, Helper.headerParams(_context),
                     (ServiceAsyncResponse) serviceAsyncResponse, 3, true);
@@ -159,6 +163,10 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
         }
     }
 
+    public void uploadBitmap(Bitmap bitmap) {
+        VolleyService.VolleyMultipartRequest(_context, bitmap, _context.getString(R.string.jsonobjectrequest),
+                ServiceConstants.UPLOAD, (ServiceAsyncResponse) serviceAsyncResponse, 4, true, "image");
+    }
 
     @Override
     public void stringResponse(String service, String response, int serviceno) {
@@ -281,11 +289,25 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
                         _activityAddstockBinding.edtPriceQty.setText("");
                         _activityAddstockBinding.edtQuantity.setText("");
                         _activityAddstockBinding.edtDiscount.setText("");
+                        filePath = "";
                     } else {
                         Helper.showMessage(_context, response, AquaConstants.HOLD);
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "Stock Saving Failed.", AquaConstants.HOLD);
+                }
+                break;
+
+            case 4:
+                try {
+                    String path_status = jsonobject.getString("status");
+                    if (path_status.equalsIgnoreCase("Sucess")) {
+                        JSONObject response = jsonobject.getJSONObject("response");
+                        filePath = response.getString("filepath");
+                        fileType = response.getString("fileType");
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(_context, "image upload failed try again", Toast.LENGTH_SHORT).show();
                 }
                 break;
         }

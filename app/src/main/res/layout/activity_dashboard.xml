@@ -51,6 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:scrollbars="none"
+                app:tabMode="auto"
+                app:tabGravity="center"
                 android:background="@color/white"
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/colorPrimary" />

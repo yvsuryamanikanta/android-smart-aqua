@@ -17,6 +17,7 @@ public class WaterReportFragment extends Fragment {
     private int cultureId;
     private String cultureAccess;
     private WaterReportFragmentViewModel waterReportFragmentViewModel;
+    private boolean isLoaded = false;
 
     public static Fragment newInstance(int cultureid, String cultureaccess) {
         WaterReportFragment feedListFragment = new WaterReportFragment();
@@ -42,6 +43,9 @@ public class WaterReportFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        waterReportFragmentViewModel.loadData();
+        if (!isLoaded) {
+            waterReportFragmentViewModel.loadData();
+            isLoaded = true;
+        }
     }
 }

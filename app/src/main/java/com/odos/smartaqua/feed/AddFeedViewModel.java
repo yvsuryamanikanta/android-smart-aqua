@@ -181,20 +181,17 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
 
     public void saveFeed(View view) {
 
-        if (_activityAddFeedBinding.edtFeedTitle.getText().toString().equalsIgnoreCase("")) {
-            Toast.makeText(_context, "Add Feed Title", Toast.LENGTH_SHORT).show();
-        } else if (products_jsonArray.length() == 0) {
+        if (products_jsonArray.length() == 0) {
             Toast.makeText(_context, "Add atleast one product", Toast.LENGTH_SHORT).show();
         } else if (_activityAddFeedBinding.txtTimeDate.getText().toString().equalsIgnoreCase("")) {
             Toast.makeText(_context, "Pick feed date and time", Toast.LENGTH_SHORT).show();
         } else {
 
             try {
-                String title = _activityAddFeedBinding.edtFeedTitle.getText().toString();
                 String dateandtime = _activityAddFeedBinding.txtTimeDate.getText().toString();
                 String comment = _activityAddFeedBinding.edtCommentsFeed.getText().toString();
                 HashMap<String, Object> postParams = new HashMap<>();
-                postParams.put("groupname", title);
+                postParams.put("groupname", "");
                 postParams.put("feedProducts", products_jsonArray);
                 postParams.put("suppliments", suppliment_jsonArray);
                 postParams.put("userID", Helper.getUserID(_context));
@@ -202,7 +199,6 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
                 postParams.put("access", values[3]);
                 postParams.put("feeddate", _activityAddFeedBinding.txtTimeDate.getText().toString());
                 postParams.put("comment", _activityAddFeedBinding.edtCommentsFeed.getText().toString());
-                Log.e("data--==",""+new JSONObject(postParams));
                 VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                         ServiceConstants.SAVE_FEED, postParams, Helper.headerParams(_context),
                         (ServiceAsyncResponse) serviceAsyncResponse, 3, true);

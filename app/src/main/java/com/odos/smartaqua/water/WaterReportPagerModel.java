@@ -39,16 +39,16 @@ public class WaterReportPagerModel extends BaseObservable implements ServiceAsyn
         this._binding = binding;
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
-        values = ((Activity)_context).getIntent().getStringArrayExtra("values");
+        values = ((Activity) _context).getIntent().getStringArrayExtra("values");
         activityBaseBinding.mytoolbar.txtTootlbarTitle.setText(values[1]);
         activityBaseBinding.mytoolbar.txtTootlbarTitle.setTextSize(13);
-      //  setUpViewPager();
+        //  setUpViewPager();
     }
 
     public void setUpViewPager() {
         VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                 ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+                (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
     }
 
     @Override
@@ -81,17 +81,12 @@ public class WaterReportPagerModel extends BaseObservable implements ServiceAsyn
                                         String cultureimage = jsonObject1.getString("cultureimage");
                                         String culturestatus = jsonObject1.getString("culturestatus");
                                         String cultureaccess = jsonObject1.getString("cultureaccess");
-                                        CultureModel cultureModel = new CultureModel(cultureid,userid,tankid,culturename,tankname,
-                                                culturenumber,cultureimage,culturestatus,cultureaccess);
+                                        CultureModel cultureModel = new CultureModel(cultureid, userid, tankid, culturename, tankname,
+                                                culturenumber, cultureimage, culturestatus, cultureaccess);
                                         cultureModelArrayList.add(cultureModel);
                                     } catch (Exception e) {
                                         Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                                     }
-                                }
-                                if (cultureModelArrayList.size() < 4) {
-                                    _binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-                                } else {
-                                    _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
                                 }
                                 viewPagerAdapter = new WaterAnalysisReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                         FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList);
