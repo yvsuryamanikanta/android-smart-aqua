@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -17,48 +18,638 @@
         app:cardCornerRadius="@dimen/_2sdp">
 
 
+        <!--
+                <LinearLayout
+                    android:id="@+id/ll_chcktray_obsv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:id="@+id/txt_checktray"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.9"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center|start"
+                            android:padding="10dp"
+                            android:textColor="@color/txtColor"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.1"
+                            android:gravity="center|start"
+                            android:src="@drawable/rightarrow" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+        -->
+
+
         <LinearLayout
-            android:id="@+id/ll_chcktray_obsv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="1">
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/txt_checktray"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.9"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center|start"
-                    android:padding="10dp"
-                    android:textColor="@color/txtColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                <LinearLayout
+                    android:id="@+id/linear_createddate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.1"
-                    android:gravity="center|start"
-                    android:src="@drawable/rightarrow" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Created Date"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/txt_createddate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_tank"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Tank Id"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_tankid"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_checktrayid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="CheckTray Id"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_checktrayid"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_checktray_observid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="CheckTray Observer Id"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_checktray_observid"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_feedstatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Feed Status"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_feedstatus"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_wastagecolor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Wastage Color"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_wastagecolor"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_mortalitytype"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Mortality Type"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_mortalitytype"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_mortalitycount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Mortality Count"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_mortalitycount"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_potaciumdefeciency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Potacium Defeciency"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_potaciumdefeciency"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_magniciumdefeciency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Magnicium Defeciency"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_magniciumdefeciency"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_calciumdefeciency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Calcium Defeciency"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_calciumdefeciency"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_vibrieostatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Vibrieo Status"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_vibrieostatus"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_crampstatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Cramp status"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_crampstatus"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_checktrayobsvdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Checktray Obsvdate"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_checktrayobsvdate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_modifieddate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:orientation="horizontal"
+                    android:padding="0.2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center|start"
+                        android:padding="5dp"
+                        android:text="Modified Date"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_modifieddate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="0.5"
+                        android:background="@color/white"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center"
+                        android:textColor="@color/txtColor"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
             </LinearLayout>
-
-
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 

@@ -17,6 +17,7 @@ import com.odos.smartaqua.R;
 import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
+import com.odos.smartaqua.checktray.ChecktrayReportViewPagerActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.feed.FeedObservationActivity;
@@ -138,6 +139,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         Toast.makeText(_context, "Feed report", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
+/*
                         ArrayList<String> headers = new ArrayList<>();
                         headers.add("Pond Name");
                         headers.add("B1");
@@ -150,7 +152,9 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         Intent intent = new Intent(_context, ReportTable.class);
 //                        intent.putExtra("headers", headers);
                         _context.startActivity(intent);
-//                        Toast.makeText(_context, "CheckTray report", Toast.LENGTH_SHORT).show();
+*/
+                        String[] checktrayData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        AquaConstants.putIntent(_context, ChecktrayReportViewPagerActivity.class, AquaConstants.HOLD, checktrayData);
                         break;
                     case 2:
                         Log.e("data--==",""+position);
@@ -158,7 +162,6 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         Log.e("data--==",""+cultureResponse);
                         String[] tankData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
                         AquaConstants.putIntent(_context, WaterAnalysisViewPagerActivity.class, AquaConstants.HOLD, tankData);
-                        Toast.makeText(_context, "Water analysis report", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
                         Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();

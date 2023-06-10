@@ -7,9 +7,7 @@ import android.view.View;
 import androidx.databinding.DataBindingUtil;
 
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.checktray.ChecktrayObsvPagerModel;
 import com.odos.smartaqua.common.BaseActivity;
-import com.odos.smartaqua.databinding.ActivityChecktrayReportViewpagerBinding;
 import com.odos.smartaqua.databinding.ActivityLabReportViewpagerBinding;
 
 public class LabReportViewPagerActivity extends BaseActivity {

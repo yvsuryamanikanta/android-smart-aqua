@@ -15,13 +15,13 @@ import com.odos.smartaqua.feed.FeedListViewPagerModel;
 
 public class ChecktrayReportViewPagerActivity extends BaseActivity {
     private ActivityChecktrayReportViewpagerBinding _binding;
-    private ChecktrayObsvPagerModel viewModel;
+    private ChecktrayViewPagerModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater mInflater = LayoutInflater.from(ChecktrayReportViewPagerActivity.this);
         _binding = DataBindingUtil.inflate(mInflater, R.layout.activity_checktray_report_viewpager, activityBaseBinding.baseFragment, true);
-        viewModel = new ChecktrayObsvPagerModel(ChecktrayReportViewPagerActivity.this, _binding, activityBaseBinding);
+        viewModel = new ChecktrayViewPagerModel(ChecktrayReportViewPagerActivity.this, _binding, activityBaseBinding);
         _binding.setViewModel(viewModel);
         _binding.executePendingBindings();
         setToolBarIconClick(0);

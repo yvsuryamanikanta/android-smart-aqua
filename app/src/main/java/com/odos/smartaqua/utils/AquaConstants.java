@@ -19,8 +19,8 @@ public class AquaConstants {
 
     /*service constants*/
     public static final String PROTOCOL = "http";
-  //  public static final String HOST = "192.168.0.107/api/";
-    public static final String HOST = "3.84.163.198/api/";
+    public static final String HOST = "192.168.0.105/api/";
+  //  public static final String HOST = "3.84.163.198/api/";
 
 
     public static String VERSION = "version/";

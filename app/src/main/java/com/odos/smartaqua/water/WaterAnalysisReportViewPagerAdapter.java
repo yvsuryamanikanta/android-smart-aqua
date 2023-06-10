@@ -1,6 +1,7 @@
 package com.odos.smartaqua.water;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,7 @@ public class WaterAnalysisReportViewPagerAdapter extends FragmentStatePagerAdapt
     @Override
     public Fragment getItem(int position) {
         int cultureId = _cultureModelArrayList.get(position).getCultureid();
+        Log.e("########---", " " + cultureId);
         String cultureAccess = _cultureModelArrayList.get(position).getCultureaccess();
         return WaterReportFragment.newInstance(cultureId,cultureAccess);
     }

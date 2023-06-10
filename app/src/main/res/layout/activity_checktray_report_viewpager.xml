@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.odos.smartaqua.checktray.ChecktrayObsvPagerModel" />
+            type="com.odos.smartaqua.checktray.ChecktrayViewPagerModel" />
     </data>
 
     <LinearLayout

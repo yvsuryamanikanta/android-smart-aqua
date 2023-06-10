@@ -93,7 +93,7 @@ public class WaterReportPagerModel extends BaseObservable implements ServiceAsyn
                                 _binding.pager.setAdapter(viewPagerAdapter);
                                 _binding.tabLayout.setupWithViewPager(_binding.pager, true);
                                 _binding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_binding.tabLayout));
-                                _binding.pager.setCurrentItem(Integer.parseInt(values[0]));
+                                _binding.pager.setCurrentItem(0);
                                 _binding.pager.setOffscreenPageLimit(jsonArray.length());
                             } else {
                                 Helper.showMessage(_context, "No Data.", AquaConstants.FINISH);

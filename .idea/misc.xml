@@ -195,7 +195,7 @@
         <entry key="app/src/main/res/layout/activity_water_analysis_report_viewpager.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/adapter_brandcnsts.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_checktray.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/adapter_checktray_report.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/adapter_checktray_report.xml" value="0.22" />
         <entry key="app/src/main/res/layout/adapter_culture.xml" value="0.25" />
         <entry key="app/src/main/res/layout/adapter_feed.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_growth_report.xml" value="0.23802083333333332" />

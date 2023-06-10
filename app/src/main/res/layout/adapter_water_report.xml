@@ -306,7 +306,7 @@
                     <TextView
                         android:id="@+id/txt_co3"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="1dp"
+                        android:layout_width="0dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
                         android:background="@color/white"
@@ -352,6 +352,7 @@
                     <TextView
                         android:id="@+id/txt_hco3"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -398,6 +399,7 @@
                     <TextView
                         android:id="@+id/txt_total_alka"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -456,6 +458,7 @@
                     <TextView
                         android:id="@+id/txt_ca"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -502,6 +505,7 @@
                     <TextView
                         android:id="@+id/txt_mg"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -548,6 +552,7 @@
                     <TextView
                         android:id="@+id/txt_total_mg"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -607,6 +612,7 @@
                     <TextView
                         android:id="@+id/txt_calcium"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -654,6 +660,7 @@
                     <TextView
                         android:id="@+id/txt_magnesium"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -700,6 +707,7 @@
                     <TextView
                         android:id="@+id/txt_ratio"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -746,6 +754,7 @@
                     <TextView
                         android:id="@+id/txt_potassium"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -792,6 +801,7 @@
                     <TextView
                         android:id="@+id/txt_sodium"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -837,6 +847,7 @@
                     <TextView
                         android:id="@+id/txt_ratio_po_sod"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -883,6 +894,7 @@
                     <TextView
                         android:id="@+id/txt_iron"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -942,6 +954,7 @@
                     <TextView
                         android:id="@+id/txt_ionized"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -988,6 +1001,7 @@
 
                     <TextView
                         android:id="@+id/txt_un_ionized"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
@@ -1035,6 +1049,7 @@
 
                     <TextView
                         android:id="@+id/txt_nitrate"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
@@ -1083,6 +1098,7 @@
                     <TextView
                         android:id="@+id/txt_hydrogen"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -1129,6 +1145,7 @@
 
                     <TextView
                         android:id="@+id/txt_do"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
@@ -1176,6 +1193,7 @@
 
                     <TextView
                         android:id="@+id/txt_co2"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
@@ -1236,6 +1254,7 @@
                     <TextView
                         android:id="@+id/txt_green"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -1282,6 +1301,7 @@
 
                     <TextView
                         android:id="@+id/txt_diatom"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
@@ -1330,6 +1350,7 @@
                     <TextView
                         android:id="@+id/txt_bluegreen"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -1377,6 +1398,7 @@
                     <TextView
                         android:id="@+id/txt_dinoflegellates"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -1424,6 +1446,7 @@
                     <TextView
                         android:id="@+id/txt_zooplankton"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"
@@ -1471,6 +1494,7 @@
                     <TextView
                         android:id="@+id/txt_da"
                         android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginRight="1dp"
                         android:layout_weight="0.32"

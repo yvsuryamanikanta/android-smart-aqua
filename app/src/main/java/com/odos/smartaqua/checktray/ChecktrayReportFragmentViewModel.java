@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.API.ServiceAsyncResponse;
@@ -108,7 +109,8 @@ public class ChecktrayReportFragmentViewModel extends ViewModel implements Servi
                                             magniciumdefeciency, calciumdefeciency, crampstatus, checktrayobsvdate, createddate, modifieddate);
                                     arrayList.add(checktrayReportModel);
                                 }
-                                RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);
+//                                RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);
+                                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
                                 _binding.recyclerView.setLayoutManager(mLayoutManager);
                                 _binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
                                 _binding.recyclerView.setAdapter(new ChecktrayReportAdapter(_context, arrayList, this));

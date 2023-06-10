@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class ChecktrayReportViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private ArrayList<ChecktrayObsvModel> _checktrayObsvModelArrayList;
+    private ArrayList<CultureModel> _checktrayObsvModelArrayList;
     private Context _context;
 
-    public ChecktrayReportViewPagerAdapter(Context context, FragmentManager fm, int behavior, ArrayList<ChecktrayObsvModel> checktrayObsvModelArrayList) {
+    public ChecktrayReportViewPagerAdapter(Context context, FragmentManager fm, int behavior, ArrayList<CultureModel> checktrayObsvModelArrayList) {
         super(fm, behavior);
         this._context = context;
         this._checktrayObsvModelArrayList = checktrayObsvModelArrayList;
@@ -37,6 +37,6 @@ public class ChecktrayReportViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return _checktrayObsvModelArrayList.get(position).getChecktrayobsvdate();
+        return _checktrayObsvModelArrayList.get(position).getCulturename();
     }
 }

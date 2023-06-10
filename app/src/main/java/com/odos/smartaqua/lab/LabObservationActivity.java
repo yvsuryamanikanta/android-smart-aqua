@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import androidx.databinding.DataBindingUtil;
 
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.checktray.ChecktrayObservationViewModel;
 import com.odos.smartaqua.common.BaseActivity;
-import com.odos.smartaqua.databinding.ActivityChecktrayObservationBinding;
 import com.odos.smartaqua.databinding.ActivityLabObservationBinding;
 
 public class LabObservationActivity extends BaseActivity {

@@ -3,12 +3,14 @@ package com.odos.smartaqua.checktray;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BaseObservable;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
@@ -27,7 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class ChecktrayObsvPagerModel extends BaseObservable implements ServiceAsyncResponse {
+public class ChecktrayViewPagerModel extends BaseObservable implements ServiceAsyncResponse {
     private ChecktrayReportViewPagerAdapter checktrayReportViewPagerAdapter;
     private Context _context;
     private ActivityChecktrayReportViewpagerBinding _binding;
@@ -37,7 +39,7 @@ public class ChecktrayObsvPagerModel extends BaseObservable implements ServiceAs
     private String[] values;
     private ArrayList<CultureModel> cultureModelArrayList;
 
-    public ChecktrayObsvPagerModel(Context context, ActivityChecktrayReportViewpagerBinding activityChecktrayReportViewpagerBinding, ActivityBaseBinding activityBaseBinding) {
+    public ChecktrayViewPagerModel(Context context, ActivityChecktrayReportViewpagerBinding activityChecktrayReportViewpagerBinding, ActivityBaseBinding activityBaseBinding) {
         this._context = context;
         this._binding = activityChecktrayReportViewpagerBinding;
         this._activityBaseBinding = activityBaseBinding;
@@ -72,6 +74,7 @@ public class ChecktrayObsvPagerModel extends BaseObservable implements ServiceAs
                     String status = jsonobject.getString("status");
                     String statusCode = jsonobject.getString("statusCode");
                     String response = jsonobject.getString("response");
+                    Log.e("$$$$$$$$$$  "," "+new Gson().toJson(response));
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
@@ -100,12 +103,12 @@ public class ChecktrayObsvPagerModel extends BaseObservable implements ServiceAs
                                 } else {
                                     _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
                                 }
-                                /*checktrayReportViewPagerAdapter = new ChecktrayReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
-                                        FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList);*/
+                                checktrayReportViewPagerAdapter = new ChecktrayReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
+                                        FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList);
                                 _binding.pager.setAdapter(checktrayReportViewPagerAdapter);
                                 _binding.tabLayout.setupWithViewPager(_binding.pager, true);
                                 _binding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_binding.tabLayout));
-                                _binding.pager.setCurrentItem(Integer.parseInt(values[0]));
+                                _binding.pager.setCurrentItem(0);
                                 _binding.pager.setOffscreenPageLimit(jsonArray.length());
                             } else {
                                 Helper.showMessage(_context, "No Data.", AquaConstants.FINISH);
@@ -162,12 +165,14 @@ public class ChecktrayObsvPagerModel extends BaseObservable implements ServiceAs
                                 } else {
                                     _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
                                 }
+/*
                                 checktrayReportViewPagerAdapter = new ChecktrayReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                         FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, checktrayObsvModelArrayList);
+*/
                                 _binding.pager.setAdapter(checktrayReportViewPagerAdapter);
                                 _binding.tabLayout.setupWithViewPager(_binding.pager, true);
                                 _binding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_binding.tabLayout));
-                                _binding.pager.setCurrentItem(Integer.parseInt(values[0]));
+                                _binding.pager.setCurrentItem(0);
                                 _binding.pager.setOffscreenPageLimit(jsonArray.length());
                             } else {
                                 Helper.showMessage(_context, "No Data.", AquaConstants.FINISH);
