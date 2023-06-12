@@ -6,73 +6,79 @@ import androidx.databinding.BindingAdapter;
 
 public class GrowthReportModel {
 
-    int templateID;
-    int userID;
-    String groupname;
-    String feeddate;
-    String feedProducts;
-    String suppliments;
+    String growthobsvid;
+    String tankid;
+    String count;
+    String growthobservationdate;
+    String createddate;
+    String modifieddate;
 
-    public GrowthReportModel(int templateID, int userID, String groupname, String feeddate, String feedProducts, String suppliments) {
-        this.templateID = templateID;
-        this.userID = userID;
-        this.groupname = groupname;
-        this.feeddate = feeddate;
-        this.feedProducts = feedProducts;
-        this.suppliments = suppliments;
+    public GrowthReportModel(String tankid, String growthobsvid, String count, String growthobservationdate,
+                             String createddate, String modifieddate) {
+        this.tankid = tankid;
+        this.growthobsvid = growthobsvid;
+        this.count = count;
+        this.growthobservationdate = growthobservationdate;
+        this.createddate = createddate;
+        this.modifieddate = modifieddate;
     }
 
-    public int getTemplateID() {
-        return templateID;
+    public String getGrowthobsvid() {
+        return growthobsvid;
     }
 
-    public void setTemplateID(int templateID) {
-        this.templateID = templateID;
+    public void setGrowthobsvid(String growthobsvid) {
+        this.growthobsvid = growthobsvid;
     }
 
-    public int getUserID() {
-        return userID;
+    public String getTankid() {
+        return tankid;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setTankid(String tankid) {
+        this.tankid = tankid;
     }
 
-    public String getGroupname() {
-        return groupname;
+    public String getCount() {
+        return count;
     }
 
-    public String getFeeddate() {
-        return feeddate;
+    public void setCount(String count) {
+        this.count = count;
     }
 
-    public void setGroupname(String groupname) {
-        this.groupname = groupname;
+    public String getGrowthobservationdate() {
+        return growthobservationdate;
     }
 
-    public String getFeedProducts() {
-        return feedProducts;
+    public void setGrowthobservationdate(String growthobservationdate) {
+        this.growthobservationdate = growthobservationdate;
     }
 
-    public void setFeedProducts(String feedProducts) {
-        this.feedProducts = feedProducts;
+    public String getCreateddate() {
+        return createddate;
     }
 
-    public String getSuppliments() {
-        return suppliments;
+    public void setCreateddate(String createddate) {
+        this.createddate = createddate;
     }
 
-    public void setSuppliments(String suppliments) {
-        this.suppliments = suppliments;
+    public String getModifieddate() {
+        return modifieddate;
     }
 
-    @BindingAdapter("groupname")
-    public static void groupname(TextView view, String groupname) {
-        view.setText(groupname);
+    public void setModifieddate(String modifieddate) {
+        this.modifieddate = modifieddate;
     }
-    @BindingAdapter("feeddate")
-    public static void feeddate(TextView view, String feeddate) {
-        view.setText(feeddate);
+
+
+//    @BindingAdapter("groupname")
+//    public static void groupname(TextView view, String groupname) {
+//        view.setText(groupname);
+//    }
+    @BindingAdapter("createddate")
+    public static void createddate(TextView view, String _date) {
+        view.setText(_date);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.odos.smartaqua.growth;
+package com.odos.smartaqua.expends;
 
 
 import android.app.Activity;
@@ -15,8 +15,7 @@ import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.cultures.CultureModel;
 import com.odos.smartaqua.databinding.ActivityBaseBinding;
-import com.odos.smartaqua.databinding.ActivityGrowthReportViewpagerBinding;
-import com.odos.smartaqua.feed.FeedListViewPagerAdapter;
+import com.odos.smartaqua.databinding.ActivityExpendsReportViewpagerBinding;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.Helper;
 
@@ -26,18 +25,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class GrowthReportPagerModel extends BaseObservable implements ServiceAsyncResponse {
-    private GrowthReportViewPagerAdapter growthReportViewPagerAdapter;
+public class ExpendsReportPagerModel extends BaseObservable implements ServiceAsyncResponse {
+    private ExpendsReportViewPagerAdapter viewpagerAdapter;
     private Context _context;
-    private ActivityGrowthReportViewpagerBinding _binding;
+    private ActivityExpendsReportViewpagerBinding _binding;
     private ActivityBaseBinding _activityBaseBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<CultureModel> cultureModelArrayList;
     private String[] values;
 
-    public GrowthReportPagerModel(Context context, ActivityGrowthReportViewpagerBinding activityGrowthReportViewpagerBinding, ActivityBaseBinding activityBaseBinding) {
+    public ExpendsReportPagerModel(Context context, ActivityExpendsReportViewpagerBinding viewpagerBinding, ActivityBaseBinding activityBaseBinding) {
         this._context = context;
-        this._binding = activityGrowthReportViewpagerBinding;
+        this._binding = viewpagerBinding;
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
         values = ((Activity)_context).getIntent().getStringArrayExtra("values");
@@ -94,9 +93,9 @@ public class GrowthReportPagerModel extends BaseObservable implements ServiceAsy
                                 } else {
                                     _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
                                 }
-                                growthReportViewPagerAdapter = new GrowthReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
+                                viewpagerAdapter = new ExpendsReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                         FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList);
-                                _binding.pager.setAdapter(growthReportViewPagerAdapter);
+                                _binding.pager.setAdapter(viewpagerAdapter);
                                 _binding.tabLayout.setupWithViewPager(_binding.pager, true);
                                 _binding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_binding.tabLayout));
                                 _binding.pager.setCurrentItem(0);

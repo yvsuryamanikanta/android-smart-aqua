@@ -19,10 +19,13 @@ import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.checktray.ChecktrayReportViewPagerActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
+import com.odos.smartaqua.expends.ExpendsObservationActivity;
+import com.odos.smartaqua.expends.ExpendsReportViewPagerActivity;
 import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.feed.FeedObservationActivity;
 import com.odos.smartaqua.feed.TankViewPagerActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
+import com.odos.smartaqua.growth.GrowthReportViewPagerActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.table_library.table_data.ReportTable;
 import com.odos.smartaqua.tank.PondListActivity;
@@ -167,10 +170,18 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
-                        Toast.makeText(_context, "Growth report", Toast.LENGTH_SHORT).show();
+                        Log.e("data--==",""+position);
+                        Log.e("data--==",""+tankId);
+                        Log.e("data--==",""+cultureResponse);
+                        String[] gData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        AquaConstants.putIntent(_context, GrowthReportViewPagerActivity.class, AquaConstants.HOLD, gData);
                         break;
                     case 5:
-                        Toast.makeText(_context, "Expends report", Toast.LENGTH_SHORT).show();
+                        Log.e("data--==",""+position);
+                        Log.e("data--==",""+tankId);
+                        Log.e("data--==",""+cultureResponse);
+                        String[] eData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        AquaConstants.putIntent(_context, ExpendsReportViewPagerActivity.class, AquaConstants.HOLD, eData);
                         break;
                 }
             } else if (_flag == 5) {
@@ -188,7 +199,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 4:
-                        Toast.makeText(_context, "expends", Toast.LENGTH_SHORT).show();
+                        AquaConstants.putIntent(_context, ExpendsObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                 }
             }

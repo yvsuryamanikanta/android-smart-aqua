@@ -8,7 +8,7 @@
 
         <variable
             name="model"
-            type="com.odos.smartaqua.growth.GrowthReportModel" />
+            type="com.odos.smartaqua.expends.ExpendsReportModel" />
     </data>
 
 
@@ -105,7 +105,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_count"
+                android:id="@+id/linear_amount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -121,12 +121,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Count"
+                    android:text="Amount"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_count"
+                    android:id="@+id/txt_amount"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -177,7 +177,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_growthobservationdate"
+                android:id="@+id/linear_observationdate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -193,12 +193,48 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Growth Observation Date"
+                    android:text="Expends Observation Date"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_growthobservationdate"
+                    android:id="@+id/txt_observationdate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_reason"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Reason"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_reason"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"

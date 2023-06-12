@@ -1,4 +1,4 @@
-package com.odos.smartaqua.growth;
+package com.odos.smartaqua.expends;
 
 
 import android.content.Context;
@@ -14,10 +14,7 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.databinding.FragmentListFeedBinding;
-import com.odos.smartaqua.databinding.FragmentReportGrowthBinding;
-import com.odos.smartaqua.feed.FeedListAdapter;
-import com.odos.smartaqua.feed.FeedModel;
+import com.odos.smartaqua.databinding.FragmentReportExpendsBinding;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
@@ -29,11 +26,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class GrowthReportFragmentViewModel extends ViewModel implements ServiceAsyncResponse, GrowthReportAdapter.ClickListener {
+public class ExpendsReportFragmentViewModel extends ViewModel implements ServiceAsyncResponse, ExpendsReportAdapter.ClickListener {
 
     private Context _context;
     private boolean loading = true;
-    private FragmentReportGrowthBinding _binding;
+    private FragmentReportExpendsBinding _binding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<ProductTypes> qtyTypesArrayList;
     private JSONArray products_jsonArray, suppliment_jsonArray;
@@ -46,9 +43,9 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
     private double availablestock;
     private String productId, productCatgId, mrp, productName;
 
-    public GrowthReportFragmentViewModel(Context context, FragmentReportGrowthBinding fragmentReportGrowthBinding, int cultureid, String cultureaccess) {
+    public ExpendsReportFragmentViewModel(Context context, FragmentReportExpendsBinding binding, int cultureid, String cultureaccess) {
         this._context = context;
-        this._binding = fragmentReportGrowthBinding;
+        this._binding = binding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
         products_jsonArray = new JSONArray();
         suppliment_jsonArray = new JSONArray();
@@ -60,13 +57,9 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
     public void loadData() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.LIST_GROWTH_OBSV + cultureId, null, Helper.headerParams(_context),
+                    ServiceConstants.LIST_EXPENDS_OBSV + cultureId, null, Helper.headerParams(_context),
                     serviceAsyncResponse, 1, true);
         }
-    }
-
-    public void loadAvailableStock(double stock) {
-        availablestock = stock;
     }
 
     @Override
@@ -76,7 +69,7 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
 
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
-        Log.e("%%%%%%%%%%%%% ", " "+new Gson().toJson(jsonobject));
+        Log.e("%%%%%%%%%%%%% ", " " + new Gson().toJson(jsonobject));
         switch (serviceno) {
             case 1:
                 try {
@@ -87,23 +80,23 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
-                                ArrayList<GrowthReportModel> arrayList = new ArrayList<>();
+                                ArrayList<ExpendsReportModel> arrayList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                    String growthobsvid = jsonObject1.getString("growthobsvid");
+                                    String expendsid = jsonObject1.getString("expendsid");
                                     String tankid = jsonObject1.getString("tankid");
-                                    String count = jsonObject1.getString("count");
-                                    String growthobservationdate = jsonObject1.getString("growthobservationdate");
+                                    String amount = jsonObject1.getString("amount");
+                                    String reason = jsonObject1.getString("reason");
+                                    String expendsdate = jsonObject1.getString("expendsdate");
                                     String createddate = jsonObject1.getString("createddate");
                                     String modifieddate = jsonObject1.getString("modifieddate");
-                                    GrowthReportModel growthReportModel = new GrowthReportModel(tankid, growthobsvid, count, growthobservationdate,
-                                            createddate, modifieddate);
-                                    arrayList.add(growthReportModel);
+                                    ExpendsReportModel model = new ExpendsReportModel(tankid, expendsid, amount, reason, expendsdate, createddate, modifieddate);
+                                    arrayList.add(model);
                                 }
                                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);
                                 _binding.recyclerView.setLayoutManager(mLayoutManager);
                                 _binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-                                _binding.recyclerView.setAdapter(new GrowthReportAdapter(_context, arrayList, this));
+                                _binding.recyclerView.setAdapter(new ExpendsReportAdapter(_context, arrayList, this));
                             } else {
                                 Helper.showMessage(_context, "No Data Available Now.", AquaConstants.HOLD);
                             }
@@ -123,7 +116,7 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
     }
 
     @Override
-    public void onClicked(GrowthReportModel growthReportModel, int pos) {
+    public void onClicked(ExpendsReportModel model, int pos) {
 
     }
 }

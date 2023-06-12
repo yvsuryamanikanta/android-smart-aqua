@@ -25,6 +25,11 @@ public class ServiceConstants {
     public static final String FEED_LIST_BY_CULTUREID = BASE_URL + "feed/list";
     public static final String SAVE_CHECKTRAY = BASE_URL + "checktray/save";
     public static final String SAVE_GROWTH_OBSV = BASE_URL + "growth/observation/save";
+    public static final String LIST_GROWTH_OBSV = BASE_URL + "growth/observation/list/";
+    public static final String SAVE_EXPENDS_OBSV = BASE_URL + "expends/observation/save";
+    public static final String LIST_EXPENDS_OBSV = BASE_URL + "expends/observation/list/";
+    public static final String SAVE_TREATMENT_OBSV = BASE_URL + "treatment/save";
+    public static final String LIST_TREATMENT_OBSV = BASE_URL + "treatment/list/";
     public static final String SAVE_LAB_OBSV = BASE_URL + "lab/observation/save";
     public static final String LIST_LAB_OBSV = BASE_URL + "lab/observation/list/";
     public static final String SAVE_CHECKTRAY_OBSV = BASE_URL + "checktray/observation/save";

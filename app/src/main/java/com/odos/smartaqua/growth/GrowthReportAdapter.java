@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
+import com.odos.smartaqua.checktray.ChecktrayReportModel;
 import com.odos.smartaqua.databinding.AdapterChecktrayReportBinding;
 import com.odos.smartaqua.databinding.AdapterGrowthReportBinding;
 import com.odos.smartaqua.feed.FeedModel;
@@ -57,7 +58,44 @@ public class GrowthReportAdapter extends RecyclerView.Adapter<GrowthReportAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.binding.setModel(homeModelArrayList.get(position));
-        Helper.setTypeFace(_context, _context.getString(R.string.contentfont), holder.binding.txtName);
+        GrowthReportModel model = homeModelArrayList.get(position);
+
+        if(isNullOrEmpty(model.getCreateddate())){
+            holder.binding.txtCreateddate.setText(""+model.getCreateddate());
+            holder.binding.linearCreateddate.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearCreateddate.setVisibility(View.GONE);
+        }
+
+        if(isNullOrEmpty(model.getTankid())){
+            holder.binding.txtTankid.setText(""+model.getTankid());
+            holder.binding.linearTank.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearTank.setVisibility(View.GONE);
+        }
+
+        if(isNullOrEmpty(model.getCount())){
+            holder.binding.txtCount.setText(""+model.getCount());
+            holder.binding.linearCount.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearCount.setVisibility(View.GONE);
+        }
+
+        if(isNullOrEmpty(model.getModifieddate())){
+            holder.binding.txtModifieddate.setText(""+model.getModifieddate());
+            holder.binding.linearModifieddate.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearModifieddate.setVisibility(View.GONE);
+        }
+
+        if(isNullOrEmpty(model.getGrowthobservationdate())){
+            holder.binding.txtGrowthobservationdate.setText(""+model.getGrowthobservationdate());
+            holder.binding.linearGrowthobservationdate.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearGrowthobservationdate.setVisibility(View.GONE);
+        }
+
+      /*  Helper.setTypeFace(_context, _context.getString(R.string.contentfont), holder.binding.txtName);
         holder.binding.editIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +144,7 @@ public class GrowthReportAdapter extends RecyclerView.Adapter<GrowthReportAdapte
                     listener.onClicked(homeModelArrayList.get(position), position);
                 }
             }
-        });
+        });*/
     }
 
     @Override
@@ -114,6 +152,9 @@ public class GrowthReportAdapter extends RecyclerView.Adapter<GrowthReportAdapte
         return homeModelArrayList.size();
     }
 
+    boolean isNullOrEmpty(String data) {
+        return data != null && !data.trim().equalsIgnoreCase("");
+    }
 
     public interface ClickListener {
         void onClicked(GrowthReportModel growthReportModel, int pos);

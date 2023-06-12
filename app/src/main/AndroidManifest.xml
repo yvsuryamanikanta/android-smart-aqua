@@ -263,6 +263,18 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".expends.ExpendsObservationActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".expends.ExpendsReportViewPagerActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".treatment.TreatmentReportViewPagerActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"

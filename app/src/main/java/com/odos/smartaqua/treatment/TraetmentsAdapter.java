@@ -57,7 +57,7 @@ public class TraetmentsAdapter extends RecyclerView.Adapter<TraetmentsAdapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.binding.setModel(homeModelArrayList.get(position));
-        Helper.setTypeFace(_context, _context.getString(R.string.contentfont), holder.binding.txtName);
+        /*Helper.setTypeFace(_context, _context.getString(R.string.contentfont), holder.binding.txtName);
         holder.binding.editIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +106,7 @@ public class TraetmentsAdapter extends RecyclerView.Adapter<TraetmentsAdapter.My
                     listener.onClicked(homeModelArrayList.get(position), position);
                 }
             }
-        });
+        });*/
     }
 
     @Override
