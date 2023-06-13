@@ -12,7 +12,7 @@
             type="com.odos.smartaqua.dashboard.DashBoardViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -22,11 +22,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            custom:layout_constraintBottom_toTopOf="@+id/ll_bottom_bar"
-            custom:layout_constraintEnd_toEndOf="parent"
-            custom:layout_constraintStart_toStartOf="parent"
-            custom:layout_constraintTop_toTopOf="parent">
+            android:layout_weight="0.9"
+            android:weightSum="1"
+            android:orientation="vertical">
 
             <com.odos.smartaqua.sliders.SliderLayout
                 android:id="@+id/sliderLayout"
@@ -36,7 +34,7 @@
                 android:layout_marginTop="@dimen/_2sdp"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_2sdp"
-                android:layout_weight="0.22"
+                android:layout_weight="0.3"
                 android:background="@color/white"
                 custom:auto_cycle="true"
                 custom:indicator_visibility="invisible"
@@ -45,25 +43,25 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_5sdp"
                 style="@style/tabBoxTheme"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:scrollbars="none"
-                app:tabMode="auto"
-                app:tabGravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:background="@color/white"
+                android:scrollbars="none"
+                app:tabGravity="center"
+                app:tabMode="auto"
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/colorPrimary" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/pager"
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="0.56" />
+                android:layout_weight="0.6"
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/txt_counts"
@@ -72,7 +70,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_5sdp"
-                android:layout_weight="0.05"
+                android:layout_weight="0.1"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:fontFamily="@font/poppins_medium"
@@ -88,33 +86,31 @@
         </LinearLayout>
 
 
-        <androidx.cardview.widget.CardView
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
             android:id="@+id/ll_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
             custom:cardBackgroundColor="@color/cardbg"
-            custom:cardElevation="@dimen/_10sdp"
-            custom:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="6dp">
+            custom:layout_constraintBottom_toBottomOf="parent">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="start|center"
+                custom:circleColor="@color/colorPrimary"
+                custom:itemIconTint="@color/colorPrimary"
+                custom:itemTextColor="@color/colorPrimary"
+                custom:labelVisibilityMode="labeled"
+                custom:menu="@menu/bottom_bar" />
 
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bottomNavigation"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_gravity="start|bottom"
-                    custom:circleColor="@color/colorPrimary"
-                    custom:itemIconTint="@color/colorPrimary"
-                    custom:itemTextColor="@color/colorPrimary"
-                    custom:labelVisibilityMode="labeled"
-                    custom:menu="@menu/bottom_bar" />
+        </LinearLayout>
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

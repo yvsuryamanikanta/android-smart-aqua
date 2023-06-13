@@ -67,7 +67,7 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
 
     private void initCalender() {
         calendarView = new CalendarView(_context);
-        calendarView.setSwipeEnabled(true);
+        calendarView.setSwipeEnabled(false);
         calendarView.setHeaderColor(R.color.colorPrimary);
         calendarView.setHeaderLabelColor(R.color.white);
         calendarView.setAbbreviationsBarVisibility(View.VISIBLE);
@@ -85,7 +85,6 @@ public class DashboardFragmentViewModel extends BaseObservable implements Servic
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_DASHBOARD + Helper.getUserID(_context) + "/" + cultureId + "/" + tankId, null, Helper.headerParams(_context),
                     (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
-
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
         }

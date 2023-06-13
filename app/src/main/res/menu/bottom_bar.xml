@@ -8,10 +8,10 @@
         android:title="stock" />
 
     <item
-        android:id="@+id/chat"
+        android:id="@+id/lab"
         android:enabled="true"
-        android:icon="@drawable/ic_chat"
-        android:title="Chat" />
+        android:icon="@drawable/lab"
+        android:title="Lab" />
 
     <item
         android:id="@+id/create"

@@ -31,6 +31,8 @@ import com.odos.smartaqua.table_library.table_data.ReportTable;
 import com.odos.smartaqua.tank.PondListActivity;
 import com.odos.smartaqua.tank.PondPreparationActivity;
 import com.odos.smartaqua.tank.StockingActivity;
+import com.odos.smartaqua.treatment.TreatmentObservationActivity;
+import com.odos.smartaqua.treatment.TreatmentReportViewPagerActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
@@ -89,21 +91,27 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, AddProductActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
-                        AquaConstants.putIntent(_context, AddInvoiceActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 3:
                         AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
                         break;
-                    case 4:
-                        // AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 5:
-                        // AquaConstants.putIntent(_context, AddInvoiceActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 6:
-                        Toast.makeText(_context, "expenditure", Toast.LENGTH_SHORT).show();
+                    case 3:
+                        AquaConstants.putIntent(_context, ExpendsObservationActivity.class, AquaConstants.HOLD, null);
                         break;
 
+                }
+            } else if (_flag == 2) {
+                switch (position) {
+                    case 0:
+                        AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 1:
+                        Toast.makeText(_context, "PCR", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(_context, "SOIL", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(_context, "MINES", Toast.LENGTH_SHORT).show();
+                        break;
                 }
             } else if (_flag == 3) {
                 switch (position) {
@@ -126,20 +134,13 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                     case 5:
                         AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
                         break;
-                    case 6:
-                        Toast.makeText(_context, "add treatment", Toast.LENGTH_SHORT).show();
-                        break;
                 }
 
             } else if (_flag == 4) {
                 switch (position) {
                     case 0:
-                        Log.e("data--==",""+position);
-                        Log.e("data--==",""+tankId);
-                        Log.e("data--==",""+cultureResponse);
-                        String[] tankdetails = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        String[] tankdetails = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
-                        Toast.makeText(_context, "Feed report", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
 /*
@@ -156,50 +157,46 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
 //                        intent.putExtra("headers", headers);
                         _context.startActivity(intent);
 */
-                        String[] checktrayData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        String[] checktrayData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, ChecktrayReportViewPagerActivity.class, AquaConstants.HOLD, checktrayData);
                         break;
                     case 2:
-                        Log.e("data--==",""+position);
-                        Log.e("data--==",""+tankId);
-                        Log.e("data--==",""+cultureResponse);
-                        String[] tankData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        String[] tankData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, WaterAnalysisViewPagerActivity.class, AquaConstants.HOLD, tankData);
                         break;
                     case 3:
-                        Toast.makeText(_context, "Lab report", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(_context, "PCR report", Toast.LENGTH_SHORT).show();
                         break;
+
                     case 4:
-                        Log.e("data--==",""+position);
-                        Log.e("data--==",""+tankId);
-                        Log.e("data--==",""+cultureResponse);
-                        String[] gData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+                        Toast.makeText(_context, "Soil report", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case 5:
+                        String[] gData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, GrowthReportViewPagerActivity.class, AquaConstants.HOLD, gData);
                         break;
-                    case 5:
-                        Log.e("data--==",""+position);
-                        Log.e("data--==",""+tankId);
-                        Log.e("data--==",""+cultureResponse);
-                        String[] eData = new String[]{"" + position, "2023-05-27", tankId, "feed",cultureResponse};
+
+                    case 6:
+                        String[] tra = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        AquaConstants.putIntent(_context, TreatmentReportViewPagerActivity.class, AquaConstants.HOLD, tra);
+                        break;
+
+                    case 7:
+                        String[] eData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, ExpendsReportViewPagerActivity.class, AquaConstants.HOLD, eData);
                         break;
                 }
             } else if (_flag == 5) {
                 switch (position) {
                     case 0:
-                        AquaConstants.putIntent(_context, FeedObservationActivity.class, AquaConstants.HOLD, new String[]{"1"});
-                        break;
-                    case 1:
                         AquaConstants.putIntent(_context, ChecktrayObservationActivity.class, AquaConstants.HOLD, null);
                         break;
-                    case 2:
+                    case 1:
                         AquaConstants.putIntent(_context, GrowthObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 3:
-                        AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
-                        break;
-                    case 4:
-                        AquaConstants.putIntent(_context, ExpendsObservationActivity.class, AquaConstants.HOLD, null);
+                        AquaConstants.putIntent(_context, TreatmentObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                 }
             }

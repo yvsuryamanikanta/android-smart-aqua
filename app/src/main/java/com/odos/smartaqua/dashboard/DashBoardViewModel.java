@@ -72,19 +72,19 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.stock:
-                    loadStockMenu(_context);
+                    loadBottomMenu(_context,1,R.layout.custom_alert_stock);
                     break;
-                case R.id.chat:
-                    AquaConstants.putIntent(_context, ChatListActivity.class, AquaConstants.HOLD, null);
+                case R.id.lab:
+                    loadBottomMenu(_context,2,R.layout.custom_alert_lab);
                     break;
                 case R.id.create:
-                    loadCreateMenu(_context);
+                    loadBottomMenu(_context,3,R.layout.custom_alert_create);
                     break;
                 case R.id.compare:
-                    loadCompareMenu(_context);
+                    loadBottomMenu(_context,4,R.layout.custom_alert_compare);
                     break;
                 case R.id.more:
-                    loadMoreMenu(_context);
+                    loadBottomMenu(_context,5,R.layout.custom_alert_more);
                     break;
                 default:
             }
@@ -195,66 +195,36 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
 
     }
 
-    private void loadStockMenu(final Context activity) {
+    private void loadBottomMenu(final Context activity,int flag,int layout) {
         final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        myDialog.setContentView(R.layout.custom_alert_stock);
-        myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+        myDialog.setContentView(layout);
         ArrayList<String> arrayList;
-        myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
-        arrayList = new ArrayList<>(Arrays.asList("Add Brand", "Add Product", "Add Invoice", "Add Stock", "Stock Information", "Bills", "Expends"));
+        if(flag == 1){
+            myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+            arrayList = new ArrayList<>(Arrays.asList("Add Brand", "Add Product", "Add Stock", "Add Expenses"));
+        }else if(flag == 2){
+            myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+            arrayList = new ArrayList<>(Arrays.asList("Water Analisys", "PCR Analisys", "Soil Analisys", "Mines Analisys"));
+        }else if(flag == 3){
+            myDialog.getWindow().setGravity(Gravity.BOTTOM);
+            arrayList = new ArrayList<>(Arrays.asList("Pond Info", "Add Culture", "Pond Preparation", "Add Stocking", "Add Feed", "Add CheckTray"));
+        }else if(flag == 4){
+            myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
+            arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "PCR report", "Soil Report","Growth Report", "Treatments","Expenditures"));
+        }else if(flag == 5){
+            myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
+            arrayList = new ArrayList<>(Arrays.asList("CheckTray Observation", "Growth Observation","Disease and Treatments"));
+        }else{
+            arrayList = new ArrayList<>();
+        }
         RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 1, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
+        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, flag, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
         myDialog.show();
     }
 
-    private void loadCreateMenu(final Context activity) {
-        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
-        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        myDialog.setContentView(R.layout.custom_alert_create);
-
-        ArrayList<String> arrayList;
-        myDialog.getWindow().setGravity(Gravity.BOTTOM);
-        arrayList = new ArrayList<>(Arrays.asList("Pond", "Add Culture", "Pond Preparation", "Add Stocking", "Add Feed", "Add CheckTray", "Add Treatments"));
-        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 3, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
-        myDialog.show();
-    }
-
-    private void loadCompareMenu(final Context activity) {
-        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
-        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        myDialog.setContentView(R.layout.custom_alert_compare);
-        myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
-        ArrayList<String> arrayList;
-        arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "Lab report", "Growth Report", "Expenditures"));
-        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 4, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
-        myDialog.show();
-    }
-
-    private void loadMoreMenu(final Context activity) {
-        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
-        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        myDialog.setContentView(R.layout.custom_alert_more);
-        myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
-        ArrayList<String> arrayList;
-        arrayList = new ArrayList<>(Arrays.asList("Feed Observation", "CheckTray Observation", "Growth Observation", "Lab Observation", "Add Expends"));
-        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, 5, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
-        myDialog.show();
-    }
 
 }
