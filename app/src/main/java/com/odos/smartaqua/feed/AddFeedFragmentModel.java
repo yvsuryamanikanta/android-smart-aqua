@@ -210,7 +210,9 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
 
     public void saveFeed(View view) {
 
-        if (products_jsonArray.length() == 0) {
+        if (_binding.edtFeedTitle.getText().toString().length() == 0) {
+            Toast.makeText(_context, "Add Today Feed Count", Toast.LENGTH_SHORT).show();
+        }else if (products_jsonArray.length() == 0) {
             Toast.makeText(_context, "Add atleast one product", Toast.LENGTH_SHORT).show();
         } else if (_binding.txtTimeDate.getText().toString().equalsIgnoreCase("")) {
             Toast.makeText(_context, "Pick feed date and time", Toast.LENGTH_SHORT).show();
@@ -224,7 +226,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
                 calendar.setTime(date);
                 String formateddate = DateFormat.format("yyyy-MM-dd", calendar).toString();
                 HashMap<String, Object> postParams = new HashMap<>();
-                postParams.put("groupname", "");
+                postParams.put("groupname", _binding.edtFeedTitle.getText().toString());
                 postParams.put("feedProducts", products_jsonArray);
                 postParams.put("suppliments", suppliment_jsonArray);
                 postParams.put("userID", Helper.getUserID(_context));

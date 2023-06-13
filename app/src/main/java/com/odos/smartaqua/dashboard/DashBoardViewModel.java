@@ -205,13 +205,13 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
             arrayList = new ArrayList<>(Arrays.asList("Add Brand", "Add Product", "Add Stock", "Add Expenses"));
         }else if(flag == 2){
             myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
-            arrayList = new ArrayList<>(Arrays.asList("Water Analisys", "PCR Analisys", "Soil Analisys", "Mines Analisys"));
+            arrayList = new ArrayList<>(Arrays.asList("Water Analisys", "PCR Analisys", "Soil Analisys", "Animal Analisys"));
         }else if(flag == 3){
             myDialog.getWindow().setGravity(Gravity.BOTTOM);
             arrayList = new ArrayList<>(Arrays.asList("Pond Info", "Add Culture", "Pond Preparation", "Add Stocking", "Add Feed", "Add CheckTray"));
         }else if(flag == 4){
             myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
-            arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "PCR report", "Soil Report","Growth Report", "Treatments","Expenditures"));
+            arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "PCR report", "Soil Report","Animal Report","Growth Report", "Treatments","Expenditures"));
         }else if(flag == 5){
             myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
             arrayList = new ArrayList<>(Arrays.asList("CheckTray Observation", "Growth Observation","Disease and Treatments"));

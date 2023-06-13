@@ -2,8 +2,6 @@ package com.odos.smartaqua.dashboard;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,19 +20,16 @@ import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.expends.ExpendsObservationActivity;
 import com.odos.smartaqua.expends.ExpendsReportViewPagerActivity;
 import com.odos.smartaqua.feed.FeedListViewPagerActivity;
-import com.odos.smartaqua.feed.FeedObservationActivity;
 import com.odos.smartaqua.feed.TankViewPagerActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.growth.GrowthReportViewPagerActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
-import com.odos.smartaqua.table_library.table_data.ReportTable;
 import com.odos.smartaqua.tank.PondListActivity;
 import com.odos.smartaqua.tank.PondPreparationActivity;
 import com.odos.smartaqua.tank.StockingActivity;
 import com.odos.smartaqua.treatment.TreatmentObservationActivity;
 import com.odos.smartaqua.treatment.TreatmentReportViewPagerActivity;
 import com.odos.smartaqua.utils.AquaConstants;
-import com.odos.smartaqua.warehouse.invoice.AddInvoiceActivity;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
 import com.odos.smartaqua.warehouse.stock.AddStockActivity;
 import com.odos.smartaqua.water.WaterAnalysisViewPagerActivity;
@@ -173,16 +168,20 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         break;
 
                     case 5:
+                        Toast.makeText(_context, "Animal report", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case 6:
                         String[] gData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, GrowthReportViewPagerActivity.class, AquaConstants.HOLD, gData);
                         break;
 
-                    case 6:
+                    case 7:
                         String[] tra = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, TreatmentReportViewPagerActivity.class, AquaConstants.HOLD, tra);
                         break;
 
-                    case 7:
+                    case 8:
                         String[] eData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, ExpendsReportViewPagerActivity.class, AquaConstants.HOLD, eData);
                         break;
