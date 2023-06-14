@@ -6,73 +6,94 @@ import androidx.databinding.BindingAdapter;
 
 public class TreatmentModel {
 
-    int templateID;
-    int userID;
-    String groupname;
-    String feeddate;
-    String feedProducts;
-    String suppliments;
+    String treatmentsid;
+    String createddate;
+    String tankid;
+    String decease;
+    String solution;
+    String traetmentdate;
+    String modifieddate;
 
-    public TreatmentModel(int templateID, int userID, String groupname, String feeddate, String feedProducts, String suppliments) {
-        this.templateID = templateID;
-        this.userID = userID;
-        this.groupname = groupname;
-        this.feeddate = feeddate;
-        this.feedProducts = feedProducts;
-        this.suppliments = suppliments;
-    }
-
-    public int getTemplateID() {
-        return templateID;
-    }
-
-    public void setTemplateID(int templateID) {
-        this.templateID = templateID;
-    }
-
-    public int getUserID() {
-        return userID;
+    public TreatmentModel(String treatmentsid,
+                          String createddate,
+                          String tankid,
+                          String decease,
+                          String solution,
+                          String traetmentdate,
+                          String modifieddate) {
+        this.tankid = tankid;
+        this.treatmentsid = treatmentsid;
+        this.decease = decease;
+        this.solution = solution;
+        this.traetmentdate = traetmentdate;
+        this.createddate = createddate;
+        this.modifieddate = modifieddate;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    //    @BindingAdapter("groupname")
+//    public static void groupname(TextView view, String groupname) {
+//        view.setText(groupname);
+//    }
+    @BindingAdapter("createddate")
+    public static void createddate(TextView view, String _date) {
+        view.setText(_date);
     }
 
-    public String getGroupname() {
-        return groupname;
+    public String getCreateddate() {
+        return createddate;
     }
 
-    public String getFeeddate() {
-        return feeddate;
+    public void setCreateddate(String createddate) {
+        this.createddate = createddate;
     }
 
-    public void setGroupname(String groupname) {
-        this.groupname = groupname;
+    public String getDecease() {
+        return decease;
     }
 
-    public String getFeedProducts() {
-        return feedProducts;
+    public void setDecease(String decease) {
+        this.decease = decease;
     }
 
-    public void setFeedProducts(String feedProducts) {
-        this.feedProducts = feedProducts;
+    public String getModifieddate() {
+        return modifieddate;
     }
 
-    public String getSuppliments() {
-        return suppliments;
+    public void setModifieddate(String modifieddate) {
+        this.modifieddate = modifieddate;
     }
 
-    public void setSuppliments(String suppliments) {
-        this.suppliments = suppliments;
+    public String getSolution() {
+        return solution;
     }
 
-    @BindingAdapter("groupname")
-    public static void groupname(TextView view, String groupname) {
-        view.setText(groupname);
+    public void setSolution(String solution1) {
+        this.solution = solution1;
     }
-    @BindingAdapter("feeddate")
-    public static void feeddate(TextView view, String feeddate) {
-        view.setText(feeddate);
+
+    public String getTankid() {
+        return tankid;
     }
+
+    public void setTankid(String tankid) {
+        this.tankid = tankid;
+    }
+
+    public String getTraetmentdate() {
+        return traetmentdate;
+    }
+
+    public void setTraetmentdate(String traetmentdate) {
+        this.traetmentdate = traetmentdate;
+    }
+
+    public String getTreatmentsid() {
+        return treatmentsid;
+    }
+
+    public void setTreatmentsid(String treatmentsid) {
+        this.treatmentsid = treatmentsid;
+    }
+
 
 }

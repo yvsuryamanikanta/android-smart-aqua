@@ -285,6 +285,18 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".pcr.PCRViewPagerActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".pcr.PCRObservationActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
         <activity
             android:name=".chat.ChattingActivity"
             android:screenOrientation="locked"

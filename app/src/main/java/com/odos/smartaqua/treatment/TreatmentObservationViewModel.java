@@ -47,21 +47,25 @@ public class TreatmentObservationViewModel extends ViewModel implements ServiceA
         }
     }
 
-    public void onGrowthDate(View v) {
-        Helper.getDateTimepicker(_context,_binding.txtGrowthDate,AquaConstants.FINISH);
+    public void getTreatmentDate(View v) {
+        Helper.getDateTimepicker(_context, _binding.txtTreatmentdate, AquaConstants.FINISH);
     }
+
     public void onSaveClick(View v) {
-        if(tankId ==-1){
+        if (tankId == -1) {
             Toast.makeText(_context, "Pls select your Pond.", Toast.LENGTH_SHORT).show();
-        }else if(_binding.edtGrowthCount.getText().toString().equalsIgnoreCase("")){
-            Toast.makeText(_context, "Count is required.", Toast.LENGTH_SHORT).show();
-        }else if(_binding.txtGrowthDate.getText().toString().equalsIgnoreCase("")){
-            Toast.makeText(_context, "Growth Observed date is required.", Toast.LENGTH_SHORT).show();
-        }else{
+        } else if (_binding.edtDecease.getText().toString().equalsIgnoreCase("")) {
+            Toast.makeText(_context, "Decease field is required.", Toast.LENGTH_SHORT).show();
+        } else if (_binding.edtSolution.getText().toString().equalsIgnoreCase("")) {
+            Toast.makeText(_context, "Solution field is required.", Toast.LENGTH_SHORT).show();
+        } else if (_binding.txtTreatmentdate.getText().toString().equalsIgnoreCase("")) {
+            Toast.makeText(_context, "Treatment date is required.", Toast.LENGTH_SHORT).show();
+        } else {
             HashMap<String, Object> postparams = new HashMap<>();
             postparams.put("tankid", tankId);
-            postparams.put("count", _binding.edtGrowthCount.getText().toString());
-            postparams.put("growthobservationdate", _binding.txtGrowthDate.getText().toString());
+            postparams.put("decease", _binding.edtDecease.getText().toString());
+            postparams.put("traetmentdate", _binding.txtTreatmentdate.getText().toString());
+            postparams.put("solution", _binding.edtSolution.getText().toString());
             VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.SAVE_TREATMENT_OBSV, postparams, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 2, true);
 
@@ -128,7 +132,7 @@ public class TreatmentObservationViewModel extends ViewModel implements ServiceA
                 try {
                     String status = jsonObject.getString("status");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        Helper.showMessage(_context, "Growth Observation saved", AquaConstants.FINISH);
+                        Helper.showMessage(_context, "Treatment Observation saved", AquaConstants.FINISH);
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once." + e.getMessage(), AquaConstants.FINISH);

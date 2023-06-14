@@ -26,6 +26,8 @@ public class ServiceConstants {
     public static final String SAVE_CHECKTRAY = BASE_URL + "checktray/save";
     public static final String SAVE_GROWTH_OBSV = BASE_URL + "growth/observation/save";
     public static final String LIST_GROWTH_OBSV = BASE_URL + "growth/observation/list/";
+    public static final String SAVE_PCR_OBSV = BASE_URL + "pcr/observation/save";
+    public static final String LIST_PCR_OBSV = BASE_URL + "pcr/observation/list/";
     public static final String SAVE_EXPENDS_OBSV = BASE_URL + "expends/observation/save";
     public static final String LIST_EXPENDS_OBSV = BASE_URL + "expends/observation/list/";
     public static final String SAVE_TREATMENT_OBSV = BASE_URL + "treatment/save";

@@ -63,7 +63,6 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/bg_circle.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/bg_custom.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/bg_rectangle.xml" value="0.1" />
-        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/circular_progressbar.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/creates.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/dot.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/ic_baseline_radio_button_checked_24.xml" value="0.1" />
@@ -73,7 +72,6 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/ic_more.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/ic_report.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/ic_warehouse.xml" value="0.1" />
-        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/lab.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/menu.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/notes.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/rounded_boarder_button.xml" value="0.1" />
@@ -91,8 +89,6 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_growth_report_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_lab_report_viewpager.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_launcher.xml" value="0.1" />
-        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_observation_expends.xml" value="0.1" />
-        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_observation_treatment.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_pondprepare.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_showcase.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_signup.xml" value="0.17552083333333332" />
@@ -108,7 +104,6 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/create_bottom_sheet.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/custom_alert_compare.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/custom_alert_create.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/custom_alert_lab.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/custom_alert_more.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/custom_alert_stock.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/custom_view_calender.xml" value="0.1796875" />
@@ -178,6 +173,7 @@
         <entry key="app/src/main/res/layout/activity_checktray_report_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_dashboard_viewpager.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_expends_report_viewpager.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_feed_info.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_feed_list_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_feed_observation.xml" value="0.23802083333333332" />
@@ -187,7 +183,11 @@
         <entry key="app/src/main/res/layout/activity_lab_report.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_lab_report_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_observation_expends.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_observation_growth.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_observation_pcr.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_observation_treatment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_pcr_report_viewpager.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_pondlist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_pondprepare.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_preparationlist.xml" value="0.23697916666666666" />
@@ -202,9 +202,11 @@
         <entry key="app/src/main/res/layout/adapter_checktray.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_checktray_report.xml" value="0.22" />
         <entry key="app/src/main/res/layout/adapter_culture.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/adapter_expends_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_feed.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_growth_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_lab_report.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/adapter_pcr_report.xml" value="0.22" />
         <entry key="app/src/main/res/layout/adapter_pondlist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_searchproduct.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_stocking.xml" value="0.25" />
@@ -227,8 +229,10 @@
         <entry key="app/src/main/res/layout/fragment_pondlist.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_preparationlist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_checktray.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_report_expends.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_growth.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_lab.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_report_pcr.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_water.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_stockinglist.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/include_chld_feeditem.xml" value="0.10260416666666666" />

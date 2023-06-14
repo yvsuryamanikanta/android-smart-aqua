@@ -87,13 +87,14 @@ public class TreatmentFragmentViewModel extends ViewModel implements ServiceAsyn
                                 ArrayList<TreatmentModel> arrayList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                    int templateID = jsonObject1.getInt("templateID");
-                                    int userID = jsonObject1.getInt("userID");
-                                    String groupname = jsonObject1.getString("groupname");
-                                    String feeddate = jsonObject1.getString("feeddate");
-                                    String feedProducts = jsonObject1.getString("feedProducts");
-                                    String suppliments = jsonObject1.getString("suppliments");
-                                    TreatmentModel treatmentModel = new TreatmentModel(templateID, userID, groupname, feeddate,feedProducts, suppliments);
+                                    String tankid = jsonObject1.getString("tankid");
+                                    String createddate = jsonObject1.getString("createddate");
+                                    String decease = jsonObject1.getString("decease");
+                                    String modifieddate = jsonObject1.getString("modifieddate");
+                                    String solution = jsonObject1.getString("solution");
+                                    String traetmentdate = jsonObject1.getString("traetmentdate");
+                                    String treatmentsid = jsonObject1.getString("treatmentsid");
+                                    TreatmentModel treatmentModel = new TreatmentModel(treatmentsid, createddate, tankid, decease, solution, traetmentdate, modifieddate);
                                     arrayList.add(treatmentModel);
                                 }
                                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);

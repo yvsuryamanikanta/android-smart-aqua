@@ -16,6 +16,7 @@ import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterChecktrayReportBinding;
 import com.odos.smartaqua.databinding.AdapterTreatmentsBinding;
 import com.odos.smartaqua.feed.FeedModel;
+import com.odos.smartaqua.growth.GrowthReportModel;
 import com.odos.smartaqua.utils.Helper;
 
 import java.util.ArrayList;
@@ -57,56 +58,47 @@ public class TraetmentsAdapter extends RecyclerView.Adapter<TraetmentsAdapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.binding.setModel(homeModelArrayList.get(position));
-        /*Helper.setTypeFace(_context, _context.getString(R.string.contentfont), holder.binding.txtName);
-        holder.binding.editIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //AquaConstants.putIntent(_context, EdittankTankActivity.class, 1, null);
-            }
-        });
+        TreatmentModel model = homeModelArrayList.get(position);
 
+        if(isNullOrEmpty(model.getCreateddate())){
+            holder.binding.txtCreateddate.setText(""+model.getCreateddate());
+            holder.binding.linearCreateddate.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearCreateddate.setVisibility(View.GONE);
+        }
 
-        holder.binding.deleteIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Dialog d = new Dialog(_context, android.R.style.Theme_DeviceDefault_Dialog_MinWidth);
-                d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                d.setCancelable(false);
-                d.setContentView(R.layout.dialog_showmsg);
-                d.show();
-                TextView txt_content = (TextView) d.findViewById(R.id.txt_content);
-                TextView txt_ok = (TextView) d.findViewById(R.id.txt_ok);
-                TextView txt_cancel = (TextView) d.findViewById(R.id.txt_cancel);
-                txt_cancel.setVisibility(View.VISIBLE);
-                TextView txt_title = (TextView) d.findViewById(R.id.txt_title);
-                Helper.setTypeFace(_context, _context.getString(R.string.contentfont), txt_content);
-                Helper.setTypeFace(_context, _context.getString(R.string.contentfont), txt_ok);
-                Helper.setTypeFace(_context, _context.getString(R.string.contentfont), txt_title);
-                txt_content.setText(_context.getResources().getString(R.string.areyousuredelete));
-                txt_ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        d.dismiss();
-                    }
-                });
-                txt_cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        d.dismiss();
-                    }
-                });
+        if(isNullOrEmpty(model.getTreatmentsid())){
+            holder.binding.txtTreatmentId.setText(""+model.getTreatmentsid());
+            holder.binding.linearTreatmentId.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearTreatmentId.setVisibility(View.GONE);
+        }
 
-            }
-        });
+        if(isNullOrEmpty(model.getDecease())){
+            holder.binding.txtDecease.setText(""+model.getDecease());
+            holder.binding.linearDecease.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearDecease.setVisibility(View.GONE);
+        }
 
-        holder.binding.llFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onClicked(homeModelArrayList.get(position), position);
-                }
-            }
-        });*/
+        if(isNullOrEmpty(model.getTankid())){
+            holder.binding.txtTankid.setText(""+model.getTankid());
+            holder.binding.linearTank.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearTank.setVisibility(View.GONE);
+        }
+        if(isNullOrEmpty(model.getModifieddate())){
+            holder.binding.txtModifieddate.setText(""+model.getModifieddate());
+            holder.binding.linearModifieddate.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearModifieddate.setVisibility(View.GONE);
+        }
+        if(isNullOrEmpty(model.getSolution())){
+            holder.binding.txtSolution.setText(""+model.getSolution());
+            holder.binding.linearSolution.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.linearSolution.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -114,6 +106,9 @@ public class TraetmentsAdapter extends RecyclerView.Adapter<TraetmentsAdapter.My
         return homeModelArrayList.size();
     }
 
+    boolean isNullOrEmpty(String data) {
+        return data != null && !data.trim().equalsIgnoreCase("");
+    }
 
     public interface ClickListener {
         void onClicked(TreatmentModel treatmentModel, int pos);

@@ -28,6 +28,44 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
+                android:id="@+id/linear_treatment_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Treatment Id"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_treatment_id"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/linear_createddate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -46,8 +84,7 @@
                     android:padding="5dp"
                     android:text="Created Date"
                     android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txt_createddate"
@@ -60,8 +97,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center"
                     android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"/>
 
             </LinearLayout>
 
@@ -103,7 +139,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_amount"
+                android:id="@+id/linear_decease"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -119,12 +155,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Amount"
+                    android:text="Decease"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_amount"
+                    android:id="@+id/txt_decease"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -161,6 +197,78 @@
 
                 <TextView
                     android:id="@+id/txt_modifieddate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_treatmentdate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Treatment Date"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_treatmentdate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_solution"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Solution"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_solution"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"

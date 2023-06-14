@@ -24,6 +24,8 @@ import com.odos.smartaqua.feed.TankViewPagerActivity;
 import com.odos.smartaqua.growth.GrowthObservationActivity;
 import com.odos.smartaqua.growth.GrowthReportViewPagerActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
+import com.odos.smartaqua.pcr.PCRObservationActivity;
+import com.odos.smartaqua.pcr.PCRViewPagerActivity;
 import com.odos.smartaqua.tank.PondListActivity;
 import com.odos.smartaqua.tank.PondPreparationActivity;
 import com.odos.smartaqua.tank.StockingActivity;
@@ -99,7 +101,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, LabObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 1:
-                        Toast.makeText(_context, "PCR", Toast.LENGTH_SHORT).show();
+                        AquaConstants.putIntent(_context, PCRObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
                         Toast.makeText(_context, "SOIL", Toast.LENGTH_SHORT).show();
@@ -160,7 +162,8 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, WaterAnalysisViewPagerActivity.class, AquaConstants.HOLD, tankData);
                         break;
                     case 3:
-                        Toast.makeText(_context, "PCR report", Toast.LENGTH_SHORT).show();
+                        String[] pcrData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        AquaConstants.putIntent(_context, PCRViewPagerActivity.class, AquaConstants.HOLD, pcrData);
                         break;
 
                     case 4:
@@ -194,7 +197,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                     case 1:
                         AquaConstants.putIntent(_context, GrowthObservationActivity.class, AquaConstants.HOLD, null);
                         break;
-                    case 3:
+                    case 2:
                         AquaConstants.putIntent(_context, TreatmentObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                 }

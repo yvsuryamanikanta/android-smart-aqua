@@ -81,23 +81,22 @@
 
 
                 <TextView
-                    android:id="@+id/txt_header_pond_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_5sdp"
                     android:gravity="center|start"
-                    android:text="Count "
+                    android:text="Decease "
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/edt_growth_count"
+                    android:id="@+id/edt_decease"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/bg_box"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:padding="@dimen/_8sdp"
                     android:singleLine="true"
                     android:textColor="@color/txtColor"
@@ -111,13 +110,38 @@
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_5sdp"
                     android:gravity="center|start"
-                    android:text="Growth Report Date "
+                    android:text="Solution "
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_solution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:gravity="center|start"
+                    android:text="Treatment Date"
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <LinearLayout
-                    android:onClick="@{(v) -> viewModel.onGrowthDate(v)}"
-                    android:id="@+id/ll_purchasedate"
+                    android:onClick="@{(v) -> viewModel.getTreatmentDate(v)}"
+                    android:id="@+id/ll_treatmentdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
@@ -128,7 +152,7 @@
                     tools:ignore="NestedWeights,RtlHardcoded">
 
                     <TextView
-                        android:id="@+id/txt_growth_date"
+                        android:id="@+id/txt_treatmentdate"
                         android:layout_width="0dp"
                         android:layout_weight="0.9"
                         android:layout_height="match_parent"
