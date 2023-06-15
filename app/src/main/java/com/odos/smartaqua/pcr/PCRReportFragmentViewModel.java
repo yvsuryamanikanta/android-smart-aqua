@@ -122,7 +122,6 @@ public class PCRReportFragmentViewModel extends ViewModel implements ServiceAsyn
                                 String comments = jsonObject1.getString("comments");
                                 String createddate = jsonObject1.getString("createddate");
                                 String modifieddate = jsonObject1.getString("modifieddate");
-                                Boolean ismandatory = jsonObject1.getBoolean("ismandatory");
 
                                 PCRReportModel _model = new PCRReportModel(pcrobservationid, tankid
                                         , userid
@@ -156,8 +155,7 @@ public class PCRReportFragmentViewModel extends ViewModel implements ServiceAsyn
                                         , emsCtValueSeviority
                                         , comments
                                         , createddate
-                                        , modifieddate,
-                                        ismandatory);
+                                        , modifieddate);
                                 modelArrayList.add(_model);
                             }
                             RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);

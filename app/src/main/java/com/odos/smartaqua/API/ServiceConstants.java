@@ -28,6 +28,10 @@ public class ServiceConstants {
     public static final String LIST_GROWTH_OBSV = BASE_URL + "growth/observation/list/";
     public static final String SAVE_PCR_OBSV = BASE_URL + "pcr/observation/save";
     public static final String LIST_PCR_OBSV = BASE_URL + "pcr/observation/list/";
+    public static final String SAVE_SOIL_OBSV = BASE_URL + "soil/observation/save";
+    public static final String LIST_SOIL_OBSV = BASE_URL + "soil/observation/list/";
+    public static final String SAVE_ANIMAL_OBSV = BASE_URL + "animal/observation/save";
+    public static final String LIST_ANIMAL_OBSV = BASE_URL + "animal/observation/list/";
     public static final String SAVE_EXPENDS_OBSV = BASE_URL + "expends/observation/save";
     public static final String LIST_EXPENDS_OBSV = BASE_URL + "expends/observation/list/";
     public static final String SAVE_TREATMENT_OBSV = BASE_URL + "treatment/save";

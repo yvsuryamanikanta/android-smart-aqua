@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
+import com.odos.smartaqua.animal.AnimalObservationActivity;
+import com.odos.smartaqua.animal.AnimalViewPagerActivity;
 import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
@@ -26,6 +28,8 @@ import com.odos.smartaqua.growth.GrowthReportViewPagerActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.pcr.PCRObservationActivity;
 import com.odos.smartaqua.pcr.PCRViewPagerActivity;
+import com.odos.smartaqua.soil.SoilObservationActivity;
+import com.odos.smartaqua.soil.SoilViewPagerActivity;
 import com.odos.smartaqua.tank.PondListActivity;
 import com.odos.smartaqua.tank.PondPreparationActivity;
 import com.odos.smartaqua.tank.StockingActivity;
@@ -104,10 +108,12 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, PCRObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
-                        Toast.makeText(_context, "SOIL", Toast.LENGTH_SHORT).show();
+                        String[] tankdetails = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        AquaConstants.putIntent(_context, SoilObservationActivity.class, AquaConstants.HOLD, tankdetails);
                         break;
                     case 3:
-                        Toast.makeText(_context, "MINES", Toast.LENGTH_SHORT).show();
+                        String[] animal = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        AquaConstants.putIntent(_context, AnimalObservationActivity.class, AquaConstants.HOLD, animal);
                         break;
                 }
             } else if (_flag == 3) {
@@ -167,11 +173,13 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         break;
 
                     case 4:
-                        Toast.makeText(_context, "Soil report", Toast.LENGTH_SHORT).show();
+                        String[] soilData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        AquaConstants.putIntent(_context, SoilViewPagerActivity.class, AquaConstants.HOLD, soilData);
                         break;
 
                     case 5:
-                        Toast.makeText(_context, "Animal report", Toast.LENGTH_SHORT).show();
+                        String[] animalData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        AquaConstants.putIntent(_context, AnimalViewPagerActivity.class, AquaConstants.HOLD, animalData);
                         break;
 
                     case 6:

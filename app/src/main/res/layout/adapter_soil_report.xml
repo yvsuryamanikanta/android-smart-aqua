@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.odos.smartaqua.pcr.PCRReportModel" />
+            type="com.odos.smartaqua.soil.SoilReportModel" />
     </data>
 
 
@@ -20,8 +20,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:background="@color/white"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical"
             android:padding="@dimen/_5sdp"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,23 +100,10 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     tools:text="B1" />
-
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:orientation="horizontal"
-                android:padding="2dp"
-                android:text="Physical Analysis"
-                android:textColor="@color/red"
-                android:textSize="15sp" />
-
-
             <LinearLayout
-                android:id="@+id/linear_physical_activity"
+                android:id="@+id/linear_ammonia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -132,320 +119,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Physical Activity "
+                    android:text="Ammonia"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_physical_activity"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_meanbody_length"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="Mean Body Length"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_meanbody_length"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_dorsal_spines"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="No.of.dorsal spines "
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_dorsal_spines"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_pl_age"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="Estimated PL age "
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_pl_age"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_size_variation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="Confident of Size Variation"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_size_variation"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_sample_salinity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="Sample Salinity"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_sample_salinity"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_salinity_stress_level"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="Salinity Stress Survival"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_salinity_stress_level"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_formalin_stress_level"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="Formalin Stress Survival"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_formalin_stress_level"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:orientation="horizontal"
-                android:padding="1dp"
-                android:text="Microscopic Analysis"
-                android:textColor="@color/red"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:id="@+id/linear_gill_development_status"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="GILL Development Status "
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_gill_development_status"
+                    android:id="@+id/txt_ammonia"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -460,7 +139,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_muscle_gut_ratio"
+                android:id="@+id/linear_ca"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -476,12 +155,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="% &gt; 4:1 Muscle:Gut Ratio"
+                    android:text="Ca"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_muscle_gut_ratio"
+                    android:id="@+id/txt_ca"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -496,7 +175,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_ectoparasite"
+                android:id="@+id/linear_mg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -512,12 +191,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Ectoparasite attachments"
+                    android:text="Mg"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_ectoparasite_attachments"
+                    android:id="@+id/txt_mg"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -532,7 +211,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_endoparasite"
+                android:id="@+id/linear_clay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -548,12 +227,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Endoparasite"
+                    android:text="Clay"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_endoparasite"
+                    android:id="@+id/txt_clay"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -568,7 +247,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_necrosis"
+                android:id="@+id/linear_iron"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -584,12 +263,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Necrosis"
+                    android:text="Iron"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_necrosis"
+                    android:id="@+id/txt_iron"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -604,7 +283,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_structural_deformities"
+                android:id="@+id/linear_microbiology"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -620,12 +299,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Structural Deformities"
+                    android:text="Microbiology"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_structural_deformities"
+                    android:id="@+id/txt_microbiology"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -640,7 +319,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_hepatopancreas_lipid"
+                android:id="@+id/linear_nitrogen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -656,59 +335,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Hepatopancreas Lipid"
+                    android:text="Nitrogen"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_hepatopancreas_lipid"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center|start"
-                android:orientation="horizontal"
-                android:padding="1dp"
-                android:text="Histopathology-Wet mount Analysis"
-                android:textColor="@color/red"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:id="@+id/linear_MBV_occlusion_bodies"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="MBV Occlusion Bodies"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_MBV_occlusion_bodies"
+                    android:id="@+id/txt_nitrogen"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -723,7 +355,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_hypertrophied"
+                android:id="@+id/linear_organic_carbon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -739,59 +371,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="Hypertrophied Nuclei in HP"
+                    android:text="Organic Carbon"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_hypertrophied"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp"
-                    tools:text="" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:padding="1dp"
-                android:text="PCR Analysis Report"
-                android:textColor="@color/red"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:id="@+id/linear_PCR_result_WSSV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/gray"
-                android:orientation="horizontal"
-                android:padding="0.2dp"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="center|start"
-                    android:padding="5dp"
-                    android:text="PCR result for WSSV"
-                    android:textColor="@color/txtColor"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/txt_PCR_result_WSSV"
+                    android:id="@+id/txt_organic_carbon"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -806,7 +391,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_CT_Value_Wssv"
+                android:id="@+id/linear_organic_matter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -822,12 +407,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="CT Value &amp; Severity"
+                    android:text="Organic Matter"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_CT_Value_WSSV"
+                    android:id="@+id/txt_organic_matter"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -842,7 +427,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_PCR_result_Ehp"
+                android:id="@+id/linear_phosphorous"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -858,12 +443,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="PCR result for EHP"
+                    android:text="Phosphorous"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_PCR_result_Ehp"
+                    android:id="@+id/txt_phosphorous"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -878,7 +463,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_CT_Value_Ehp"
+                android:id="@+id/linear_ph_value"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -894,12 +479,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="CT Value &amp; Severity"
+                    android:text="Ph Value"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_CT_Value_Ehp"
+                    android:id="@+id/txt_ph_value"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -914,7 +499,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_PCR_result_IHHNV"
+                android:id="@+id/linear_pottasium"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -930,12 +515,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="PCR result for IHHNV"
+                    android:text="Pottasium"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_PCR_result_IHHNV"
+                    android:id="@+id/txt_pottasium"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -950,7 +535,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_CT_Value_IHHNV"
+                android:id="@+id/linear_salinity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -966,12 +551,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="CT Value &amp; Severity"
+                    android:text="Salinity"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_CT_Value_IHHNV"
+                    android:id="@+id/txt_salinity"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -986,7 +571,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_PCR_result_Ems"
+                android:id="@+id/linear_sand"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -1002,12 +587,12 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="PCR result for EMS"
+                    android:text="Sand"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_PCR_result_Ems"
+                    android:id="@+id/txt_sand"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -1022,7 +607,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_CT_Value_Ems"
+                android:id="@+id/linear_slit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/gray"
@@ -1038,12 +623,156 @@
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center|start"
                     android:padding="5dp"
-                    android:text="CT Value &amp; Severity"
+                    android:text="Slit"
                     android:textColor="@color/txtColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/txt_CT_Value_Ems"
+                    android:id="@+id/txt_slit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp"
+                    tools:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_soil_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Soil Type"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_soil_type"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp"
+                    tools:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_sulphur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Sulphur"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_sulphur"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp"
+                    tools:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_texture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Texture"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_texture"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp"
+                    tools:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_zinc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray"
+                android:orientation="horizontal"
+                android:padding="0.2dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center|start"
+                    android:padding="5dp"
+                    android:text="Zinc"
+                    android:textColor="@color/txtColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_zinc"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"

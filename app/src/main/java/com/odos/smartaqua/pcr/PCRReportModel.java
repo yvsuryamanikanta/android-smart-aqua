@@ -36,7 +36,6 @@ public class PCRReportModel {
     private String comments;
     private String createddate;
     private String modifieddate;
-    private Boolean ismandatory;
 
     public PCRReportModel(String pcrobservationid,
                           String tankid,
@@ -71,8 +70,7 @@ public class PCRReportModel {
                           String emsCtValueSeviority,
                           String comments,
                           String createddate,
-                          String modifieddate,
-                          Boolean ismandatory) {
+                          String modifieddate) {
 
         this.pcrobservationid = pcrobservationid;
         this.tankid = tankid;
@@ -108,7 +106,6 @@ public class PCRReportModel {
         this.comments = comments;
         this.createddate = createddate;
         this.modifieddate = modifieddate;
-        this.ismandatory = ismandatory;
     }
 
     public String getPcrobservationid() {
@@ -381,14 +378,6 @@ public class PCRReportModel {
 
     public void setModifieddate(String modifieddate) {
         this.modifieddate = modifieddate;
-    }
-
-    public Boolean getIsmandatory() {
-        return ismandatory;
-    }
-
-    public void setIsmandatory(Boolean ismandatory) {
-        this.ismandatory = ismandatory;
     }
 
 }

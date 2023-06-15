@@ -298,6 +298,30 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".soil.SoilViewPagerActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".soil.SoilObservationActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".animal.AnimalObservationActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".animal.AnimalViewPagerActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".chat.ChattingActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"

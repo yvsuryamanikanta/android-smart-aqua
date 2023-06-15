@@ -12,10 +12,7 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.databinding.FragmentListFeedBinding;
 import com.odos.smartaqua.databinding.FragmentListTraetmentBinding;
-import com.odos.smartaqua.feed.FeedListAdapter;
-import com.odos.smartaqua.feed.FeedModel;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
@@ -58,7 +55,7 @@ public class TreatmentFragmentViewModel extends ViewModel implements ServiceAsyn
     public void loadData() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.FEED_TEMPLATES + Helper.getUserID(_context), null, Helper.headerParams(_context),
+                    ServiceConstants.LIST_TREATMENT_OBSV + Helper.getUserID(_context), null, Helper.headerParams(_context),
                     serviceAsyncResponse, 1, true);
         }
     }
