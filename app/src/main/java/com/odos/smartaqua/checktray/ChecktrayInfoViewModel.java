@@ -18,9 +18,8 @@ import androidx.lifecycle.ViewModel;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.ActivityChecktrayInfoBinding;
-import com.odos.smartaqua.databinding.ActivityFeedInfoBinding;
 import com.odos.smartaqua.utils.Helper;
-import com.odos.smartaqua.utils.PdfGenerator;
+import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -54,14 +53,14 @@ public class ChecktrayInfoViewModel extends ViewModel implements ServiceAsyncRes
         });
     }
     private void convertToPdf(){
-        PdfGenerator pdfGenerator = new PdfGenerator(_context);
+        PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
         /*LinearLayout linearLayout = new LinearLayout(_context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         ImageView imageView = new ImageView(_context);
         imageView.setImageDrawable(_context.getResources().getDrawable(R.drawable.admob_banner));
         linearLayout.addView(imageView);
         linearLayout.addView(_activityFeedInfoBinding.pdfView);*/
-        Bitmap bitmap = pdfGenerator.getViewScreenShot(_activityChecktrayInfoBinding.pdfView);
+        Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(_activityChecktrayInfoBinding.pdfView);
         String bitmapPath = MediaStore.Images.Media.insertImage(_context.getContentResolver(), bitmap,"title", null);
         Uri bitmapUri = Uri.parse(bitmapPath);
         Intent intent = new Intent(Intent.ACTION_SEND);

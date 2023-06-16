@@ -27,6 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -1093,6 +1094,12 @@
                     tools:text="" />
             </LinearLayout>
 
+            <ImageView android:layout_width="35dp"
+                android:layout_margin="3dp"
+                android:layout_height="35dp"
+                android:id="@+id/share"
+                android:layout_gravity="right"
+                android:background="@drawable/ic_share"/>
 
         </LinearLayout>
 

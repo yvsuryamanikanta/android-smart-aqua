@@ -192,7 +192,11 @@
         <entry key="app/src/main/res/layout/activity_lab_report.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_lab_report_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_observation_animal.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/activity_observation_growth.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_observation_pcr.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_pcr_to_pdf.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_pcr_to_pdf_new.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_pondlist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_pondprepare.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_preparationlist.xml" value="0.23697916666666666" />
@@ -210,6 +214,7 @@
         <entry key="app/src/main/res/layout/adapter_feed.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_growth_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_lab_report.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/adapter_pcr_report.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/adapter_pondlist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_searchproduct.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_stocking.xml" value="0.25" />
@@ -234,6 +239,7 @@
         <entry key="app/src/main/res/layout/fragment_report_checktray.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_growth.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_report_lab.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_report_pcr.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/fragment_report_water.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/fragment_stockinglist.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/include_chld_feeditem.xml" value="0.10260416666666666" />

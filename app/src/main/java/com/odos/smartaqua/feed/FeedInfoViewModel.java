@@ -1,21 +1,17 @@
 package com.odos.smartaqua.feed;
 
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
@@ -23,10 +19,9 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.ActivityFeedInfoBinding;
 import com.odos.smartaqua.utils.Helper;
-import com.odos.smartaqua.utils.PdfGenerator;
+import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class FeedInfoViewModel extends ViewModel implements ServiceAsyncResponse {
@@ -58,14 +53,14 @@ public class FeedInfoViewModel extends ViewModel implements ServiceAsyncResponse
         });
     }
     private void convertToPdf(){
-        PdfGenerator pdfGenerator = new PdfGenerator(_context);
+        PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
         /*LinearLayout linearLayout = new LinearLayout(_context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         ImageView imageView = new ImageView(_context);
         imageView.setImageDrawable(_context.getResources().getDrawable(R.drawable.admob_banner));
         linearLayout.addView(imageView);
         linearLayout.addView(_activityFeedInfoBinding.pdfView);*/
-        Bitmap bitmap = pdfGenerator.getViewScreenShot(_activityFeedInfoBinding.pdfView);
+        Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(_activityFeedInfoBinding.pdfView);
         String bitmapPath = MediaStore.Images.Media.insertImage(_context.getContentResolver(), bitmap,"title", null);
         Uri bitmapUri = Uri.parse(bitmapPath);
         Intent intent = new Intent(Intent.ACTION_SEND);

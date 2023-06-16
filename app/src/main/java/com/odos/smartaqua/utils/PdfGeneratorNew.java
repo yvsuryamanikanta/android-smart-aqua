@@ -19,12 +19,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-public class PdfGenerator {
-    private static String TAG= PdfGenerator.class.getSimpleName();
+public class PdfGeneratorNew {
+    private static String TAG= PdfGeneratorNew.class.getSimpleName();
     private File mFile;
     private Context mContext;
 
-    public PdfGenerator(Context context) {
+    public PdfGeneratorNew(Context context) {
         this.mContext = context;
     }
 

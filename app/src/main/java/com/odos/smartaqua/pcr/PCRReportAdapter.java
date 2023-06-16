@@ -2,6 +2,8 @@ package com.odos.smartaqua.pcr;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,13 @@ public class PCRReportAdapter extends RecyclerView.Adapter<PCRReportAdapter.MyVi
 
         holder.binding.txtPond.setText("" + model.getTankid());
         holder.binding.txtObservationDate.setText("" + model.getObsvdate());
+        holder.binding.share.setOnClickListener(v -> {
+            Intent intent= new Intent(_context, PCRtoPdf.class);
+            Bundle b = new Bundle();
+            b.putSerializable("model",homeModelArrayList.get(holder.getAdapterPosition()));
+            intent.putExtras(b);
+            _context.startActivity(intent);
+        });
 
         if (isNullOrEmpty(model.getCreateddate())) {
             holder.binding.txtPhysicalActivity.setText("" + model.getPhysicalActivity());

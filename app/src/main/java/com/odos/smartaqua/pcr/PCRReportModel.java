@@ -1,6 +1,8 @@
 package com.odos.smartaqua.pcr;
 
-public class PCRReportModel {
+import java.io.Serializable;
+
+public class PCRReportModel implements Serializable {
 
     private String pcrobservationid;
     private String tankid;

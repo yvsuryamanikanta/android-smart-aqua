@@ -322,6 +322,11 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".pcr.PCRtoPdf"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".chat.ChattingActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
