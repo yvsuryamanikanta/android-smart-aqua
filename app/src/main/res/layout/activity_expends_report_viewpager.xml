@@ -20,6 +20,8 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             style="@style/tabBoxTheme"
+            app:tabGravity="center"
+            app:tabMode="auto"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/colorPrimaryDark"
             android:layout_height="@dimen/_40sdp" />

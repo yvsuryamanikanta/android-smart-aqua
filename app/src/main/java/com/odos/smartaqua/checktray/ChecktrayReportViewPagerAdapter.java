@@ -37,6 +37,6 @@ public class ChecktrayReportViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return _checktrayObsvModelArrayList.get(position).getCulturename();
+        return _checktrayObsvModelArrayList.get(position).getTankname();
     }
 }

@@ -77,7 +77,6 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
     public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
         switch (serviceno) {
             case 11:
-                Log.e("######## 11 ", " " + jsonobject);
                 ArrayList<WaterReportModel> waterReportModelArrayList = new ArrayList<>();
                 try {
                     waterReportModelArrayList = new ArrayList<>();

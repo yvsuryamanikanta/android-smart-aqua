@@ -74,7 +74,6 @@ public class ChecktrayViewPagerModel extends BaseObservable implements ServiceAs
                     String status = jsonobject.getString("status");
                     String statusCode = jsonobject.getString("statusCode");
                     String response = jsonobject.getString("response");
-                    Log.e("$$$$$$$$$$  "," "+new Gson().toJson(response));
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
@@ -97,11 +96,6 @@ public class ChecktrayViewPagerModel extends BaseObservable implements ServiceAs
                                     } catch (Exception e) {
                                         Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                                     }
-                                }
-                                if (cultureModelArrayList.size() < 4) {
-                                    _binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-                                } else {
-                                    _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
                                 }
                                 checktrayReportViewPagerAdapter = new ChecktrayReportViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                         FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList);

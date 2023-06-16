@@ -142,7 +142,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
             } else if (_flag == 4) {
                 switch (position) {
                     case 0:
-                        String[] tankdetails = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
+                        String[] tankdetails = new String[]{"0", "0", tankId, "feed", cultureResponse};
                         AquaConstants.putIntent(_context, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
                         break;
                     case 1:

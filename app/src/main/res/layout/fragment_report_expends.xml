@@ -21,6 +21,16 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/txt_nodata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="No Data"
+            android:textColor="@color/red"
+            android:visibility="gone" />
 
     </LinearLayout>
 

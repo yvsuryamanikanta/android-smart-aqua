@@ -3,6 +3,7 @@ package com.odos.smartaqua.growth;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -87,6 +88,8 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
+                                _binding.recyclerView.setVisibility(View.VISIBLE);
+                                _binding.txtNodata.setVisibility(View.GONE);
                                 ArrayList<GrowthReportModel> arrayList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -105,11 +108,15 @@ public class GrowthReportFragmentViewModel extends ViewModel implements ServiceA
                                 _binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
                                 _binding.recyclerView.setAdapter(new GrowthReportAdapter(_context, arrayList, this));
                             } else {
-                                Helper.showMessage(_context, "No Data Available Now.", AquaConstants.HOLD);
+                                _binding.recyclerView.setVisibility(View.GONE);
+                                _binding.txtNodata.setVisibility(View.VISIBLE);
+                                _binding.txtNodata.setText("No Reports Available");
                             }
                         }
                     } else {
-                        Helper.showMessage(_context, "" + status, AquaConstants.HOLD);
+                        _binding.recyclerView.setVisibility(View.GONE);
+                        _binding.txtNodata.setVisibility(View.VISIBLE);
+                        _binding.txtNodata.setText("No Reports Available");
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);

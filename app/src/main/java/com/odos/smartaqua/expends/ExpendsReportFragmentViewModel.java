@@ -2,14 +2,13 @@ package com.odos.smartaqua.expends;
 
 
 import android.content.Context;
-import android.util.Log;
+import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.Gson;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
@@ -69,7 +68,6 @@ public class ExpendsReportFragmentViewModel extends ViewModel implements Service
 
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
-        Log.e("%%%%%%%%%%%%% ", " " + new Gson().toJson(jsonobject));
         switch (serviceno) {
             case 1:
                 try {
@@ -80,6 +78,8 @@ public class ExpendsReportFragmentViewModel extends ViewModel implements Service
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
+                                _binding.recyclerView.setVisibility(View.VISIBLE);
+                                _binding.txtNodata.setVisibility(View.GONE);
                                 ArrayList<ExpendsReportModel> arrayList = new ArrayList<>();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -98,11 +98,15 @@ public class ExpendsReportFragmentViewModel extends ViewModel implements Service
                                 _binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
                                 _binding.recyclerView.setAdapter(new ExpendsReportAdapter(_context, arrayList, this));
                             } else {
-                                Helper.showMessage(_context, "No Data Available Now.", AquaConstants.HOLD);
+                                _binding.recyclerView.setVisibility(View.GONE);
+                                _binding.txtNodata.setVisibility(View.VISIBLE);
+                                _binding.txtNodata.setText("No Reports Available");
                             }
                         }
                     } else {
-                        Helper.showMessage(_context, "" + status, AquaConstants.HOLD);
+                        _binding.recyclerView.setVisibility(View.GONE);
+                        _binding.txtNodata.setVisibility(View.VISIBLE);
+                        _binding.txtNodata.setText("No Reports Available");
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);

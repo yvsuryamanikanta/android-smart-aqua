@@ -212,7 +212,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
 
         if (_binding.edtFeedTitle.getText().toString().length() == 0) {
             Toast.makeText(_context, "Add Today Feed Count", Toast.LENGTH_SHORT).show();
-        }else if (products_jsonArray.length() == 0) {
+        } else if (products_jsonArray.length() == 0) {
             Toast.makeText(_context, "Add atleast one product", Toast.LENGTH_SHORT).show();
         } else if (_binding.txtTimeDate.getText().toString().equalsIgnoreCase("")) {
             Toast.makeText(_context, "Pick feed date and time", Toast.LENGTH_SHORT).show();
@@ -235,6 +235,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
                 postParams.put("feeddate", formateddate);
                 postParams.put("feeddateandtime", dateandtime);
                 postParams.put("comment", comment);
+                Log.e("data--==", "" + new JSONObject(postParams));
                 VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                         ServiceConstants.SAVE_FEED, postParams, Helper.headerParams(_context),
                         (ServiceAsyncResponse) serviceAsyncResponse, 3, true);
@@ -437,20 +438,16 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
                     String status = jsonobject.getString("status");
                     String response = jsonobject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
-                        JSONObject jsonObject = new JSONObject(response);
-                        int feedgroupid = jsonObject.getInt("feedgroupid");
-                        int userID = jsonObject.getInt("userID");
-                        String groupname = jsonObject.getString("groupname");
-                        String feeddate = jsonObject.getString("feeddate");
-                        String comment = jsonObject.getString("comment");
-                        String[] passingdata = {"" + feedgroupid, Helper.getUserID(_context), groupname,
-                                "" + products_jsonArray, "" + suppliment_jsonArray, feeddate, comment};
-                        Intent intent = new Intent();
-                        intent.putExtra("searchedvalues", passingdata);
-                        ((Activity) _context).setResult(Activity.RESULT_OK, intent);
-                        ((Activity) _context).finish();
+                        products_jsonArray = new JSONArray();
+                        suppliment_jsonArray = new JSONArray();
+                        _binding.llFeedSet.removeAllViews();
+                        _binding.llSupplimentSet.removeAllViews();
+                        _binding.edtFeedTitle.setText("");
+                        _binding.edtCommentsFeed.setText("");
+                        _binding.txtTimeDate.setText("");
+                        Helper.showMessage(_context, "Feed Saved", AquaConstants.HOLD);
                     } else {
-                        Helper.showMessage(_context, "" + status, AquaConstants.HOLD);
+                        Helper.showMessage(_context, "" + jsonobject.getString("response"), AquaConstants.HOLD);
                     }
                 } catch (Exception e) {
                     Helper.showMessage(_context, "something went wrong please restart app once." + e.toString(), AquaConstants.FINISH);
