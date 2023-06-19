@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
@@ -46,28 +47,14 @@ public class FeedInfoViewModel extends ViewModel implements ServiceAsyncResponse
         _activityFeedInfoBinding.txtShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Helper.getWritePermission(_context)){
-                    convertToPdf();
-                }
+                convertToPdf();
             }
         });
     }
     private void convertToPdf(){
         PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
-        /*LinearLayout linearLayout = new LinearLayout(_context);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        ImageView imageView = new ImageView(_context);
-        imageView.setImageDrawable(_context.getResources().getDrawable(R.drawable.admob_banner));
-        linearLayout.addView(imageView);
-        linearLayout.addView(_activityFeedInfoBinding.pdfView);*/
         Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(_activityFeedInfoBinding.pdfView);
-        String bitmapPath = MediaStore.Images.Media.insertImage(_context.getContentResolver(), bitmap,"title", null);
-        Uri bitmapUri = Uri.parse(bitmapPath);
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("image/png");
-        intent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
-        _context.startActivity(Intent.createChooser(intent, "Share"));
-        //pdfGenerator.saveImageToPDF(_activityFeedInfoBinding.pdfView, bitmap);
+        pdfGeneratorNew.saveImageToPDF(_activityFeedInfoBinding.pdfView, bitmap);
     }
     private void addViews(String response, LinearLayout ll){
         try {

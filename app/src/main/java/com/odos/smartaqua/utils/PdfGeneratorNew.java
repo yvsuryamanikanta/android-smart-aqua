@@ -15,9 +15,15 @@ import android.view.View;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import androidx.core.app.ShareCompat;
+import androidx.core.content.FileProvider;
+
+import com.odos.smartaqua.R;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.net.URLConnection;
 
 public class PdfGeneratorNew {
     private static String TAG= PdfGeneratorNew.class.getSimpleName();
@@ -80,14 +86,11 @@ public class PdfGeneratorNew {
         File path = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DOCUMENTS);
         File outputFile = new File(path,fileName);
-        Log.e("data--==",""+outputFile);
-        Uri uri = Uri.fromFile(outputFile);
-        Intent share = new Intent();
-        share.setAction(Intent.ACTION_SEND);
-        share.setType("application/pdf");
-        share.putExtra(Intent.EXTRA_STREAM, uri);
-        share.setPackage("com.whatsapp");
-        context.startActivity(share);
+        Uri contentUri = FileProvider.getUriForFile(context, "com.odos.smartaqua", outputFile);
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+        shareIntent.setType("text/plain");
+        context.startActivity(Intent.createChooser(shareIntent, context.getResources().getText(R.string.app_name)));
     }
     /*method for generating bitmap from ScrollView, NestedScrollView*/
     public Bitmap getScrollViewScreenShot(ScrollView nestedScrollView)
