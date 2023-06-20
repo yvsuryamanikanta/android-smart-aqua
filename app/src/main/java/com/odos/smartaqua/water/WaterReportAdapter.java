@@ -2,6 +2,7 @@ package com.odos.smartaqua.water;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterWaterReportBinding;
 import com.odos.smartaqua.tank.CultureModel;
+import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import java.util.ArrayList;
 
@@ -53,7 +55,16 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         WaterReportModel waterReportModel = (WaterReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(waterReportModel);
+        holder.binding.share.setOnClickListener(v -> {
+            try{
+                PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
+                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.header);
+                pdfGeneratorNew.saveImageToPDF(holder.binding.header, bitmap);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
+        });
         holder.binding.txtPond.setText(""+waterReportModel.getTankid());
 
         if(isNullOrEmpty(waterReportModel.salinity)){

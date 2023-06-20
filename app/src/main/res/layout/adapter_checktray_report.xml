@@ -14,7 +14,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_margin="@dimen/_4sdp"
+        app:cardElevation="6dp"
         app:cardCornerRadius="@dimen/_2sdp">
 
 
@@ -70,12 +71,11 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:padding="@dimen/_5sdp">
 
                 <LinearLayout
                     android:id="@+id/linear_createddate"
@@ -649,6 +649,15 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:layout_margin="3dp"
+                android:background="@drawable/ic_share" />
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

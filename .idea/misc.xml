@@ -183,11 +183,13 @@
         <entry key="app/src/main/res/layout/activity_checktray_report_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_dashboard_viewpager.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/activity_feed_info.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_expends_report_viewpager.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_feed_info.xml" value="0.16877637130801687" />
         <entry key="app/src/main/res/layout/activity_feed_list_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_feed_observation.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_forgot.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_growth_report_viewpager.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/activity_header.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_lab_observation.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_lab_report.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_lab_report_viewpager.xml" value="0.10260416666666666" />
@@ -259,6 +261,7 @@
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/upload_bottom_sheet.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/menu/options_menu.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/xml/provider_paths.xml" value="0.23333333333333334" />
       </map>
     </option>
   </component>

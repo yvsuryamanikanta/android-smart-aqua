@@ -22,11 +22,13 @@ public class Loader {
     }
 
     public void show() {
-        progress.show();
+        if (null!= progress && !progress.isShowing())
+            progress.show();
 
     }
 
     public void dismiss() {
-        progress.dismiss();
+        if (null!= progress && progress.isShowing())
+            progress.dismiss();
     }
 }

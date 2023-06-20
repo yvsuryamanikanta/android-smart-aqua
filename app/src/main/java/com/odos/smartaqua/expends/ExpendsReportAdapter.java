@@ -2,6 +2,7 @@ package com.odos.smartaqua.expends;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterExpendsReportBinding;
+import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import java.util.ArrayList;
 
@@ -52,6 +54,16 @@ public class ExpendsReportAdapter extends RecyclerView.Adapter<ExpendsReportAdap
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.binding.setModel(homeModelArrayList.get(position));
         ExpendsReportModel model = homeModelArrayList.get(position);
+        holder.binding.share.setOnClickListener(v -> {
+            try{
+                PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
+                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.header);
+                pdfGeneratorNew.saveImageToPDF(holder.binding.header, bitmap);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        });
 
         if(isNullOrEmpty(model.getCreateddate())){
             holder.binding.txtCreateddate.setText(""+model.getCreateddate());

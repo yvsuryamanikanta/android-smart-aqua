@@ -27,6 +27,11 @@
             android:padding="@dimen/_5sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/linear_createddate"
@@ -211,6 +216,14 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:layout_margin="3dp"
+                android:background="@drawable/ic_share" />
+
         </LinearLayout>
 
         <!--
@@ -399,7 +412,7 @@
                 </LinearLayout>
         -->
 
-
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </layout>

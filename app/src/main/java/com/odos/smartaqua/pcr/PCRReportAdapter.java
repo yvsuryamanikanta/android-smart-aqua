@@ -2,8 +2,7 @@ package com.odos.smartaqua.pcr;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterPcrReportBinding;
+import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import java.util.ArrayList;
 
@@ -48,11 +48,20 @@ public class PCRReportAdapter extends RecyclerView.Adapter<PCRReportAdapter.MyVi
         holder.binding.txtPond.setText("" + model.getTankid());
         holder.binding.txtObservationDate.setText("" + model.getObsvdate());
         holder.binding.share.setOnClickListener(v -> {
-            Intent intent= new Intent(_context, PCRtoPdf.class);
-            Bundle b = new Bundle();
-            b.putSerializable("model",homeModelArrayList.get(holder.getAdapterPosition()));
-            intent.putExtras(b);
-            _context.startActivity(intent);
+//            Intent intent= new Intent(_context, PCRtoPdf.class);
+//            Bundle b = new Bundle();
+//            b.putSerializable("model",homeModelArrayList.get(holder.getAdapterPosition()));
+//            intent.putExtras(b);
+//            _context.startActivity(intent);
+
+            try{
+                PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
+                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.linearHeader);
+                pdfGeneratorNew.saveImageToPDF(holder.binding.linearHeader, bitmap);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
         });
 
         if (isNullOrEmpty(model.getCreateddate())) {

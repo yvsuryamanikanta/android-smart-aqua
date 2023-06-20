@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,10 +45,13 @@ public class FeedInfoViewModel extends ViewModel implements ServiceAsyncResponse
         _activityFeedInfoBinding.txtSupplimentDetails.setText("Suppliment Details");
         addViews(values[2],_activityFeedInfoBinding.llFeed);
         addViews(values[3],_activityFeedInfoBinding.llSuppliment);
+
+
         _activityFeedInfoBinding.txtShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 convertToPdf();
+
             }
         });
     }

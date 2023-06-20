@@ -2,6 +2,7 @@ package com.odos.smartaqua.soil;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterSoilReportBinding;
+import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import java.util.ArrayList;
 
@@ -42,7 +44,16 @@ public class SoilReportAdapter extends RecyclerView.Adapter<SoilReportAdapter.My
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         SoilReportModel model = (SoilReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(model);
+        holder.binding.share.setOnClickListener(v -> {
+            try{
+                PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
+                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.header);
+                pdfGeneratorNew.saveImageToPDF(holder.binding.header, bitmap);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
+        });
         holder.binding.txtPond.setText("" + model.getTankid());
         holder.binding.txtObservationDate.setText("" + model.getObsvdate());
 
