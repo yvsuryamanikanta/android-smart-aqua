@@ -57,8 +57,8 @@ public class FeedInfoViewModel extends ViewModel implements ServiceAsyncResponse
     }
     private void convertToPdf(){
         PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
-        Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(_activityFeedInfoBinding.pdfView);
-        pdfGeneratorNew.saveImageToPDF(_activityFeedInfoBinding.pdfView, bitmap);
+        Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(_activityFeedInfoBinding.scrollView);
+        pdfGeneratorNew.saveImageToPDF(_activityFeedInfoBinding.header, bitmap);
     }
     private void addViews(String response, LinearLayout ll){
         try {

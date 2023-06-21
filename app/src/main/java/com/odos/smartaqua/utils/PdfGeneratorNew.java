@@ -65,8 +65,6 @@ public class PdfGeneratorNew {
                     document.writeTo(out);
                     document.close();
                     out.close();
-                    Log.e(TAG, "Pdf Saved at:" + mFile.getAbsolutePath());
-                    Toast.makeText(mContext, "Pdf Saved at:" + mFile.getAbsolutePath(), Toast.LENGTH_SHORT).show();
                     sharePDF(mContext, mFile.getAbsolutePath());
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -88,38 +86,17 @@ public class PdfGeneratorNew {
 
 
     private void sharePDF(Context context, String fileName) {
-//        File path = Environment.getExternalStoragePublicDirectory(
-//                Environment.DIRECTORY_DOCUMENTS);
-
         File outputFile = new File(fileName);
-
         try {
-            if(outputFile.exists()){
-                Log.e("########", " exists");
-            }else {
-                Log.e("########", " not exists");
-            }
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.build());
-//            Uri contentUri = FileProvider.getUriForFile(context, "com.odos.smartaqua", outputFile);
             Uri contentUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", outputFile);
-
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
             shareIntent.setType("text/plain");
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             Intent chooser = Intent.createChooser(shareIntent, context.getResources().getText(R.string.app_name));
             context.startActivity(chooser);
-
-
-//            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-//            StrictMode.setVmPolicy(builder.build());
-//            Intent intent = new Intent();
-//            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
-//            intent.setDataAndType(Uri.parse(String.valueOf(finalUri)), "application/pdf");
-//            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//            startActivity(Intent.createChooser(intent, "Open file with"));
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -57,7 +57,7 @@ public class ExpendsReportAdapter extends RecyclerView.Adapter<ExpendsReportAdap
         holder.binding.share.setOnClickListener(v -> {
             try{
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
-                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.header);
+                Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
                 pdfGeneratorNew.saveImageToPDF(holder.binding.header, bitmap);
             }catch (Exception e){
                 e.printStackTrace();

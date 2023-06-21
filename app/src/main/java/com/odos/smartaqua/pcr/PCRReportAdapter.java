@@ -48,17 +48,11 @@ public class PCRReportAdapter extends RecyclerView.Adapter<PCRReportAdapter.MyVi
         holder.binding.txtPond.setText("" + model.getTankid());
         holder.binding.txtObservationDate.setText("" + model.getObsvdate());
         holder.binding.share.setOnClickListener(v -> {
-//            Intent intent= new Intent(_context, PCRtoPdf.class);
-//            Bundle b = new Bundle();
-//            b.putSerializable("model",homeModelArrayList.get(holder.getAdapterPosition()));
-//            intent.putExtras(b);
-//            _context.startActivity(intent);
-
-            try{
+            try {
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
-                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.linearHeader);
-                pdfGeneratorNew.saveImageToPDF(holder.binding.linearHeader, bitmap);
-            }catch (Exception e){
+                Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
+                pdfGeneratorNew.saveImageToPDF(holder.binding.header, bitmap);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 

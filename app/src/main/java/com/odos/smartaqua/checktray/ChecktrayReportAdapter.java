@@ -58,7 +58,7 @@ public class ChecktrayReportAdapter extends RecyclerView.Adapter<ChecktrayReport
         holder.binding.share.setOnClickListener(v -> {
             try{
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
-                Bitmap bitmap = pdfGeneratorNew.getViewScreenShot(holder.binding.header);
+                Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
                 pdfGeneratorNew.saveImageToPDF(holder.binding.header, bitmap);
             }catch (Exception e){
                 e.printStackTrace();
