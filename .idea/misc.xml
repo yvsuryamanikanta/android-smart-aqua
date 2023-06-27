@@ -79,16 +79,19 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/rounded_boarder_button.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/drawable/tab_bg.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_add_feed.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_addbrand.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_addculture.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_addpond.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_addstock.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_base.xml" value="0.12407407407407407" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_brand_list.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_chat_list.xml" value="0.12407407407407407" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_checktray_observation.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_checktray_report_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_expends_report_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_feed_info.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_feed_list_viewpager.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_forgot.xml" value="0.12407407407407407" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_growth_report_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_lab_report_viewpager.xml" value="0.17552083333333332" />
@@ -96,13 +99,16 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_observation_expends.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_observation_treatment.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_pondprepare.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_product_list.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_showcase.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_signup.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_stock_list.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_tank_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_treatment_report_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_verification.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/activity_water_analysis_report_viewpager.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_animal_report.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_brandlist.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_checktray_report.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_culture.xml" value="0.12407407407407407" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_dashboard.xml" value="0.1" />
@@ -111,7 +117,9 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_growth_report.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_lab_report.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_pcr_report.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_productlist.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_soil_report.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_stocklist.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_treatments.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/adapter_water_report.xml" value="0.22" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/create_bottom_sheet.xml" value="0.1" />
@@ -126,6 +134,7 @@
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_chat.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_dashboard.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_list_traetment.xml" value="0.1" />
+        <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_products.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_report_expends.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_report_growth.xml" value="0.1" />
         <entry key="..\:/Users/yvsma/MobileAppWorkSpace/smartaqua/app/src/main/res/layout/fragment_report_lab.xml" value="0.1" />

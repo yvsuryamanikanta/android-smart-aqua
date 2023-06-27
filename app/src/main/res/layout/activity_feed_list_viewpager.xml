@@ -16,13 +16,17 @@
         android:orientation="vertical">
 
         <com.google.android.material.tabs.TabLayout
-            android:scrollbars="none"
             android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
             style="@style/tabBoxTheme"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:scrollbars="none"
+            app:tabGravity="center"
+            app:tabMode="auto"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/colorPrimaryDark"
-            android:layout_height="@dimen/_40sdp" />
+            app:tabTextColor="@color/colorPrimaryDark" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/pager"

@@ -65,11 +65,6 @@ public class FeedListViewPagerModel extends BaseObservable {
                             Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                         }
                     }
-                    if (cultureModelArrayList.size() < 4) {
-                        _binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-                    } else {
-                        _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-                    }
                     feedListViewPagerAdapter = new FeedListViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList, values[1], values[3]);
                     _binding.pager.setAdapter(feedListViewPagerAdapter);

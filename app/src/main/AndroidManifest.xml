@@ -155,6 +155,11 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".warehouse.products.ProductListActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".cultures.AddCultureActivity"
@@ -189,8 +194,19 @@
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".brand.BrandListActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".warehouse.stock.AddStockActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".warehouse.stock.StockListActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />

@@ -202,7 +202,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         ArrayList<String> arrayList;
         if(flag == 1){
             myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
-            arrayList = new ArrayList<>(Arrays.asList("Add Brand", "Add Product", "Add Stock", "Add Expenses"));
+            arrayList = new ArrayList<>(Arrays.asList("Brands", "Products", "Stock", "Add Expenses"));
         }else if(flag == 2){
             myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
             arrayList = new ArrayList<>(Arrays.asList("Water Analisys", "PCR Analisys", "Soil Analisys", "Animal Analisys"));

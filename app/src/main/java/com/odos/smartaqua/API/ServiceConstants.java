@@ -45,7 +45,7 @@ public class ServiceConstants {
     public static final String SAVE_PRODUCT_CATG = BASE_URL + "product/categories/save";
     public static final String BRAND_SAVE = BASE_URL + "brand/save";
     public static final String QTY_CATG_SAVE = BASE_URL + "quantity/categories/save";
-    public static final String LIST_PRODUCTS = BASE_URL + "product/list";
+    public static final String LIST_PRODUCTS = BASE_URL + "product/list/";
     public static final String SAVE_STOCK = BASE_URL + "stock/save";
     public static final String LIST_STOCK = BASE_URL + "stock/list/";
     public static final String SAVE_INVOICE = BASE_URL + "invoice/save";

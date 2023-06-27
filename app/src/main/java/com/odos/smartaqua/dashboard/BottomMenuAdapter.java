@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.animal.AnimalObservationActivity;
 import com.odos.smartaqua.animal.AnimalViewPagerActivity;
-import com.odos.smartaqua.brand.AddBrandActivity;
+import com.odos.smartaqua.brand.BrandListActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.checktray.ChecktrayReportViewPagerActivity;
@@ -37,7 +36,9 @@ import com.odos.smartaqua.treatment.TreatmentObservationActivity;
 import com.odos.smartaqua.treatment.TreatmentReportViewPagerActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.warehouse.products.AddProductActivity;
+import com.odos.smartaqua.warehouse.products.ProductListActivity;
 import com.odos.smartaqua.warehouse.stock.AddStockActivity;
+import com.odos.smartaqua.warehouse.stock.StockListActivity;
 import com.odos.smartaqua.water.WaterAnalysisViewPagerActivity;
 
 import java.util.ArrayList;
@@ -86,13 +87,13 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
             if (_flag == 1) {
                 switch (position) {
                     case 0:
-                        AquaConstants.putIntent(_context, AddBrandActivity.class, AquaConstants.HOLD, null);
+                        AquaConstants.putIntent(_context, BrandListActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 1:
-                        AquaConstants.putIntent(_context, AddProductActivity.class, AquaConstants.HOLD, null);
+                        AquaConstants.putIntent(_context, ProductListActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
-                        AquaConstants.putIntent(_context, AddStockActivity.class, AquaConstants.HOLD, null);
+                        AquaConstants.putIntent(_context, StockListActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 3:
                         AquaConstants.putIntent(_context, ExpendsObservationActivity.class, AquaConstants.HOLD, null);

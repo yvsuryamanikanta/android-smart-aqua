@@ -133,11 +133,6 @@ public class TankViewPagerModel extends BaseObservable implements ServiceAsyncRe
                                         Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
                                     }
                                 }
-                                if (cultureModelArrayList.size() < 4) {
-                                    _binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-                                } else {
-                                    _binding.tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-                                }
                                 tankViewPagerAdapter = new TankViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                         FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, cultureModelArrayList);
                                 _binding.pager.setAdapter(tankViewPagerAdapter);

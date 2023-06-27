@@ -259,7 +259,7 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
                                             productTypeID = 777;
                                         } else {
                                             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                                                    ServiceConstants.LIST_PRODUCTS + "/" + brandID, null, Helper.headerParams(_context),
+                                                    ServiceConstants.LIST_PRODUCTS + brandID, null, Helper.headerParams(_context),
                                                     (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
                                         }
                                     }
