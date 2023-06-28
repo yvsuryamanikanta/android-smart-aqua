@@ -2,7 +2,6 @@ package com.odos.smartaqua.checktray;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -13,11 +12,9 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.dashboard.DashBoardActivity;
 import com.odos.smartaqua.databinding.ActivityAddChecktrayBinding;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
 import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
-import com.odos.smartaqua.shocaseview.ShowCaseActivity;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;

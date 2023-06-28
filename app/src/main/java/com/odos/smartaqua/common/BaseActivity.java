@@ -2,6 +2,7 @@ package com.odos.smartaqua.common;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,12 +19,16 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.brand.AddBrandActivity;
 import com.odos.smartaqua.checktray.AddChecktrayActivity;
 import com.odos.smartaqua.checktray.ChecktrayObservationActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
+import com.odos.smartaqua.dashboard.BottomMenuAdapter;
 import com.odos.smartaqua.databinding.ActivityBaseBinding;
 import com.odos.smartaqua.feed.FeedListViewPagerActivity;
 import com.odos.smartaqua.feed.TankViewPagerActivity;
@@ -40,6 +45,9 @@ import com.odos.smartaqua.warehouse.products.AddProductActivity;
 import com.odos.smartaqua.warehouse.products.AddProductCatgActivity;
 import com.odos.smartaqua.warehouse.quantity.AddQtyCatgActivity;
 import com.odos.smartaqua.warehouse.stock.AddStockActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -67,7 +75,9 @@ public class BaseActivity extends AppCompatActivity {
                 doLogout();
             }
         });
+        bottomNavigationMenu();
     }
+
 
     public void doLogout() {
         final Dialog d = new Dialog(BaseActivity.this, android.R.style.Theme_DeviceDefault_Dialog_MinWidth);
@@ -322,6 +332,59 @@ public class BaseActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+    private void bottomNavigationMenu() {
+        activityBaseBinding.bottomNavigation.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.stock:
+                    loadBottomMenu(BaseActivity.this,1,R.layout.custom_alert_stock);
+                    break;
+                case R.id.lab:
+                    loadBottomMenu(BaseActivity.this,2,R.layout.custom_alert_lab);
+                    break;
+                case R.id.create:
+                    loadBottomMenu(BaseActivity.this,3,R.layout.custom_alert_create);
+                    break;
+                case R.id.compare:
+                    loadBottomMenu(BaseActivity.this,4,R.layout.custom_alert_compare);
+                    break;
+                case R.id.more:
+                    loadBottomMenu(BaseActivity.this,5,R.layout.custom_alert_more);
+                    break;
+                default:
+            }
+            return true;
+        });
 
+    }
 
+    private void loadBottomMenu(final Context activity, int flag, int layout) {
+        final Dialog myDialog = new Dialog(activity, R.style.ThemeDialogCustom);
+        myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        myDialog.setContentView(layout);
+        ArrayList<String> arrayList;
+        if(flag == 1){
+            myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+            arrayList = new ArrayList<>(Arrays.asList("Brands", "Products", "Stock", "Add Expenses"));
+        }else if(flag == 2){
+            myDialog.getWindow().setGravity(Gravity.START | Gravity.BOTTOM);
+            arrayList = new ArrayList<>(Arrays.asList("Water Analisys", "PCR Analisys", "Soil Analisys", "Animal Analisys"));
+        }else if(flag == 3){
+            myDialog.getWindow().setGravity(Gravity.BOTTOM);
+            arrayList = new ArrayList<>(Arrays.asList("Pond Info", "Add Culture", "Pond Preparation", "Add Stocking", "Add Feed", "Add CheckTray"));
+        }else if(flag == 4){
+            myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
+            arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "PCR report", "Soil Report","Animal Report","Growth Report", "Treatments","Expenditures"));
+        }else if(flag == 5){
+            myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
+            arrayList = new ArrayList<>(Arrays.asList("CheckTray Observation", "Growth Observation","Disease and Treatments"));
+        }else{
+            arrayList = new ArrayList<>();
+        }
+        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(BaseActivity.this);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(new BottomMenuAdapter(BaseActivity.this, arrayList, flag));
+        myDialog.show();
+    }
 }

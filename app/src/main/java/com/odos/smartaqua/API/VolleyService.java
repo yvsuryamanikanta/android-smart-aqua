@@ -60,7 +60,7 @@ public class VolleyService {
     public static void volleyGetRequest(final Context context, final String requesttype, String serviceUrl, Map<String, String> quertstrings,
                                         Map<String, String> headermap, ServiceAsyncResponse serviceAsyncResponse, int serviceno, boolean loader) {
 
-        Log.e(AquaConstants.TAG, "" + serviceUrl);
+        Log.e(AquaConstants.TAG, "Sucess " + serviceUrl);
         delegate = serviceAsyncResponse;
         String arguments = null;
         try {
@@ -948,7 +948,7 @@ public class VolleyService {
      */
     private static void processError(VolleyError error, Loader progressIndicator, Context context) {
 
-        Log.e(AquaConstants.TAG, "" + error.toString());
+        Log.e(AquaConstants.TAG, "Error " + error.toString());
 
 
         try {

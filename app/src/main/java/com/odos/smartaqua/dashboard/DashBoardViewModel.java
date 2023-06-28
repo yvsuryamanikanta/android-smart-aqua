@@ -25,7 +25,6 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
-import com.odos.smartaqua.chat.ChatListActivity;
 import com.odos.smartaqua.cultures.AddCultureActivity;
 import com.odos.smartaqua.databinding.ActivityDashboardBinding;
 import com.odos.smartaqua.sliders.TextSliderView;
@@ -64,7 +63,7 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
             }
         });
         getSliderImages(_context);
-        bottomNavigationMenu();
+//        bottomNavigationMenu();
         loadCultures();
     }
 
@@ -218,12 +217,12 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
         }else{
             arrayList = new ArrayList<>();
         }
-        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, flag, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
-        myDialog.show();
+//        RecyclerView recyclerView = myDialog.findViewById(R.id.recyclerView);
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
+//        recyclerView.setLayoutManager(mLayoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(new BottomMenuAdapter(_context, arrayList, flag, tankId, tankName, cultureId, tankPosition, cultureaccess, response));
+//        myDialog.show();
     }
 
 

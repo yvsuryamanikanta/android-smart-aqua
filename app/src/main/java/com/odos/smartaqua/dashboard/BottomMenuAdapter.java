@@ -59,15 +59,15 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
         }
     }
 
-    public BottomMenuAdapter(Context context, ArrayList<String> arrayList, int flag, String tId, String tName, String cId, int pos, String cAccess, String response) {
+    public BottomMenuAdapter(Context context, ArrayList<String> arrayList, int flag/*, String tId, String tName, String cId, int pos, String cAccess, String response*/) {
         this.data = arrayList;
         this._context = context;
         this._flag = flag;
-        this.tankId = tId;
+        /*this.tankId = tId;
         this.cultureId = cId;
         this.tankName = tName;
         this.cultureAccess = cAccess;
-        this.cultureResponse = response;
+        this.cultureResponse = response;*/
     }
 
     @NonNull

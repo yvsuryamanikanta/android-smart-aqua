@@ -37,7 +37,7 @@
                     android:layout_height="0.1dp"
                     android:background="@color/colorPrimaryDark" />
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -47,15 +47,54 @@
                         android:id="@+id/baseFragment"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="0.9" />
+                        android:layout_weight="0.9"
+                        bind:layout_constraintBottom_toTopOf="@+id/view3"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent"
+                        bind:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"
+                        bind:layout_constraintBottom_toTopOf="@+id/ll_bottom_bar"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent" />
 
                     <LinearLayout
-                        android:id="@+id/ll_admob"
-                        android:background="@color/white"
+                        android:id="@+id/ll_bottom_bar"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="0.1"
-                        android:orientation="vertical">
+                        android:visibility="visible"
+                        bind:cardBackgroundColor="@color/cardbg"
+                        bind:layout_constraintBottom_toTopOf="@+id/ll_admob"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent">
+
+                        <com.google.android.material.bottomnavigation.BottomNavigationView
+                            android:id="@+id/bottomNavigation"
+                            android:background="@color/cardbg"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_gravity="start|center"
+                            bind:circleColor="@color/colorPrimary"
+                            bind:itemIconTint="@color/colorPrimary"
+                            bind:itemTextColor="@color/colorPrimary"
+                            bind:labelVisibilityMode="labeled"
+                            bind:menu="@menu/bottom_bar" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/ll_admob"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        bind:layout_constraintBottom_toBottomOf="parent"
+                        bind:layout_constraintEnd_toEndOf="parent"
+                        bind:layout_constraintStart_toStartOf="parent">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -65,7 +104,7 @@
                     </LinearLayout>
 
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>
