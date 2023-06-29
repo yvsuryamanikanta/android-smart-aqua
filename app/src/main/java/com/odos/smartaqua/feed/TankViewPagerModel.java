@@ -43,7 +43,7 @@ public class TankViewPagerModel extends BaseObservable implements ServiceAsyncRe
     private void setUpViewPager() {
         VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                 ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                (ServiceAsyncResponse) serviceAsyncResponse, 1, false);
+                serviceAsyncResponse, 1, false);
 
         /*if (titles.length < 4) {
             _binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

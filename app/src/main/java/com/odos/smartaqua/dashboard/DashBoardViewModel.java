@@ -63,34 +63,9 @@ public class DashBoardViewModel extends BaseObservable implements ServiceAsyncRe
             }
         });
         getSliderImages(_context);
-//        bottomNavigationMenu();
         loadCultures();
     }
 
-    private void bottomNavigationMenu() {
-        _activityDashboardBinding.bottomNavigation.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.stock:
-                    loadBottomMenu(_context,1,R.layout.custom_alert_stock);
-                    break;
-                case R.id.lab:
-                    loadBottomMenu(_context,2,R.layout.custom_alert_lab);
-                    break;
-                case R.id.create:
-                    loadBottomMenu(_context,3,R.layout.custom_alert_create);
-                    break;
-                case R.id.compare:
-                    loadBottomMenu(_context,4,R.layout.custom_alert_compare);
-                    break;
-                case R.id.more:
-                    loadBottomMenu(_context,5,R.layout.custom_alert_more);
-                    break;
-                default:
-            }
-            return true;
-        });
-
-    }
 
     private void getSliderImages(Context _context) {   // SLIDERS...
         for (int i = 0; i < 5; i++) {

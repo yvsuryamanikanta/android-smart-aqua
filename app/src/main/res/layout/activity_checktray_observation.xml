@@ -448,6 +448,7 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -466,7 +467,7 @@
                         android:layout_gravity="center|start"
                         android:layout_margin="@dimen/_2sdp"
                         android:gravity="center|start"
-                        android:text="Mortality"
+                        android:text="Red Mortality"
                         android:textColor="@color/colorPrimaryDark" />
 
 
@@ -480,7 +481,7 @@
                         android:padding="@dimen/_5sdp">
 
                         <Spinner
-                            android:id="@+id/spin_mortality_list"
+                            android:id="@+id/spin_red_mortality_list"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/colorAccent"
@@ -491,25 +492,92 @@
 
                 </LinearLayout>
 
-
                 <TextView
-                    android:id="@+id/txt_header_mortality"
+                    android:id="@+id/txt_red_header_mortality"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
                     android:layout_margin="@dimen/_5sdp"
                     android:gravity="center|start"
-                    android:text="Mortality Count "
+                    android:text="Red Mortality Count "
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:id="@+id/edt_mortality_count"
+                    android:id="@+id/edt_red_mortality_count"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/bg_box"
-                    android:inputType="text"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="center|start"
+                        android:text="White Mortality"
+                        android:textColor="@color/colorPrimaryDark" />
+
+
+                    <LinearLayout
+                        android:background="@drawable/bg_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:gravity="center|start"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp">
+
+                        <Spinner
+                            android:id="@+id/spin_white_mortality_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/colorAccent"
+                            tools:ignore="UnusedAttribute" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_header_white_mortality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:gravity="center|start"
+                    android:text="White Mortality Count "
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_white_mortality_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="number"
                     android:padding="@dimen/_8sdp"
                     android:singleLine="true"
                     android:textColor="@color/txtColor"

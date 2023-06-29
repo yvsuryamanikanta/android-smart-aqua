@@ -31,7 +31,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
     private ActivityChecktrayObservationBinding _binding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<UserRoles> pondArrayList, checktrayList,feedReportList,wastageColorList,pottaciumDefeciencyList,
-    magniciumDeficiencyList,calciumDeficiencyList,mortalityTypeList,vibrioStatusList,crampStatusList;
+    magniciumDeficiencyList,calciumDeficiencyList,redMortalityTypeList,whiteMortalityTypeList,vibrioStatusList,crampStatusList;
     private int tankId, checktrayId;
     private String feedWastage,wastageColor,potacium,calcium,magnicium,vibrio,cramp,mortality;
 
@@ -54,7 +54,8 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
                 if(_binding.txtTimeDate.getText().toString().equalsIgnoreCase("")){
                     Toast.makeText(context, "Pls enter observation date", Toast.LENGTH_SHORT).show();
                 }else{
-                    String mortalityCount = _binding.edtMortalityCount.getText().toString();
+                    String redMortalityCount = _binding.edtRedMortalityCount.getText().toString();
+                    String whiteMortalityCount = _binding.edtWhiteMortalityCount.getText().toString();
                     HashMap<String, Object> postparams = new HashMap<>();
                     postparams.put("checktrayid", checktrayId);
                     postparams.put("tankid", tankId);
@@ -66,7 +67,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
                     postparams.put("vibrieostatus", vibrio);
                     postparams.put("crampstatus", cramp);
                     postparams.put("mortalitytype", mortality);
-                    postparams.put("mortalitycount", mortalityCount);
+                    postparams.put("mortalitycount", redMortalityCount);
                     postparams.put("checktrayobsvdate", _binding.txtTimeDate.getText().toString());
                     VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                             ServiceConstants.SAVE_CHECKTRAY_OBSV, postparams, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 3, true);
@@ -87,7 +88,8 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         pottaciumDefeciencyList = new ArrayList<>();
         magniciumDeficiencyList = new ArrayList<>();
         calciumDeficiencyList = new ArrayList<>();
-        mortalityTypeList = new ArrayList<>();
+        redMortalityTypeList = new ArrayList<>();
+        whiteMortalityTypeList = new ArrayList<>();
         vibrioStatusList = new ArrayList<>();
         crampStatusList = new ArrayList<>();
         UserRoles no = new UserRoles(1, "1", "NO", true);
@@ -134,23 +136,46 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
             }
         });
 
-        mortalityTypeList.add(no);
-        mortalityTypeList.add(redmortality);
-        mortalityTypeList.add(whitemortality);
-        _binding.spinMortalityList.setAdapter(new UserRolesAdapter(_context,mortalityTypeList));
-        _binding.spinMortalityList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        redMortalityTypeList.add(no);
+        whiteMortalityTypeList.add(no);
+        redMortalityTypeList.add(yes);
+        whiteMortalityTypeList.add(yes);
+        _binding.spinRedMortalityList.setAdapter(new UserRolesAdapter(_context,redMortalityTypeList));
+        _binding.spinWhiteMortalityList.setAdapter(new UserRolesAdapter(_context,whiteMortalityTypeList));
+        _binding.spinRedMortalityList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                UserRoles userRoles = (UserRoles) mortalityTypeList.get(i);
+                UserRoles userRoles = (UserRoles) redMortalityTypeList.get(i);
                 mortality = userRoles.getRoleName();
                 if(i==0){
-                    _binding.txtHeaderMortality.setVisibility(View.GONE);
-                    _binding.edtMortalityCount.setVisibility(View.GONE);
-                    _binding.edtMortalityCount.setText("0");
+                    _binding.txtRedHeaderMortality.setVisibility(View.GONE);
+                    _binding.edtRedMortalityCount.setVisibility(View.GONE);
+                    _binding.edtRedMortalityCount.setText("0");
                 }else{
-                    _binding.txtHeaderMortality.setVisibility(View.VISIBLE);
-                    _binding.edtMortalityCount.setVisibility(View.VISIBLE);
-                    _binding.edtMortalityCount.setText("");
+                    _binding.txtRedHeaderMortality.setVisibility(View.VISIBLE);
+                    _binding.edtRedMortalityCount.setVisibility(View.VISIBLE);
+                    _binding.edtRedMortalityCount.setText("");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        _binding.spinWhiteMortalityList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                UserRoles userRoles = (UserRoles) whiteMortalityTypeList.get(i);
+                mortality = userRoles.getRoleName();
+                if(i==0){
+                    _binding.txtHeaderWhiteMortality.setVisibility(View.GONE);
+                    _binding.edtWhiteMortalityCount.setVisibility(View.GONE);
+                    _binding.edtWhiteMortalityCount.setText("0");
+                }else{
+                    _binding.txtHeaderWhiteMortality.setVisibility(View.VISIBLE);
+                    _binding.edtWhiteMortalityCount.setVisibility(View.VISIBLE);
+                    _binding.edtWhiteMortalityCount.setText("");
                 }
             }
 

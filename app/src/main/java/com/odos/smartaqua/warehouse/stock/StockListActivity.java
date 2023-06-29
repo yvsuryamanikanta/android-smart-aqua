@@ -24,6 +24,5 @@ public class StockListActivity extends BaseActivity {
         viewModel = new StockListViewModel(StockListActivity.this, _binding);
         _binding.setViewModel(viewModel);
         _binding.executePendingBindings();
-        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(this);
     }
 }

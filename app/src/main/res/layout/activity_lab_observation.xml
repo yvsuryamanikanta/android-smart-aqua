@@ -384,7 +384,7 @@
                     android:layout_margin="@dimen/_2sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center|start"
-                    android:text="Enter Iron (Fe)/Zinc/Chlorine"
+                    android:text="Enter Chlorine"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
@@ -400,6 +400,56 @@
                     android:textColorHint="@color/bgapp"
                     android:textCursorDrawable="@drawable/cursor_animated"
                     tools:ignore="Autofill,LabelFor" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Iron (Fe)"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_iron"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center|start"
+                    android:text="Enter Zinc"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/edt_zinc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:background="@drawable/bg_box"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/txtColor"
+                    android:textColorHint="@color/bgapp"
+                    android:textCursorDrawable="@drawable/cursor_animated"
+                    tools:ignore="Autofill,LabelFor" />
+
 
                 <TextView
                     android:layout_width="match_parent"

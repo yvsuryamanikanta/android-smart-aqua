@@ -36,7 +36,6 @@ public class ChecktrayViewPagerModel extends BaseObservable implements ServiceAs
     private ActivityBaseBinding _activityBaseBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<ChecktrayObsvModel> checktrayObsvModelArrayList;
-    private String[] values;
     private ArrayList<CultureModel> cultureModelArrayList;
 
     public ChecktrayViewPagerModel(Context context, ActivityChecktrayReportViewpagerBinding activityChecktrayReportViewpagerBinding, ActivityBaseBinding activityBaseBinding) {
@@ -44,10 +43,6 @@ public class ChecktrayViewPagerModel extends BaseObservable implements ServiceAs
         this._binding = activityChecktrayReportViewpagerBinding;
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
-        values = ((Activity)_context).getIntent().getStringArrayExtra("values");
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setText(values[1]);
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setTextSize(9);
-      //  setUpViewPager();
     }
 
     public void setUpViewPager() {

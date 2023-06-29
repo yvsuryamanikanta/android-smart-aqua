@@ -1,9 +1,7 @@
 package com.odos.smartaqua.animal;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -29,19 +27,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AnimalObservationViewModel extends ViewModel implements ServiceAsyncResponse {
-    String wssv = "", ehp = "", ems = "", ihhnv = "";
     private Context _context;
     private ActivityObservationAnimalBinding _binding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<UserRoles> userRolesArrayList;
     private int tankId;
-    private String[] values;
 
     public AnimalObservationViewModel(Context context, ActivityObservationAnimalBinding binding) {
         this._context = context;
         this._binding = binding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
-        values = ((Activity) _context).getIntent().getStringArrayExtra("values");
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_TANKLIST + Helper.getUserID(_context), null, Helper.headerParams(_context),
@@ -49,7 +44,6 @@ public class AnimalObservationViewModel extends ViewModel implements ServiceAsyn
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
         }
-        Log.e("$$$$$$$$$$$", " " + values[4]);
     }
 
     public void getObservationDate(View v) {

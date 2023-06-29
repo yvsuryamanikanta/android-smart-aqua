@@ -60,10 +60,6 @@ public class FeedListFragmentViewModel extends ViewModel implements ServiceAsync
     public void loadData() {
         if (feedDate.equalsIgnoreCase("0")) {
             if (CheckNetwork.isNetworkAvailable(_context)) {
-                HashMap<String, Object> postParams = new HashMap<>();
-                postParams.put("userID", Helper.getUserID(_context));
-                postParams.put("cultureid", cultureId);
-                postParams.put("feeddate", feedDate);
                 VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                         ServiceConstants.FEED_TEMPLATES + Helper.getUserID(_context), null, Helper.headerParams(_context),
                         serviceAsyncResponse, 1, true);

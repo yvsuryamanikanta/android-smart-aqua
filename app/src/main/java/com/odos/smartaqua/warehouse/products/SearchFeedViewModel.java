@@ -43,35 +43,7 @@ public class SearchFeedViewModel extends ViewModel implements SearchProductAdapt
         VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                 ServiceConstants.LIST_STOCK + Helper.getUserID(_context), null, Helper.headerParams(_context),
                 (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
-        //values = ((Activity) _context).getIntent().getStringArrayExtra("values");
         flag = ((Activity) _context).getIntent().getStringExtra("flag");
-        /*if (values != null) {
-            productList = getListItemData(values[0],flag);
-        } else {
-            productList = null;
-        }
-        filteredList = new ArrayList<WareHouseModel>();
-        filteredList.addAll(productList);
-
-        _activitySearchProductBinding.itemList.addItemDecoration(new SimpleDividerItemDecoration(_context));
-        mAdapter = new SearchProductAdapter(filteredList, productList, this);
-        _activitySearchProductBinding.itemList.setAdapter(mAdapter);
-
-        _activitySearchProductBinding.searchBox.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mAdapter.getFilter().filter(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });*/
-
     }
 
     private List<WareHouseModel> getListItemData(String response,String flagval) {
@@ -93,8 +65,9 @@ public class SearchFeedViewModel extends ViewModel implements SearchProductAdapt
                 String productcategoryid = jsonObject.getString("productcategoryid");
                 String productcode = jsonObject.getString("productcode");
                 String quantityname = jsonObject.getString("quantityname");
-
-                if (flagval.equalsIgnoreCase("1")) {
+                listViewItems.add(new WareHouseModel(stockid, userid, productid, quantitycategoryid, productname, newstock, oldstock,
+                        availablestock, mrp, createddate, productcategoryid, productcode,quantityname));
+              /*  if (flagval.equalsIgnoreCase("1")) {
                     if (productcode.equalsIgnoreCase("F")) {
                         listViewItems.add(new WareHouseModel(stockid, userid, productid, quantitycategoryid, productname, newstock, oldstock,
                                 availablestock, mrp, createddate, productcategoryid, productcode,quantityname));
@@ -106,7 +79,7 @@ public class SearchFeedViewModel extends ViewModel implements SearchProductAdapt
                         listViewItems.add(new WareHouseModel(stockid, userid, productid, quantitycategoryid, productname, newstock, oldstock,
                                 availablestock, mrp, createddate, productcategoryid, productcode,quantityname));
                     }
-                }
+                }*/
 
             }
         } catch (Exception e) {

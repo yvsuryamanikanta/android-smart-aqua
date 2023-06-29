@@ -39,13 +39,13 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
     private int product_qtyTypeID, suppliment_qtyTypeID;
     private String qtycategorycode, suppliment_qtycategorycode;
     private int tankId;
-    private String cultureAccess;
+    private String cultureAccess,tankName;
     private String[] searchData;
     private double availablestock;
     private String productId, productCatgId, mrp, productName;
     private ArrayList<WaterReportModel> waterReportModelArrayList;
 
-    public WaterReportFragmentViewModel(Context context, FragmentReportWaterBinding binding, int tId, String cultureaccess) {
+    public WaterReportFragmentViewModel(Context context, FragmentReportWaterBinding binding, int tId, String cultureaccess, String tName) {
         this._context = context;
         this._binding = binding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
@@ -53,6 +53,7 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
         suppliment_jsonArray = new JSONArray();
         tankId = tId;
         cultureAccess = cultureaccess;
+        tankName = tName;
 
     }
 
@@ -125,7 +126,7 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
                                             potassium, sodium, iron, ionizedammonia, unionizedammonia, nitrate,
                                             hydrogensulphide, labdo, co2, greenalgae, diatom, bluegreenalgae,
                                             dinoflegellates, zooplankton, dafloc, vibriogreencolonies, vibrioyellowcolonies,
-                                            labobsvdate, createddate, modifieddate);
+                                            labobsvdate, createddate, modifieddate,tankName);
                                     waterReportModelArrayList.add(_model);
                                 }
                                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);

@@ -56,13 +56,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
-                                android:background="@color/white"
+                                android:layout_weight="0.4"
+                                android:background="@color/txtColor"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
                                 android:padding="5dp"
-                                android:text="Pond No"
-                                android:textColor="@color/txtColor"
+                                android:text="Tank"
+                                android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -72,11 +72,11 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
-                                android:background="@color/white"
+                                android:layout_weight="0.3"
+                                android:background="@color/txtColor"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
-                                android:textColor="@color/txtColor"
+                                android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 tools:text="B1" />
@@ -84,13 +84,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
-                                android:background="@color/white"
+                                android:layout_weight="0.3"
+                                android:background="@color/txtColor"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="Optional Range"
-                                android:textColor="@color/txtColor"
-                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -106,7 +106,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -121,7 +121,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -132,13 +132,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="In Acres"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -153,7 +153,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -168,7 +168,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -179,13 +179,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text=""
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -200,7 +200,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -215,7 +215,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -226,13 +226,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="7.6-8.3"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -247,7 +247,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -262,7 +262,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -273,13 +273,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="5 - 20 ppt"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <TextView
@@ -306,7 +306,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -320,7 +320,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -331,13 +331,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="0-40ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -352,7 +352,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -367,7 +367,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -378,13 +378,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="100 - 350 ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -399,7 +399,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -409,12 +409,12 @@
                                 android:textSize="12sp" />
 
                             <TextView
-                                android:id="@+id/txt_total_alka"
+                                android:id="@+id/txt_total_alkalinity"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -425,13 +425,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
-                                android:text="150 - 350 ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <TextView
@@ -458,7 +457,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -473,7 +472,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -484,13 +483,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="200 - 1500 ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -505,7 +504,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -520,7 +519,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -531,13 +530,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="200 - 1500 ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -552,7 +551,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -562,12 +561,12 @@
                                 android:textSize="14sp" />
 
                             <TextView
-                                android:id="@+id/txt_total_mg"
+                                android:id="@+id/txt_total"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -578,13 +577,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
-                                android:text="400 - 3000 ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <TextView
@@ -612,7 +610,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -627,7 +625,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -638,13 +636,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="Based On Salinity"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -660,7 +658,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -675,7 +673,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -686,12 +684,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -707,7 +705,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -722,7 +720,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -733,12 +731,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -754,7 +752,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -769,7 +767,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -780,12 +778,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -801,7 +799,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -816,7 +814,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -827,12 +825,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -847,7 +845,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -862,7 +860,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -873,12 +871,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -894,7 +892,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -909,7 +907,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -920,13 +918,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="&lt; 0.5 ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <TextView
@@ -954,7 +952,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -969,7 +967,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -980,13 +978,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="&lt;1.0ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1002,7 +1000,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1017,7 +1015,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1028,13 +1026,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="&lt;0.1ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1050,7 +1048,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1065,7 +1063,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1076,13 +1074,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="&lt;0.25ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1098,7 +1096,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1113,7 +1111,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1124,13 +1122,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="&lt;0.01ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1146,7 +1144,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1161,7 +1159,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1172,13 +1170,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text=">3.5ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1194,7 +1192,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1209,7 +1207,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1220,13 +1218,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="&lt;10ppm"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <TextView
@@ -1254,7 +1252,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1269,7 +1267,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1280,13 +1278,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="> 60% Good"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1302,7 +1300,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1317,7 +1315,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1328,13 +1326,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="> 20% Good"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1350,7 +1348,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1365,7 +1363,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1376,13 +1374,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="Toxis Algae"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1398,7 +1396,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1413,7 +1411,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1424,13 +1422,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text="Toxis Algae"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1446,7 +1444,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1461,7 +1459,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1472,13 +1470,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text=">20%"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1494,7 +1492,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.33"
+                                android:layout_weight="0.4"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
@@ -1509,7 +1507,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
-                                android:layout_weight="0.32"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
@@ -1520,13 +1518,13 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.35"
+                                android:layout_weight="0.3"
                                 android:background="@color/white"
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center"
                                 android:text=">20%"
                                 android:textColor="@color/txtColor"
-                                android:textSize="13sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                     </LinearLayout>

@@ -1,13 +1,9 @@
 package com.odos.smartaqua.soil;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -31,19 +27,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SoilObservationViewModel extends ViewModel implements ServiceAsyncResponse {
-    String wssv = "", ehp = "", ems = "", ihhnv = "";
     private Context _context;
     private ActivityObservationSoilBinding _binding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<UserRoles> userRolesArrayList;
     private int tankId;
-    private String[] values;
 
     public SoilObservationViewModel(Context context, ActivityObservationSoilBinding soilBinding) {
         this._context = context;
         this._binding = soilBinding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
-        values = ((Activity)_context).getIntent().getStringArrayExtra("values");
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_TANKLIST + Helper.getUserID(_context), null, Helper.headerParams(_context),
@@ -51,7 +44,6 @@ public class SoilObservationViewModel extends ViewModel implements ServiceAsyncR
         } else {
             Helper.showMessage(_context, _context.getString(R.string.internetchecking), AquaConstants.FINISH);
         }
-        Log.e("$$$$$$$$$$$"," "+values[4]);
     }
 
     public void getObservationDate(View v) {
@@ -67,27 +59,27 @@ public class SoilObservationViewModel extends ViewModel implements ServiceAsyncR
         } else {
             HashMap<String, Object> postparams = new HashMap<>();
             postparams.put("tankid", tankId);
-            postparams.put("ammonia",_binding.edtAmmonia.getText().toString());
-            postparams.put("ca",_binding.edtCa.getText().toString());
-            postparams.put("clay",_binding.edtClay.getText().toString());
-            postparams.put("comments",_binding.edtComments.getText().toString());
-            postparams.put("iron",_binding.edtIron.getText().toString());
-            postparams.put("mg",_binding.edtMg.getText().toString());
-            postparams.put("microbiology",_binding.edtMicrobiology.getText().toString());
-            postparams.put("nitrogen",_binding.edtNitrogen.getText().toString());
-            postparams.put("obsvdate",_binding.txtObservationDate.getText().toString());
-            postparams.put("organiccarbon",_binding.edtOrganicCarbon.getText().toString());
-            postparams.put("organicmatter",_binding.edtOrganicMatter.getText().toString());
-            postparams.put("phosphorous",_binding.edtPhosphorous.getText().toString());
-            postparams.put("phvalue",_binding.edtPhvalue.getText().toString());
-            postparams.put("pottasium",_binding.edtPottasium.getText().toString());
-            postparams.put("salinity",_binding.edtSalinity.getText().toString());
-            postparams.put("sand",_binding.edtSand.getText().toString());
-            postparams.put("slit",_binding.edtSlit.getText().toString());
-            postparams.put("soiltype",_binding.edtSoilType.getText().toString());
-            postparams.put("sulphur",_binding.edtSulphur.getText().toString());
-            postparams.put("texture",_binding.edtTexture.getText().toString());
-            postparams.put("zinc",_binding.edtZinc.getText().toString());
+            postparams.put("ammonia", _binding.edtAmmonia.getText().toString());
+            postparams.put("ca", _binding.edtCa.getText().toString());
+            postparams.put("clay", _binding.edtClay.getText().toString());
+            postparams.put("comments", _binding.edtComments.getText().toString());
+            postparams.put("iron", _binding.edtIron.getText().toString());
+            postparams.put("mg", _binding.edtMg.getText().toString());
+            postparams.put("microbiology", _binding.edtMicrobiology.getText().toString());
+            postparams.put("nitrogen", _binding.edtNitrogen.getText().toString());
+            postparams.put("obsvdate", _binding.txtObservationDate.getText().toString());
+            postparams.put("organiccarbon", _binding.edtOrganicCarbon.getText().toString());
+            postparams.put("organicmatter", _binding.edtOrganicMatter.getText().toString());
+            postparams.put("phosphorous", _binding.edtPhosphorous.getText().toString());
+            postparams.put("phvalue", _binding.edtPhvalue.getText().toString());
+            postparams.put("pottasium", _binding.edtPottasium.getText().toString());
+            postparams.put("salinity", _binding.edtSalinity.getText().toString());
+            postparams.put("sand", _binding.edtSand.getText().toString());
+            postparams.put("slit", _binding.edtSlit.getText().toString());
+            postparams.put("soiltype", _binding.edtSoilType.getText().toString());
+            postparams.put("sulphur", _binding.edtSulphur.getText().toString());
+            postparams.put("texture", _binding.edtTexture.getText().toString());
+            postparams.put("zinc", _binding.edtZinc.getText().toString());
 
             postparams.put("userid", Helper.getUserID(_context));
 

@@ -27,7 +27,7 @@
         android:singleLine="true"
         android:textAllCaps="false"
         android:textColor="@color/txtColor"
-        android:textSize="14sp" />
+        android:textSize="17sp" />
 
 
 </LinearLayout>

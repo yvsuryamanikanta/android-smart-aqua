@@ -16,14 +16,16 @@ public class WaterReportFragment extends Fragment {
     private FragmentReportWaterBinding _binding;
     private int cultureId;
     private String cultureAccess;
+    private String tankName;
     private WaterReportFragmentViewModel waterReportFragmentViewModel;
     private boolean isLoaded = false;
 
-    public static Fragment newInstance(int cultureid, String cultureaccess) {
+    public static Fragment newInstance(int cultureid, String cultureaccess, String tankName) {
         WaterReportFragment feedListFragment = new WaterReportFragment();
         Bundle bundle_data = new Bundle();
         bundle_data.putInt("cultureId", cultureid);
         bundle_data.putString("cultureAccess", cultureaccess);
+        bundle_data.putString("tankName", tankName);
         feedListFragment.setArguments(bundle_data);
         return feedListFragment;
     }
@@ -33,7 +35,8 @@ public class WaterReportFragment extends Fragment {
         if (getArguments() != null) {
             cultureId = getArguments().getInt("cultureId");
             cultureAccess = getArguments().getString("cultureAccess");
-            waterReportFragmentViewModel = new WaterReportFragmentViewModel(getActivity(), _binding, cultureId, cultureAccess);
+            tankName = getArguments().getString("tankName");
+            waterReportFragmentViewModel = new WaterReportFragmentViewModel(getActivity(), _binding, cultureId, cultureAccess,tankName);
             _binding.setViewModel(waterReportFragmentViewModel);
             _binding.executePendingBindings();
         }

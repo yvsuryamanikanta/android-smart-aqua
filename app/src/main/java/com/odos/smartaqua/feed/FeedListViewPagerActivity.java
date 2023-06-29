@@ -13,6 +13,7 @@ import com.odos.smartaqua.databinding.ActivityFeedListViewpagerBinding;
 public class FeedListViewPagerActivity extends BaseActivity {
     private ActivityFeedListViewpagerBinding _binding;
     private FeedListViewPagerModel feedListViewPagerModel;
+    private boolean isLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +26,14 @@ public class FeedListViewPagerActivity extends BaseActivity {
         setToolBarIconClick(0);
         activityBaseBinding.mytoolbar.imgLogout.setVisibility(View.VISIBLE);
         activityBaseBinding.mytoolbar.imgSearch.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!isLoaded) {
+            feedListViewPagerModel.setUpViewPager();
+            isLoaded = true;
+        }
     }
 }

@@ -49,7 +49,7 @@ public class ChecktrayViewModel extends ViewModel implements ServiceAsyncRespons
 
     public void onSaveClick(View v) {
         if(tankId ==-1){
-            Toast.makeText(_context, "Pls select your Pond.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(_context, "Pls select your Tank.", Toast.LENGTH_SHORT).show();
         }else if(_activityAddChecktrayBinding.edtChecktrayName.getText().toString().equalsIgnoreCase("")){
             Toast.makeText(_context, "Checktray Name required.", Toast.LENGTH_SHORT).show();
         }else{

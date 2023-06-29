@@ -109,7 +109,6 @@ public class ChecktrayReportFragmentViewModel extends ViewModel implements Servi
                                             magniciumdefeciency, calciumdefeciency, crampstatus, checktrayobsvdate, createddate, modifieddate);
                                     arrayList.add(checktrayReportModel);
                                 }
-//                                RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);
                                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);
                                 _binding.recyclerView.setLayoutManager(mLayoutManager);
                                 _binding.recyclerView.setItemAnimator(new DefaultItemAnimator());

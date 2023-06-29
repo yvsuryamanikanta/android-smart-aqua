@@ -33,8 +33,9 @@ public class WaterReportModel {
     String labobsvdate;
     String createddate;
     String modifieddate;
+    String tankName;
 
-    public WaterReportModel(int labobservationid, int tankid, int userid, String phvalue, String salinity, String co3, String hco3, String cahardness, String mghardness, String calcium, String magnesium, String potassium, String sodium, String iron, String ionizedammonia, String unionizedammonia, String nitrate, String hydrogensulphide, String labdo, String co2, String greenalgae, String diatom, String bluegreenalgae, String dinoflegellates, String zooplankton, String dafloc, String vibriogreencolonies, String vibrioyellowcolonies, String labobsvdate, String createddate, String modifieddate) {
+    public WaterReportModel(int labobservationid, int tankid, int userid, String phvalue, String salinity, String co3, String hco3, String cahardness, String mghardness, String calcium, String magnesium, String potassium, String sodium, String iron, String ionizedammonia, String unionizedammonia, String nitrate, String hydrogensulphide, String labdo, String co2, String greenalgae, String diatom, String bluegreenalgae, String dinoflegellates, String zooplankton, String dafloc, String vibriogreencolonies, String vibrioyellowcolonies, String labobsvdate, String createddate, String modifieddate, String tankName) {
         this.labobservationid = labobservationid;
         this.tankid = tankid;
         this.userid = userid;
@@ -66,6 +67,11 @@ public class WaterReportModel {
         this.labobsvdate = labobsvdate;
         this.createddate = createddate;
         this.modifieddate = modifieddate;
+        this.tankName = tankName;
+    }
+
+    public String getTankName() {
+        return tankName;
     }
 
     public int getLabobservationid() {

@@ -2,6 +2,7 @@ package com.odos.smartaqua.dashboard;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.animal.AnimalObservationActivity;
 import com.odos.smartaqua.animal.AnimalViewPagerActivity;
@@ -41,14 +43,32 @@ import com.odos.smartaqua.warehouse.stock.AddStockActivity;
 import com.odos.smartaqua.warehouse.stock.StockListActivity;
 import com.odos.smartaqua.water.WaterAnalysisViewPagerActivity;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.MyViewHolder> {
+public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.MyViewHolder> implements ServiceAsyncResponse {
     ArrayList<String> data;
     private LayoutInflater layoutInflater;
     private Context _context;
     private int _flag, tankPosition;
     private String tankId, tankName, cultureId, cultureAccess, cultureResponse;
+
+    @Override
+    public void stringResponse(String service, String response, int serviceno) {
+
+    }
+
+    @Override
+    public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
+
+    }
+
+    @Override
+    public void jsonArrayResponse(String service, JSONArray jsonarray, int serviceno) {
+
+    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
@@ -109,12 +129,10 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, PCRObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
-                        String[] tankdetails = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, SoilObservationActivity.class, AquaConstants.HOLD, tankdetails);
+                        AquaConstants.putIntent(_context, SoilObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 3:
-                        String[] animal = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, AnimalObservationActivity.class, AquaConstants.HOLD, animal);
+                        AquaConstants.putIntent(_context, AnimalObservationActivity.class, AquaConstants.HOLD, null);
                         break;
                 }
             } else if (_flag == 3) {
@@ -132,8 +150,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, StockingActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 4:
-                        String[] values = new String[]{tankId, cultureId, tankName, cultureAccess};
-                        AquaConstants.putIntent(_context, TankViewPagerActivity.class, AquaConstants.HOLD, values);
+                        AquaConstants.putIntent(_context, TankViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 5:
                         AquaConstants.putIntent(_context, AddChecktrayActivity.class, AquaConstants.HOLD, null);
@@ -143,8 +160,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
             } else if (_flag == 4) {
                 switch (position) {
                     case 0:
-                        String[] tankdetails = new String[]{"0", "0", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, FeedListViewPagerActivity.class, AquaConstants.HOLD, tankdetails);
+                        AquaConstants.putIntent(_context, FeedListViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 1:
 /*
@@ -161,8 +177,7 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
 //                        intent.putExtra("headers", headers);
                         _context.startActivity(intent);
 */
-                        String[] checktrayData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, ChecktrayReportViewPagerActivity.class, AquaConstants.HOLD, checktrayData);
+                        AquaConstants.putIntent(_context, ChecktrayReportViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
                         String[] tankData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};

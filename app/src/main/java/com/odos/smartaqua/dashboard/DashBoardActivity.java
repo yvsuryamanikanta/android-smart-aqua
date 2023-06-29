@@ -35,10 +35,8 @@ public class DashBoardActivity extends BaseActivity implements ListBottomSheetFr
         _activityDashboardBinding.executePendingBindings();
         activityBaseBinding.mytoolbar.imgSearch.setVisibility(View.VISIBLE);
         activityBaseBinding.mytoolbar.imgLogout.setVisibility(View.VISIBLE);
-        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(DashBoardActivity.this);
         setToolBarIconClick(1);
         setToolBarIcon(1);
-        _activityDashboardBinding.bottomNavigation.setBackground(null);
     }
 
     @Override

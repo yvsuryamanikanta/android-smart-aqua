@@ -22,6 +22,5 @@ public class BrandListActivity extends BaseActivity {
         viewModel = new BrandListViewModel(BrandListActivity.this, _binding);
         _binding.setViewModel(viewModel);
         _binding.executePendingBindings();
-        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(this);
     }
 }

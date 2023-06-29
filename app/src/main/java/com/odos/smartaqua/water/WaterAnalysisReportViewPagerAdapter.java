@@ -29,7 +29,8 @@ public class WaterAnalysisReportViewPagerAdapter extends FragmentStatePagerAdapt
     public Fragment getItem(int position) {
         int cultureId = _cultureModelArrayList.get(position).getCultureid();
         String cultureAccess = _cultureModelArrayList.get(position).getCultureaccess();
-        return WaterReportFragment.newInstance(cultureId,cultureAccess);
+        String tankName = _cultureModelArrayList.get(position).getTankname();
+        return WaterReportFragment.newInstance(cultureId,cultureAccess,tankName);
     }
 
     @Override

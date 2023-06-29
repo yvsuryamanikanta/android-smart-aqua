@@ -81,37 +81,6 @@
                 android:text="100C-250 : 90C-200 : 80C-180 : 70C-170 : 60C-150 : 50C-120 : 40C-100"
                 android:textColor="@color/red"
                 android:textSize="16sp" />
-
-
         </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray" />
-
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/ll_bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            custom:cardBackgroundColor="@color/cardbg"
-            custom:layout_constraintBottom_toBottomOf="parent">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavigation"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_gravity="start|center"
-                custom:circleColor="@color/colorPrimary"
-                custom:itemIconTint="@color/colorPrimary"
-                custom:itemTextColor="@color/colorPrimary"
-                custom:labelVisibilityMode="labeled"
-                custom:menu="@menu/bottom_bar" />
-
-        </LinearLayout>
-
     </LinearLayout>
 </layout>
