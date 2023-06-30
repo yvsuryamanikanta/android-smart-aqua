@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.FragmentAddFeedBinding;
-import com.odos.smartaqua.warehouse.products.SearchProductActivity;
+import com.odos.smartaqua.warehouse.search.SearchViewPagerActivity;
 
 public class AddFeedFragment extends Fragment {
     private FragmentAddFeedBinding _binding;
@@ -46,7 +46,7 @@ public class AddFeedFragment extends Fragment {
             _binding.llProduct.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(getActivity(), SearchProductActivity.class);
+                    Intent i = new Intent(getActivity(), SearchViewPagerActivity.class);
                     i.putExtra("flag", "1");
                     startActivityForResult(i, 1);
                 }
@@ -54,7 +54,7 @@ public class AddFeedFragment extends Fragment {
             _binding.llSupliment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(getActivity(), SearchProductActivity.class);
+                    Intent i = new Intent(getActivity(), SearchViewPagerActivity.class);
                     i.putExtra("flag", "2");
                     startActivityForResult(i, 2);
                 }

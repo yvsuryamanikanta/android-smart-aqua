@@ -319,6 +319,7 @@
                                 android:id="@+id/txt_co3"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="1dp"
                                 android:layout_marginRight="1dp"
                                 android:layout_weight="0.3"
                                 android:background="@color/white"
@@ -1197,7 +1198,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:gravity="center|start"
                                 android:padding="5dp"
-                                android:text="D.O."
+                                android:text="Co2"
                                 android:textColor="@color/txtColor"
                                 android:textSize="14sp" />
 

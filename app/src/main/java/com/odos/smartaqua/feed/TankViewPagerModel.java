@@ -2,6 +2,8 @@ package com.odos.smartaqua.feed;
 
 
 import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BaseObservable;
@@ -25,25 +27,30 @@ import java.util.ArrayList;
 
 
 public class TankViewPagerModel extends BaseObservable implements ServiceAsyncResponse {
+    int pos = 0;
     private TankViewPagerAdapter tankViewPagerAdapter;
     private Context _context;
+    private String tankId;
     private ActivityTankViewpagerBinding _binding;
     private ActivityBaseBinding _activityBaseBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<CultureModel> cultureModelArrayList;
 
-    public TankViewPagerModel(Context context, ActivityTankViewpagerBinding activityTankViewpagerBinding, ActivityBaseBinding activityBaseBinding) {
+    public TankViewPagerModel(Context context, ActivityTankViewpagerBinding activityTankViewpagerBinding, ActivityBaseBinding activityBaseBinding, String tankid) {
+        this.tankId = tankid;
         this._context = context;
         this._binding = activityTankViewpagerBinding;
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
         setUpViewPager();
+
     }
 
     private void setUpViewPager() {
         VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                 ServiceConstants.GET_CULTURES + Helper.getUserID(_context), null, Helper.headerParams(_context),
                 serviceAsyncResponse, 1, false);
+
 
         /*if (titles.length < 4) {
             _binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -106,6 +113,8 @@ public class TankViewPagerModel extends BaseObservable implements ServiceAsyncRe
         switch (serviceno) {
             case 1:
                 try {
+                    Log.e("####### tankid    ", " " + tankId);
+
                     cultureModelArrayList = new ArrayList<>();
                     String status = jsonobject.getString("status");
                     String statusCode = jsonobject.getString("statusCode");
@@ -120,14 +129,17 @@ public class TankViewPagerModel extends BaseObservable implements ServiceAsyncRe
                                         int cultureid = jsonObject1.getInt("cultureid");
                                         String userid = jsonObject1.getString("userid");
                                         String tankid = jsonObject1.getString("tankid");
+                                        if (tankid.equalsIgnoreCase(tankId)) {
+                                            pos = i;
+                                        }
                                         String culturename = jsonObject1.getString("culturename");
                                         String tankname = jsonObject1.getString("tankname");
                                         String culturenumber = jsonObject1.getString("culturenumber");
                                         String cultureimage = jsonObject1.getString("cultureimage");
                                         String culturestatus = jsonObject1.getString("culturestatus");
                                         String cultureaccess = jsonObject1.getString("cultureaccess");
-                                        CultureModel cultureModel = new CultureModel(cultureid,userid,tankid,culturename,tankname,
-                                                culturenumber,cultureimage,culturestatus,cultureaccess);
+                                        CultureModel cultureModel = new CultureModel(cultureid, userid, tankid, culturename, tankname,
+                                                culturenumber, cultureimage, culturestatus, cultureaccess);
                                         cultureModelArrayList.add(cultureModel);
                                     } catch (Exception e) {
                                         Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
@@ -138,7 +150,7 @@ public class TankViewPagerModel extends BaseObservable implements ServiceAsyncRe
                                 _binding.pager.setAdapter(tankViewPagerAdapter);
                                 _binding.tabLayout.setupWithViewPager(_binding.pager, true);
                                 _binding.pager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(_binding.tabLayout));
-                                _binding.pager.setCurrentItem(0);
+                                _binding.pager.setCurrentItem(pos);
                                 _binding.pager.setOffscreenPageLimit(jsonArray.length());
                             } else {
                                 Helper.showMessage(_context, "No Data.", AquaConstants.FINISH);

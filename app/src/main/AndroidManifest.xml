@@ -156,6 +156,11 @@
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
         <activity
+            android:name=".warehouse.search.SearchViewPagerActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".warehouse.products.ProductListActivity"
             android:screenOrientation="locked"
             android:theme="@style/AppTheme.Dark"

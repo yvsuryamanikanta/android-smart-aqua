@@ -2,7 +2,10 @@ package com.odos.smartaqua.water;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.AdapterWaterReportBinding;
+import com.odos.smartaqua.feed.AddFeedActivity;
+import com.odos.smartaqua.feed.TankViewPagerActivity;
 import com.odos.smartaqua.utils.PdfGeneratorNew;
 
 import java.util.ArrayList;
@@ -24,20 +29,24 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
     private Context _context;
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        private final AdapterWaterReportBinding binding;
-
-        public MyViewHolder(AdapterWaterReportBinding itemBinding) {
-            super(itemBinding.getRoot());
-            this.binding = itemBinding;
-        }
-    }
-
     public WaterReportAdapter(Context context, ArrayList<WaterReportModel> arrayList, ClickListener listener) {
         this.homeModelArrayList = arrayList;
         this.listener = listener;
         this._context = context;
+    }
+
+    public static float convertStringToFloat(String str) {
+
+        float floatValue = 0.0f;
+        try {
+            floatValue = Float.parseFloat(str);
+            // Print the expected float value
+            Log.e("%%%%%", str + " after converting into float = " + floatValue);
+        } catch (Exception e) {
+            // Print the error
+            Log.e("%%%%%", str + str + " cannot be converted to float: " + e.getMessage());
+        }
+        return floatValue;
     }
 
     @Override
@@ -66,15 +75,34 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         });
         holder.binding.txtPond.setText("" + waterReportModel.getTankName());
 
+
+        //"ph" value tankid
         if (isNullOrEmpty(waterReportModel.salinity)) {
             holder.binding.txtSalinity.setText("" + waterReportModel.salinity);
             holder.binding.linearSalinity.setVisibility(View.VISIBLE);
+            if (Integer.parseInt(waterReportModel.salinity) < 5 || Integer.parseInt(waterReportModel.salinity) > 20) {
+                holder.binding.txtSalinity.setTextColor(_context.getResources().getColor(R.color.red));
+            }
+            holder.binding.txtSalinity.setOnClickListener(v -> callIntent(waterReportModel.tankid, "salinity"));
         } else {
             holder.binding.linearSalinity.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.phvalue)) {
             holder.binding.txtPh.setText("" + waterReportModel.phvalue);
             holder.binding.linearPh.setVisibility(View.VISIBLE);
+
+            float f1 = new Float("7.6");
+            float f2 = new Float("8.3");
+            float ph = convertStringToFloat(waterReportModel.phvalue);
+
+            // comparing f1 and f2
+            int compare1 = Float.compare(ph, f1);
+            int compare2 = Float.compare(ph, f2);
+            if (compare1 < 0 || compare2 > 0) {
+                holder.binding.txtPh.setTextColor(_context.getResources().getColor(R.color.red));
+            }
+
+            holder.binding.txtPh.setOnClickListener(v -> callIntent(waterReportModel.tankid, "ph"));
         } else {
             holder.binding.linearPh.setVisibility(View.GONE);
         }
@@ -83,12 +111,20 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.getCo3())) {
             holder.binding.txtCo3.setText("" + waterReportModel.getCo3());
             holder.binding.linearCo3.setVisibility(View.VISIBLE);
+            if (Integer.parseInt(waterReportModel.getCo3()) < 0 || Integer.parseInt(waterReportModel.getCo3()) > 40) {
+                holder.binding.txtCo3.setTextColor(_context.getResources().getColor(R.color.red));
+            }
+            holder.binding.txtCo3.setOnClickListener(v -> callIntent(waterReportModel.tankid, "Co3"));
         } else {
             holder.binding.linearCo3.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.getHco3())) {
             holder.binding.txtHco3.setText("" + waterReportModel.getHco3());
             holder.binding.linearHco3.setVisibility(View.VISIBLE);
+            if (Integer.parseInt(waterReportModel.getHco3()) < 100 || Integer.parseInt(waterReportModel.getHco3()) > 350) {
+                holder.binding.txtHco3.setTextColor(_context.getResources().getColor(R.color.red));
+            }
+            holder.binding.txtHco3.setOnClickListener(v -> callIntent(waterReportModel.tankid, "Hco3"));
         } else {
             holder.binding.linearHco3.setVisibility(View.GONE);
         }
@@ -121,12 +157,18 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.cahardness)) {
             holder.binding.txtCa.setText("" + waterReportModel.cahardness);
             holder.binding.linearCa.setVisibility(View.VISIBLE);
+            if (Integer.parseInt(waterReportModel.cahardness) < 200 || Integer.parseInt(waterReportModel.cahardness) > 1500) {
+                holder.binding.txtCa.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearCa.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.mghardness)) {
             holder.binding.txtMg.setText("" + waterReportModel.mghardness);
             holder.binding.linearMg.setVisibility(View.VISIBLE);
+            if (Integer.parseInt(waterReportModel.mghardness) < 200 || Integer.parseInt(waterReportModel.mghardness) > 1500) {
+                holder.binding.txtMg.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearMg.setVisibility(View.GONE);
         }
@@ -192,6 +234,14 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.iron)) {
             holder.binding.txtIron.setText("" + waterReportModel.iron);
             holder.binding.linearIron.setVisibility(View.VISIBLE);
+
+            float f1 = new Float("0.5");
+            float iron = convertStringToFloat(waterReportModel.iron);
+
+            int compare1 = Float.compare(iron, f1);
+            if (compare1 > 0) {
+                holder.binding.txtIron.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearIron.setVisibility(View.GONE);
         }
@@ -206,36 +256,80 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.ionizedammonia)) {
             holder.binding.txtIonized.setText("" + waterReportModel.ionizedammonia);
             holder.binding.linearIonized.setVisibility(View.VISIBLE);
+
+            float f1 = new Float("1.0");
+            float value = convertStringToFloat(waterReportModel.ionizedammonia);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 > 0) {
+                holder.binding.txtIonized.setTextColor(_context.getResources().getColor(R.color.red));
+            }
+
         } else {
             holder.binding.linearIonized.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.unionizedammonia)) {
             holder.binding.txtUnIonized.setText("" + waterReportModel.unionizedammonia);
             holder.binding.linearUnIonized.setVisibility(View.VISIBLE);
+            float f1 = new Float("0.1");
+            float value = convertStringToFloat(waterReportModel.unionizedammonia);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 > 0) {
+                holder.binding.txtUnIonized.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearUnIonized.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.nitrate)) {
             holder.binding.txtNitrate.setText("" + waterReportModel.nitrate);
             holder.binding.linearNitrate.setVisibility(View.VISIBLE);
+            float f1 = new Float("0.25");
+            float value = convertStringToFloat(waterReportModel.nitrate);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 > 0) {
+                holder.binding.txtNitrate.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearNitrate.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.hydrogensulphide)) {
             holder.binding.txtHydrogen.setText("" + waterReportModel.hydrogensulphide);
             holder.binding.linearHydrogen.setVisibility(View.VISIBLE);
+            float f1 = new Float("0.01");
+            float value = convertStringToFloat(waterReportModel.hydrogensulphide);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 > 0) {
+                holder.binding.txtHydrogen.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearHydrogen.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.labdo)) {
             holder.binding.txtDo.setText("" + waterReportModel.labdo);
             holder.binding.linearDo.setVisibility(View.VISIBLE);
+            float f1 = new Float("3.5");
+            float value = convertStringToFloat(waterReportModel.labdo);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 < 0) {
+                holder.binding.txtDo.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearDo.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.co2)) {
             holder.binding.txtCo2.setText("" + waterReportModel.co2);
             holder.binding.linearCo2.setVisibility(View.VISIBLE);
+            float f1 = new Float("10");
+            float value = convertStringToFloat(waterReportModel.co2);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 > 0) {
+                holder.binding.txtCo2.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearCo2.setVisibility(View.GONE);
         }
@@ -253,12 +347,26 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.greenalgae)) {
             holder.binding.txtGreen.setText("" + waterReportModel.greenalgae);
             holder.binding.linearGreen.setVisibility(View.VISIBLE);
+            float f1 = new Float("60");
+            float value = convertStringToFloat(waterReportModel.greenalgae);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 < 0) {
+                holder.binding.txtGreen.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearGreen.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.bluegreenalgae)) {
             holder.binding.txtBluegreen.setText("" + waterReportModel.bluegreenalgae);
             holder.binding.linearBluegreen.setVisibility(View.VISIBLE);
+            float f1 = new Float("20");
+            float value = convertStringToFloat(waterReportModel.bluegreenalgae);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 < 0) {
+                holder.binding.txtBluegreen.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearBluegreen.setVisibility(View.GONE);
         }
@@ -277,12 +385,26 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.zooplankton)) {
             holder.binding.txtZooplankton.setText("" + waterReportModel.zooplankton);
             holder.binding.linearZooplankton.setVisibility(View.VISIBLE);
+            float f1 = new Float("20");
+            float value = convertStringToFloat(waterReportModel.zooplankton);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 < 0) {
+                holder.binding.txtZooplankton.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearZooplankton.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(waterReportModel.dafloc)) {
             holder.binding.txtDa.setText("" + waterReportModel.dafloc);
             holder.binding.linearDa.setVisibility(View.VISIBLE);
+            float f1 = new Float("20");
+            float value = convertStringToFloat(waterReportModel.dafloc);
+
+            int compare1 = Float.compare(value, f1);
+            if (compare1 < 0) {
+                holder.binding.txtDa.setTextColor(_context.getResources().getColor(R.color.red));
+            }
         } else {
             holder.binding.linearDa.setVisibility(View.GONE);
         }
@@ -296,6 +418,14 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         }
 
     }
+    void callIntent(int tnakId, String value){
+        Intent intent = new Intent(_context, TankViewPagerActivity.class);
+        Bundle bundle_data = new Bundle();
+        bundle_data.putString("tankid", ""+tnakId);
+        bundle_data.putString("value", value);
+        intent.putExtras(bundle_data);
+        _context.startActivity(intent);
+    }
 
     boolean isNullOrEmpty(String data) {
         return data != null && !data.equalsIgnoreCase("");
@@ -306,8 +436,17 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         return homeModelArrayList.size();
     }
 
-
     public interface ClickListener {
         void onClicked(WaterReportModel model, int pos);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        private final AdapterWaterReportBinding binding;
+
+        public MyViewHolder(AdapterWaterReportBinding itemBinding) {
+            super(itemBinding.getRoot());
+            this.binding = itemBinding;
+        }
     }
 }

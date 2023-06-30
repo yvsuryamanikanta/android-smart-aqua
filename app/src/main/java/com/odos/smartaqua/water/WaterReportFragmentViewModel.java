@@ -38,14 +38,14 @@ public class WaterReportFragmentViewModel extends ViewModel implements ServiceAs
     private JSONObject jsonObject, suppliment_jsonObject;
     private int product_qtyTypeID, suppliment_qtyTypeID;
     private String qtycategorycode, suppliment_qtycategorycode;
-    private int tankId;
+    private String tankId;
     private String cultureAccess,tankName;
     private String[] searchData;
     private double availablestock;
     private String productId, productCatgId, mrp, productName;
     private ArrayList<WaterReportModel> waterReportModelArrayList;
 
-    public WaterReportFragmentViewModel(Context context, FragmentReportWaterBinding binding, int tId, String cultureaccess, String tName) {
+    public WaterReportFragmentViewModel(Context context, FragmentReportWaterBinding binding, String tId, String cultureaccess, String tName) {
         this._context = context;
         this._binding = binding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;

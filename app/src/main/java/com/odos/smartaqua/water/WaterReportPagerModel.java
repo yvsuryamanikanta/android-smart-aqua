@@ -3,12 +3,14 @@ package com.odos.smartaqua.water;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BaseObservable;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
@@ -69,12 +71,15 @@ public class WaterReportPagerModel extends BaseObservable implements ServiceAsyn
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
+                                Log.e("$$$$$$$$$$ length ", " "+jsonArray.length());
+                                Log.e("$$$$$$$$$$ ", " "+new Gson().toJson(response));
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     try {
                                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                                         int cultureid = jsonObject1.getInt("cultureid");
                                         String userid = jsonObject1.getString("userid");
                                         String tankid = jsonObject1.getString("tankid");
+                                        Log.e("$$$$$$$$$$ ", ""+tankid);
                                         String culturename = jsonObject1.getString("culturename");
                                         String tankname = jsonObject1.getString("tankname");
                                         String culturenumber = jsonObject1.getString("culturenumber");

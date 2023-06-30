@@ -28,7 +28,7 @@ public class SearchProductActivity extends BaseActivity {
         activitySearchProductBinding.executePendingBindings();
         activityBaseBinding.mytoolbar.imgLogout.setVisibility(View.VISIBLE);
         activityBaseBinding.mytoolbar.imgSearch.setVisibility(View.VISIBLE);
-        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(this);
+//        activityBaseBinding.baseFragment.getLayoutParams().height = Helper.getDisplayheight(this);
         setToolBarIconClick(1);
     }
 }
