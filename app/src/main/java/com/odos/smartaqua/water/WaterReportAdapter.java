@@ -80,7 +80,15 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.salinity)) {
             holder.binding.txtSalinity.setText("" + waterReportModel.salinity);
             holder.binding.linearSalinity.setVisibility(View.VISIBLE);
-            if (Integer.parseInt(waterReportModel.salinity) < 5 || Integer.parseInt(waterReportModel.salinity) > 20) {
+
+            float f1 = new Float("5");
+            float f2 = new Float("20");
+            float ph = convertStringToFloat(waterReportModel.phvalue);
+
+            // comparing f1 and f2
+            int compare1 = Float.compare(ph, f1);
+            int compare2 = Float.compare(ph, f2);
+            if (compare1 < 0 || compare2 > 0) {
                 holder.binding.txtSalinity.setTextColor(_context.getResources().getColor(R.color.red));
             }
             holder.binding.txtSalinity.setOnClickListener(v -> callIntent(waterReportModel.tankid, "salinity"));
@@ -111,6 +119,7 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         if (isNullOrEmpty(waterReportModel.getCo3())) {
             holder.binding.txtCo3.setText("" + waterReportModel.getCo3());
             holder.binding.linearCo3.setVisibility(View.VISIBLE);
+
             if (Integer.parseInt(waterReportModel.getCo3()) < 0 || Integer.parseInt(waterReportModel.getCo3()) > 40) {
                 holder.binding.txtCo3.setTextColor(_context.getResources().getColor(R.color.red));
             }

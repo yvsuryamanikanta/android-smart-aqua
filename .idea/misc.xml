@@ -139,6 +139,7 @@
         <entry key="app/src/main/res/drawable-v24/threedots.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/back.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/bg_box.xml" value="0.114" />
+        <entry key="app/src/main/res/drawable/bg_circle.xml" value="0.1425" />
         <entry key="app/src/main/res/drawable/bg_custom.xml" value="0.1585" />
         <entry key="app/src/main/res/drawable/bg_rectangle.xml" value="0.1585" />
         <entry key="app/src/main/res/drawable/bg_table_color1.xml" value="0.1585" />
@@ -207,12 +208,14 @@
         <entry key="app/src/main/res/layout/activity_pondlist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_pondprepare.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_preparationlist.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_search_product.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_stocking.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_stockinglist.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_tank_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_treatment_report_viewpager.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/activity_update_profile.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_verification.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_water_analysis_report_viewpager.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/adapter_animal_report.xml" value="0.23802083333333332" />
@@ -270,7 +273,7 @@
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/spinner_item_left.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/table.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/toolbar.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.18" />
         <entry key="app/src/main/res/layout/upload_bottom_sheet.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/menu/bottom_bar.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/menu/options_menu.xml" value="0.23802083333333332" />

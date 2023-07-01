@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="ViewModel"
+            name="viewModel"
             type="com.odos.smartaqua.prelogin.profile.ProfileViewModel" />
     </data>
 
@@ -43,7 +43,6 @@
                 android:layout_height="@dimen/_100sdp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/splashlogo" />
-
 
             <TextView
                 android:id="@+id/txt_first_name"
