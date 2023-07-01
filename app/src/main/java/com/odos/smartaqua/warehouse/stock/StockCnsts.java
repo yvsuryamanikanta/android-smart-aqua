@@ -9,11 +9,13 @@ public class StockCnsts {
     private String newstock;
     private String oldstock;
     private String availablestock;
-    private String mrp;
+    private String actualPrice;
+    private String purchasePrice;
+    private String discount;
     private String path;
     private String productcode;
 
-    public StockCnsts(int stockid, int productid, int productcategoryid, String productname, String newstock, String oldstock, String availablestock, String mrp, String path, String productcode) {
+    public StockCnsts(int stockid, int productid, int productcategoryid, String productname, String newstock, String oldstock, String availablestock, String actualprice,String purchaseprice,String discount, String path, String productcode) {
         this.stockid = stockid;
         this.productid = productid;
         this.productcategoryid = productcategoryid;
@@ -21,9 +23,23 @@ public class StockCnsts {
         this.newstock = newstock;
         this.oldstock = oldstock;
         this.availablestock = availablestock;
-        this.mrp = mrp;
+        this.actualPrice = actualprice;
+        this.purchasePrice = purchaseprice;
+        this.discount = discount;
         this.path = path;
         this.productcode = productcode;
+    }
+
+    public String getActualPrice() {
+        return actualPrice;
+    }
+
+    public String getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public String getDiscount() {
+        return discount;
     }
 
     public int getStockid() {
@@ -52,10 +68,6 @@ public class StockCnsts {
 
     public String getAvailablestock() {
         return availablestock;
-    }
-
-    public String getMrp() {
-        return mrp;
     }
 
     public String getPath() {

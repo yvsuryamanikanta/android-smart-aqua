@@ -32,17 +32,12 @@ public class ExpendsReportPagerModel extends BaseObservable implements ServiceAs
     private ActivityBaseBinding _activityBaseBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<CultureModel> cultureModelArrayList;
-    private String[] values;
 
     public ExpendsReportPagerModel(Context context, ActivityExpendsReportViewpagerBinding viewpagerBinding, ActivityBaseBinding activityBaseBinding) {
         this._context = context;
         this._binding = viewpagerBinding;
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
-        values = ((Activity)_context).getIntent().getStringArrayExtra("values");
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setText(values[1]);
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setTextSize(11);
-      //  setUpViewPager();
     }
 
     public void setUpViewPager() {

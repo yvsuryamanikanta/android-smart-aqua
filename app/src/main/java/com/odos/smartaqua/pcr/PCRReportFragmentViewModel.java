@@ -31,24 +31,16 @@ public class PCRReportFragmentViewModel extends ViewModel implements ServiceAsyn
     private boolean loading = true;
     private FragmentReportPcrBinding _binding;
     private ServiceAsyncResponse serviceAsyncResponse;
-    private ArrayList<ProductTypes> qtyTypesArrayList;
-    private JSONArray products_jsonArray, suppliment_jsonArray;
-    private JSONObject jsonObject, suppliment_jsonObject;
-    private int product_qtyTypeID, suppliment_qtyTypeID;
-    private String qtycategorycode, suppliment_qtycategorycode;
     private int tankId;
     private String cultureAccess;
     private String[] searchData;
     private double availablestock;
-    private String productId, productCatgId, mrp, productName;
     private ArrayList<PCRReportModel> modelArrayList;
 
     public PCRReportFragmentViewModel(Context context, FragmentReportPcrBinding binding, int tId, String cultureaccess) {
         this._context = context;
         this._binding = binding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
-        products_jsonArray = new JSONArray();
-        suppliment_jsonArray = new JSONArray();
         tankId = tId;
         cultureAccess = cultureaccess;
 
@@ -75,7 +67,6 @@ public class PCRReportFragmentViewModel extends ViewModel implements ServiceAsyn
     public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
         switch (serviceno) {
             case 11:
-                Log.e("######## 11 ", " " + jsonobject);
                 ArrayList<PCRReportModel> modelArrayList = new ArrayList<>();
                 try {
                     modelArrayList = new ArrayList<>();

@@ -34,17 +34,12 @@ public class WaterReportPagerModel extends BaseObservable implements ServiceAsyn
     private ActivityBaseBinding _activityBaseBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private ArrayList<CultureModel> cultureModelArrayList;
-    private String[] values;
 
     public WaterReportPagerModel(Context context, ActivityWaterAnalysisReportViewpagerBinding binding, ActivityBaseBinding activityBaseBinding) {
         this._context = context;
         this._binding = binding;
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
-        values = ((Activity) _context).getIntent().getStringArrayExtra("values");
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setText(values[1]);
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setTextSize(13);
-        //  setUpViewPager();
     }
 
     public void setUpViewPager() {
@@ -71,15 +66,12 @@ public class WaterReportPagerModel extends BaseObservable implements ServiceAsyn
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
                             if (jsonArray.length() != 0) {
-                                Log.e("$$$$$$$$$$ length ", " "+jsonArray.length());
-                                Log.e("$$$$$$$$$$ ", " "+new Gson().toJson(response));
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     try {
                                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                                         int cultureid = jsonObject1.getInt("cultureid");
                                         String userid = jsonObject1.getString("userid");
                                         String tankid = jsonObject1.getString("tankid");
-                                        Log.e("$$$$$$$$$$ ", ""+tankid);
                                         String culturename = jsonObject1.getString("culturename");
                                         String tankname = jsonObject1.getString("tankname");
                                         String culturenumber = jsonObject1.getString("culturenumber");

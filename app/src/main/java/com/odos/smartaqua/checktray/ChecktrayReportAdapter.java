@@ -80,15 +80,15 @@ public class ChecktrayReportAdapter extends RecyclerView.Adapter<ChecktrayReport
             holder.binding.linearWastagecolor.setVisibility(View.GONE);
         }
 
-        if (isNullOrEmpty(model.getMortalitytype())) {
-            holder.binding.txtMortalitytype.setText("" + model.getMortalitytype());
+        if (isNullOrEmpty(model.getRedmortalitycount())) {
+            holder.binding.txtMortalitytype.setText("" + model.getRedmortalitycount());
             holder.binding.linearMortalitytype.setVisibility(View.VISIBLE);
         } else {
             holder.binding.linearMortalitytype.setVisibility(View.GONE);
         }
 
-        if (isNullOrEmpty(model.getMortalitycount())) {
-            holder.binding.txtMortalitycount.setText("" + model.getMortalitycount());
+        if (isNullOrEmpty(model.getWhitemortalitycount())) {
+            holder.binding.txtMortalitycount.setText("" + model.getWhitemortalitycount());
             holder.binding.linearMortalitycount.setVisibility(View.VISIBLE);
         } else {
             holder.binding.linearMortalitycount.setVisibility(View.GONE);
@@ -124,7 +124,7 @@ public class ChecktrayReportAdapter extends RecyclerView.Adapter<ChecktrayReport
             holder.binding.linearCrampstatus.setVisibility(View.GONE);
         }
         holder.binding.txtReportingDate.setText("Reported On : " + model.getChecktrayobsvdate());
-        holder.binding.txtChecktrayName.setText("CheckTray Name : " + model.getChecktrayobsvid());
+        holder.binding.txtChecktrayName.setText("CheckTray Name : " + model.getChecktrayname());
     }
 
     @Override

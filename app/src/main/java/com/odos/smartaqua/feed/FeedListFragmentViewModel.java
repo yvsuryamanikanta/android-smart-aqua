@@ -58,26 +58,17 @@ public class FeedListFragmentViewModel extends ViewModel implements ServiceAsync
     }
 
     public void loadData() {
-        if (feedDate.equalsIgnoreCase("0")) {
-            if (CheckNetwork.isNetworkAvailable(_context)) {
-                VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                        ServiceConstants.FEED_TEMPLATES + Helper.getUserID(_context), null, Helper.headerParams(_context),
-                        serviceAsyncResponse, 1, true);
-            }
-        } else {
-            if (CheckNetwork.isNetworkAvailable(_context)) {
-                HashMap<String, Object> postParams = new HashMap<>();
-                postParams.put("userID", Helper.getUserID(_context));
-                postParams.put("cultureid", cultureId);
-                postParams.put("feeddate", feedDate);
-                VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                        ServiceConstants.FEED_LIST_BY_CULTUREID, postParams, Helper.headerParams(_context),
-                        serviceAsyncResponse, 1, true);
-            }
+        if (CheckNetwork.isNetworkAvailable(_context)) {
+            HashMap<String, Object> postParams = new HashMap<>();
+            postParams.put("userID", Helper.getUserID(_context));
+            postParams.put("cultureid", cultureId);
+            postParams.put("feeddate", feedDate);
+            postParams.put("type", "F");
+            VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
+                    ServiceConstants.FEED_LIST_BY_CULTUREID, postParams, Helper.headerParams(_context),
+                    serviceAsyncResponse, 1, true);
         }
-
     }
-
     public void loadAvailableStock(double stock) {
         availablestock = stock;
     }

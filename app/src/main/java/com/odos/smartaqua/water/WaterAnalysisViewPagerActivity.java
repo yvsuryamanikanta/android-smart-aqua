@@ -2,7 +2,6 @@ package com.odos.smartaqua.water;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
 
@@ -13,6 +12,7 @@ import com.odos.smartaqua.databinding.ActivityWaterAnalysisReportViewpagerBindin
 public class WaterAnalysisViewPagerActivity extends BaseActivity {
     private ActivityWaterAnalysisReportViewpagerBinding _binding;
     private WaterReportPagerModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +22,6 @@ public class WaterAnalysisViewPagerActivity extends BaseActivity {
         _binding.setViewModel(viewModel);
         _binding.executePendingBindings();
         setToolBarIconClick(0);
-        activityBaseBinding.mytoolbar.imgLogout.setVisibility(View.VISIBLE);
-        activityBaseBinding.mytoolbar.imgSearch.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -20,8 +20,7 @@ public class ServiceConstants {
     public static final String PRODUCT_CAATEGORIES = BASE_URL + "product/categories";
     public static final String BRAND_LIST = BASE_URL + "brand/list";
     public static final String QTY_LIST = BASE_URL + "quantity/categories";
-    public static final String SAVE_FEED = BASE_URL + "feed/template/save";
-    public static final String FEED_TEMPLATES = BASE_URL + "feed/groups/list/";
+    public static final String SAVE_FEED = BASE_URL + "feed/save";
     public static final String FEED_LIST_BY_CULTUREID = BASE_URL + "feed/list";
     public static final String SAVE_CHECKTRAY = BASE_URL + "checktray/save";
     public static final String SAVE_GROWTH_OBSV = BASE_URL + "growth/observation/save";

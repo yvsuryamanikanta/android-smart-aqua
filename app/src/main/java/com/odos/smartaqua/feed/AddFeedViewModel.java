@@ -199,6 +199,7 @@ public class AddFeedViewModel extends ViewModel implements ServiceAsyncResponse 
                 postParams.put("access", values[3]);
                 postParams.put("feeddate", _activityAddFeedBinding.txtTimeDate.getText().toString());
                 postParams.put("comment", _activityAddFeedBinding.edtCommentsFeed.getText().toString());
+                postParams.put("type", "F");
                 VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                         ServiceConstants.SAVE_FEED, postParams, Helper.headerParams(_context),
                         (ServiceAsyncResponse) serviceAsyncResponse, 3, true);

@@ -62,8 +62,7 @@ public class SearchFragmentViewModel extends ViewModel implements ServiceAsyncRe
     public void loadData() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    // productCatgId, userid
-                    ServiceConstants.GET_STOCKLIST + /*productCatgId*/"4", null, Helper.headerParams(_context),
+                    ServiceConstants.GET_STOCKLIST + productCatgId, null, Helper.headerParams(_context),
                     serviceAsyncResponse, 1, true);
         }
     }
@@ -83,8 +82,6 @@ public class SearchFragmentViewModel extends ViewModel implements ServiceAsyncRe
                     String response = jsonobject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (!response.equalsIgnoreCase("null")) {
-
-
                             Log.e("########### "," "+new Gson().toJson(response));
                             if (response != null) {
                                 productList = getListItemData(response);
@@ -119,7 +116,7 @@ public class SearchFragmentViewModel extends ViewModel implements ServiceAsyncRe
                     }
 
                 } catch (Exception e) {
-                    Helper.showMessage(_context, "something went wrong please restart app once.", AquaConstants.FINISH);
+                    Helper.showMessage(_context, "something went wrong please restart app once."+e, AquaConstants.FINISH);
                 }
 
         }
@@ -139,13 +136,15 @@ public class SearchFragmentViewModel extends ViewModel implements ServiceAsyncRe
                 String newstock = jsonObject.getString("newstock");
                 String oldstock = jsonObject.getString("oldstock");
                 String availablestock = jsonObject.getString("availablestock");
-                String mrp = jsonObject.getString("mrp");
+                String actualprice = jsonObject.getString("actualprice");
+                String purchaseprice = jsonObject.getString("purchaseprice");
+                String discount = jsonObject.getString("discount");
                 String createddate = jsonObject.getString("createddate");
                 String productcategoryid = jsonObject.getString("productcategoryid");
                 String productcode = jsonObject.getString("productcode");
                 String quantityname = jsonObject.getString("quantityname");
                 listViewItems.add(new WareHouseModel(stockid, userid, productid, quantitycategoryid, productname, newstock, oldstock,
-                        availablestock, mrp, createddate, productcategoryid, productcode,quantityname));
+                        availablestock, actualprice, purchaseprice,discount,createddate, productcategoryid, productcode,quantityname));
 
             }
         } catch (Exception e) {
@@ -169,12 +168,14 @@ public class SearchFragmentViewModel extends ViewModel implements ServiceAsyncRe
         String newstock = wareHouseModel.getNewstock();
         String oldstock = wareHouseModel.getOldstock();
         String availablestock = wareHouseModel.getAvailablestock();
-        String mrp = wareHouseModel.getMrp();
+        String actualprice = wareHouseModel.getActualprice();
+        String purchaseprice = wareHouseModel.getActualprice();
+        String discount = wareHouseModel.getActualprice();
         String createddate = wareHouseModel.getCreateddate();
         String productcategoryid = wareHouseModel.getProductcategoryid();
         String quantityname = wareHouseModel.getQuantityname();
         String[] passingdata = new String[]{"" + stockid, "" + userid, "" + productid, "" + quantitycategoryid, productname, newstock, oldstock,
-                availablestock, mrp, createddate, productcategoryid,quantityname};
+                availablestock, purchaseprice, createddate, productcategoryid,quantityname};
         Intent intent = new Intent();
         intent.putExtra("searchedvalues", passingdata);
         ((Activity) _context).setResult(Activity.RESULT_OK, intent);

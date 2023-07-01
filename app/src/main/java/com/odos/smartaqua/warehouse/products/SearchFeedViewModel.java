@@ -60,13 +60,15 @@ public class SearchFeedViewModel extends ViewModel implements SearchProductAdapt
                 String newstock = jsonObject.getString("newstock");
                 String oldstock = jsonObject.getString("oldstock");
                 String availablestock = jsonObject.getString("availablestock");
-                String mrp = jsonObject.getString("mrp");
+                String actualprice = jsonObject.getString("actualprice");
+                String purchaseprice = jsonObject.getString("purchaseprice");
+                String discount = jsonObject.getString("discount");
                 String createddate = jsonObject.getString("createddate");
                 String productcategoryid = jsonObject.getString("productcategoryid");
                 String productcode = jsonObject.getString("productcode");
                 String quantityname = jsonObject.getString("quantityname");
                 listViewItems.add(new WareHouseModel(stockid, userid, productid, quantitycategoryid, productname, newstock, oldstock,
-                        availablestock, mrp, createddate, productcategoryid, productcode,quantityname));
+                        availablestock, actualprice,purchaseprice,discount, createddate, productcategoryid, productcode,quantityname));
               /*  if (flagval.equalsIgnoreCase("1")) {
                     if (productcode.equalsIgnoreCase("F")) {
                         listViewItems.add(new WareHouseModel(stockid, userid, productid, quantitycategoryid, productname, newstock, oldstock,
@@ -99,12 +101,14 @@ public class SearchFeedViewModel extends ViewModel implements SearchProductAdapt
         String newstock = wareHouseModel.getNewstock();
         String oldstock = wareHouseModel.getOldstock();
         String availablestock = wareHouseModel.getAvailablestock();
-        String mrp = wareHouseModel.getMrp();
+        String actualprice = wareHouseModel.getActualprice();
+        String purchaseprice = wareHouseModel.getActualprice();
+        String discount = wareHouseModel.getActualprice();
         String createddate = wareHouseModel.getCreateddate();
         String productcategoryid = wareHouseModel.getProductcategoryid();
         String quantityname = wareHouseModel.getQuantityname();
         String[] passingdata = new String[]{"" + stockid, "" + userid, "" + productid, "" + quantitycategoryid, productname, newstock, oldstock,
-                availablestock, mrp, createddate, productcategoryid,quantityname};
+                availablestock, purchaseprice, createddate, productcategoryid,quantityname};
         Intent intent = new Intent();
         intent.putExtra("searchedvalues", passingdata);
         ((Activity) _context).setResult(Activity.RESULT_OK, intent);

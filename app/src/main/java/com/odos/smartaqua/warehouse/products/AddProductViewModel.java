@@ -90,6 +90,7 @@ public class AddProductViewModel extends BaseObservable implements ServiceAsyncR
             Toast.makeText(_context, "Select Quantity Type.", Toast.LENGTH_SHORT).show();
         }  else {
             HashMap<String, Object> postParams = new HashMap<>();
+            postParams.put("userid", Helper.getUserID(_context));
             postParams.put("productname", edtName);
             postParams.put("brandid", String.valueOf(brandID));
             postParams.put("productcatgeoryid", String.valueOf(productTypeID));

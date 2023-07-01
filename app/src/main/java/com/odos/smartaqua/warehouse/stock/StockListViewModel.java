@@ -80,11 +80,13 @@ public class StockListViewModel extends BaseObservable implements ServiceAsyncRe
                                     String newstock = jsonObject1.getString("newstock");
                                     String oldstock = jsonObject1.getString("oldstock");
                                     String availablestock = jsonObject1.getString("availablestock");
-                                    String mrp = jsonObject1.getString("mrp");
+                                    String actualprice = jsonObject1.getString("actualprice");
+                                    String purchaseprice = jsonObject1.getString("purchaseprice");
+                                    String discount = jsonObject1.getString("discount");
                                     String path = jsonObject1.getString("path");
                                     String productcode = jsonObject1.getString("productcode");
                                     StockCnsts model = new StockCnsts(stockid, productid, productcategoryid, productname,
-                                            newstock, oldstock, availablestock, mrp, path, productcode);
+                                            newstock, oldstock, availablestock, actualprice,purchaseprice,discount, path, productcode);
                                     arrayList.add(model);
                                 }
                                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);

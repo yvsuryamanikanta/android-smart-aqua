@@ -14,14 +14,16 @@ public class WareHouseModel {
     String newstock;
     String oldstock;
     String availablestock;
-    String mrp;
+    String actualprice;
+    String purchaseprice;
+    String discount;
     String createddate;
     String productcategoryid;
     String productcode;
     String quantityname;
 
     public WareHouseModel(int stockid, int userid, int productid, int quantitycategoryid, String productname, String newstock,
-                          String oldstock, String availablestock ,String mrp, String createddate, String productcategoryid
+                          String oldstock, String availablestock ,String actualprice, String purchaseprice,String discount, String createddate, String productcategoryid
             , String productcode, String quantityname) {
         this.stockid = stockid;
         this.userid = userid;
@@ -31,13 +33,26 @@ public class WareHouseModel {
         this.newstock = newstock;
         this.oldstock = oldstock;
         this.availablestock = availablestock;
-        this.mrp = mrp;
+        this.actualprice = actualprice;
+        this.purchaseprice = purchaseprice;
+        this.actualprice = actualprice;
         this.createddate = createddate;
         this.productcategoryid = productcategoryid;
         this.productcode = productcode;
         this.quantityname = quantityname;
     }
 
+    public String getActualprice() {
+        return actualprice;
+    }
+
+    public String getPurchaseprice() {
+        return purchaseprice;
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
 
     public int getStockid() {
         return stockid;
@@ -101,14 +116,6 @@ public class WareHouseModel {
 
     public void setAvailablestock(String availablestock) {
         this.availablestock = availablestock;
-    }
-
-    public String getMrp() {
-        return mrp;
-    }
-
-    public void setMrp(String mrp) {
-        this.mrp = mrp;
     }
 
     public String getCreateddate() {

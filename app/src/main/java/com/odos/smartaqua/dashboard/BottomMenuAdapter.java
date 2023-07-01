@@ -180,37 +180,30 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         AquaConstants.putIntent(_context, ChecktrayReportViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 2:
-                        String[] tankData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, WaterAnalysisViewPagerActivity.class, AquaConstants.HOLD, tankData);
+                        AquaConstants.putIntent(_context, WaterAnalysisViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
                     case 3:
-                        String[] pcrData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, PCRViewPagerActivity.class, AquaConstants.HOLD, pcrData);
+                        AquaConstants.putIntent(_context, PCRViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
 
                     case 4:
-                        String[] soilData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, SoilViewPagerActivity.class, AquaConstants.HOLD, soilData);
+                        AquaConstants.putIntent(_context, SoilViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
 
                     case 5:
-                        String[] animalData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, AnimalViewPagerActivity.class, AquaConstants.HOLD, animalData);
+                        AquaConstants.putIntent(_context, AnimalViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
 
                     case 6:
-                        String[] gData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, GrowthReportViewPagerActivity.class, AquaConstants.HOLD, gData);
+                        AquaConstants.putIntent(_context, GrowthReportViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
 
                     case 7:
-                        String[] tra = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, TreatmentReportViewPagerActivity.class, AquaConstants.HOLD, tra);
+                        AquaConstants.putIntent(_context, TreatmentReportViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
 
                     case 8:
-                        String[] eData = new String[]{"" + position, "2023-05-27", tankId, "feed", cultureResponse};
-                        AquaConstants.putIntent(_context, ExpendsReportViewPagerActivity.class, AquaConstants.HOLD, eData);
+                        AquaConstants.putIntent(_context, ExpendsReportViewPagerActivity.class, AquaConstants.HOLD, null);
                         break;
                 }
             } else if (_flag == 5) {

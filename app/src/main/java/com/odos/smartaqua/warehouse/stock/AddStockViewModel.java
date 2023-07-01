@@ -74,8 +74,8 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
 
     public void saveProduct(View view) {
         String edtQty = _activityAddstockBinding.edtQuantity.getText().toString();
-        String mrp = _activityAddstockBinding.edtPriceQty.getText().toString();
-        String actualPrice = _activityAddstockBinding.edtPurchasePrice.getText().toString();
+        String actualPrice = _activityAddstockBinding.edtActcualPrice.getText().toString();
+        String purchasePrice = _activityAddstockBinding.edtPurchasePrice.getText().toString();
         String edtUnitQty = _activityAddstockBinding.edtUnitWeight.getText().toString();
 
         if (brandID == 777) {
@@ -86,16 +86,16 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
             Toast.makeText(_context, "Select Quantity Type.", Toast.LENGTH_SHORT).show();
         } else if (edtQty.equalsIgnoreCase("")) {
             Toast.makeText(_context, "Product Quantity is required.", Toast.LENGTH_SHORT).show();
-        } else if (mrp.equalsIgnoreCase("")) {
-            Toast.makeText(_context, "Mrp rate is required.", Toast.LENGTH_SHORT).show();
         } else if (actualPrice.equalsIgnoreCase("")) {
+            Toast.makeText(_context, "Mrp rate is required.", Toast.LENGTH_SHORT).show();
+        } else if (purchasePrice.equalsIgnoreCase("")) {
             Toast.makeText(_context, "Purchase Price is required", Toast.LENGTH_SHORT).show();
         } else {
-            if (mrp.equalsIgnoreCase("") || actualPrice.equalsIgnoreCase("")) {
+            if (actualPrice.equalsIgnoreCase("") || purchasePrice.equalsIgnoreCase("")) {
                 discountAmount = 0.00f;
             } else {
-                Float amount = Float.parseFloat(mrp);
-                Float purchaseAmount = Float.parseFloat(actualPrice);
+                Float amount = Float.parseFloat(actualPrice);
+                Float purchaseAmount = Float.parseFloat(purchasePrice);
                 discountAmount = amount - purchaseAmount;
             }
             HashMap<String, Object> postParams = new HashMap<>();
@@ -103,9 +103,11 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
             postParams.put("userid", Helper.getUserID(_context));
             postParams.put("productid", productTypeID);
             postParams.put("quantitycategoryid", qtyTypeID);
+            postParams.put("actualprice", actualPrice);
+            postParams.put("purchaseprice", purchasePrice);
             postParams.put("discount", String.valueOf(discountAmount));
-            postParams.put("mrp", mrp);
             postParams.put("path", filePath);
+            Log.e("data--==",""+new JSONObject(postParams));
             VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.SAVE_STOCK, postParams, Helper.headerParams(_context),
                     (ServiceAsyncResponse) serviceAsyncResponse, 3, true);
@@ -128,6 +130,7 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
         switch (serviceno) {
             case 1:
                 try {
+                    Log.e("data--==",""+jsonobject);
                     String status = jsonobject.getString("status");
                     String statusCode = jsonobject.getString("statusCode");
                     String response = jsonobject.getString("response");
@@ -154,6 +157,7 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         ProductTypes productTypes = (ProductTypes) productTypesArrayList.get(position);
                                         productTypeID = productTypes.getPtID();
+                                        Log.e("data--==",""+productTypeID);
                                         qtyTypeID = productTypes.getQuantitycategoryid();
                                         _activityAddstockBinding.txtQtyType.setText(productTypes.getQuantity());
                                         qtyTypeName = productTypes.getQuantity();
@@ -209,7 +213,7 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
                                             productTypeID = 777;
                                         } else {
                                             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                                                    ServiceConstants.LIST_PRODUCTS + brandID, null, Helper.headerParams(_context),
+                                                    ServiceConstants.LIST_PRODUCTS + brandID+ "/"+Helper.getUserID(_context), null, Helper.headerParams(_context),
                                                     (ServiceAsyncResponse) serviceAsyncResponse, 1, true);
                                         }
                                     }
@@ -236,7 +240,7 @@ public class AddStockViewModel extends BaseObservable implements ServiceAsyncRes
                     String response = jsonobject.getString("response");
                     if (status.equalsIgnoreCase("Sucess")) {
                         Helper.showMessage(_context, response, AquaConstants.HOLD);
-                        _activityAddstockBinding.edtPriceQty.setText("");
+                        _activityAddstockBinding.edtActcualPrice.setText("");
                         _activityAddstockBinding.edtQuantity.setText("");
                         _activityAddstockBinding.edtPurchasePrice.setText("");
                         filePath = "";

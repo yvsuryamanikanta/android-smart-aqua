@@ -10,9 +10,12 @@ public class ChecktrayReportModel {
     private int checktrayid;
     private String tankid;
     private String feedstatus;
+    private String checktrayname;
     private String wastagecolor;
-    private String mortalitytype;
-    private String mortalitycount;
+    private String redmortality;
+    private String redmortalitycount;
+    private String whitemortality;
+    private String whitemortalitycount;
     private String potaciumdefeciency;
     private String magniciumdefeciency;
     private String calciumdefeciency;
@@ -21,14 +24,17 @@ public class ChecktrayReportModel {
     private String createddate;
     private String modifieddate;
 
-    public ChecktrayReportModel(int checktrayobsvid, int checktrayid, String tankid, String feedstatus, String wastagecolor, String mortalitytype, String mortalitycount, String potaciumdefeciency, String magniciumdefeciency, String calciumdefeciency, String crampstatus, String checktrayobsvdate, String createddate, String modifieddate) {
+    public ChecktrayReportModel(int checktrayobsvid, int checktrayid, String tankid, String feedstatus, String checktrayname, String wastagecolor, String redmortality, String redmortalitycount,String whitemortality, String whitemortalitycount, String potaciumdefeciency, String magniciumdefeciency, String calciumdefeciency, String crampstatus, String checktrayobsvdate, String createddate, String modifieddate) {
         this.checktrayobsvid = checktrayobsvid;
         this.checktrayid = checktrayid;
         this.tankid = tankid;
         this.feedstatus = feedstatus;
+        this.checktrayname = checktrayname;
         this.wastagecolor = wastagecolor;
-        this.mortalitytype = mortalitytype;
-        this.mortalitycount = mortalitycount;
+        this.redmortality = redmortality;
+        this.redmortalitycount = redmortalitycount;
+        this.whitemortality = whitemortality;
+        this.whitemortalitycount = whitemortalitycount;
         this.potaciumdefeciency = potaciumdefeciency;
         this.magniciumdefeciency = magniciumdefeciency;
         this.calciumdefeciency = calciumdefeciency;
@@ -36,6 +42,10 @@ public class ChecktrayReportModel {
         this.checktrayobsvdate = checktrayobsvdate;
         this.createddate = createddate;
         this.modifieddate = modifieddate;
+    }
+
+    public String getChecktrayname() {
+        return checktrayname;
     }
 
     public int getChecktrayobsvid() {
@@ -58,12 +68,20 @@ public class ChecktrayReportModel {
         return wastagecolor;
     }
 
-    public String getMortalitytype() {
-        return mortalitytype;
+    public String getRedmortality() {
+        return redmortality;
     }
 
-    public String getMortalitycount() {
-        return mortalitycount;
+    public String getRedmortalitycount() {
+        return redmortalitycount;
+    }
+
+    public String getWhitemortality() {
+        return whitemortality;
+    }
+
+    public String getWhitemortalitycount() {
+        return whitemortalitycount;
     }
 
     public String getPotaciumdefeciency() {

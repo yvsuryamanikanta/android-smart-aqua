@@ -51,7 +51,7 @@ public class ProductsFragmentViewModel extends ViewModel implements ServiceAsync
     public void loadData() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.LIST_PRODUCTS + brandId, null, Helper.headerParams(_context),
+                    ServiceConstants.LIST_PRODUCTS + brandId + "/"+Helper.getUserID(_context), null, Helper.headerParams(_context),
                     serviceAsyncResponse, 1, true);
         }
     }

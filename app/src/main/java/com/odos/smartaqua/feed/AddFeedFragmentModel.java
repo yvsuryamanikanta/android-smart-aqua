@@ -4,7 +4,6 @@ package com.odos.smartaqua.feed;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -197,7 +196,6 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
                     }
                 }
                 _binding.llFeedSet.removeAllViews();
-                //  totalqty = 0.0;
                 loadProductView();
                 loadSupplimentsView();
             }
@@ -235,7 +233,7 @@ public class AddFeedFragmentModel extends ViewModel implements ServiceAsyncRespo
                 postParams.put("feeddate", formateddate);
                 postParams.put("feeddateandtime", dateandtime);
                 postParams.put("comment", comment);
-                Log.e("data--==", "" + new JSONObject(postParams));
+                postParams.put("type", "F");
                 VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                         ServiceConstants.SAVE_FEED, postParams, Helper.headerParams(_context),
                         (ServiceAsyncResponse) serviceAsyncResponse, 3, true);

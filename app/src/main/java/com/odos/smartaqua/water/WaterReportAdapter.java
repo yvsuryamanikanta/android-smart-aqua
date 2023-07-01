@@ -73,7 +73,7 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
             }
 
         });
-        holder.binding.txtPond.setText("" + waterReportModel.getTankName());
+      //  holder.binding.txtPond.setText("" + waterReportModel.getTankName());
 
 
         //"ph" value tankid

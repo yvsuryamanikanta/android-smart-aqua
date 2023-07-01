@@ -42,8 +42,6 @@ public class SearchPagerModel extends BaseObservable implements ServiceAsyncResp
         this._activityBaseBinding = activityBaseBinding;
         serviceAsyncResponse = (ServiceAsyncResponse) this;
         values = ((Activity) _context).getIntent().getStringArrayExtra("values");
-//        activityBaseBinding.mytoolbar.txtTootlbarTitle.setText(values[1]);
-        activityBaseBinding.mytoolbar.txtTootlbarTitle.setTextSize(13);
     }
 
     public void setUpViewPager() {
@@ -82,7 +80,6 @@ public class SearchPagerModel extends BaseObservable implements ServiceAsyncResp
                                     productTypesArrayList.add(productTypes);
                                 }
                             }
-
                             pagerAdapter = new SearchListViewPagerAdapter(_context, ((AppCompatActivity) _context).getSupportFragmentManager(),
                                     FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, productTypesArrayList);
                             _binding.pager.setAdapter(pagerAdapter);

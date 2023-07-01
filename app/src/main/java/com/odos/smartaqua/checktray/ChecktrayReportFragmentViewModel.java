@@ -94,9 +94,12 @@ public class ChecktrayReportFragmentViewModel extends ViewModel implements Servi
                                     int checktrayid = jsonObject1.getInt("checktrayid");
                                     String tankid = jsonObject1.getString("tankid");
                                     String feedstatus = jsonObject1.getString("feedstatus");
+                                    String checktrayname = jsonObject1.getString("checktrayname");
                                     String wastagecolor = jsonObject1.getString("wastagecolor");
-                                    String mortalitytype = jsonObject1.getString("mortalitytype");
-                                    String mortalitycount = jsonObject1.getString("mortalitycount");
+                                    String redmortality = jsonObject1.getString("redmortality");
+                                    String redmortalitycount = jsonObject1.getString("redmortalitycount");
+                                    String whitemortality = jsonObject1.getString("whitemortality");
+                                    String whitemortalitycount = jsonObject1.getString("whitemortalitycount");
                                     String potaciumdefeciency = jsonObject1.getString("potaciumdefeciency");
                                     String magniciumdefeciency = jsonObject1.getString("magniciumdefeciency");
                                     String calciumdefeciency = jsonObject1.getString("calciumdefeciency");
@@ -105,7 +108,7 @@ public class ChecktrayReportFragmentViewModel extends ViewModel implements Servi
                                     String createddate = jsonObject1.getString("createddate");
                                     String modifieddate = jsonObject1.getString("modifieddate");
                                     ChecktrayReportModel checktrayReportModel = new ChecktrayReportModel(checktrayobsvid,
-                                            checktrayid, tankid, feedstatus, wastagecolor, mortalitytype, mortalitycount, potaciumdefeciency,
+                                            checktrayid, tankid, feedstatus, checktrayname,wastagecolor, redmortality, redmortalitycount, whitemortality,whitemortalitycount,potaciumdefeciency,
                                             magniciumdefeciency, calciumdefeciency, crampstatus, checktrayobsvdate, createddate, modifieddate);
                                     arrayList.add(checktrayReportModel);
                                 }
