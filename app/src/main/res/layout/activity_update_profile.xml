@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.odos.smartaqua.prelogin.profile.UpdateProfileViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:onClick="@{(v) -> viewModel.onBrowse(v)}"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/splashlogo"/>
+
+        <EditText
+            android:id="@+id/edt_firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/bg_box"
+            android:hint="First Name"
+            android:inputType="text"
+            android:padding="@dimen/_8sdp"
+            android:singleLine="true"
+            android:textColor="@color/txtColor"
+            android:textColorHint="@color/bgapp"
+            android:textCursorDrawable="@drawable/cursor_animated"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/edt_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/bg_box"
+            android:hint="Last Name"
+            android:inputType="text"
+            android:padding="@dimen/_8sdp"
+            android:singleLine="true"
+            android:textColor="@color/txtColor"
+            android:textColorHint="@color/bgapp"
+            android:textCursorDrawable="@drawable/cursor_animated"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/bg_box"
+            android:hint="Email"
+            android:inputType="text"
+            android:padding="@dimen/_8sdp"
+            android:singleLine="true"
+            android:textColor="@color/txtColor"
+            android:textColorHint="@color/bgapp"
+            android:textCursorDrawable="@drawable/cursor_animated"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/edt_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/bg_box"
+            android:hint="Location"
+            android:inputType="text"
+            android:padding="@dimen/_8sdp"
+            android:singleLine="true"
+            android:textColor="@color/txtColor"
+            android:textColorHint="@color/bgapp"
+            android:textCursorDrawable="@drawable/cursor_animated"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:id="@+id/edt_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/bg_box"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:padding="@dimen/_8sdp"
+            android:singleLine="true"
+            android:textColor="@color/txtColor"
+            android:textColorHint="@color/bgapp"
+            android:textCursorDrawable="@drawable/cursor_animated"
+            tools:ignore="Autofill,LabelFor" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="18.7dp"
+            android:layout_marginRight="62dp"
+            android:background="@drawable/blue_fill__rounded_color"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:onClick="@{(v) -> viewModel.onUpdateClick(v)}"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="Update"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</layout>

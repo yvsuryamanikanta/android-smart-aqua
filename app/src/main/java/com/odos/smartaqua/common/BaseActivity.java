@@ -373,7 +373,7 @@ public class BaseActivity extends AppCompatActivity {
             arrayList = new ArrayList<>(Arrays.asList("Feed Report", "CheckTray Report", "Water analysis report", "PCR report", "Soil Report","Animal Report","Growth Report", "Treatments","Expenditures"));
         }else if(flag == 5){
             myDialog.getWindow().setGravity(Gravity.BOTTOM | Gravity.END);
-            arrayList = new ArrayList<>(Arrays.asList("CheckTray Observation", "Growth Observation","Disease and Treatments"));
+            arrayList = new ArrayList<>(Arrays.asList("CheckTray Observation", "Growth Observation","Disease and Treatments","Profile"));
         }else{
             arrayList = new ArrayList<>();
         }

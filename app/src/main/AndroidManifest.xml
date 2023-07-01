@@ -358,6 +358,18 @@
             android:theme="@style/AppTheme.Dark"
             android:windowSoftInputMode="stateHidden" />
 
+        <activity
+            android:name=".prelogin.profile.ProfileActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".prelogin.profile.UpdateProfileActivity"
+            android:screenOrientation="locked"
+            android:theme="@style/AppTheme.Dark"
+            android:windowSoftInputMode="stateHidden" />
+
         <!--<provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.anni.shareimage.fileprovider"

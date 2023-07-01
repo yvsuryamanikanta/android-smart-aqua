@@ -29,6 +29,7 @@ import com.odos.smartaqua.growth.GrowthReportViewPagerActivity;
 import com.odos.smartaqua.lab.LabObservationActivity;
 import com.odos.smartaqua.pcr.PCRObservationActivity;
 import com.odos.smartaqua.pcr.PCRViewPagerActivity;
+import com.odos.smartaqua.prelogin.profile.ProfileActivity;
 import com.odos.smartaqua.soil.SoilObservationActivity;
 import com.odos.smartaqua.soil.SoilViewPagerActivity;
 import com.odos.smartaqua.tank.PondListActivity;
@@ -216,6 +217,9 @@ public class BottomMenuAdapter extends RecyclerView.Adapter<BottomMenuAdapter.My
                         break;
                     case 2:
                         AquaConstants.putIntent(_context, TreatmentObservationActivity.class, AquaConstants.HOLD, null);
+                        break;
+                    case 3:
+                        AquaConstants.putIntent(_context, ProfileActivity.class, AquaConstants.HOLD, null);
                         break;
                 }
             }
