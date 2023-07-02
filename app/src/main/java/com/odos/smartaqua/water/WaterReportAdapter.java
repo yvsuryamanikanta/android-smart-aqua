@@ -63,7 +63,7 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         WaterReportModel waterReportModel = (WaterReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(waterReportModel);
-        holder.binding.share.setOnClickListener(v -> {
+        holder.binding.imgShare.setOnClickListener(v -> {
             try {
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
                 Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
@@ -73,7 +73,8 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
             }
 
         });
-      //  holder.binding.txtPond.setText("" + waterReportModel.getTankName());
+        holder.binding.txtReportingDate.setText("Reported On: " + waterReportModel.getLabobsvdate());
+//        holder.binding.txtTankName.setText("" + waterReportModel.getTankName());
 
 
         //"ph" value tankid
@@ -432,6 +433,7 @@ public class WaterReportAdapter extends RecyclerView.Adapter<WaterReportAdapter.
         Bundle bundle_data = new Bundle();
         bundle_data.putString("tankid", ""+tnakId);
         bundle_data.putString("value", value);
+        bundle_data.putString("type", "T");
         intent.putExtras(bundle_data);
         _context.startActivity(intent);
     }

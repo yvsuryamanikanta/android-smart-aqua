@@ -44,7 +44,7 @@ public class SoilReportAdapter extends RecyclerView.Adapter<SoilReportAdapter.My
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         SoilReportModel model = (SoilReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(model);
-        holder.binding.share.setOnClickListener(v -> {
+        holder.binding.imgShare.setOnClickListener(v -> {
             try{
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
                 Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
@@ -54,8 +54,8 @@ public class SoilReportAdapter extends RecyclerView.Adapter<SoilReportAdapter.My
             }
 
         });
-        holder.binding.txtPond.setText("" + model.getTankid());
-        holder.binding.txtObservationDate.setText("" + model.getObsvdate());
+//        holder.binding.txtPond.setText("" + model.getTankid());
+        holder.binding.txtReportingDate.setText("Observation Date: " + model.getObsvdate());
 
         if (isNullOrEmpty(model.getAmmonia())) {
             holder.binding.txtAmmonia.setText(model.getAmmonia() + " ppm");

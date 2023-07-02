@@ -55,7 +55,7 @@ public class ChecktrayReportAdapter extends RecyclerView.Adapter<ChecktrayReport
         ChecktrayReportModel model = (ChecktrayReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(homeModelArrayList.get(position));
 
-        holder.binding.share.setOnClickListener(v -> {
+        holder.binding.imgShare.setOnClickListener(v -> {
             try {
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
                 Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);

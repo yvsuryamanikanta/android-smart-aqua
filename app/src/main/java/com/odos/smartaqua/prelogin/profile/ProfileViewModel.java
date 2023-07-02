@@ -31,6 +31,9 @@ public class ProfileViewModel extends ViewModel implements ServiceAsyncResponse 
         this._binding = binding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
 
+
+    }
+    void loadProfile(){
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_USER_DATA + Helper.getUserID(_context), null, Helper.headerParams(_context),

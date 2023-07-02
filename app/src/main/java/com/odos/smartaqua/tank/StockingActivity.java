@@ -7,9 +7,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.common.BaseActivity;
-import com.odos.smartaqua.databinding.ActivityAddstockBinding;
 import com.odos.smartaqua.databinding.ActivityStockingBinding;
-import com.odos.smartaqua.warehouse.stock.AddStockViewModel;
 
 public class StockingActivity extends BaseActivity {
     private ActivityStockingBinding _binding;

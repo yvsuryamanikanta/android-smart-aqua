@@ -15,15 +15,15 @@ import com.odos.smartaqua.databinding.ActivityProfileBinding;
 public class ProfileActivity extends BaseActivity {
 
     private ActivityProfileBinding binding;
-
+ProfileViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        binding = DataBindingUtil.setContentView(ProfileActivity.this, R.layout.activity_profile);
         LayoutInflater mInflater = LayoutInflater.from(ProfileActivity.this);
         binding = DataBindingUtil.inflate(mInflater, R.layout.activity_profile, activityBaseBinding.baseFragment, true);
-
-        binding.setViewModel(new ProfileViewModel(ProfileActivity.this, binding));
+        viewModel =new ProfileViewModel(ProfileActivity.this, binding);
+        binding.setViewModel(viewModel);
         binding.executePendingBindings();
 
         setToolBarIconClick(0);
@@ -32,4 +32,9 @@ public class ProfileActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.loadProfile();
+    }
 }

@@ -221,7 +221,7 @@
         <entry key="app/src/main/res/layout/adapter_animal_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_brandcnsts.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_checktray.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/adapter_checktray_report.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/adapter_checktray_report.xml" value="0.25" />
         <entry key="app/src/main/res/layout/adapter_culture.xml" value="0.25" />
         <entry key="app/src/main/res/layout/adapter_expends_report.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/adapter_feed.xml" value="0.10260416666666666" />

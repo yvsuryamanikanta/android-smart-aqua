@@ -45,9 +45,8 @@ public class PCRReportAdapter extends RecyclerView.Adapter<PCRReportAdapter.MyVi
         PCRReportModel model = (PCRReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(model);
 
-        holder.binding.txtPond.setText("" + model.getTankid());
-        holder.binding.txtObservationDate.setText("" + model.getObsvdate());
-        holder.binding.share.setOnClickListener(v -> {
+        holder.binding.txtReportingDate.setText("Observation Date: " + model.getObsvdate());
+        holder.binding.imgShare.setOnClickListener(v -> {
             try {
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
                 Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);

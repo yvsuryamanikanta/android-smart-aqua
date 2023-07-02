@@ -54,7 +54,7 @@ public class ExpendsReportAdapter extends RecyclerView.Adapter<ExpendsReportAdap
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.binding.setModel(homeModelArrayList.get(position));
         ExpendsReportModel model = homeModelArrayList.get(position);
-        holder.binding.share.setOnClickListener(v -> {
+        holder.binding.imgShare.setOnClickListener(v -> {
             try{
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
                 Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
@@ -64,13 +64,13 @@ public class ExpendsReportAdapter extends RecyclerView.Adapter<ExpendsReportAdap
             }
 
         });
-
-        if(isNullOrEmpty(model.getCreateddate())){
-            holder.binding.txtCreateddate.setText(""+model.getCreateddate());
-            holder.binding.linearCreateddate.setVisibility(View.VISIBLE);
-        }else {
-            holder.binding.linearCreateddate.setVisibility(View.GONE);
-        }
+        holder.binding.txtReportingDate.setText("Observation Date :"+model.getCreateddate());
+//        if(isNullOrEmpty(model.getCreateddate())){
+//            holder.binding.txtCreateddate.setText(""+model.getCreateddate());
+//            holder.binding.linearCreateddate.setVisibility(View.VISIBLE);
+//        }else {
+//            holder.binding.linearCreateddate.setVisibility(View.GONE);
+//        }
 
         if(isNullOrEmpty(model.getTankid())){
             holder.binding.txtTankid.setText(""+model.getTankid());

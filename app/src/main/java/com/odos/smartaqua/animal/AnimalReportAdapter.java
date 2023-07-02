@@ -44,7 +44,7 @@ public class AnimalReportAdapter extends RecyclerView.Adapter<AnimalReportAdapte
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         AnimalReportModel model = (AnimalReportModel) homeModelArrayList.get(position);
         holder.binding.setModel(model);
-        holder.binding.share.setOnClickListener(v -> {
+        holder.binding.imgShare.setOnClickListener(v -> {
             try{
                 PdfGeneratorNew pdfGeneratorNew = new PdfGeneratorNew(_context);
                 Bitmap bitmap = pdfGeneratorNew.getScrollViewScreenShot(holder.binding.scrollView);
@@ -54,8 +54,8 @@ public class AnimalReportAdapter extends RecyclerView.Adapter<AnimalReportAdapte
             }
 
         });
-        holder.binding.txtPond.setText("" + model.getTankid());
-        holder.binding.txtObservationDate.setText("" + model.getObsvdate());
+//        holder.binding.txtPond.setText("" + model.getTankid());
+        holder.binding.txtReportingDate.setText("Observation Date: " + model.getObsvdate());
 
         if (isNullOrEmpty(model.getGreencolony())) {
             holder.binding.txtGreenColonies.setText(model.getGreencolony());
