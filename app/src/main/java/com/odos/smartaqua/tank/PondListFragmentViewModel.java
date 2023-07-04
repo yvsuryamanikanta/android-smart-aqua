@@ -2,31 +2,23 @@ package com.odos.smartaqua.tank;
 
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
 import androidx.databinding.BaseObservable;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.EventDay;
-import com.google.gson.Gson;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.databinding.FragmentPondlistBinding;
-import com.odos.smartaqua.feed.FeedListAdapter;
-import com.odos.smartaqua.feed.FeedModel;
 import com.odos.smartaqua.prelogin.sighnup.UserRoles;
-import com.odos.smartaqua.prelogin.sighnup.UserRolesAdapter;
 import com.odos.smartaqua.utils.AquaConstants;
 import com.odos.smartaqua.utils.CheckNetwork;
 import com.odos.smartaqua.utils.Helper;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
@@ -86,6 +87,7 @@ public class FeedListFragmentViewModel extends ViewModel implements ServiceAsync
                     String status = jsonobject.getString("status");
                     String statusCode = jsonobject.getString("statusCode");
                     String response = jsonobject.getString("response");
+                    Log.e("%%%%%%%%% Feed res "," "+response);
                     if (status.equalsIgnoreCase("Sucess")) {
                         if (!response.equalsIgnoreCase("null")) {
                             JSONArray jsonArray = new JSONArray(response);
@@ -100,9 +102,9 @@ public class FeedListFragmentViewModel extends ViewModel implements ServiceAsync
                                     String groupname = jsonObject1.getString("groupname");
                                     String feeddate = jsonObject1.getString("feeddate");
                                     String feedProducts = jsonObject1.getString("feedProducts");
-                                    String suppliments = jsonObject1.getString("suppliments");
+//                                    String suppliments = jsonObject1.getString("suppliments");
                                     // String comments = jsonObject1.getString("comments");
-                                    FeedModel feedModel = new FeedModel(templateID, userID, groupname, feeddate, feedProducts, suppliments, "comments");
+                                    FeedModel feedModel = new FeedModel(templateID, userID, groupname, feeddate, feedProducts, "", "comments");
                                     arrayList.add(feedModel);
                                 }
                                 RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);

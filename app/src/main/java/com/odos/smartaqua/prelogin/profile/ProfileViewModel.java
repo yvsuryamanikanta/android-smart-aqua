@@ -33,7 +33,8 @@ public class ProfileViewModel extends ViewModel implements ServiceAsyncResponse 
 
 
     }
-    void loadProfile(){
+
+    void loadProfile() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
                     ServiceConstants.GET_USER_DATA + Helper.getUserID(_context), null, Helper.headerParams(_context),
@@ -75,15 +76,14 @@ public class ProfileViewModel extends ViewModel implements ServiceAsyncResponse 
 
                                 UserData data = new UserData(userid, roleid, uniqueid, username, usernumber, useremail,
                                         userlocation, userimage, createdby, notificationid, rolecode);
-//                                Picasso.with(_context).load(userimage).error(R.drawable.banner).
-//                                        placeholder(R.drawable.banner).into(_binding.imgProfile);
-//
+                                Picasso.with(_context).load(userimage).into(_binding.imgProfile);
+
                                 _binding.txtFirstName.setText(username);
                                 _binding.txtEmail.setText(useremail);
                                 _binding.txtMobile.setText(usernumber);
                                 _binding.txtLocatio.setText(userlocation);
 
-                                _binding.txtEdit.setOnClickListener(v ->{
+                                _binding.txtEdit.setOnClickListener(v -> {
                                     Intent intent = new Intent(_context, UpdateProfileActivity.class);
                                     intent.putExtra("userdata", data);
                                     _context.startActivity(intent);

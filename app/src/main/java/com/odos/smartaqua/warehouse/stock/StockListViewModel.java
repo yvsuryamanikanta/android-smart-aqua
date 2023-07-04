@@ -76,14 +76,14 @@ public class StockListViewModel extends BaseObservable implements ServiceAsyncRe
                                     int stockid = jsonObject1.getInt("stockid");
                                     int productid = jsonObject1.getInt("productid");
                                     int productcategoryid = jsonObject1.getInt("productcategoryid");
-                                    String productname = jsonObject1.getString("productname");
+                                    String productname = jsonObject1.getString("productname");//
                                     String newstock = jsonObject1.getString("newstock");
                                     String oldstock = jsonObject1.getString("oldstock");
-                                    String availablestock = jsonObject1.getString("availablestock");
-                                    String actualprice = jsonObject1.getString("actualprice");
-                                    String purchaseprice = jsonObject1.getString("purchaseprice");
-                                    String discount = jsonObject1.getString("discount");
-                                    String path = jsonObject1.getString("path");
+                                    String availablestock = jsonObject1.getString("availablestock");//
+                                    String actualprice = jsonObject1.getString("actualprice");//
+                                    String purchaseprice = jsonObject1.getString("purchaseprice");//
+                                    String discount = jsonObject1.getString("discount");//
+                                    String path = jsonObject1.getString("path");//image
                                     String productcode = jsonObject1.getString("productcode");
                                     StockCnsts model = new StockCnsts(stockid, productid, productcategoryid, productname,
                                             newstock, oldstock, availablestock, actualprice,purchaseprice,discount, path, productcode);

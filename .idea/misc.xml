@@ -192,6 +192,7 @@
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_dashboard_viewpager.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_feed_info.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_feed_info_new.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_feed_list_viewpager.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/activity_feed_observation.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_forgot.xml" value="0.25" />
@@ -211,6 +212,7 @@
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_search_product.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/activity_stock_list.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_stocking.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_stockinglist.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_tank_viewpager.xml" value="0.10260416666666666" />
@@ -225,6 +227,7 @@
         <entry key="app/src/main/res/layout/adapter_culture.xml" value="0.25" />
         <entry key="app/src/main/res/layout/adapter_expends_report.xml" value="0.23333333333333334" />
         <entry key="app/src/main/res/layout/adapter_feed.xml" value="0.10260416666666666" />
+        <entry key="app/src/main/res/layout/adapter_feed_info.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_growth_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_lab_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_pcr_report.xml" value="0.23333333333333334" />
@@ -233,6 +236,7 @@
         <entry key="app/src/main/res/layout/adapter_searchproduct.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_soil_report.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_stocking.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/adapter_stocklist.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_treatments.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/adapter_userroles.xml" value="0.10260416666666666" />
         <entry key="app/src/main/res/layout/adapter_water_report.xml" value="0.25" />
