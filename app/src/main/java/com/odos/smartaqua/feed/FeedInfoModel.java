@@ -11,10 +11,10 @@ public class FeedInfoModel {
     private String quantity;
     private String comments;
 
-    FeedInfoModel(int productID,int productcatgeoryID,int quantitycategoryid,String productName,
+    FeedInfoModel(int _productID,int _productcatgeoryID,int quantitycategoryid,String productName,
                   String priceperqty,String productqty,String quantity,String comments){
-        this.productID = productID;
-        this.productcatgeoryID = productcatgeoryID;
+        this.productID = _productID;
+        this.productcatgeoryID = _productcatgeoryID;
         this.quantitycategoryid = quantitycategoryid;
         this.productName = productName;
         this.priceperqty = priceperqty;
@@ -27,23 +27,23 @@ public class FeedInfoModel {
         return productID;
     }
 
-    public void setProductID(Integer productID) {
-        this.productID = productID;
+    public void setProductID(int id) {
+        this.productID = id;
     }
 
     public int getProductcatgeoryID() {
         return productcatgeoryID;
     }
 
-    public void setProductcatgeoryID(Integer productcatgeoryID) {
-        this.productcatgeoryID = productcatgeoryID;
+    public void setProductcatgeoryID(int id) {
+        this.productcatgeoryID = id;
     }
 
     public int getQuantitycategoryid() {
         return quantitycategoryid;
     }
 
-    public void setQuantitycategoryid(Integer quantitycategoryid) {
+    public void setQuantitycategoryid(int quantitycategoryid) {
         this.quantitycategoryid = quantitycategoryid;
     }
 

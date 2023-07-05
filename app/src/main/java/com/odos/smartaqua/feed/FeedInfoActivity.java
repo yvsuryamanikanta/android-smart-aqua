@@ -7,8 +7,6 @@ import androidx.databinding.DataBindingUtil;
 
 import com.odos.smartaqua.R;
 import com.odos.smartaqua.common.BaseActivity;
-import com.odos.smartaqua.databinding.ActivityAddFeedBinding;
-import com.odos.smartaqua.databinding.ActivityFeedInfoBinding;
 import com.odos.smartaqua.databinding.ActivityFeedInfoNewBinding;
 
 

@@ -2,7 +2,6 @@ package com.odos.smartaqua.feed;
 
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
 
@@ -16,7 +15,6 @@ import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.databinding.ActivityFeedInfoNewBinding;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -26,15 +24,13 @@ import java.util.List;
 public class FeedInfoViewModelNew extends ViewModel implements ServiceAsyncResponse, FeedInfoAdapter.ClickListener {
 
     List<FeedInfoModel> jsonList = new ArrayList<>();
-    List<FeedInfoModel> jsonListDup = new ArrayList<>();
     List<FeedInfoModel> jsonListDup2 = new ArrayList<>();
-    List<FeedInfoModel> feedInfoModels;
     HashMap<Integer, List<FeedInfoModel>> data;
+    List<FeedInfoModel> feedInfoModels = new ArrayList<>();
     private Context _context;
     private ActivityFeedInfoNewBinding _activityFeedInfoBinding;
     private ServiceAsyncResponse serviceAsyncResponse;
     private String[] values;
-    private ProgressDialog progressDialog;
 
     public FeedInfoViewModelNew(Context context, ActivityFeedInfoNewBinding activityFeedInfoBinding) {
         this._context = context;
@@ -42,7 +38,6 @@ public class FeedInfoViewModelNew extends ViewModel implements ServiceAsyncRespo
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
         values = ((Activity) _context).getIntent().getStringArrayExtra("values");
         data = new HashMap<>();
-        feedInfoModels = new ArrayList<>() ;
         try {
             JSONArray feedJsonArray = new JSONArray(values[2]);
             if (feedJsonArray.length() != 0) {
@@ -59,12 +54,11 @@ public class FeedInfoViewModelNew extends ViewModel implements ServiceAsyncRespo
 
                     FeedInfoModel feedInfoModel = new FeedInfoModel(productID, productcatgeoryID, quantitycategoryid, productName,
                             priceperqty, productqty, quantity, comments);
-//                    feedInfoModels.add(feedInfoModel);
                     jsonList.add(feedInfoModel);
-                    jsonListDup.add(feedInfoModel);
                     jsonListDup2.add(feedInfoModel);
 
                 }
+
             }
         } catch (Exception e) {
             Log.e("data--==", "" + e);
@@ -72,7 +66,6 @@ public class FeedInfoViewModelNew extends ViewModel implements ServiceAsyncRespo
 
         try {
             if (jsonList.size() != 0) {
-
                 jsonList.sort((a, b) -> {
                     int compare = 0;
                     int keyA = a.getProductcatgeoryID();
@@ -80,32 +73,56 @@ public class FeedInfoViewModelNew extends ViewModel implements ServiceAsyncRespo
                     compare = Integer.compare(keyA, keyB);
                     return compare;
                 });
-
             }
         } catch (Exception e) {
             Log.e("data--==", "" + e);
         }
-        for (int k = 0; k < jsonListDup.size(); k++) {
-            feedInfoModels.add(jsonListDup.get(k));
-            data.put(jsonListDup.get(k).getProductcatgeoryID(), feedInfoModels);
-
-            for (int a = 1; a < jsonListDup2.size() - 1; a++) {
-                feedInfoModels.clear();
-                feedInfoModels = data.get(jsonListDup.get(k).getProductcatgeoryID());
-                if (jsonListDup.get(k).getProductcatgeoryID() == jsonListDup2.get(a).getProductcatgeoryID()) {
-                    feedInfoModels.add(jsonListDup2.get(a));
-                    data.put(jsonListDup.get(k).getProductcatgeoryID(), feedInfoModels);
-                    jsonListDup2.remove(a);
-                }
-            }
-        }
-
-        Log.e("%%%%%%%%% Feed new List ", " " + new Gson().toJson(data));
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(_context, 1);
         _activityFeedInfoBinding.recyclerView.setLayoutManager(mLayoutManager);
         _activityFeedInfoBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
         _activityFeedInfoBinding.recyclerView.setAdapter(new FeedInfoAdapter(_context, jsonList, this));
+
+
+
+
+
+
+        try {
+            if (jsonListDup2.size() != 0) {
+                jsonListDup2.sort((a, b) -> {
+                    int compare = 0;
+                    int keyA = a.getProductcatgeoryID();
+                    int keyB = b.getProductcatgeoryID();
+                    compare = Integer.compare(keyA, keyB);
+                    return compare;
+                });
+            }
+        } catch (Exception e) {
+            Log.e("data--==", "" + e);
+        }
+
+        jsonList.forEach(feedInfoModel -> {
+            feedInfoModels.clear();
+            int catgId = feedInfoModel.getProductcatgeoryID();
+            if (!data.containsKey(catgId)) {
+                feedInfoModels.add(feedInfoModel);
+                Log.e("--------", " " + catgId);
+                jsonListDup2.forEach(infoModel -> {
+                    Log.e("--------0000", " " + infoModel.getProductcatgeoryID());
+                    if (feedInfoModel != infoModel && !data.containsKey(catgId) && catgId == infoModel.getProductcatgeoryID()) {
+                        feedInfoModels.add(infoModel);
+                    }
+                });
+                if (jsonListDup2.size() > 0)
+                    jsonListDup2.remove(0);
+
+                    data.put(catgId, feedInfoModels);
+            }
+            Log.e("$$$$$$$ Map ", " " + new Gson().toJson(data));
+        });
+
+
     }
 
     @Override
