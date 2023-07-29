@@ -59,12 +59,6 @@ public class StockingAdapter extends RecyclerView.Adapter<StockingAdapter.MyView
         } else {
             holder.binding.linearAmmonia.setVisibility(View.GONE);
         }
-        if (isNullOrEmpty(stockingModel.plage)) {
-            holder.binding.txtPh.setText(stockingModel.plage);
-            holder.binding.linearPh.setVisibility(View.VISIBLE);
-        } else {
-            holder.binding.linearPh.setVisibility(View.GONE);
-        }
         if (isNullOrEmpty(stockingModel.nitrite)) {
             holder.binding.txtNitrite.setText(stockingModel.nitrite);
             holder.binding.linearNitrite.setVisibility(View.VISIBLE);
@@ -95,12 +89,6 @@ public class StockingAdapter extends RecyclerView.Adapter<StockingAdapter.MyView
         } else {
             holder.binding.linearMineralComposition.setVisibility(View.GONE);
         }
-        if (isNullOrEmpty(stockingModel.mineral)) {
-            holder.binding.txtMineral.setText(stockingModel.mineral);
-            holder.binding.linearMineralComposition.setVisibility(View.VISIBLE);
-        } else {
-            holder.binding.linearMineralComposition.setVisibility(View.GONE);
-        }
         if (isNullOrEmpty(stockingModel.clorine)) {
             holder.binding.txtClorine.setText(stockingModel.clorine);
             holder.binding.linearClorine.setVisibility(View.VISIBLE);
@@ -119,12 +107,82 @@ public class StockingAdapter extends RecyclerView.Adapter<StockingAdapter.MyView
         } else {
             holder.binding.linearTransparancy.setVisibility(View.GONE);
         }
+        if (isNullOrEmpty(stockingModel.watercolor)) {
+            holder.binding.txtWatercolor.setText(stockingModel.watercolor);
+            holder.binding.linearWatercolor.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearWatercolor.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.waterdepth)) {
+            holder.binding.txtWaterdepth.setText(stockingModel.waterdepth);
+            holder.binding.linearWaterdepth.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearWaterdepth.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.plsize)) {
+            holder.binding.txtPlsize.setText(stockingModel.plsize);
+            holder.binding.linearPlsise.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearPlsise.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.plpcrresult)) {
+            holder.binding.txtPcrResult.setText(stockingModel.plpcrresult);
+            holder.binding.linearPcrResult.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearPcrResult.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.plpackingdensity)) {
+            holder.binding.txtPackingDensity.setText(stockingModel.plpackingdensity);
+            holder.binding.linearPackingDensity.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearPackingDensity.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.plage)) {
+            holder.binding.txtPlAge.setText(stockingModel.plage);
+            holder.binding.linearPlAge.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearPlAge.setVisibility(View.GONE);
+        }
 
+        if (isNullOrEmpty(stockingModel.hepathopancreasCondition)) {
+            holder.binding.txtHepathoPancreasCondition.setText(stockingModel.hepathopancreasCondition);
+            holder.binding.linearHepathoPancreasCondition.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearHepathoPancreasCondition.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.avgnoofplPerBag)) {
+            holder.binding.txtAvgNoofPlPerBag.setText(stockingModel.avgnoofplPerBag);
+            holder.binding.linearAvgNoofPlPerBag.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearAvgNoofPlPerBag.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.acclinitization)) {
+            holder.binding.txtAcclinitization.setText(stockingModel.acclinitization);
+            holder.binding.linearAcclinitization.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearAcclinitization.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.seedtrnsportationtime)) {
+            holder.binding.txtSeedtrnsportationTime.setText(stockingModel.seedtrnsportationtime);
+            holder.binding.linearSeedtrnsportationTime.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearSeedtrnsportationTime.setVisibility(View.GONE);
+        }
+        if (isNullOrEmpty(stockingModel.vmodeoftransport)) {
+            holder.binding.txtVmodeofTransport.setText(stockingModel.vmodeoftransport);
+            holder.binding.linearVmodeofTransport.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearVmodeofTransport.setVisibility(View.GONE);
+        }
     }
 
     boolean isNullOrEmpty(String data) {
-        return data != null && !data.equalsIgnoreCase("");
+        return data != null && !data.equalsIgnoreCase("") &&
+                !data.equalsIgnoreCase("null");
     }
+//    boolean isNullOrEmpty(String data) {
+//        return data != null && !data.equalsIgnoreCase("");
+//    }
 
     @Override
     public int getItemCount() {

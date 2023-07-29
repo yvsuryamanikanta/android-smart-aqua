@@ -17,14 +17,14 @@ import com.odos.smartaqua.feed.FeedListFragmentViewModel;
 public class ChecktrayReportFragment extends Fragment {
     private FragmentReportChecktrayBinding _binding;
     private int cultureId;
-    private String cultureAccess;
+    private String tankId;
     private ChecktrayReportFragmentViewModel checktrayReportFragmentViewModel;
 
-    public static Fragment newInstance(int cultureid, String cultureaccess) {
+    public static Fragment newInstance(int cultureid, String tankId) {
         ChecktrayReportFragment feedListFragment = new ChecktrayReportFragment();
         Bundle bundle_data = new Bundle();
         bundle_data.putInt("cultureId", cultureid);
-        bundle_data.putString("cultureAccess", cultureaccess);
+        bundle_data.putString("tankId", tankId);
         feedListFragment.setArguments(bundle_data);
         return feedListFragment;
     }
@@ -33,8 +33,8 @@ public class ChecktrayReportFragment extends Fragment {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_report_checktray, container, false);
         if (getArguments() != null) {
             cultureId = getArguments().getInt("cultureId");
-            cultureAccess = getArguments().getString("cultureAccess");
-            checktrayReportFragmentViewModel = new ChecktrayReportFragmentViewModel(getActivity(), _binding, cultureId, cultureAccess);
+            tankId = getArguments().getString("tankId");
+            checktrayReportFragmentViewModel = new ChecktrayReportFragmentViewModel(getActivity(), _binding, cultureId, tankId);
             _binding.setViewModel(checktrayReportFragmentViewModel);
             _binding.executePendingBindings();
         }

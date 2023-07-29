@@ -2,6 +2,7 @@ package com.odos.smartaqua.checktray;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -30,10 +31,10 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
     private Context _context;
     private ActivityChecktrayObservationBinding _binding;
     private ServiceAsyncResponse serviceAsyncResponse;
-    private ArrayList<UserRoles> pondArrayList, checktrayList,feedReportList,wastageColorList,pottaciumDefeciencyList,
-    magniciumDeficiencyList,calciumDeficiencyList,redMortalityTypeList,whiteMortalityTypeList,vibrioStatusList,crampStatusList;
+    private ArrayList<UserRoles> pondArrayList, checktrayList, feedReportList, wastageColorList, pottaciumDefeciencyList,
+            magniciumDeficiencyList, calciumDeficiencyList, redMortalityTypeList, whiteMortalityTypeList, vibrioStatusList, crampStatusList;
     private int tankId, checktrayId;
-    private String feedWastage,wastageColor,potacium,calcium,magnicium,vibrio,cramp,mortality;
+    private String checktrayname, feedWastage, wastageColor, potacium, calcium, magnicium, vibrio, cramp, redMortality, whiteMortality;
 
     public ChecktrayObservationViewModel(Context context, ActivityChecktrayObservationBinding activityChecktrayObservationBinding) {
         this._context = context;
@@ -51,24 +52,28 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         _binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(_binding.txtTimeDate.getText().toString().equalsIgnoreCase("")){
+                if (_binding.txtTimeDate.getText().toString().equalsIgnoreCase("")) {
                     Toast.makeText(context, "Pls enter observation date", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     String redMortalityCount = _binding.edtRedMortalityCount.getText().toString();
                     String whiteMortalityCount = _binding.edtWhiteMortalityCount.getText().toString();
                     HashMap<String, Object> postparams = new HashMap<>();
-                    postparams.put("checktrayid", checktrayId);
-                    postparams.put("tankid", tankId);
-                    postparams.put("feedstatus", feedWastage);
-                    postparams.put("wastagecolor", wastageColor);
-                    postparams.put("potaciumdefeciency", potacium);
-                    postparams.put("magniciumdefeciency", magnicium);
                     postparams.put("calciumdefeciency", calcium);
-                    postparams.put("vibrieostatus", vibrio);
-                    postparams.put("crampstatus", cramp);
-                    postparams.put("mortalitytype", mortality);
-                    postparams.put("mortalitycount", redMortalityCount);
+                    postparams.put("checktrayid", checktrayId);
+                    postparams.put("checktrayname", checktrayname);
                     postparams.put("checktrayobsvdate", _binding.txtTimeDate.getText().toString());
+                    postparams.put("crampstatus", cramp);
+                    postparams.put("feedstatus", feedWastage);
+                    postparams.put("magniciumdefeciency", magnicium);
+                    postparams.put("potaciumdefeciency", potacium);
+                    postparams.put("redmortality", redMortality);
+                    postparams.put("redmortalitycount", redMortalityCount);
+                    postparams.put("tankid", tankId);
+                    postparams.put("vibrieostatus", vibrio);
+                    postparams.put("wastagecolor", wastageColor);
+                    postparams.put("whitemortality", whiteMortality);
+                    postparams.put("whitemortalitycount", whiteMortalityCount);
+                    Log.e("%%%%%%%%%%% ", " postparams-- " + postparams);
                     VolleyService.volleyservicePostRequest(_context, _context.getString(R.string.jsonobjectrequest),
                             ServiceConstants.SAVE_CHECKTRAY_OBSV, postparams, Helper.headerParams(_context), (ServiceAsyncResponse) serviceAsyncResponse, 3, true);
                 }
@@ -82,7 +87,8 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
             }
         });
     }
-    private void initSpinners(){
+
+    private void initSpinners() {
         feedReportList = new ArrayList<>();
         wastageColorList = new ArrayList<>();
         pottaciumDefeciencyList = new ArrayList<>();
@@ -104,7 +110,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         UserRoles medium = new UserRoles(10, "10", "MEDIUM", true);
         feedReportList.add(no);
         feedReportList.add(yes);
-        _binding.spinFeedWaste.setAdapter(new UserRolesAdapter(_context,feedReportList));
+        _binding.spinFeedWaste.setAdapter(new UserRolesAdapter(_context, feedReportList));
         _binding.spinFeedWaste.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -122,7 +128,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         wastageColorList.add(redcolor);
         wastageColorList.add(yellowcolor);
         wastageColorList.add(greencolor);
-        _binding.spinColorList.setAdapter(new UserRolesAdapter(_context,wastageColorList));
+        _binding.spinColorList.setAdapter(new UserRolesAdapter(_context, wastageColorList));
         _binding.spinColorList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -140,18 +146,18 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         whiteMortalityTypeList.add(no);
         redMortalityTypeList.add(yes);
         whiteMortalityTypeList.add(yes);
-        _binding.spinRedMortalityList.setAdapter(new UserRolesAdapter(_context,redMortalityTypeList));
-        _binding.spinWhiteMortalityList.setAdapter(new UserRolesAdapter(_context,whiteMortalityTypeList));
+        _binding.spinRedMortalityList.setAdapter(new UserRolesAdapter(_context, redMortalityTypeList));
+        _binding.spinWhiteMortalityList.setAdapter(new UserRolesAdapter(_context, whiteMortalityTypeList));
         _binding.spinRedMortalityList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 UserRoles userRoles = (UserRoles) redMortalityTypeList.get(i);
-                mortality = userRoles.getRoleName();
-                if(i==0){
+                redMortality = userRoles.getRoleName();
+                if (i == 0) {
                     _binding.txtRedHeaderMortality.setVisibility(View.GONE);
                     _binding.edtRedMortalityCount.setVisibility(View.GONE);
                     _binding.edtRedMortalityCount.setText("0");
-                }else{
+                } else {
                     _binding.txtRedHeaderMortality.setVisibility(View.VISIBLE);
                     _binding.edtRedMortalityCount.setVisibility(View.VISIBLE);
                     _binding.edtRedMortalityCount.setText("");
@@ -167,12 +173,12 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 UserRoles userRoles = (UserRoles) whiteMortalityTypeList.get(i);
-                mortality = userRoles.getRoleName();
-                if(i==0){
+                whiteMortality = userRoles.getRoleName();
+                if (i == 0) {
                     _binding.txtHeaderWhiteMortality.setVisibility(View.GONE);
                     _binding.edtWhiteMortalityCount.setVisibility(View.GONE);
                     _binding.edtWhiteMortalityCount.setText("0");
-                }else{
+                } else {
                     _binding.txtHeaderWhiteMortality.setVisibility(View.VISIBLE);
                     _binding.edtWhiteMortalityCount.setVisibility(View.VISIBLE);
                     _binding.edtWhiteMortalityCount.setText("");
@@ -189,7 +195,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         pottaciumDefeciencyList.add(high);
         pottaciumDefeciencyList.add(medium);
         pottaciumDefeciencyList.add(low);
-        _binding.spinPotacium.setAdapter(new UserRolesAdapter(_context,pottaciumDefeciencyList));
+        _binding.spinPotacium.setAdapter(new UserRolesAdapter(_context, pottaciumDefeciencyList));
         _binding.spinPotacium.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -207,7 +213,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         magniciumDeficiencyList.add(high);
         magniciumDeficiencyList.add(medium);
         magniciumDeficiencyList.add(low);
-        _binding.spinMagnicium.setAdapter(new UserRolesAdapter(_context,magniciumDeficiencyList));
+        _binding.spinMagnicium.setAdapter(new UserRolesAdapter(_context, magniciumDeficiencyList));
         _binding.spinMagnicium.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -225,7 +231,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         calciumDeficiencyList.add(high);
         calciumDeficiencyList.add(medium);
         calciumDeficiencyList.add(low);
-        _binding.spinCalcium.setAdapter(new UserRolesAdapter(_context,calciumDeficiencyList));
+        _binding.spinCalcium.setAdapter(new UserRolesAdapter(_context, calciumDeficiencyList));
         _binding.spinCalcium.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -243,7 +249,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         vibrioStatusList.add(high);
         vibrioStatusList.add(medium);
         vibrioStatusList.add(low);
-        _binding.spinVibrio.setAdapter(new UserRolesAdapter(_context,vibrioStatusList));
+        _binding.spinVibrio.setAdapter(new UserRolesAdapter(_context, vibrioStatusList));
         _binding.spinVibrio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -261,7 +267,7 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
         crampStatusList.add(high);
         crampStatusList.add(medium);
         crampStatusList.add(low);
-        _binding.spinCramp.setAdapter(new UserRolesAdapter(_context,crampStatusList));
+        _binding.spinCramp.setAdapter(new UserRolesAdapter(_context, crampStatusList));
         _binding.spinCramp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -359,13 +365,15 @@ public class ChecktrayObservationViewModel extends ViewModel implements ServiceA
                                 }
                             } else {
                                 Helper.showMessage(_context, "No Checktrays Found Here.", AquaConstants.HOLD);
-                            }UserRolesAdapter userRolesAdapter = new UserRolesAdapter(_context, checktrayList);
+                            }
+                            UserRolesAdapter userRolesAdapter = new UserRolesAdapter(_context, checktrayList);
                             _binding.spinChecktraylist.setAdapter(userRolesAdapter);
                             _binding.spinChecktraylist.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override
                                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                     UserRoles userRoles = (UserRoles) checktrayList.get(position);
                                     checktrayId = userRoles.getRoleID();
+                                    checktrayname = userRoles.getRoleName();
                                 }
 
                                 @Override

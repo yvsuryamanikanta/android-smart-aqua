@@ -48,11 +48,11 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
         holder.binding.setCultures(cultureModel);
 
         holder.binding.txtSno.setText("S.No : " + (position + 1));
-        Date c = Calendar.getInstance().getTime();
+//        Date c = Calendar.getInstance().getTime();
 
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-        String formattedDate = df.format(c);
-        holder.binding.txtDate.setText(formattedDate);
+//        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+//        String formattedDate = df.format(c);
+        holder.binding.txtDate.setText(cultureModel.createddate);
 
         if (isNullOrEmpty(cultureModel.previousdecease)) {
             holder.binding.txtDecease.setText(cultureModel.previousdecease);
@@ -97,7 +97,7 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
             holder.binding.linearLiming.setVisibility(View.GONE);
         }
         if (isNullOrEmpty(cultureModel.soilcheck)) {
-            holder.binding.txtLiming.setText(cultureModel.soilcheck);
+            holder.binding.txtSoilCheck.setText(cultureModel.soilcheck);
             holder.binding.linearSoilChecking.setVisibility(View.VISIBLE);
         } else {
             holder.binding.linearSoilChecking.setVisibility(View.GONE);
@@ -119,6 +119,42 @@ public class CultureAdapter extends RecyclerView.Adapter<CultureAdapter.MyViewHo
             holder.binding.linearPondType.setVisibility(View.VISIBLE);
         } else {
             holder.binding.linearPondType.setVisibility(View.GONE);
+        }
+        if (isNullOrSelect(cultureModel.filteration)) {
+            holder.binding.txtFilteration.setText(cultureModel.filteration);
+            holder.binding.linearFilteration.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearFilteration.setVisibility(View.GONE);
+        }
+        if (isNullOrSelect(cultureModel.bleaching)) {
+            holder.binding.txtBleaching.setText(cultureModel.bleaching);
+            holder.binding.linearBleaching.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearBleaching.setVisibility(View.GONE);
+        }
+        if (isNullOrSelect(cultureModel.minerals)) {
+            holder.binding.txtMinerals.setText(cultureModel.minerals);
+            holder.binding.linearMinerals.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearMinerals.setVisibility(View.GONE);
+        }
+        if (isNullOrSelect(cultureModel.probiotics)) {
+            holder.binding.txtProbiotics.setText(cultureModel.probiotics);
+            holder.binding.linearProbiotics.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearProbiotics.setVisibility(View.GONE);
+        }
+        if (isNullOrSelect(cultureModel.fertilization)) {
+            holder.binding.txtFertilization.setText(cultureModel.fertilization);
+            holder.binding.linearFertilization.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearFertilization.setVisibility(View.GONE);
+        }
+        if (isNullOrSelect(cultureModel.ehp)) {
+            holder.binding.txtEhp.setText(cultureModel.ehp);
+            holder.binding.linearEhp.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.linearEhp.setVisibility(View.GONE);
         }
 
     }

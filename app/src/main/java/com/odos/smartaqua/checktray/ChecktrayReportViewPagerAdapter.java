@@ -27,7 +27,7 @@ public class ChecktrayReportViewPagerAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return ChecktrayReportFragment.newInstance(1,"1");
+        return ChecktrayReportFragment.newInstance(_checktrayObsvModelArrayList.get(position).getCultureid(),_checktrayObsvModelArrayList.get(position).getTankid());
     }
 
     @Override

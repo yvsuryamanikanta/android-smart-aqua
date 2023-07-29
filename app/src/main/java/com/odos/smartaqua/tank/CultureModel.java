@@ -18,6 +18,7 @@ public class CultureModel {
     String filteration;
     String fertilization;
     String ehp;
+    String createddate;
 
     public CultureModel(String previousdecease,
             String recordkeeping,
@@ -35,7 +36,8 @@ public class CultureModel {
             String probiotics,
             String filteration,
             String fertilization,
-            String ehp) {
+            String ehp,
+            String createddate) {
         this.previousdecease = previousdecease;
         this.recordkeeping= recordkeeping;
         this.drying = drying;
@@ -53,6 +55,7 @@ public class CultureModel {
         this.filteration = filteration;
         this.fertilization =fertilization;
         this.ehp =ehp;
+        this.createddate =createddate;
     }
 
     public String getPreviousdecease() {
@@ -189,5 +192,13 @@ public class CultureModel {
 
     public void setEhp(String ehp) {
         this.ehp = ehp;
+    }
+
+    public String getCreateddate() {
+        return createddate;
+    }
+
+    public void setCreateddate(String createddate) {
+        this.createddate = createddate;
     }
 }

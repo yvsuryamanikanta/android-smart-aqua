@@ -40,8 +40,8 @@ public class FeedListViewPagerAdapter extends FragmentStatePagerAdapter {
             return FeedListFragment.newInstance(cultureId,cultureAccess,feedDate);
         }else if(item.equalsIgnoreCase("checktray")){
             int cultureId = _cultureModelArrayList.get(position).getCultureid();
-            String cultureAccess = _cultureModelArrayList.get(position).getCultureaccess();
-            return ChecktrayReportFragment.newInstance(cultureId,cultureAccess);
+            String tankId = _cultureModelArrayList.get(position).getTankid();
+            return ChecktrayReportFragment.newInstance(cultureId,tankId);
         }else if(item.equalsIgnoreCase("lab")){
             int cultureId = _cultureModelArrayList.get(position).getCultureid();
             String cultureAccess = _cultureModelArrayList.get(position).getCultureaccess();

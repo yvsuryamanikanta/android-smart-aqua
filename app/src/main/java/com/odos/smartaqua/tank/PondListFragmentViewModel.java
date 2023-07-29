@@ -2,6 +2,7 @@ package com.odos.smartaqua.tank;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.EventDay;
+import com.google.gson.Gson;
 import com.odos.smartaqua.API.ServiceAsyncResponse;
 import com.odos.smartaqua.API.ServiceConstants;
 import com.odos.smartaqua.API.VolleyService;
@@ -70,6 +72,7 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonObject, int serviceno) {
+        Log.e("##########"," &&&&&& "+jsonObject.toString());
         switch (serviceno) {
             case 1:
                 try {
@@ -111,6 +114,7 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
                                 String filteration = preparationJSONObject.getString("filteration");
                                 String fertilization = preparationJSONObject.getString("fertilization");
                                 String ehp = preparationJSONObject.getString("ehp");
+                                String createddate = preparationJSONObject.getString("createddate");
 
                                 CultureModel cultureModel = new CultureModel(previousdecease
                                         , recordkeeping
@@ -128,7 +132,8 @@ public class PondListFragmentViewModel extends BaseObservable implements Service
                                         , probiotics
                                         , filteration
                                         , fertilization
-                                        , ehp);
+                                        , ehp
+                                        , createddate);
                                 cultureModelArrayList.add(cultureModel);
                             }
                             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(_context);

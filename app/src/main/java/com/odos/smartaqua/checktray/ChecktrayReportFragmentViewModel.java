@@ -3,6 +3,7 @@ package com.odos.smartaqua.checktray;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -42,26 +43,25 @@ public class ChecktrayReportFragmentViewModel extends ViewModel implements Servi
     private int product_qtyTypeID, suppliment_qtyTypeID;
     private String qtycategorycode, suppliment_qtycategorycode;
     private int cultureId;
-    private String cultureAccess;
+    private String tankId;
     private String[] searchData;
     private double availablestock;
-    private String productId, productCatgId, mrp, productName;
 
-    public ChecktrayReportFragmentViewModel(Context context, FragmentReportChecktrayBinding fragmentReportChecktrayBinding, int cultureid, String cultureaccess) {
+    public ChecktrayReportFragmentViewModel(Context context, FragmentReportChecktrayBinding fragmentReportChecktrayBinding, int cultureid, String _tankid) {
         this._context = context;
         this._binding = fragmentReportChecktrayBinding;
         this.serviceAsyncResponse = (ServiceAsyncResponse) this;
         products_jsonArray = new JSONArray();
         suppliment_jsonArray = new JSONArray();
         cultureId = cultureid;
-        cultureAccess = cultureaccess;
+        tankId = _tankid;
 
     }
 
     public void loadData() {
         if (CheckNetwork.isNetworkAvailable(_context)) {
             VolleyService.volleyGetRequest(_context, _context.getString(R.string.jsonobjectrequest),
-                    ServiceConstants.CHECKTRAY_OBSV_LIST + "1", null, Helper.headerParams(_context),
+                    ServiceConstants.CHECKTRAY_OBSV_LIST + tankId, null, Helper.headerParams(_context),
                     serviceAsyncResponse, 1, true);
         }
     }
@@ -77,6 +77,7 @@ public class ChecktrayReportFragmentViewModel extends ViewModel implements Servi
 
     @Override
     public void jsonObjectResponse(String service, JSONObject jsonobject, int serviceno) {
+        Log.e("$$$$$$$$$ ", " "+jsonobject.toString());
         switch (serviceno) {
             case 1:
                 try {
